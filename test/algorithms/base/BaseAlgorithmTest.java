@@ -7,30 +7,29 @@ import java.util.stream.Collectors;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
-public abstract class BaseAlgorithmTest<I, O>
-{
-    protected abstract List<I> getInputs();
+public abstract class BaseAlgorithmTest<I, O> {
 
-    protected abstract List<O> getOutputs();
+  protected abstract List<I> getInputs();
 
-    protected void testEncode(BaseAlgorithm<I, O> algorithm)
-    {
-        List<I> inputs = getInputs();
-        List<Optional<O>> outputs = getOutputs().stream().map(Optional::of).collect(Collectors.toList());
+  protected abstract List<O> getOutputs();
 
-        int[] index = {0};
+  protected void testEncode(BaseAlgorithm<I, O> algorithm) {
+    List<I> inputs = getInputs();
+    List<Optional<O>> outputs = getOutputs().stream().map(Optional::of)
+        .collect(Collectors.toList());
 
-        inputs.forEach(i -> assertEquals(algorithm.encode(i), outputs.get(index[0]++)));
-    }
+    int[] index = {0};
 
-    protected void testDecode(BaseAlgorithm<I, O> algorithm)
-    {
-        List<O> outputs = getOutputs();
-        List<Optional<I>> inputs = getInputs().stream().map(Optional::of).collect(Collectors.toList());
+    inputs.forEach(i -> assertEquals(algorithm.encode(i), outputs.get(index[0]++)));
+  }
 
-        int[] index = {0};
+  protected void testDecode(BaseAlgorithm<I, O> algorithm) {
+    List<O> outputs = getOutputs();
+    List<Optional<I>> inputs = getInputs().stream().map(Optional::of).collect(Collectors.toList());
 
-        outputs.forEach(o -> assertEquals(algorithm.decode(o), inputs.get(index[0]++)));
-    }
+    int[] index = {0};
+
+    outputs.forEach(o -> assertEquals(algorithm.decode(o), inputs.get(index[0]++)));
+  }
 
 }
