@@ -31,5 +31,4 @@ public abstract class BaseAlgorithmTest<I, O> {
 
     outputs.forEach(o -> assertEquals(algorithm.decode(o), inputs.get(index[0]++)));
   }
-
 }
