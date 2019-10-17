@@ -6,5 +6,4 @@ pipelines:
         caches:
           - gradle
         script:
-          - bash ./gradlew test
           - bash ./gradlew build
