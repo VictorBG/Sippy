@@ -5,6 +5,9 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Files;
+import java.util.Arrays;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 
 public class FileIO {
@@ -31,5 +34,10 @@ public class FileIO {
     } catch (FileNotFoundException e) {
       e.printStackTrace();
     }
+  }
+
+  public static String changeExtension(String path, String newExtension) {
+    String[] p = path.split("\\.");
+    return Stream.of(p).limit(p.length - 1).collect(Collectors.joining(".")) + "." + newExtension;
   }
 }

@@ -3,6 +3,7 @@ import java.io.IOException;
 import java.util.Optional;
 
 import algorithms.LZ78;
+import java.util.Scanner;
 import utils.FileIO;
 
 class Test {
@@ -12,15 +13,18 @@ class Test {
   }
 
   private Test() {
+    Scanner scanner = new Scanner(System.in);
     try {
-      String test = FileIO.readFileAsString(new File("C:\\Users\\Victor\\Desktop\\test.txt"));
-      Optional<String> estoyMamadisimo = new LZ78().encode(test);
-      estoyMamadisimo
-          .ifPresent((sippy) -> FileIO.save("C:\\Users\\Victor\\Desktop\\test.sippy", sippy));
+      System.out.println("File path: ");
+      String path = scanner.nextLine();
+
+      String test = FileIO.readFileAsString(new File(path));
+      Optional<String> lz78Encoded = new LZ78().encode(test);
+      lz78Encoded
+          .ifPresent((sippy) -> FileIO.save(FileIO.changeExtension(path, "sippy"), sippy));
 
     } catch (IOException e) {
       e.printStackTrace();
     }
-
   }
 }

@@ -29,3 +29,17 @@ test {
     }
     outputs.upToDateWhen {false}
 }
+
+jar {
+    manifest {
+        attributes "Main-Class": "MainApp"
+    }
+
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
+run{
+    standardInput = System.in
+}
