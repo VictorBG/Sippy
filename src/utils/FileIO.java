@@ -4,8 +4,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.nio.file.Files;
-
 
 public class FileIO {
 
@@ -25,8 +25,8 @@ public class FileIO {
     return sb.toString();
   }
 
-  public static void save(final String s, String file) {
-    try (PrintWriter out = new PrintWriter(s)) {
+  public static void save(final byte[] s, String file) {
+    try (PrintWriter out = new PrintWriter(new String(s))) {
       out.print(file);
     } catch (FileNotFoundException e) {
       e.printStackTrace();

@@ -1,16 +1,20 @@
 package algorithms;
 
+import algorithms.base.BaseAlgorithm;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Optional;
 
-import algorithms.base.BaseAlgorithm;
+import java.util.stream.Stream;
 
-
-public class LZ78 implements BaseAlgorithm<String, String> {
+/*
+Just a test implementation, I'm sure it does not work well
+ */
+public class LZ78 implements BaseAlgorithm<byte[], byte[]> {
 
   @Override
-  public Optional<String> encode(String file) {
+  public Optional<byte[]> encode(byte[] bytes) {
+    String file = new String(bytes);
     String[] input = file.split("");
     ArrayList<String> dictionary = new ArrayList<>();
     HashMap<Integer, String> codeWord = new HashMap<>();
@@ -19,30 +23,28 @@ public class LZ78 implements BaseAlgorithm<String, String> {
     String current = "";
 
     int key = 0;
+    dictionary.add(null);
 
     while (index < input.length - 1) {
       current = input[index];
 
       if (dictionary.contains(current)) {
         StringBuilder previous = new StringBuilder();
-
         current = add(current, dictionary, input, index);
 
-        int j = index;
-        for (int i = 0; i < current.length() - 1; i++) {
-          previous.append(input[j]);
-          j += 1;
-        }
-        codeWord.put(key++, (dictionary.indexOf(previous.toString()) + ":" + append(current)));
-        index = index + current.length();
-        dictionary.add(current);
+        final int[] j = {index};
+        Stream.of(current).forEach((i) -> previous.append(input[j[0]++]));
+
+        codeWord.put(key++,
+            (dictionary.indexOf(previous.toString()) + ":" + current.charAt(current.length() - 1)));
+        index += current.length();
       } else {
         codeWord.put(key++, "0:" + current);
-        dictionary.add(current);
         index++;
       }
+      dictionary.add(current);
     }
-    return Optional.of(codeWord.toString());
+    return Optional.of(codeWord.toString().getBytes());
   }
 
   private static String add(String current, ArrayList<String> dictionary, String[] in, int index) {
@@ -52,10 +54,5 @@ public class LZ78 implements BaseAlgorithm<String, String> {
       }
     }
     return current;
-  }
-
-  private static String append(String current) {
-    String[] name = current.split("");
-    return name[name.length - 1];
   }
 }
