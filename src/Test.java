@@ -1,3 +1,6 @@
+import algorithms.Algorithms;
+import domain.Compress;
+import domain.Compress.Params;
 import java.util.Scanner;
 
 class Test {
