@@ -32,4 +32,10 @@ public class FileIO {
       e.printStackTrace();
     }
   }
+
+  public static String changeExtension(String path, String extension) {
+    String[] sp = path.split("\\.");
+    sp[sp.length - 1] = extension;
+    return String.join(".", sp);
+  }
 }

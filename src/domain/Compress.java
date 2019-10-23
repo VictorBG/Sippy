@@ -5,12 +5,8 @@ import domain.Compress.Params;
 import java.io.File;
 import java.io.IOException;
 import java.util.Optional;
-import model.ItemNC;
 import utils.FileIO;
 
-/**
- * Compress an {@link ItemNC} and saves it
- */
 public class Compress extends UseCase<Void, Params> {
 
   public Compress(Params params) {

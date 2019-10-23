@@ -1,11 +1,11 @@
 package algorithms.base;
 
+import static org.junit.Assert.assertEquals;
+
+import java.lang.reflect.Array;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 
 public abstract class BaseAlgorithmTest<I, O> {
 
@@ -20,7 +20,9 @@ public abstract class BaseAlgorithmTest<I, O> {
 
     int[] index = {0};
 
-    inputs.forEach(i -> assertEquals(algorithm.encode(i), outputs.get(index[0]++)));
+    inputs.forEach(i -> assertEquals(
+        algorithm.encode(i).get(),
+        outputs.get(index[0]++).get()));
   }
 
   protected void testDecode(BaseAlgorithm<I, O> algorithm) {
@@ -29,7 +31,9 @@ public abstract class BaseAlgorithmTest<I, O> {
 
     int[] index = {0};
 
-    outputs.forEach(o -> assertEquals(algorithm.decode(o), inputs.get(index[0]++)));
+    outputs.forEach(o -> assertEquals(
+        algorithm.decode(o).get(),
+        inputs.get(index[0]++).get()));
   }
 
 }
