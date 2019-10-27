@@ -10,12 +10,16 @@ public class LZSS implements BaseAlgorithm<String, String> {
 
   @Override
   public Optional<String> encode(String file) {
-    String[] input = file.split("");
-    algorithms.lzss.WindowBuffer windowBuffer = new algorithms.lzss.WindowBuffer(8,6);
+    //String[] input = file.split("");
+    String input = "abracadabrarray";
+    algorithms.LZSS.WindowBuffer windowBuffer = new algorithms.LZSS.WindowBuffer(8,6, "abracadabrarray");
 
-    
+    while (! windowBuffer.lookAheadIsEmpty()) {
 
-  return Optional.empty();
+    }
+
+
+    return Optional.of("HOLA");
   }
 
 
