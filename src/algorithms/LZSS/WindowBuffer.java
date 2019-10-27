@@ -36,4 +36,22 @@ public class WindowBuffer {
         lookAheadR = searchBufferSize+lookAheadBufferSize-1;
     }
 
+    public void fillLookAheadBuffer(String input) {
+        int j = 0;
+        for (int i = this.lookAheadL; i<=this.lookAheadR && i<=input.length(); i++) {
+            buffers[i] = input.charAt(j);
+            j++;
+        }
+    }
+
+    public void shiftLeft (int positions) {
+        int j = positions;
+        int i = 0;
+        while (j<=buffers.length-1) {
+            buffers[i] = buffers[j];
+            i++;
+            j++;
+        }
+    }
+
 }
