@@ -3,18 +3,17 @@ package algorithms;
 import algorithms.base.BaseAlgorithm;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Optional;
 
 import java.util.stream.Stream;
 
 /*
 Just a test implementation, I'm sure it does not work well
  */
-public class LZ78 implements BaseAlgorithm<byte[], byte[]> {
+public class LZ78 implements BaseAlgorithm {
 
   @Override
-  public Optional<byte[]> encode(byte[] bytes) {
-    String file = new String(bytes);
+  public byte[] encode(byte[] data) {
+    String file = new String(data);
     String[] input = file.split("");
     ArrayList<String> dictionary = new ArrayList<>();
     HashMap<Integer, String> codeWord = new HashMap<>();
@@ -44,7 +43,12 @@ public class LZ78 implements BaseAlgorithm<byte[], byte[]> {
       }
       dictionary.add(current);
     }
-    return Optional.of(codeWord.toString().getBytes());
+    return codeWord.toString().getBytes();
+  }
+
+  @Override
+  public byte[] decode(byte[] input) {
+    return new byte[0];
   }
 
   private static String add(String current, ArrayList<String> dictionary, String[] in, int index) {

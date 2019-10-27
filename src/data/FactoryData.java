@@ -1,13 +1,15 @@
 package data;
 
-import algorithms.Algorithms;
-import algorithms.LZ78;
+import java.io.File;
+import java.io.UnsupportedEncodingException;
+import javax.xml.crypto.Data;
+import model.uncompressed.Folder;
+import model.uncompressed.ItemNC;
 
 public final class FactoryData {
 
   // Lazy init + thread safe
   private static class FactoryDataWrapper {
-
     static FactoryData INSTANCE = new FactoryData();
   }
 
@@ -20,4 +22,8 @@ public final class FactoryData {
     // Prevent instantiation outside
   }
 
+  public DataController getDataController() {
+    // TODO: Should be initialized only once
+    return new DataControllerImpl();
+  }
 }

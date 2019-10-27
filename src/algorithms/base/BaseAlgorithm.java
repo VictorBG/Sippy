@@ -1,14 +1,8 @@
 package algorithms.base;
 
-import java.util.Optional;
+public interface BaseAlgorithm {
 
-public interface BaseAlgorithm<Input, Output> {
+  byte[] encode(byte[] input);
 
-  default Optional<Output> encode(Input input) {
-    return Optional.empty();
-  }
-
-  default Optional<Input> decode(Output input) {
-    return Optional.empty();
-  }
+  byte[] decode(byte[] input);
 }

@@ -1,17 +1,8 @@
 package domain;
 
-public abstract class UseCase<Output, Params> {
+public abstract class UseCase<Output> {
 
   private Output result;
-  private Params params;
-
-  UseCase(Params params) {
-    this.params = params;
-  }
-
-  public Params getParams() {
-    return params;
-  }
 
   public abstract void execute();
 

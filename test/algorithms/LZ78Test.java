@@ -9,10 +9,10 @@ import algorithms.base.BaseAlgorithmTest;
 
 public class LZ78Test extends BaseAlgorithmTest<byte[], byte[]> {
 
-  @Test
-  public void testLZ78() {
-    testEncode(Algorithms.LZ78.getAlgorithm());
-  }
+//  @Test
+//  public void testLZ78() {
+//    testEncode(Algorithms.LZ78.getAlgorithm());
+//  }
 
   @Override
   public List<byte[]> getInputs() {

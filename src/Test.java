@@ -1,6 +1,5 @@
-import algorithms.Algorithms;
+import algorithms.Algorithm;
 import domain.Compress;
-import domain.Compress.Params;
 import java.util.Scanner;
 
 class Test {
@@ -13,6 +12,6 @@ class Test {
     Scanner scanner = new Scanner(System.in);
     System.out.println("File path: ");
     String path = scanner.nextLine();
-    new Compress(new Params(path, Algorithms.LZ78)).execute();
+    new Compress(Algorithm.LZ78, path).execute();
   }
 }

@@ -7,7 +7,9 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.nio.file.Files;
 
-public class FileIO {
+public class FileUtils {
+
+  public static final String DEFAULT_ENCODING_EXTENSION = "sippy";
 
   /**
    * Reads a file from the specified path and returns it as a vector of bytes
@@ -37,5 +39,13 @@ public class FileIO {
     String[] sp = path.split("\\.");
     sp[sp.length - 1] = extension;
     return String.join(".", sp);
+  }
+
+  public static String getFileExtension(String path) {
+    int lastIndexOf = path.lastIndexOf(".");
+    if (lastIndexOf == -1) {
+      return "";
+    }
+    return path.substring(lastIndexOf);
   }
 }
