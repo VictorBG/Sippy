@@ -16,6 +16,10 @@ public class EncodedString {
         c = '_';
     }
 
+    public void print() {
+        System.out.printf("%d%d%c", offset, length, c );
+    }
+
     public int getOffset() {
         return offset;
     }
