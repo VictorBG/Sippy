@@ -10,15 +10,23 @@ public class LZSS implements BaseAlgorithm<String, String> {
 
   @Override
   public Optional<String> encode(String file) {
-    //String[] input = file.split("");
-    String input = "abracadabrarray";
-    algorithms.LZSS.WindowBuffer windowBuffer = new algorithms.LZSS.WindowBuffer(8,6, "abracadabrarray");
+    WindowBuffer w = new WindowBuffer(9,9,"abracadabrarray");
+    w.fillLookAheadBuffer();
+    String result = "";
 
-    while (! windowBuffer.lookAheadIsEmpty()) {
+    while (!w.lookAheadIsEmpty()) {
+      EncodedString es = w.findMatch();
+      if (es.getLength() > 0) {
+        es.print();
+        w.shiftLeft(es.getLength()+1);
+      } else {
+        System.out.printf("00%c", w.getFirstCharLookAheadBuffer());
+        w.shiftLeft(1);
+      }
 
     }
 
-
+    //no se que hay que hacer aqui exactamente..
     return Optional.of("HOLA");
   }
 
