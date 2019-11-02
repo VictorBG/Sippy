@@ -5,6 +5,9 @@
 .idea/**/dictionaries
 .idea/**/shelf
 
+#macOS DS_Store files
+.DS_Store
+
 # Generated files
 .idea/**/contentModel.xml
 
