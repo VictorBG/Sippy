@@ -12,7 +12,7 @@ public class Decompress extends Transaction<Statistics> {
 
   private String path;
 
-  public Decompress( @NotNull String path) {
+  public Decompress(@NotNull String path) {
     this.path = path;
   }
 
