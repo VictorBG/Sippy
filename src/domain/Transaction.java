@@ -1,6 +1,6 @@
 package domain;
 
-public abstract class UseCase<Output> {
+public abstract class Transaction<Output> {
 
   private Output result;
 

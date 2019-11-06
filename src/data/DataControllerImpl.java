@@ -36,20 +36,15 @@ public class DataControllerImpl implements DataController {
     File file = new File(path);
 
     if (file.isFile() && "sippy".equals(FileUtils.getFileExtension(path))) {
-      return new ItemC(path, FileUtils.readFile(file));
+      return ItemC.createFromFile(path, FileUtils.readFile(file));
     }
 
     throw new UnsupportedEncodingException();
   }
 
   @Override
-  public void saveCompress(byte[] data, String path) {
-    internalSave(data, FileUtils.changeExtension(path, "sippy"));
-  }
-
-  @Override
-  public void saveUncompress(byte[] data, String path) {
-    internalSave(data, path);
+  public void saveFile(Item item) {
+    internalSave(item.getData(), item.getPath());
   }
 
   private void internalSave(byte[] data, String path) {

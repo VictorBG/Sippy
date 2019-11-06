@@ -1,5 +1,7 @@
 package model;
 
+import model.uncompressed.ItemNC;
+
 public class Statistics {
 
   private String initialPath;
@@ -14,12 +16,20 @@ public class Statistics {
     this.initialSize = initialSize;
   }
 
+  public static Statistics create(Item item) {
+    Statistics result = new Statistics(item.getPath(), item.getSize());
+    result.startTimer();
+    return result;
+  }
+
   public void startTimer() {
     initialTime = System.currentTimeMillis();
   }
 
-  public void stopTimer() {
+  public void stopTimer(Item item) {
     elapsedTime = System.currentTimeMillis() - initialTime;
+    finalPath = item.getPath();
+    finalSize = item.getSize();
   }
 
   public String getInitialPath() {

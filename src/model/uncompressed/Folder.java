@@ -1,10 +1,14 @@
 package model.uncompressed;
 
 import algorithms.Algorithm;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 import model.compressed.ItemC;
+import utils.Bytes;
 import utils.FileUtils;
 
 public class Folder extends ItemNC {
@@ -28,15 +32,30 @@ public class Folder extends ItemNC {
     return false;
   }
 
+  /**
+   * Compress the {@link #items} in a wat that every item is compressed by itself and then they are
+   * combined into an array of bytes. Every item is mapped to put its size before the data.
+   *
+   * @param algorithm The algorithm to use to compress
+   * @return
+   */
   @Override
   public ItemC compress(Algorithm algorithm) {
-    // FIXME: Collect is not correct due toString just returns the iId of the object
-    return new ItemC(buildEncodedPath(),
-        items.stream()
-            .map(ItemNC::compress)
-            .collect(Collectors.toList())
-            .toString()
-            .getBytes());
+    return ItemC.createForFolder(buildEncodedPath(), items.stream()
+        .map(ItemNC::compress)
+        .map((item) -> Bytes.concat(new byte[]{(byte) item.getSize()}, item.getData()
+        ))
+        .collect(
+            ByteArrayOutputStream::new,
+            (b, e) -> {
+              try {
+                b.write(e);
+              } catch (IOException e1) {
+                throw new RuntimeException(e1);
+              }
+            },
+            (a, b) -> {
+            }).toByteArray());
   }
 
   public List<ItemNC> getItems() {
@@ -63,5 +82,12 @@ public class Folder extends ItemNC {
     }
 
     return originalPath + "." + FileUtils.DEFAULT_ENCODING_EXTENSION;
+  }
+
+  /**
+   * Decodes the data to put into {@link #items}
+   */
+  private void decodeData(byte[] data) {
+    // TODO: not implemented on first release
   }
 }

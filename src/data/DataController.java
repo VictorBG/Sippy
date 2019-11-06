@@ -22,8 +22,7 @@ public interface DataController {
 
   ItemC getCompressedItem(String path) throws IOException;
 
-  void saveCompress(byte[] data, String path);
+  void saveFile(Item item);
 
-  void saveUncompress(byte[] data, String path);
 
 }

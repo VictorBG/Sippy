@@ -2,13 +2,13 @@ import algorithms.Algorithm;
 import domain.Compress;
 import java.util.Scanner;
 
-class Test {
+class ConsoleApp {
 
   static void start() {
-    new Test();
+    new ConsoleApp();
   }
 
-  private Test() {
+  private ConsoleApp() {
     Scanner scanner = new Scanner(System.in);
     System.out.println("File path: ");
     String path = scanner.nextLine();
