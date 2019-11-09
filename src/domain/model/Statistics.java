@@ -1,51 +1,27 @@
-package model;
+package domain.model;
 
-import model.uncompressed.ItemNC;
-
+/**
+ * Author: Victor Blanco
+ * <p>
+ * Statistics for the zip operation.
+ */
 public class Statistics {
 
-  private String initialPath;
-  private String finalPath;
   private double initialSize;
   private double finalSize;
   private long elapsedTime;
   private long initialTime;
 
-  public Statistics(String initialPath, double initialSize) {
-    this.initialPath = initialPath;
+  public Statistics(double initialSize) {
     this.initialSize = initialSize;
-  }
-
-  public static Statistics create(Item item) {
-    Statistics result = new Statistics(item.getPath(), item.getSize());
-    result.startTimer();
-    return result;
   }
 
   public void startTimer() {
     initialTime = System.currentTimeMillis();
   }
 
-  public void stopTimer(Item item) {
+  public void stopTimer() {
     elapsedTime = System.currentTimeMillis() - initialTime;
-    finalPath = item.getPath();
-    finalSize = item.getSize();
-  }
-
-  public String getInitialPath() {
-    return initialPath;
-  }
-
-  public void setInitialPath(String initialPath) {
-    this.initialPath = initialPath;
-  }
-
-  public String getFinalPath() {
-    return finalPath;
-  }
-
-  public void setFinalPath(String finalPath) {
-    this.finalPath = finalPath;
   }
 
   public double getInitialSize() {

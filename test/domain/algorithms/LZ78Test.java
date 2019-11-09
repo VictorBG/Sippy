@@ -1,11 +1,9 @@
-package algorithms;
-
-import org.junit.Test;
+package domain.algorithms;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import algorithms.base.BaseAlgorithmTest;
+import domain.algorithms.base.BaseAlgorithmTest;
 
 public class LZ78Test extends BaseAlgorithmTest<byte[], byte[]> {
 

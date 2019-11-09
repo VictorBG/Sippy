@@ -1,11 +1,8 @@
-package algorithms.base;
+package domain.algorithms.base;
 
 import static org.junit.Assert.assertEquals;
 
-import java.lang.reflect.Array;
 import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
 
 public abstract class BaseAlgorithmTest<I, O> {
 

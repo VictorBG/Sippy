@@ -1,13 +1,19 @@
-package algorithms;
+package domain.algorithms;
 
-import algorithms.base.BaseAlgorithm;
+import domain.algorithms.base.BaseAlgorithm;
 
+/**
+ * Author: Victor Blanco
+ *
+ * Enum with the list of the Algorithms availables in the system and its respective id.
+ *
+ */
 public enum Algorithm {
-  LZ78((byte) 0, new LZ78()),
-  LZW((byte) 1, null),
-  JPEG((byte) 2, null),
-  LZSS((byte) 3, null),
-  AUTOMATIC((byte) 4, null);
+  LZ78((byte) 0x0, new LZ78()),
+  LZW((byte) 0x1, null),
+  JPEG((byte) 0x2, null),
+  LZSS((byte) 0x3, null),
+  AUTOMATIC((byte) 0x4, null);
 
   private BaseAlgorithm algorithm;
   private byte id;
@@ -27,13 +33,13 @@ public enum Algorithm {
 
   public static Algorithm valueOf(byte id) {
     switch (id) {
-      case 0:
+      case 0x0:
         return Algorithm.LZ78;
-      case 1:
+      case 0x1:
         return Algorithm.LZW;
-      case 2:
+      case 0x2:
         return Algorithm.JPEG;
-      case 3:
+      case 0x3:
         return Algorithm.LZSS;
       default:
         return null;

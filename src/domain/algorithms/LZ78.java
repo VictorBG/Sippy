@@ -1,13 +1,17 @@
-package algorithms;
+package domain.algorithms;
 
-import algorithms.base.BaseAlgorithm;
+import domain.algorithms.base.BaseAlgorithm;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 import java.util.stream.Stream;
 
-/*
-Just a test implementation, I'm sure it does not work well
+/**
+ * Author: Victor Blanco
+ * <p>
+ * Implementation of the LZ78 algorithm.
+ * <p>
+ * TODO: Make it work correctly. And decode.
  */
 public class LZ78 implements BaseAlgorithm {
 

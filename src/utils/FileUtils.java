@@ -1,12 +1,12 @@
 package utils;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.io.StringWriter;
 import java.nio.file.Files;
 
+/**
+ * Author: Victor Blanco
+ */
 public class FileUtils {
 
   public static final String DEFAULT_ENCODING_EXTENSION = "sippy";
@@ -21,31 +21,37 @@ public class FileUtils {
     return Files.readAllBytes(file.toPath());
   }
 
-  public static String readFileAsString(File file) throws IOException {
-    StringBuilder sb = new StringBuilder();
-    Files.lines(file.toPath()).forEach((s) -> sb.append(s).append("\n"));
-    return sb.toString();
-  }
-
-  public static void save(final byte[] s, String file) {
-    try (PrintWriter out = new PrintWriter(new String(s))) {
-      out.print(file);
-    } catch (FileNotFoundException e) {
-      e.printStackTrace();
+  /**
+   * Changes the extension of the given {@param path} to the {@param extension}. If the path is a
+   * folder it will just append the extension.
+   *
+   * @param path      Path to change the extension.
+   * @param extension New extension
+   * @return Path with the nex extension
+   */
+  public static String changeExtension(String path, String extension) {
+    File file = new File(path);
+    if (file.isDirectory()) {
+      return path + "." + extension;
+    } else {
+      String[] sp = path.split("\\.");
+      sp[sp.length - 1] = extension;
+      return String.join(".", sp);
     }
   }
 
-  public static String changeExtension(String path, String extension) {
-    String[] sp = path.split("\\.");
-    sp[sp.length - 1] = extension;
-    return String.join(".", sp);
-  }
-
+  /**
+   * Returns the file extension of the given {@param path}. If it does not have it returns and empty
+   * string.
+   *
+   * @param path Path to get extension
+   * @return Extension of the path
+   */
   public static String getFileExtension(String path) {
     int lastIndexOf = path.lastIndexOf(".");
     if (lastIndexOf == -1) {
       return "";
     }
-    return path.substring(lastIndexOf);
+    return path.substring(lastIndexOf + 1);
   }
 }
