@@ -46,8 +46,8 @@ import utils.FileUtils;
  *
  *  Name: Name of the archive, it is relative to the parent root of the compressed items.
  *  That means that a single file will have its file name as a name but in a folder structure they
- *  will have canonical structure until the root parent. ie: if zipping \users\ex\test and it
- *  is a file in the directory \users\ex\test\a\b\c.txt, the name will be a\b\c.txt.
+ *  will have canonical structure until the root parent. ie: if zipping \\users\\ex\\test and it
+ *  is a file in the directory \\users\\ex\\test\\a\\b\\c.txt, the name will be a\\b\\c.txt.
  *
  *  DATA: the encoded data of the file.
  *

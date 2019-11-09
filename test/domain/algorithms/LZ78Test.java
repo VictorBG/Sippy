@@ -4,13 +4,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 import domain.algorithms.base.BaseAlgorithmTest;
+import org.junit.Test;
 
-public class LZ78Test extends BaseAlgorithmTest<byte[], byte[]> {
+/**
+ * Author: Victor Blanco
+ * <p>
+ * FIXME: they fail :(
+ */
+public class LZ78Test extends BaseAlgorithmTest {
 
-//  @Test
-//  public void testLZ78() {
-//    testEncode(Algorithms.LZ78.getAlgorithm());
-//  }
+  @Test
+  public void testLZ78() {
+    test(Algorithm.LZ78.getAlgorithm());
+  }
 
   @Override
   public List<byte[]> getInputs() {
