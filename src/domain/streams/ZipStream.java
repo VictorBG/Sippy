@@ -13,52 +13,46 @@ import utils.FileUtils;
 
 /**
  * Author: Victor Blanco
- *
+ * <p>
  * {@link OutputStream} to output a "sippy" file format.
- *
- * A new sippy file is created in the root of the parent of the item passed by parameter
- * on the constructor, and then files can be added with no limit to that file.
- *
+ * <p>
+ * A new sippy file is created in the root of the parent of the item passed by parameter on the
+ * constructor, and then files can be added with no limit to that file.
+ * <p>
  * The "sippy" file format has the next internal layout structure:
- *
- *  *-------------*
- *  |  HeaderSize | 4B   // TODO: Is this really neccessary? It is not used in the unzip operation.
- *  *-------------*
- *  | Method used | 1B
- *  *-------------*
- *  |   DataSize  | 4B
- *  *-------------*
- *  |   NameSize  | 4B
- *  *-------------*
- *  |    Name     | ?B Undefined size by default, indicated in NameSize
- *  *-------------*
- *  |    DATA     | ?B Undefined size by default, indicated in DataSize
- *  *-------------*
- *
- *  HeaderSize: integer indicating the size of the header (all but DATA).
- *
- *  MethodUsed: Byte indicating the compression algorithm used.
- *
- *  DataSize: Integer indicating the size of the data. This limits the data to 2^32-1 bytes, which
- *  is around 4GB.
- *
- *  NameSize: Integer indicating the size of the name in the header.
- *
- *  Name: Name of the archive, it is relative to the parent root of the compressed items.
- *  That means that a single file will have its file name as a name but in a folder structure they
- *  will have canonical structure until the root parent. ie: if zipping \\users\\ex\\test and it
- *  is a file in the directory \\users\\ex\\test\\a\\b\\c.txt, the name will be a\\b\\c.txt.
- *
- *  DATA: the encoded data of the file.
- *
+ * <p>
+ * *-------------* |  HeaderSize | 4B   // TODO: Is this really neccessary? It is not used in the
+ * unzip operation. *-------------* | Method used | 1B *-------------* |   DataSize  | 4B
+ * *-------------* |   NameSize  | 4B *-------------* |    Name     | ?B Undefined size by default,
+ * indicated in NameSize *-------------* |    DATA     | ?B Undefined size by default, indicated in
+ * DataSize *-------------*
+ * <p>
+ * HeaderSize: integer indicating the size of the header (all but DATA).
+ * <p>
+ * MethodUsed: Byte indicating the compression algorithm used.
+ * <p>
+ * DataSize: Integer indicating the size of the data. This limits the data to 2^32-1 bytes, which is
+ * around 4GB.
+ * <p>
+ * NameSize: Integer indicating the size of the name in the header.
+ * <p>
+ * Name: Name of the archive, it is relative to the parent root of the compressed items. That means
+ * that a single file will have its file name as a name but in a folder structure they will have
+ * canonical structure until the root parent. ie: if zipping \\users\\ex\\test and it is a file in
+ * the directory \\users\\ex\\test\\a\\b\\c.txt, the name will be a\\b\\c.txt.
+ * <p>
+ * DATA: the encoded data of the file.
  */
 public class ZipStream extends DataOutputStream {
 
-  public static ZipStream create(ItemNC itemNC) throws FileNotFoundException {
-    return new ZipStream(new FileOutputStream(FileUtils.changeExtension(
-        itemNC.getFile().getAbsolutePath(),
-        FileUtils.DEFAULT_ENCODING_EXTENSION
-    )), itemNC.getFile());
+  public static ZipStream create(ItemNC itemNC) throws IOException {
+    File f = new File(FileUtils
+        .changeExtension(itemNC.getFile().getPath(), FileUtils.DEFAULT_ENCODING_EXTENSION));
+    if (!f.exists()) {
+      f.getParentFile().mkdirs();
+      f.createNewFile();
+    }
+    return new ZipStream(new FileOutputStream(f), itemNC.getFile());
   }
 
   private int totalSize;

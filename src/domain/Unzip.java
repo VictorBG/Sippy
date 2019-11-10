@@ -5,7 +5,7 @@ import domain.streams.UnzipStream;
 import java.io.IOException;
 
 /**
- * Author: Victor Blanco.
+ * Author: Sergio Vazquez.
  * <p>
  * Unzip transaction.
  * <p>

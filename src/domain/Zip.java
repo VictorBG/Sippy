@@ -8,7 +8,7 @@ import domain.streams.ZipStream;
 import java.io.IOException;
 
 /**
- * Author: Victor Blanco.
+ * Author: Sergio Vazquez.
  * <p>
  * Zip transaction.
  * <p>

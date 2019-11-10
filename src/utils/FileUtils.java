@@ -34,9 +34,7 @@ public class FileUtils {
     if (file.isDirectory()) {
       return path + "." + extension;
     } else {
-      String[] sp = path.split("\\.");
-      sp[sp.length - 1] = extension;
-      return String.join(".", sp);
+      return path.replace(getFileExtension(path), extension);
     }
   }
 

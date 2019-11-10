@@ -3,7 +3,7 @@ package domain;
 import java.io.IOException;
 
 /**
- * Author: Victor Blanco
+ * Author: Sergio Vazquez.
  * <p>
  * Transaction model.
  */
