@@ -1,15 +1,9 @@
-package domain.algorithms;
+package domain.algorithms.lz78;
 
 import domain.algorithms.base.BaseAlgorithm;
-import java.io.IOException;
-import java.nio.ByteBuffer;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
-
 import java.util.List;
-import java.util.stream.Stream;
 import utils.Bytes;
 
 /**
@@ -50,9 +44,9 @@ public class LZ78 implements BaseAlgorithm {
     int k = 0, j = 0;
 
     int i;
-    for (i = 0; i < input.length; i += 4) {
-      int number = byteArrayToInt(new byte[]{input[i], input[i + 1], input[i + 2]});
-      int value = input[i + 3];
+    for (i = 0; i < input.length; i += 3) {
+      int number = byteArrayToInt(new byte[]{input[i], input[i + 1]});
+      int value = input[i + 2];
       if (value < 0) {
         value += 256;
       }
@@ -69,62 +63,16 @@ public class LZ78 implements BaseAlgorithm {
       return "";
     }
     if (dictionary.get(start).getFirst() == 0) {
-      return String.valueOf(dictionary.get(start).second);
+      return String.valueOf(dictionary.get(start).getSecond());
     }
 
     return getDicString(dictionary, dictionary.get(start).getFirst()) + dictionary
-        .get(start).second;
+        .get(start).getSecond();
   }
 
   private int byteArrayToInt(byte[] b) {
     return
-        (b[2] & 0xFF) |
-            (b[1] & 0xFF) << 8 |
-            (b[0] & 0xFF) << 16;
-  }
-
-  private byte[] intToByteArray(int a) {
-    return new byte[]{
-        (byte) ((a >> 24) & 0xFF),
-        (byte) ((a >> 16) & 0xFF),
-        (byte) ((a >> 8) & 0xFF),
-        (byte) (a & 0xFF)
-    };
-  }
-
-  private static final class Pair {
-
-    private int first;
-    private char second;
-
-    public Pair(int first, char second) {
-      this.first = first;
-      this.second = second;
-    }
-
-    public int getFirst() {
-      return first;
-    }
-
-    public void setFirst(int first) {
-      this.first = first;
-    }
-
-    public char getSecond() {
-      return second;
-    }
-
-    public void setSecond(char second) {
-      this.second = second;
-    }
-
-    public byte[] getBytes() {
-      return new byte[]{
-          (byte) ((first >> 16) & 0xFF),
-          (byte) ((first >> 8) & 0xFF),
-          (byte) (first & 0xFF),
-          (byte) second
-      };
-    }
+        (b[1] & 0xFF) |
+            (b[0] & 0xFF) << 8;
   }
 }

@@ -64,7 +64,6 @@ public class UnzipStream {
         dos.close();
 
         unzip();
-
       } else {
         throw new RuntimeException("File already exists, cannot be overwritten");
       }
