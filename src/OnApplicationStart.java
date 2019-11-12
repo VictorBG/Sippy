@@ -130,9 +130,9 @@ public class OnApplicationStart {
         }
 
       } else if (compressDecscompress == 2) {
-        Transaction<Void> zip = new Unzip(new ItemC(new File(path)));
         System.out.print("You've selected Decompress, now we need your file path: ");
         path = keyBoard.next();
+        Transaction<Void> zip = new Unzip(new ItemC(new File(path)));
         try {
           zip.execute();
         } catch (IOException e) {
