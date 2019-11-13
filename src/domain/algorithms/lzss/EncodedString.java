@@ -1,6 +1,7 @@
 package domain.algorithms.lzss;
-
 /**
+ * Author: Miguel Angel Cabrera
+ *
  * Class representing an encoded token
  *
  */

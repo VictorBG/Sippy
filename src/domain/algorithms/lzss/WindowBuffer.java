@@ -1,7 +1,10 @@
 package domain.algorithms.lzss;
 
 /**
- * Class WindowBuffer
+ * Author: Miguel Angel Cabrera
+ *
+ * Class representing the a WindowBuffer for decoding porpouses.
+ *
  */
 public class WindowBuffer {
 

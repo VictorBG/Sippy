@@ -1,5 +1,10 @@
 package domain.algorithms.lzss;
-
+/**
+ * Author: Miguel Angel Cabrera
+ *
+ * Enum with the list of the Algorithms availables in the system and its respective id.
+ *
+ */
 public class DecodeWindow {
 
     StringBuffer buffer;

@@ -3,7 +3,12 @@ package domain.algorithms.lzss;
 import domain.algorithms.base.BaseAlgorithm;
 
 import java.io.*;
-
+/**
+ * Author: Miguel Angel Cabrera
+ *
+ * Main class of LZSS algorithm
+ *
+ */
 public class Lzss implements BaseAlgorithm {
 
     public static ByteArrayOutputStream baos;
