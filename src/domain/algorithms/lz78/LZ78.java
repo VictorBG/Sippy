@@ -1,6 +1,12 @@
 package domain.algorithms.lz78;
 
 import domain.algorithms.base.BaseAlgorithm;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -22,6 +28,7 @@ public class LZ78 implements BaseAlgorithm {
 
     String s = "";
     int pos = 0;
+    int j=0;
     for (String b : new String(data).split("")) {
       s += String.valueOf(b);
       if (!dictionary.contains(s)) {
@@ -74,5 +81,12 @@ public class LZ78 implements BaseAlgorithm {
     return
         (b[1] & 0xFF) |
             (b[0] & 0xFF) << 8;
+  }
+
+  @Override
+  public byte[] readFile(File file) throws IOException {
+    BufferedReader bufRdr = new BufferedReader(
+        new InputStreamReader(new FileInputStream(file), StandardCharsets.ISO_8859_1));
+    return bufRdr.lines().map(i -> i + "\n").reduce(String::concat).get().getBytes();
   }
 }
