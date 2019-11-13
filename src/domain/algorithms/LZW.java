@@ -1,48 +1,43 @@
 package domain.algorithms;
 
-import java.util.Arrays;
 import java.util.HashMap;
-
 import domain.algorithms.base.BaseAlgorithm;
 import utils.Bytes;
 
+/**
+ * Author: Sergio Vazquez
+ * <p>
+ * LZW implementation
+ */
 
 public class LZW implements BaseAlgorithm {
-
-  int dictSize = 256;
 
   public byte[] encode(byte[] data) {
     int dictSize = 256;
 
     HashMap<String, Integer> dictionary = new HashMap<>();
-    String str = "";
+    String stringBuilder = "";
     byte[] buffer = new byte[3];
-    boolean onleft = true;
+    boolean half = true;
     int j = 0;
     byte[] output = new byte[]{};
-    // Builds the initial dictionary with all ASCII characters
+    //Here we construct the dictionary with all ASCII characters
     for (int i = 0; i < 256; i++) {
       dictionary.put(Character.toString((char) i), i);
     }
 
-    char ch = getChar(data, j++);
-    str = "" + ch;
-
-    // Reads Character by Character
+    char character = getChar(data, j++);
+    stringBuilder = "" + character;
+    //Loop that iterates through all the data vector
     while (j < data.length) {
-      System.out.println(j);
-      ch = getChar(data, j++);
+      character = getChar(data, j++);
 
-      // If str + ch is in the dictionary..
-      // Set str to str + ch
-      if (dictionary.containsKey(str + ch)) {
-        str = str + ch;
+      if (dictionary.containsKey(stringBuilder + character)) {
+        stringBuilder = stringBuilder + character;
       } else {
-        String s12 = to12bit(dictionary.get(str));
+        String s12 = to12bit(dictionary.get(stringBuilder));
 
-        // Store the 12 bits into an array and then write it to the
-        // output file
-        if (onleft) {
+        if (half) {
           buffer[0] = (byte) Integer.parseInt(
               s12.substring(0, 8), 2);
           buffer[1] = (byte) Integer.parseInt(
@@ -58,27 +53,18 @@ public class LZW implements BaseAlgorithm {
             buffer[b] = 0;
           }
         }
-        onleft = !onleft;
+        half = !half;
 
-        // Add str + ch to the dictionary
         if (dictSize < 4096) {
-          dictionary.put(str + ch, dictSize++);
+          dictionary.put(stringBuilder + character, dictSize++);
         }
 
-        // Set str to ch
-        str = "" + ch;
+        stringBuilder = "" + character;
       }
     }
-    /*
-     * Handles input/output file failure by converting 8bit to 12bit
-     * then storing integers to byte and writing to output file else add
-     * the buffers to [1] or use buffer[2] then using the length and a
-     * for loop to output the bytes and then zero out the buffer, note
-     * this code is similar to above code, which insures bits are stored
-     */
-
-    String str12bit = to12bit(dictionary.get(str));
-    if (onleft) {
+    //This is for last character of the data vector
+    String str12bit = to12bit(dictionary.get(stringBuilder));
+    if (half) {
       buffer[0] = (byte) Integer.parseInt(str12bit.substring(0, 8), 2);
       buffer[1] = (byte) Integer.parseInt(str12bit.substring(8, 12)
           + "0000", 2);
@@ -93,7 +79,6 @@ public class LZW implements BaseAlgorithm {
         buffer[b] = 0;
       }
     }
-
     return output;
   }
 
@@ -128,25 +113,25 @@ public class LZW implements BaseAlgorithm {
   @Override
   public byte[] decode(final byte[] input) {
     HashMap<Integer, String> dictionary = new HashMap<>();
-    String[] Array_char;
+    String[] arrayChar;
     int dictSize = 256;
     int currword;
     int priorword;
     byte[] buffer = new byte[3];
     boolean onleft = false;
 
-    Array_char = new String[4096];
+    arrayChar = new String[4096];
     byte[] output = new byte[0];
 
     for (int i = 0; i < 256; i++) {
       dictionary.put(i, Character.toString((char) i));
-      Array_char[i] = Character.toString((char) i);
+      arrayChar[i] = Character.toString((char) i);
     }
     // Gets the first word in code and outputs its corresponding char
     buffer[0] = input[0];
     buffer[1] = input[1];
     priorword = getValue(buffer[0], buffer[1], true);
-    String s = Array_char[priorword];
+    String s = arrayChar[priorword];
     byte[] aux = s.getBytes();
     output = Bytes.concat(output, aux);
     // Reads every 3 bytes and generates corresponding characters
@@ -164,24 +149,22 @@ public class LZW implements BaseAlgorithm {
 
       if (currword >= dictSize) {
         if (dictSize < 4096) {
-          String test = Array_char[priorword];
-          System.out.println(priorword);
-          Array_char[dictSize] = Array_char[priorword]
-              + Array_char[priorword].charAt(0);
+          arrayChar[dictSize] = arrayChar[priorword]
+              + arrayChar[priorword].charAt(0);
         }
         dictSize++;
 
-        s = Array_char[priorword] + Array_char[priorword].charAt(0);
+        s = arrayChar[priorword] + arrayChar[priorword].charAt(0);
         aux = s.getBytes();
         output = Bytes.concat(output, aux);
 
       } else {
         if (dictSize < 4096) {
-          Array_char[dictSize] = Array_char[priorword]
-              + Array_char[currword].charAt(0);
+          arrayChar[dictSize] = arrayChar[priorword]
+              + arrayChar[currword].charAt(0);
         }
         dictSize++;
-        s = Array_char[currword];
+        s = arrayChar[currword];
 
         aux = s.getBytes();
         output = Bytes.concat(output, aux);

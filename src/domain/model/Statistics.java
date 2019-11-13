@@ -1,7 +1,7 @@
 package domain.model;
 
 /**
- * Author: Victor Blanco
+ * Author: Sergio Vazquez
  * <p>
  * Statistics for the zip operation.
  */

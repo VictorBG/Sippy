@@ -1,6 +1,5 @@
 import java.io.File;
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.InputMismatchException;
@@ -13,6 +12,12 @@ import domain.algorithms.Algorithm;
 import domain.model.ItemC;
 import domain.model.ItemNC;
 import domain.model.Statistics;
+
+/**
+ * Author: Sergio Vazquez
+ * <p>
+ * Presentation layer for first deliverable
+ */
 
 
 public class OnApplicationStart {
@@ -122,8 +127,6 @@ public class OnApplicationStart {
             e.printStackTrace();
           }
           showStatistics();
-          System.out.print("\033[H\033[2J");
-          System.out.flush();
         }
 
       } else if (compressDecscompress == 2) {
@@ -140,14 +143,15 @@ public class OnApplicationStart {
   }
   private void showStatistics(){
     NumberFormat formatter = new DecimalFormat("#0.0000");
-    double time = zip.getResult().getElapsedTime();
+    long time = zip.getResult().getElapsedTime();
+    time = time/1000;
     double initialSize = zip.getResult().getInitialSize();
     double finalSize = zip.getResult().getFinalSize();
-    double compression = (initialSize/finalSize) * 100.0;
+    double compression = (finalSize/initialSize) * 100.0;
 
     System.out.print("\n Your compression has finished.\n ");
-    System.out.print("\n Statistics: \n " + "Elapsed time: " + formatter.format(time) + "\n The initial size was: "
-        + initialSize + "\n And the final is: " + finalSize + "\n Compression: " + compression +"\n\n");
+    System.out.print("\n Statistics: \n " + "Elapsed time: " + formatter.format(time) +" seconds"+ "\n The initial size was: "
+        + initialSize +  " Bytes"+ "\n And the final is: " + finalSize + " Bytes"+ "\n Compression: " + formatter.format(compression) +" %"+"\n\n");
 
   }
 }

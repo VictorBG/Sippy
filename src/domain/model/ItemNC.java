@@ -9,7 +9,7 @@ import java.util.List;
 import utils.FileUtils;
 
 /**
- * Author: Victor Blanco
+ * Author: Designed in class implemented by Victor and Sergio
  * <p>
  * Representation of a non compressed item. Used mainly for the zip operation.
  */
