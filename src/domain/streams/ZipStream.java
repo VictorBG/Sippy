@@ -1,10 +1,10 @@
 package domain.streams;
 
+import domain.algorithms.base.BaseAlgorithm;
 import domain.model.ItemC;
 import domain.model.ItemNC;
 import java.io.DataOutputStream;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FilterOutputStream;
 import java.io.IOException;
@@ -21,12 +21,13 @@ import utils.FileUtils;
  * <p>
  * The "sippy" file format has the next internal layout structure:
  * <p>
- * *-------------*
- * |  HeaderSize | 4B   // TODO: Is this really neccessary? It is not used in the
- * unzip operation. *-------------* | Method used | 1B *-------------* |   DataSize  | 4B
- * *-------------* |   NameSize  | 4B *-------------* |    Name     | ?B Undefined size by default,
- * indicated in NameSize *-------------* |    DATA     | ?B Undefined size by default, indicated in
- * DataSize *-------------*
+ * <p>
+ * // TODO: Is HeaderSize this really neccessary? It is not used in the unzip operation.
+ * *-------------* |  HeaderSize | 4B *-------------* | Method used | 1B *-------------* | DataSize
+ * | 4B *-------------* |   NameSize  | 4B *-------------* |    Name     | ?B Undefined size by
+ * default, indicated in NameSize *-------------* |    DATA     | ?B Undefined size by default,
+ * indicated in DataSize *-------------*
+ *
  * <p>
  * HeaderSize: integer indicating the size of the header (all but DATA).
  * <p>
@@ -85,8 +86,8 @@ public class ZipStream extends DataOutputStream {
     String name = file.getAbsolutePath().replace(basePath, "");
     int nameSize = name.length();
 
-    byte[] data = FileUtils.readFile(file);
-    data = itemC.getMethod().getAlgorithm().encode(data);
+    BaseAlgorithm algorithm = itemC.getMethod().getAlgorithm();
+    byte[] data = algorithm.encode(algorithm.readFile(file));
 
     int dataSize = data.length;
 
@@ -98,7 +99,7 @@ public class ZipStream extends DataOutputStream {
     writeInt(nameSize);
     writeBytes(name);
 
-    for (byte b: data) {
+    for (byte b : data) {
       writeByte(b);
     }
 

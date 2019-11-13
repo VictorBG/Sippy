@@ -1,6 +1,7 @@
 package domain.algorithms;
 
 import domain.algorithms.base.BaseAlgorithm;
+import domain.algorithms.lz78.LZ78;
 
 /**
  * Author: Victor Blanco
