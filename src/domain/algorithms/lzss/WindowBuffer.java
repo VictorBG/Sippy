@@ -71,7 +71,6 @@ public class WindowBuffer {
 
         while (i <= searchR && j <= lookAheadR && buffers[i] == buffers[j]) {
             result.incrementLengthByOne();
-            //result.setC(buffers[j]);
             i++;
             j++;
         }
@@ -82,30 +81,6 @@ public class WindowBuffer {
         }
         result.setC(buffers[j]);
         return result;
-
-        /*
-        boolean match = true;
-        int posLA = lookAheadL;
-        EncodedString result = new EncodedString();
-        result.setOffset(posLA - posS); //always posLA > posS
-        result.setC(buffers[posLA]);
-        result.setLength(1); //miminum 1 because que actually matched
-        ++posLA; //we have at minimum 1 pos more in searchBuffer searchBuffer[length-2]
-        ++posS;
-        match = buffers[posS] == buffers[posLA];
-        while (match && posS <= searchR && posLA <= lookAheadR) {
-            result.incrementLengthByOne();
-            ++posLA;
-            ++posS;
-            match = buffers[posS] == buffers[posLA];
-        }
-        //TODO: EOF in lookAheadBuffer? .hasNext
-        if (result.getLength() >= 1) {
-            result.setC( buffers[lookAheadL+result.length] ); //if match, next symbol
-        }
-        return result;
-
-         */
     }
 
     public EncodedString findMatch () {
@@ -125,33 +100,6 @@ public class WindowBuffer {
             }
         }
         return matchData;
-
-
-
-        /*
-        EncodedString matchData = new EncodedString();
-        matchData.setLength(0);
-        matchData.setC(getFirstCharLookAheadBuffer());
-        //start at the begining of the sliding window
-        int i = searchL;
-        int j = 0;
-        int longestMatchLenght = -1;
-
-        while (i <= searchR) {
-            if (buffers[i] == buffers[lookAheadL] && i < buffers[searchR]) {
-                j=1; //match length
-                EncodedString es = continueMatching(i);
-                if (es.getLength() > longestMatchLenght) {
-                    longestMatchLenght = es.getLength();
-                    matchData = es;
-                }
-            }
-            i++;
-        }
-
-        return matchData;
-
-         */
     }
 
     public WindowBuffer (short searchBufferSize, short lookAheadBufferSize, StringBuilder inputString) {
@@ -172,19 +120,7 @@ public class WindowBuffer {
         System.out.println("----");
         for (int i = lookAheadL; i<=lookAheadR; i++) {
             shiftLeftOne();
-            //System.out.println(i);
         }
-        //System.out.println("----");
-
-        /*
-        int j = 0;
-        for (int i = lookAheadL; i<buffers.length && j<input.length(); i++) {
-            buffers[i] = input.charAt(j);
-            j++;
-            lookAheadR = i;
-        }
-        input = input.substring(j);
-         */
     }
 
     public void shiftLeftOne() {
@@ -222,41 +158,5 @@ public class WindowBuffer {
         for (int i = 0; i<positions; i++) {
             shiftLeftOne();
         }
-
-
-        /*
-        int j = positions;
-        int i = 0;
-        while (j<=buffers.length-1) {
-            buffers[i] = buffers[j];
-            i++;
-            j++;
-            //lookAheadR--;
-            //first iterations searchbuffer is partially empty
-            //if (searchL > 0) searchL--;
-        }
-        //fill buffers with input[0..positions]
-        int k;
-        for (k = 0; i < buffers.length && k<positions && input.charAt(k) != '.'; k++) {
-            buffers[i] = input.charAt(k);
-            //shift input by 1
-
-            //lookAheadR++;
-            i++;
-        }
-        input = input.substring(k);
-        if (input.equalsIgnoreCase(".")) {
-            input = "*";//next iter end of program
-
-        }
-        else if (input.equalsIgnoreCase("*")) {
-            for (i = lookAheadL; i<buffers.length; i++) {
-                buffers[i] = '.';
-            }
-        }
-         */
     }
-
-
-
 }
