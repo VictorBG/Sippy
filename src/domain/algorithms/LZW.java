@@ -18,14 +18,13 @@ public class LZW implements BaseAlgorithm {
     String str = "";
     byte[] buffer = new byte[3];
     boolean onleft = true;
-    // Dictionary size limit, builds dictionary
+    int j = 0;
+    byte[] output = new byte[]{};
+    // Builds the initial dictionary with all ASCII characters
     for (int i = 0; i < 256; i++) {
       dictionary.put(Character.toString((char) i), i);
     }
 
-    byte[] output = new byte[]{};
-
-    int j = 0;
     char ch = getChar(data, j++);
     str = "" + ch;
 
@@ -108,6 +107,13 @@ public class LZW implements BaseAlgorithm {
     return extend(Integer.toBinaryString(i), "0", 12);
   }
 
+  /**
+   * Converts 8 bits to 12 bits
+   *
+   * @param data - bytes vector , pos - the position inside data vector that we want to obtain
+   *             out - char to insert in dictionary
+   * @return - String value of integer in 12 bit
+   */
   private char getChar(byte[] data, int pos) {
     byte b = data[pos];
     int i = new Byte(b).intValue();
