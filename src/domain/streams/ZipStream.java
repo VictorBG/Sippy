@@ -21,7 +21,8 @@ import utils.FileUtils;
  * <p>
  * The "sippy" file format has the next internal layout structure:
  * <p>
- * *-------------* |  HeaderSize | 4B   // TODO: Is this really neccessary? It is not used in the
+ * *-------------*
+ * |  HeaderSize | 4B   // TODO: Is this really neccessary? It is not used in the
  * unzip operation. *-------------* | Method used | 1B *-------------* |   DataSize  | 4B
  * *-------------* |   NameSize  | 4B *-------------* |    Name     | ?B Undefined size by default,
  * indicated in NameSize *-------------* |    DATA     | ?B Undefined size by default, indicated in
@@ -97,7 +98,9 @@ public class ZipStream extends DataOutputStream {
     writeInt(nameSize);
     writeBytes(name);
 
-    writeBytes(new String(data));
+    for (byte b: data) {
+      writeByte(b);
+    }
 
     totalSize += headerSize + dataSize;
   }
