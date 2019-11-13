@@ -1,6 +1,8 @@
 import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -14,6 +16,7 @@ import domain.model.Statistics;
 
 
 public class OnApplicationStart {
+  Transaction<Statistics> zip;
 
   static void start() {
     new OnApplicationStart();
@@ -47,11 +50,11 @@ public class OnApplicationStart {
       canContinue = false;
       // We are going to compress
       if (compressDecscompress == 1) {
-        Transaction<Statistics> zip = null;
+        zip = null;
         System.out.print("You've selected compress, now we need your file path: ");
         path = keyBoard.next();
         System.out.print(
-            "\nThanks, as you can see, this is a very complete program \n so please indicate if you want automatic or manual compression: \n 1. Automatic  2. Manual\n ");
+            "\nThanks, as you can see, this is a very complete program \n so please indicate if you want automatic or manual compression: \n \n 1. Automatic  2. Manual\n ");
         do {
           try {
             System.out.print("Enter 1 or 2 : ");
@@ -85,48 +88,42 @@ public class OnApplicationStart {
 
           }
           while (!canContinue);
-
-          switch (algorithm) {
-            case 1:
-              System.out.print("\nCompressing using LZ78 \n");
-              try {
+          try {
+            switch (algorithm) {
+              case 1:
+                System.out.print("\nCompressing using LZ78 \n");
                 zip = new Zip(ItemNC.create(new File(path)), Algorithm.LZ78);
                 zip.execute();
-              } catch (IOException e) {
-                e.printStackTrace();
-              }
-              break;
-            case 2:
-              System.out.print("\nCompressing using LZSS \n");
-              try {
+
+                break;
+              case 2:
+                System.out.print("\nCompressing using LZSS \n");
                 zip = new Zip(ItemNC.create(new File(path)), Algorithm.LZSS);
                 zip.execute();
-              } catch (IOException e) {
-                e.printStackTrace();
-              }
-              break;
-            case 3:
-              System.out.print("\nCompressing using LZW \n \n");
-              try {
+                break;
+              case 3:
+                System.out.print("\nCompressing using LZW \n \n");
                 zip = new Zip(ItemNC.create(new File(path)), Algorithm.LZW);
                 zip.execute();
-              } catch (IOException e) {
-                e.printStackTrace();
-              }
-              break;
-            case 4:
-              System.out.print("\nCompressing using JPEG \n");
-              try {
+
+                break;
+              case 4:
+                System.out.print("\nCompressing using JPEG \n");
                 zip = new Zip(ItemNC.create(new File(path)), Algorithm.JPEG);
                 zip.execute();
-              } catch (IOException e) {
-                e.printStackTrace();
-              }
-              break;
-            default:
-              break;
 
+                break;
+
+              default:
+                break;
+
+            }
+          } catch (IOException e) {
+            e.printStackTrace();
           }
+          showStatistics();
+          System.out.print("\033[H\033[2J");
+          System.out.flush();
         }
 
       } else if (compressDecscompress == 2) {
@@ -140,6 +137,18 @@ public class OnApplicationStart {
         }
       }
     }
+  }
+  private void showStatistics(){
+    NumberFormat formatter = new DecimalFormat("#0.0000");
+    double time = zip.getResult().getElapsedTime();
+    double initialSize = zip.getResult().getInitialSize();
+    double finalSize = zip.getResult().getFinalSize();
+    double compression = (initialSize/finalSize) * 100.0;
+
+    System.out.print("\n Your compression has finished.\n ");
+    System.out.print("\n Statistics: \n " + "Elapsed time: " + formatter.format(time) + "\n The initial size was: "
+        + initialSize + "\n And the final is: " + finalSize + "\n Compression: " + compression +"\n\n");
+
   }
 }
 
