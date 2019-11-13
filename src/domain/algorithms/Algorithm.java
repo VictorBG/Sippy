@@ -1,6 +1,8 @@
 package domain.algorithms;
 
 import domain.algorithms.base.BaseAlgorithm;
+import domain.algorithms.jpeg.JPEG;
+import domain.algorithms.lz78.LZ78;
 
 /**
  * Author: Victor Blanco
@@ -11,7 +13,7 @@ import domain.algorithms.base.BaseAlgorithm;
 public enum Algorithm {
   LZ78((byte) 0x0, new LZ78()),
   LZW((byte) 0x1, null),
-  JPEG((byte) 0x2, null),
+  JPEG((byte) 0x2, new JPEG()),
   LZSS((byte) 0x3, null),
   AUTOMATIC((byte) 0x4, null);
 
