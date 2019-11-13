@@ -7,7 +7,7 @@ import utils.Bytes;
 /**
  * Author: Sergio Vazquez
  * <p>
- * LZW implementation
+ * LZW implementation doesnt compress ppm files
  */
 
 public class LZW implements BaseAlgorithm {
@@ -62,7 +62,7 @@ public class LZW implements BaseAlgorithm {
         stringBuilder = "" + character;
       }
     }
-    //This is for last character of the data vector
+
     String str12bit = to12bit(dictionary.get(stringBuilder));
     if (half) {
       buffer[0] = (byte) Integer.parseInt(str12bit.substring(0, 8), 2);

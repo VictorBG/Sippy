@@ -142,8 +142,8 @@ public class OnApplicationStart {
     }
   }
   private void showStatistics(){
-    NumberFormat formatter = new DecimalFormat("#0.0000");
-    long time = zip.getResult().getElapsedTime();
+    NumberFormat formatter = new DecimalFormat("#0.00000");
+    double time = zip.getResult().getElapsedTime();
     time = time/1000;
     double initialSize = zip.getResult().getInitialSize();
     double finalSize = zip.getResult().getFinalSize();

@@ -12,24 +12,19 @@ public class Statistics {
   private long elapsedTime;
   private long initialTime;
 
+  /*Constructora*/
   public Statistics(double initialSize) {
     this.initialSize = initialSize;
-  }
-
-  public void startTimer() {
     initialTime = System.currentTimeMillis();
   }
 
+  /*called from zip when it finishes compressing*/
   public void stopTimer() {
     elapsedTime = System.currentTimeMillis() - initialTime;
   }
 
   public double getInitialSize() {
     return initialSize;
-  }
-
-  public void setInitialSize(double initialSize) {
-    this.initialSize = initialSize;
   }
 
   public double getFinalSize() {
@@ -42,9 +37,5 @@ public class Statistics {
 
   public long getElapsedTime() {
     return elapsedTime;
-  }
-
-  public void setElapsedTime(long elapsedTime) {
-    this.elapsedTime = elapsedTime;
   }
 }
