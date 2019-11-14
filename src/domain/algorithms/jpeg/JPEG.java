@@ -4,13 +4,12 @@ package domain.algorithms.jpeg;
 import domain.algorithms.base.BaseAlgorithm;
 
 import java.io.*;
-import java.nio.file.Files;
 import java.util.*;
 
 import static java.lang.Math.abs;
 
 public class JPEG implements BaseAlgorithm {
-
+// region Global variables
     private HashMap<String, String> dc0Map = new HashMap<String, String>();
     private HashMap<String, String> ac0Map = new HashMap<String, String>();
     private HashMap<String, String> dc1Map = new HashMap<String, String>();
@@ -24,6 +23,9 @@ public class JPEG implements BaseAlgorithm {
     private int lastDCY = 0;
     private int lastDCCb = 0;
     private int lastDCr = 0;
+    private String version;
+    private int w;
+    private int h;
     private boolean isCb = true;
     private int[][] qtY = new int[][]{{16, 11, 10, 16, 24, 40, 51, 61}, {12, 12, 14, 19, 26, 58, 60, 55},
             {14, 13, 16, 24, 40, 57, 69, 56}, {14, 17, 22, 29, 51, 87, 80, 62}, {18, 22, 37, 56, 68, 109, 103, 77},
@@ -44,158 +46,7 @@ public class JPEG implements BaseAlgorithm {
     private ArrayList<Integer> cr = new ArrayList<>();
 
     //private  int z = 0;
-
-
-    private void marchThroughSippy(String input) {
-        int i = 0;
-        int value = 0;
-        String bits = "";
-        Node current;
-        int id = 0;
-        BinaryTree bt = dc0Tree;
-        int num;
-
-        //System.out.println(input.length());
-        //for(int j = 1204217; j < input.length(); ++j)System.out.println(input.charAt(j));
-
-        while (i < input.length()) {
-
-            current = bt.getRoot();
-            Queue<Integer> queue = new LinkedList<>();
-
-            //System.out.print("Bits: ");
-//        System.out.println(("ID: " + id));
-            for (; i < input.length(); ++i) {
-                //System.out.print(" i: " + i + " char: " + input.charAt(i));
-                if (!bt.isLeaf(current)) {
-                    if (input.charAt(i) == '0') current = bt.getNodeLeft(current);
-                    else current = bt.getNodeRight(current);
-                } else {
-                    value = Integer.parseInt(current.getValue(), 16);
-                    //System.out.println("VAL: " + value);
-                    bits = input.substring(i, i + value);
-                    i += value;
-                    break;
-                }
-            }
-            //System.out.println();
-            num = Integer.parseInt(bits, 2);
-            if (bits.charAt(0) == '0') num -= (int) Math.pow(2, value) - 1;
-            //System.out.println("Value " + value + " Num_ " + num + " bits: " + bits);
-            /*switch (id) {
-                case 0:
-                    //System.out.println("Last: " + lastDCY);
-                    num += lastDCY;
-                    //System.out.println("mnumn" + num);
-                    lastDCY = num;
-                    //id++;
-                    //bt = dc1Tree;
-                    break;
-                case 1:
-                    //System.out.println("Last: " + lastDCCb);
-                    num += lastDCCb;
-                    //System.out.println("num: " + num);
-                    lastDCCb = num;
-                    //id++;
-                    //bt = dc1Tree;
-                    break;
-                case 2:
-                    //System.out.println("Last: " + lastDCr);
-                    //System.out.println("num: " + num);
-                    num += lastDCr;
-                    lastDCr = num;
-                    //id = 0;
-                    //bt = dc0Tree;
-                    break;
-            }*/
-
-            queue.add(num);
-
-            if (id == 0) bt = ac0Tree;
-            else bt = ac1Tree;
-
-            current = bt.getRoot();
-            //System.out.println("DCT : " + num + " bits " + bits + "Value: " + value);
-            //System.out.println();
-
-            //(ceros,size)(num)
-            int zeros;
-            int size;
-            boolean eob = false;
-
-            //System.out.print("Bits: ");
-
-            while (!eob) {
-                //System.out.println(" i: " + i + " c " + input.charAt(i));
-                if (!bt.isLeaf(current)) {
-                    if (input.charAt(i) == '0') current = bt.getNodeLeft(current);
-                    else current = bt.getNodeRight(current);
-                    i++;
-                } else {
-                    zeros = Integer.parseInt(String.valueOf(current.getValue().charAt(0)), 16);
-                    size = Integer.parseInt(String.valueOf(current.getValue().charAt(1)), 16);
-                    if (zeros == 0 && size == 0) eob = true;
-                    else {
-                        //System.out.println();
-                        //System.out.println("if0: " + zeros + " " + size);
-                        while (zeros-- > 0) queue.add(0);
-                        if (size != 0) {
-                            bits = input.substring(i, i + size);
-                            num = tractaBits(bits, size);
-                            queue.add(tractaBits(bits, size));
-                            //System.out.println(" bits " + bits + " num " + num);
-                        }
-                        i += size;
-                        current = bt.getRoot();
-                    }
-                }
-            }
-
-            //System.out.println();
-            /*System.out.println("Queue: ");
-            for (int e : queue) System.out.print(" " + e + " ");
-            System.out.println();*/
-
-            if (id != 2) {
-                bt = dc1Tree;
-                ++id;
-            } else {
-                bt = dc0Tree;
-                id = 0;
-            }
-
-
-            inverseZigzag(queue, id);
-
-            //System.out.println(i);
-        }
-
-        writePPM();
-        /*int[][] mat = new int[8][8];
-        for(int k = 0; k < 8; ++k) {
-            for (int j = 0; j < 8; ++j) {
-                if (!aux.isEmpty()) {
-                    mat[k][j] = aux.get(0);
-                    aux.remove(0);
-                }
-                else mat[k][j] = 0;
-            }
-        }*/
-/*
-
-        for (int k[] : mat) {
-            System.out.println();
-            for (int x : k) System.out.print(" " + x + " ");
-        }*/
-
-
-    }
-
-    private int tractaBits(String bits, int value) {
-        int num = Integer.parseInt(bits, 2);
-        if (bits.charAt(0) == '0') num -= (int) Math.pow(2, value) - 1;
-        return num;
-    }
+// endregion
 
     private void huffmanTables() throws IOException {
         FileReader DC0 = new FileReader("DClum.txt");
@@ -259,15 +110,16 @@ public class JPEG implements BaseAlgorithm {
         }
     }
 
+
     private void marchThroughImage(byte[] image) throws IOException {
-        String version = String.valueOf((char) image[0]) + String.valueOf((char) image[1]);
+        version = String.valueOf((char) image[0]) + String.valueOf((char) image[1]);
         //System.out.println("version: " + version);
         boolean width = false;
         boolean comment = false;
         boolean height = false;
         char c;
-        int w = 0;
-        int h = 0;
+        w = 0;
+        h = 0;
         int i;
 
         for (i = 4; !height; ++i) {
@@ -287,41 +139,41 @@ public class JPEG implements BaseAlgorithm {
         }
         //System.out.println("width: " + w);
         //System.out.println("height: " + h);
+        output += version + " " + w + " " + h + " ";
+        out.write(output.getBytes());
+        output = "";
+
         int header = image.length - w * h * 3;
         byte[] rgb = Arrays.copyOfRange(image, header, image.length);
 
         //for (int j = 0; j < 27; ++j) System.out.print(rgb[j] + " ");
 
-        int[][] matrixR = new int[w][w];
-        int[][] matrixG = new int[w][w];
-        int[][] matrixB = new int[w][w];
+        int[][] matrixR = new int[h][w];
+        int[][] matrixG = new int[h][w];
+        int[][] matrixB = new int[h][w];
 
         int k = 0;
-        for (i = 0; i < w; ++i) {
+        for (i = 0; i < h; ++i) {
             for (int j = 0; j < w; ++j) {
                 if (k < rgb.length) {
                     matrixR[i][j] = rgb[k];
                     matrixG[i][j] = rgb[k + 1];
                     matrixB[i][j] = rgb[k + 2];
                     k += 3;
-                } else {
-                    matrixR[i][j] = 0;
-                    matrixG[i][j] = 0;
-                    matrixB[i][j] = 0;
                 }
             }
         }
 
-        double[][] matrixY = new double[w][w];
-        double[][] matrixCb = new double[w][w];
-        double[][] matrixCr = new double[w][w];
+        double[][] matrixY = new double[h][w];
+        double[][] matrixCb = new double[h][w];
+        double[][] matrixCr = new double[h][w];
 
         //RGB to YCbCr
-        for (i = 0; i < w; ++i) {
+        for (i = 0; i < h; ++i) {
             for (int j = 0; j < w; ++j) {
-                matrixY[i][j] = 0 + 0.299 * matrixR[i][j] + 0.587 * matrixG[i][j] + 0.144 * matrixB[i][j];
-                matrixCb[i][j] = -0.168736 * matrixR[i][j] - 0.331264 * matrixG[i][j] + 0.5 * matrixB[i][j];
-                matrixCr[i][j] = 0.5 * matrixR[i][j] - 0.418688 * matrixG[i][j] - 0.081312 * matrixB[i][j];
+                matrixY[i][j] = 0 + (0.299 * matrixR[i][j]) + (0.587 * matrixG[i][j]) + (0.114 * matrixB[i][j]);
+                matrixCb[i][j] = -(0.168736 * matrixR[i][j]) - (0.331264 * matrixG[i][j]) + (0.5 * matrixB[i][j]);
+                matrixCr[i][j] = (0.5 * matrixR[i][j]) - (0.418688 * matrixG[i][j]) - (0.081312 * matrixB[i][j]);
             }
         }
 
@@ -353,10 +205,10 @@ public class JPEG implements BaseAlgorithm {
                 ii += 8;
                 jj = 0;
             } else jj += 8;
-            if (ii == w) end = true;
+            if (ii == h) end = true;
             //System.out.println("I: " + ii + " J: " +jj);
         }
-
+        //int a = 0;
         out.close();
 
     }
@@ -511,6 +363,7 @@ public class JPEG implements BaseAlgorithm {
 
         out.write(output.getBytes());
         output = "";
+        //z++;
         // output += "FIY";
         //System.out.println(output);
     }
@@ -575,8 +428,169 @@ public class JPEG implements BaseAlgorithm {
         //output += "Fi";
         out.write(output.getBytes());
         output = "";
+        //z++;
         //output += "FIC";
         //System.out.println(output);
+    }
+
+
+    private void marchThroughSippy(String input) throws IOException {
+        int i = 0;
+        int value = 0;
+        String bits = "";
+        Node current;
+        int id = 0;
+        BinaryTree bt = dc0Tree;
+        int num; int espais = 0;
+        version = input.substring(0, input.indexOf(" "));
+        input = input.substring(input.indexOf(" ") +1);
+        w = Integer.parseInt(input.substring(0,input.indexOf(" ")));
+        input = input.substring(input.indexOf(" ") +1);
+        h = Integer.parseInt(input.substring(0,input.indexOf(" ")));
+        input = input.substring(input.indexOf(" ") +1);
+
+        output += version + " " + w + " " + h + " " + "255" + "\n";
+        out.write(output.getBytes());
+        output = "";
+
+        //System.out.println(input.length());
+        //for(int j = 1204217; j < input.length(); ++j)System.out.println(input.charAt(j));
+
+        while (i < input.length()) {
+
+            current = bt.getRoot();
+            Queue<Integer> queue = new LinkedList<>();
+
+            //System.out.print("Bits: ");
+//        System.out.println(("ID: " + id));
+            for (; i < input.length(); ++i) {
+                //System.out.print(" i: " + i + " char: " + input.charAt(i));
+                if (!bt.isLeaf(current)) {
+                    if (input.charAt(i) == '0') current = bt.getNodeLeft(current);
+                    else current = bt.getNodeRight(current);
+                } else {
+                    value = Integer.parseInt(current.getValue(), 16);
+                    //System.out.println("VAL: " + value);
+                    bits = input.substring(i, i + value);
+                    i += value;
+                    break;
+                }
+            }
+            //System.out.println();
+            num = Integer.parseInt(bits, 2);
+            if (bits.charAt(0) == '0') num -= (int) Math.pow(2, value) - 1;
+            //System.out.println("Value " + value + " Num_ " + num + " bits: " + bits);
+            /*switch (id) {
+                case 0:
+                    //System.out.println("Last: " + lastDCY);
+                    num += lastDCY;
+                    //System.out.println("mnumn" + num);
+                    lastDCY = num;
+                    //id++;
+                    //bt = dc1Tree;
+                    break;
+                case 1:
+                    //System.out.println("Last: " + lastDCCb);
+                    num += lastDCCb;
+                    //System.out.println("num: " + num);
+                    lastDCCb = num;
+                    //id++;
+                    //bt = dc1Tree;
+                    break;
+                case 2:
+                    //System.out.println("Last: " + lastDCr);
+                    //System.out.println("num: " + num);
+                    num += lastDCr;
+                    lastDCr = num;
+                    //id = 0;
+                    //bt = dc0Tree;
+                    break;
+            }*/
+
+            queue.add(num);
+
+            if (id == 0) bt = ac0Tree;
+            else bt = ac1Tree;
+
+            current = bt.getRoot();
+            //System.out.println("DCT : " + num + " bits " + bits + "Value: " + value);
+            //System.out.println();
+
+            //(ceros,size)(num)
+            int zeros;
+            int size;
+            boolean eob = false;
+
+            //System.out.print("Bits: ");
+
+            while (!eob) {
+                //System.out.println(" i: " + i + " c " + input.charAt(i));
+                if (!bt.isLeaf(current)) {
+                    if (input.charAt(i) == '0') current = bt.getNodeLeft(current);
+                    else current = bt.getNodeRight(current);
+                    i++;
+                } else {
+                    zeros = Integer.parseInt(String.valueOf(current.getValue().charAt(0)), 16);
+                    size = Integer.parseInt(String.valueOf(current.getValue().charAt(1)), 16);
+                    if (zeros == 0 && size == 0) eob = true;
+                    else {
+                        //System.out.println();
+                        //System.out.println("if0: " + zeros + " " + size);
+                        while (zeros-- > 0) queue.add(0);
+                        if (size != 0) {
+                            bits = input.substring(i, i + size);
+                            num = tractaBits(bits, size);
+                            queue.add(tractaBits(bits, size));
+                            //System.out.println(" bits " + bits + " num " + num);
+                        }
+                        i += size;
+                        current = bt.getRoot();
+                    }
+                }
+            }
+
+            //System.out.println();
+            /*System.out.println("Queue: ");
+            for (int e : queue) System.out.print(" " + e + " ");
+            System.out.println();*/
+            inverseZigzag(queue, id);
+
+            if (id != 2) {
+                bt = dc1Tree;
+                ++id;
+            } else {
+                bt = dc0Tree;
+                id = 0;
+            }
+
+            //System.out.println(i);
+        }
+
+        writePPM();
+        /*int[][] mat = new int[8][8];
+        for(int k = 0; k < 8; ++k) {
+            for (int j = 0; j < 8; ++j) {
+                if (!aux.isEmpty()) {
+                    mat[k][j] = aux.get(0);
+                    aux.remove(0);
+                }
+                else mat[k][j] = 0;
+            }
+        }*/
+/*
+
+        for (int k[] : mat) {
+            System.out.println();
+            for (int x : k) System.out.print(" " + x + " ");
+        }*/
+
+
+    }
+
+    private int tractaBits(String bits, int value) {
+        int num = Integer.parseInt(bits, 2);
+        if (bits.charAt(0) == '0') num -= (int) Math.pow(2, value) - 1;
+        return num;
     }
 
     private void inverseZigzag(Queue<Integer> queue, int id) {
@@ -628,7 +642,7 @@ public class JPEG implements BaseAlgorithm {
     }
 
     private void reverseQuantization(double[][] m, int id) {
-        /*double[][] m = new double[][]{{-26,-3,-6,2,2,-1,0,0},{0,-2,-4,1,1,0,0,0},
+        /*m = new double[][]{{-26,-3,-6,2,2,-1,0,0},{0,-2,-4,1,1,0,0,0},
                 {-3,1,5,-1,-1,0,0,0},{-3,1,2,-1,0,0,0,0},
                 {1,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},
                 {0,0,0,0,0,0,0,0}};*/
@@ -653,8 +667,7 @@ public class JPEG implements BaseAlgorithm {
         reverseDCT(m, id);
     }
 
-    private void reverseDCT(double[][] matrix, int id) //no funciona bé
-    {
+    private void reverseDCT(double[][] matrix, int id) {
 
         double[][] aux = new double[8][8];
 
@@ -684,8 +697,8 @@ public class JPEG implements BaseAlgorithm {
                 {-57, -57, -64, -58, -48, -66, -72, -47},
                 {-53, -46, -61, -74, -65, -63, -62, -45},
                 {-47, -34, -53, -74, -60, -47, -47, -41}};*/
-        /*System.out.println("DCT");
-        for(int i = 0; i < 8; ++i) {
+        //System.out.println("DCT");
+        /*for(int i = 0; i < 8; ++i) {
             System.out.println();
             for(int j = 0; j < 8; ++j) System.out.print(" " + matrix[i][j] + " ");
         }*/
@@ -697,7 +710,7 @@ public class JPEG implements BaseAlgorithm {
 
         for (int i = 0; i < 8; ++i) {
             for (int j = 0; j < 8; ++j) {
-                color.add((int) matrix[i][j]);
+                color.add((int)matrix[i][j]);
             }
         }
 
@@ -705,16 +718,12 @@ public class JPEG implements BaseAlgorithm {
     }
 
     private void writePPM() {
-        int r;
-        int g;
-        int b;
+        int r; int g; int b;
         for (int i = 0; i < y.size(); ++i) {
-            r = (int) (y.get(i) + 1.402 * (cr.get(i) - 128));
-            g = (int) (y.get(i) - 0.344136 * (cb.get(i) - 128) - 0.714136 * (cr.get(i) - 128));
-            b = (int) (y.get(i) + 1.722 * (cb.get(i) - 128));
-            out.write(r);
-            out.write(g);
-            out.write(b);
+            r = (int) (y.get(i) + 1.402 * (cr.get(i) - 128)) -128;
+            g = (int) (y.get(i) - 0.344136 * (cb.get(i) - 128) - 0.714136 * (cr.get(i) - 128)) -128;
+            b = (int) (y.get(i) + 1.722 * (cb.get(i) - 128)) -128;
+            out.write(r); out.write(g); out.write(b);
         }
     }
 
@@ -738,10 +747,10 @@ public class JPEG implements BaseAlgorithm {
         String data = new String(input);
         try {
             huffmanTables();
+            marchThroughSippy(data);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        marchThroughSippy(data);
         return out.toByteArray();
     }
 }
