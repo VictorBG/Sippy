@@ -93,6 +93,7 @@ public class Lzss implements BaseAlgorithm {
     @Override
     public byte[] encode(byte[] input) {
         baos = new ByteArrayOutputStream();
+        FlagHelper flags = new FlagHelper();
         StringBuilder inputSB = new StringBuilder(new String(input));
         try {
             WindowBuffer w = new WindowBuffer((short)BUFFER_SIZE_SEARCH,(short)BUFFER_SIZE_LOOKAHEAD,inputSB);
@@ -103,18 +104,17 @@ public class Lzss implements BaseAlgorithm {
                 es.print();
                 if (es.getLength() >= MIN_LEN_MATCH) {
                     //es.print();
+                    flags.addFlag(false); //flag 0 indicates literal
                     byte offset = (byte)es.getOffset();
                     byte length = (byte)es.getLength();
-                    byte off_len = codify_offset_length_one_byte_with_flag(offset, length);
-                    //bos.write(offset);
-                    //bos.write(length);
-                    baos.write(off_len);
+
+                    baos.write(offset);
+                    baos.write(length);
 
                     w.shiftLeft(es.getLength());
                 } else {
-                    //String out = "0" + w.getFirstCharLookAheadBuffer();
-                    //System.out.print(out);
-                    byte flag_literal = (byte)0;
+
+                    flags.addFlag(true); //flag 1 indicates <length,offset> token
                     //only ASCII
                     String symbol = w.getFirstCharLookAheadBuffer()+"";
                     byte[] symb = symbol.getBytes("UTF-8");
@@ -135,8 +135,9 @@ public class Lzss implements BaseAlgorithm {
 
 
         //return baos.toByteArray();
-        byte[] hola = Bytes.concat(intToBytes(NUMBER_OF_TOKENS), baos.toByteArray());
-        return hola;
+        byte[] hola = Bytes.concat(flags.toByteArray(), intToBytes(NUMBER_OF_TOKENS));
+        byte[] hola2 = Bytes.concat(hola, baos.toByteArray());
+        return hola2;
     }
 
     @Override
