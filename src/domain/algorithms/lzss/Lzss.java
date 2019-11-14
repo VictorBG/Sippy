@@ -1,8 +1,12 @@
 package domain.algorithms.lzss;
 
 import domain.algorithms.base.BaseAlgorithm;
+import utils.Bytes;
 
 import java.io.*;
+import java.nio.ByteBuffer;
+import java.nio.charset.StandardCharsets;
+
 /**
  * Author: Miguel Angel Cabrera
  *
@@ -14,8 +18,12 @@ public class Lzss implements BaseAlgorithm {
     public static ByteArrayOutputStream baos;
 
     public static final int MIN_LEN_MATCH = 2;
-    public static final int BUFFER_SIZE_LOOKAHEAD = 9;
-    public static final int BUFFER_SIZE_SEARCH = 16;
+                                                //max9
+    public static final int BUFFER_SIZE_LOOKAHEAD = 5;
+                                                //max16
+    public static final int BUFFER_SIZE_SEARCH = 5;
+
+    public static int NUMBER_OF_TOKENS = 0;
 
     public static int unsignedByteToInt(byte b) {
         return (int) b & 0xFF;
@@ -37,6 +45,11 @@ public class Lzss implements BaseAlgorithm {
         return (length+MIN_LEN_MATCH);
     }
 
+    private byte[] intToBytes( final int i ) {
+        ByteBuffer bb = ByteBuffer.allocate(4);
+        bb.putInt(i);
+        return bb.array();
+    }
 
     public static byte get_length_byte_3_low_bits (byte length) {
 
@@ -87,41 +100,43 @@ public class Lzss implements BaseAlgorithm {
 
             while (!w.lookAheadIsEmpty()) {
                 EncodedString es = w.findMatch();
-                //es.print();
+                es.print();
                 if (es.getLength() >= MIN_LEN_MATCH) {
                     //es.print();
                     byte offset = (byte)es.getOffset();
                     byte length = (byte)es.getLength();
-                    byte symbol = (byte)es.getC();
                     byte off_len = codify_offset_length_one_byte_with_flag(offset, length);
                     //bos.write(offset);
                     //bos.write(length);
                     baos.write(off_len);
-                    baos.write(symbol);
-                    //bos.flush();
-                    w.shiftLeft(es.getLength()+1);
+
+                    w.shiftLeft(es.getLength());
                 } else {
                     //String out = "0" + w.getFirstCharLookAheadBuffer();
                     //System.out.print(out);
                     byte flag_literal = (byte)0;
                     //only ASCII
-                    byte symbol = (byte)w.getFirstCharLookAheadBuffer();
-                    //bos.write(flag_literal);
-                    baos.write(symbol);
-                    //bos.flush();
+                    String symbol = w.getFirstCharLookAheadBuffer()+"";
+                    byte[] symb = symbol.getBytes("UTF-8");
 
+                    //bos.write(flag_literal);
+
+                    baos.write(symb);
                     //System.out.printf("00%c", w.getFirstCharLookAheadBuffer());
                     w.shiftLeft(1);
                 }
+                NUMBER_OF_TOKENS++;
 
             }
-            baos.close();
+
         } catch (IOException e) {
             e.printStackTrace();
         }
 
 
-        return baos.toByteArray();
+        //return baos.toByteArray();
+        byte[] hola = Bytes.concat(intToBytes(NUMBER_OF_TOKENS), baos.toByteArray());
+        return hola;
     }
 
     @Override
@@ -149,9 +164,7 @@ public class Lzss implements BaseAlgorithm {
                         int len = off_len[1];
                         //System.out.println(len);
                         int off = off_len[0];
-                        i++;
-                        int symbol = input[i]; //last symbol
-                        dw.copyCharsSince(len,off,(char)symbol);
+                        dw.copyCharsSince(len,off);
                     }
                     i++;
                 }
@@ -164,5 +177,12 @@ public class Lzss implements BaseAlgorithm {
             e.printStackTrace();
         }
         return baos.toByteArray();
+    }
+
+    @Override
+    public byte[] readFile(File file) throws IOException {
+        BufferedReader bufRdr = new BufferedReader(
+                new InputStreamReader(new FileInputStream(file), StandardCharsets.UTF_8));
+        return bufRdr.lines().map(i -> i + "\n").reduce(String::concat).get().getBytes();
     }
 }

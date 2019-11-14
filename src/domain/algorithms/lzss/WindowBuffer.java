@@ -56,16 +56,6 @@ public class WindowBuffer {
         short i = posS; //index for SB
         short j = lookAheadL; //index for LAB
 
-        // abr'a'|abra
-        if (i == searchR) {
-            EncodedString result = new EncodedString();
-            result.setC(buffers[lookAheadL+1]);
-            result.setLength((short)1);
-            result.setOffset((short)1);
-            return result;
-        }
-        boolean match = true;
-
         EncodedString result = new EncodedString();
         result.setOffset((short)(lookAheadL - posS));//independiente del length del match
 
@@ -79,7 +69,6 @@ public class WindowBuffer {
             result.decrementLengthByOne();
             j--;
         }
-        result.setC(buffers[j]);
         return result;
     }
 
@@ -87,7 +76,6 @@ public class WindowBuffer {
 
         EncodedString matchData = new EncodedString();
         matchData.setLength((short)0);
-        matchData.setC(getFirstCharLookAheadBuffer());
         int longestMatch = -1;
 
         for (short i = searchR; i>=searchL; i--) {
@@ -117,7 +105,6 @@ public class WindowBuffer {
     }
 
     public void fillLookAheadBuffer() {
-        System.out.println("----");
         for (int i = lookAheadL; i<=lookAheadR; i++) {
             shiftLeftOne();
         }
@@ -138,7 +125,7 @@ public class WindowBuffer {
             //shift by 1 input to buffers
             buffers[buffers.length-1] = input.charAt(0);
             //shift by 1 input
-            String inputString = input.substring(1);
+            StringBuilder inputString = new StringBuilder(input.substring(1));
             input = new StringBuilder(inputString);
         }
         else {//input is empty -> '<EOF>'
