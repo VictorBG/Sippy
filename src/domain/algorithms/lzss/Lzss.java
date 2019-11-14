@@ -152,8 +152,6 @@ public class Lzss implements BaseAlgorithm {
                         i++;
                         int symbol = input[i]; //last symbol
                         dw.copyCharsSince(len,off,(char)symbol);
-                        System.out.println(i);
-
                     }
                     i++;
                 }
