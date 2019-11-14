@@ -77,14 +77,12 @@ public class Lzss implements BaseAlgorithm {
         return new int[] {offset, length};
     }
 
-
-
-    public static void main(StringBuilder input, byte[] bis, boolean encode) throws IOException {
-
-
-
-        if (encode) {
-            WindowBuffer w = new WindowBuffer((short)BUFFER_SIZE_SEARCH,(short)BUFFER_SIZE_LOOKAHEAD,input);
+    @Override
+    public byte[] encode(byte[] input) {
+        baos = new ByteArrayOutputStream();
+        StringBuilder inputSB = new StringBuilder(new String(input));
+        try {
+            WindowBuffer w = new WindowBuffer((short)BUFFER_SIZE_SEARCH,(short)BUFFER_SIZE_LOOKAHEAD,inputSB);
             w.fillLookAheadBuffer();
 
             while (!w.lookAheadIsEmpty()) {
@@ -118,57 +116,6 @@ public class Lzss implements BaseAlgorithm {
 
             }
             baos.close();
-
-        }
-        else {
-
-
-
-            //decode
-            DecodeWindow dw = new DecodeWindow(BUFFER_SIZE_SEARCH);
-            try {
-                int i = 0;
-                while (i < bis.length-1) {
-                    byte byte_read = bis[i];
-                    if (byte_read < 128 && byte_read > 8) {
-                        //if (byte_read > 8) { //flag literal or coded token
-                        //b = bis2.read(); //literal
-                        //dw.addChar((char)b);
-
-                        //no flag byte, directly char
-                        dw.addChar((char)byte_read);
-                    }
-                    else {
-                        //b was offset_length
-                        //int len = bis2.read(); //length
-                        int[] off_len = decodify_offset_length_one_byte(bis[i]);
-                        int len = off_len[1];
-                        //System.out.println(len);
-                        int off = off_len[0];
-                        i++;
-                        int symbol = bis[i]; //last symbol
-                        dw.copyCharsSince(len,off,(char)symbol);
-
-                    }
-                }
-            }
-            finally {
-                baos.write(dw.getBuffer().toString().getBytes());
-                baos.close();
-            }
-        }
-
-    }
-
-
-    @Override
-    public byte[] encode(byte[] input) {
-        baos = new ByteArrayOutputStream();
-        String inp = new String(input);
-        StringBuilder in = new StringBuilder(inp);
-        byte[] empty_array = new byte[0];
-        try {
-            main(in, empty_array,true);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -182,14 +129,42 @@ public class Lzss implements BaseAlgorithm {
         baos = new ByteArrayOutputStream();
         StringBuilder empty_string = new StringBuilder();
         try {
-            main(empty_string,input,false);
+            DecodeWindow dw = new DecodeWindow(BUFFER_SIZE_SEARCH);
+            try {
+                int i = 0;
+                while (i < input.length) {
+                    byte byte_read = input[i];
+                    if (byte_read < 128 && byte_read > 8) {
+                        //if (byte_read > 8) { //flag literal or coded token
+                        //b = bis2.read(); //literal
+                        //dw.addChar((char)b);
+
+                        //no flag byte, directly char
+                        dw.addChar((char)byte_read);
+                    }
+                    else {
+                        //b was offset_length
+                        //int len = bis2.read(); //length
+                        int[] off_len = decodify_offset_length_one_byte(input[i]);
+                        int len = off_len[1];
+                        //System.out.println(len);
+                        int off = off_len[0];
+                        i++;
+                        int symbol = input[i]; //last symbol
+                        dw.copyCharsSince(len,off,(char)symbol);
+                        System.out.println(i);
+
+                    }
+                    i++;
+                }
+            }
+            finally {
+                baos.write(dw.getBuffer().toString().getBytes());
+                baos.close();
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
-
-
-        return new byte[0];
+        return baos.toByteArray();
     }
 }
