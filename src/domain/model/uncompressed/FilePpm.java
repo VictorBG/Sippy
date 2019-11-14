@@ -3,7 +3,7 @@ package domain.model.uncompressed;
 import domain.algorithms.Algorithm;
 
 /**
- * Author: Victor Blanco
+ * Author: Designed in class implemented by Victor and Sergio
  */
 public class FilePpm extends File {
 

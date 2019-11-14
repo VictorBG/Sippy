@@ -4,6 +4,6 @@
 public class MainApp {
 
   public static void main(String[] args) {
-    ConsoleApp.start();
+    OnApplicationStart.start();
   }
 }
