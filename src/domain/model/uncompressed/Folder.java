@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * Author: Victor Blanco
+ * Author: Designed in class implemented by Victor and Sergio
  */
 public class Folder extends ItemNC {
 
