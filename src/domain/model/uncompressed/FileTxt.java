@@ -3,7 +3,7 @@ package domain.model.uncompressed;
 import domain.algorithms.Algorithm;
 
 /**
- * Author: Designed in class implemented by Victor and Sergio
+ * Author: Victor Blanco
  */
 public class FileTxt extends File {
 

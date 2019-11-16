@@ -4,7 +4,7 @@ import domain.algorithms.Algorithm;
 import java.io.File;
 
 /**
- * Author: Designed in class implemented by Victor and Sergio
+ * Author: Sergio Vazquez
  *
  * A representation of a compressed item. Note: it is used mainly for the zip operation,
  * for the unzip operation it is merely used to save the file object (algorithm cannot be

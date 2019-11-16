@@ -1,5 +1,11 @@
 package utils;
 
+/**
+* Author: Sergio Vazquez
+ Utils class, used for concat byte arrays
+
+ */
+
 public class Bytes {
 
   public static byte[] concat(byte[]... arrays) {

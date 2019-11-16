@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Author: Designed in class implemented by Victor and Sergio
+ * Author: Victor Blanco
  * <p>
  * File model class to keep info of the {@link ItemNC} items that are single files.
  */
