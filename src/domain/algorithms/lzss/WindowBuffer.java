@@ -54,9 +54,6 @@ public class WindowBuffer {
     public EncodedString continueMatching(short posS) {
 
         short i = posS; //index for SB
-        if (posS == 0) {
-            int a = 0;
-        }
         short j = lookAheadL; //index for LAB
 
         EncodedString result = new EncodedString();
@@ -71,6 +68,9 @@ public class WindowBuffer {
             //we decided dont continue matching more
             result.decrementLengthByOne();
             j--;
+        }
+        if (result.length > result.offset) {
+            int a = 0;
         }
         return result;
     }
@@ -108,7 +108,8 @@ public class WindowBuffer {
     }
 
     public void fillLookAheadBuffer() {
-        for (int i = lookAheadL; i<=lookAheadR; i++) {
+        int originalLookAheadR = lookAheadR;
+        for (int i = lookAheadL; i<=originalLookAheadR; i++) {
             shiftLeftOne();
         }
     }
