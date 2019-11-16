@@ -95,15 +95,8 @@ public class ZipStream extends DataOutputStream {
     String name = file.getAbsolutePath().replace(basePath, "");
     int nameSize = name.length();
 
-    System.out.println("Pre algorithm: " + (System.currentTimeMillis() - a));
-    a = System.currentTimeMillis();
     BaseAlgorithm algorithm = itemC.getMethod().getAlgorithm();
-    byte[] data = algorithm.readFile(file);
-    System.out.println("Read data: " + (System.currentTimeMillis() - a));
-    a = System.currentTimeMillis();
-    data = algorithm.encode(data);
-    System.out.println("Algorithm: " + (System.currentTimeMillis() - a));
-    a = System.currentTimeMillis();
+    byte[] data = algorithm.encode(algorithm.readFile(itemC.getFile()));
 
     int dataSize = data.length;
 
@@ -115,12 +108,9 @@ public class ZipStream extends DataOutputStream {
     writeInt(nameSize);
     writeBytes(name);
 
-    System.out.println("Post algorithm - no write data: " + (System.currentTimeMillis() - a));
-    a = System.currentTimeMillis();
     for (byte b : data) {
       writeByte(b);
     }
-    System.out.println("Post algorithm - Write data: " + (System.currentTimeMillis() - a));
     totalSize += headerSize + dataSize;
   }
 
