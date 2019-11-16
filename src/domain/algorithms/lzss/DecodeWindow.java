@@ -27,11 +27,17 @@ public class DecodeWindow {
     }
 
     public void copyCharsSince(int len, int offset) {
+        if (len > offset) {
+            int a = 0;
+        }
         int positions = len;
         int off = offset;
         //System.out.println(buffer);
 
         int index = buffer.length()-off;
+        if (index+positions < 0 ) {
+            int a = 0;
+        }
         buffer.append( buffer.substring(index, index+positions));
     }
 

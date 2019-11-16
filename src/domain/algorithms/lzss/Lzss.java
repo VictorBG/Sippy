@@ -111,16 +111,16 @@ public class Lzss implements BaseAlgorithm {
             w.fillLookAheadBuffer();
             int i = 0;
             while (!w.lookAheadIsEmpty()) {
-                if (i == 4) {
-                    int a  = 0;
-                }
-                EncodedString es = w.findMatch();
 
+                EncodedString es = w.findMatch();
+                //es.print();
                 if (es.getLength() >= MIN_LEN_MATCH) {
-                    //es.print();
                     flags.addFlag(true); //flag 1 indicates <length,offset> token
-                    byte offset = (byte)es.getOffset();
+                    byte offset = (byte)es.getOffset(); //cast negative!!
                     byte length = (byte)es.getLength();
+                    if (unsignedByteToInt(offset) < unsignedByteToInt(length)) {
+                        int a = 0;
+                    }
 
                     baos.write(offset);
                     baos.write(length);
@@ -147,13 +147,10 @@ public class Lzss implements BaseAlgorithm {
 
         } catch (IOException e) {
             e.printStackTrace();
+            System.out.println();
         }
 
-        System.out.println("NUMBERTOKENS");
-        System.out.println(NUMBER_OF_TOKENS);
-        //return baos.toByteArray();
-        flags.addFlagAt(NUMBER_OF_TOKENS,true);
-        flags.print();
+        flags.addFlag(true); //special flag at last
         byte[] losf = flags.toByteArray();
         byte[] hola = Bytes.concat(intToBytes(NUMBER_OF_TOKENS), flags.toByteArray());
         byte[] hola2 = Bytes.concat(hola, baos.toByteArray());
@@ -173,25 +170,31 @@ public class Lzss implements BaseAlgorithm {
         NUMBER_OF_TOKENS = numFlags;
         numFlags = numFlags+1; //special bit at last
         byte[] flagArray;
-        if (numFlags%8 != 0) flagArray = new byte[numFlags/8+1];
+        if (numFlags%8 != 0) flagArray = new byte[(numFlags/8)+1];
         else flagArray = new byte[numFlags/8];
 
         for (int i = 0; i < flagArray.length; i++) {
             flagArray[i] = input[i + 4];
         }
         FlagHelper flags = new FlagHelper(NUMBER_OF_TOKENS, flagArray);
-        //flags.print();
         StringBuilder empty_string = new StringBuilder();
         try {
             DecodeWindow dw = new DecodeWindow(BUFFER_SIZE_SEARCH);
             try {
                 int i = 4+flagArray.length;
                 while (i < input.length) {
+                    if (i == 246679) {
+                        int a = 0;
+                    }
                     if (flags.next() == false) { //literal
                         byte byte_read = input[i];
                         if (unsignedByteToInt(byte_read) < 128) { //ascii literal
                             //no flag byte, directly char
                             dw.addChar((char)byte_read);
+                            System.out.print((char)byte_read);
+                            if (unsignedByteToInt(byte_read) >= 256) {
+                                int a = 0;
+                            }
                         }
                         else {
                             i++;
@@ -199,6 +202,7 @@ public class Lzss implements BaseAlgorithm {
                             byte[] utfBytes = {byte_read, byte2};
                             String utf = new String(utfBytes, StandardCharsets.UTF_8);
                             dw.addChar(utf.charAt(0));
+                            System.out.print(utf.charAt(0));
                         }
                     }
 
@@ -210,14 +214,20 @@ public class Lzss implements BaseAlgorithm {
                         i++;
                         int len = input[i];
                         len = unsignedByteToInt(input[i]);
+                        System.out.printf("<"+off+","+len+">");
+
+                        if (off < len) {
+                            int a = 0;
+                        }
                         //OFF_LEN
                         //int[] off_len = decodify_offset_length_one_byte(input[i]);
                         //int len = off_len[1];
                         //int off = off_len[0];
                         dw.copyCharsSince(len,off);
                     }
-                    System.out.print("la i vale");
-                    System.out.print(i);
+                    //System.out.print("la i vale");
+                    //System.out.print(i);
+
                     i++;
                 }
             }

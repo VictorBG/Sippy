@@ -59,7 +59,7 @@ public class WindowBuffer {
         EncodedString result = new EncodedString();
         result.setOffset((short)(lookAheadL - posS));//independiente del length del match
 
-        while (i <= searchR && j <= lookAheadR && buffers[i] == buffers[j]) {
+        while (i <= searchR && j <= lookAheadR && buffers[i] == buffers[j] && result.getLength() < result.getOffset()) {
             result.incrementLengthByOne();
             i++;
             j++;
