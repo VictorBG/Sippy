@@ -39,7 +39,7 @@ class ConsoleApp {
           e.printStackTrace();
         }
       } else if (n == 2) {
-        Transaction<Void> zip = new Unzip(new ItemC(new File(path)));
+        Transaction<Statistics> zip = new Unzip(new ItemC(new File(path)));
         try {
           zip.execute();
         } catch (IOException e) {

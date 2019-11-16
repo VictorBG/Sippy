@@ -21,6 +21,7 @@ import domain.model.Statistics;
 
 
 public class OnApplicationStart {
+
   Transaction<Statistics> zip;
 
   static void start() {
@@ -98,31 +99,25 @@ public class OnApplicationStart {
               case 1:
                 System.out.print("\nCompressing using LZ78 \n");
                 zip = new Zip(ItemNC.create(new File(path)), Algorithm.LZ78);
-                zip.execute();
-
                 break;
               case 2:
                 System.out.print("\nCompressing using LZSS \n");
                 zip = new Zip(ItemNC.create(new File(path)), Algorithm.LZSS);
-                zip.execute();
                 break;
               case 3:
                 System.out.print("\nCompressing using LZW \n \n");
                 zip = new Zip(ItemNC.create(new File(path)), Algorithm.LZW);
-                zip.execute();
-
                 break;
               case 4:
                 System.out.print("\nCompressing using JPEG \n");
                 zip = new Zip(ItemNC.create(new File(path)), Algorithm.JPEG);
-                zip.execute();
-
                 break;
-
               default:
                 break;
-
             }
+
+            zip.execute();
+
           } catch (IOException e) {
             e.printStackTrace();
           }
@@ -132,26 +127,35 @@ public class OnApplicationStart {
       } else if (compressDecscompress == 2) {
         System.out.print("You've selected Decompress, now we need your file path: ");
         path = keyBoard.next();
-        Transaction<Void> zip = new Unzip(new ItemC(new File(path)));
+        Transaction<Statistics> zip = new Unzip(new ItemC(new File(path)));
         try {
           zip.execute();
         } catch (IOException e) {
           e.printStackTrace();
         }
+        NumberFormat formatter = new DecimalFormat("#0.00000");
+        double time = zip.getResult().getElapsedTime();
+        time = time / 1000;
+        System.out.print("\n Your decompression has finished.\n ");
+        System.out.print(
+            "\n Statistics: \n " + "Elapsed time: " + formatter.format(time) + " seconds\n\n");
       }
     }
   }
-  private void showStatistics(){
+
+  private void showStatistics() {
     NumberFormat formatter = new DecimalFormat("#0.00000");
     double time = zip.getResult().getElapsedTime();
-    time = time/1000;
+    time = time / 1000;
     double initialSize = zip.getResult().getInitialSize();
     double finalSize = zip.getResult().getFinalSize();
-    double compression = ((finalSize-initialSize)/initialSize) * 100.0;
+    double compression = ((initialSize-finalSize) / initialSize) * 100.0;
 
     System.out.print("\n Your compression has finished.\n ");
-    System.out.print("\n Statistics: \n " + "Elapsed time: " + formatter.format(time) +" seconds"+ "\n The initial size was: "
-        + initialSize +  " Bytes"+ "\n And the final is: " + finalSize + " Bytes"+ "\n Compression: " + formatter.format(compression) +" %"+"\n\n");
+    System.out.print("\n Statistics: \n " + "Elapsed time: " + formatter.format(time) + " seconds"
+        + "\n The initial size was: "
+        + initialSize + " Bytes" + "\n And the final is: " + finalSize + " Bytes"
+        + "\n Compression: " + formatter.format(compression) + " %" + "\n\n");
 
   }
 }

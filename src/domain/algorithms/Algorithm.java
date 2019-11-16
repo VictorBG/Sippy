@@ -11,7 +11,7 @@ import domain.algorithms.lz78.LZ78;
  */
 public enum Algorithm {
   LZ78((byte) 0x0, new LZ78()),
-  LZW((byte) 0x1, null),
+  LZW((byte) 0x1, new LZW()),
   JPEG((byte) 0x2, null),
   LZSS((byte) 0x3, null),
   AUTOMATIC((byte) 0x4, null);
