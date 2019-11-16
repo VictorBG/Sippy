@@ -31,6 +31,7 @@ public class Pair {
 
   byte[] getBytes() {
     return new byte[]{
+        (byte) ((first >> 16) & 0xFF),
         (byte) ((first >> 8) & 0xFF),
         (byte) (first & 0xFF),
         (byte) second

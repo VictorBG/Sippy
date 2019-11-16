@@ -13,36 +13,43 @@ import utils.FileUtils;
 
 /**
  * Author: Victor Blanco
- * <p>
+ *
  * {@link OutputStream} to output a "sippy" file format.
- * <p>
+ *
  * A new sippy file is created in the root of the parent of the item passed by parameter on the
  * constructor, and then files can be added with no limit to that file.
- * <p>
- * The "sippy" file format has the next internal layout structure:
- * <p>
- * <p>
- * // TODO: Is HeaderSize this really neccessary? It is not used in the unzip operation.
- * *-------------* |  HeaderSize | 4B *-------------* | Method used | 1B *-------------* | DataSize
- * | 4B *-------------* |   NameSize  | 4B *-------------* |    Name     | ?B Undefined size by
- * default, indicated in NameSize *-------------* |    DATA     | ?B Undefined size by default,
- * indicated in DataSize *-------------*
  *
- * <p>
+ * The "sippy" file format has the next internal layout structure:
+ *
+ * // TODO: Is HeaderSize this really neccessary? It is not used in the unzip operation.
+ * *-------------*
+ * |  HeaderSize | 4B
+ * *-------------*
+ * | Method used | 1B
+ * *-------------*
+ * |   DataSize  | 4B
+ * *-------------*
+ * |   NameSize  | 4B
+ * *-------------*
+ * |    Name     | ?B Undefined size by default, indicated in NameSize
+ * *-------------*
+ * |    DATA     | ?B Undefined size by default, indicated in DataSize
+ * *-------------*
+ *
  * HeaderSize: integer indicating the size of the header (all but DATA).
- * <p>
+ *
  * MethodUsed: Byte indicating the compression algorithm used.
- * <p>
+ *
  * DataSize: Integer indicating the size of the data. This limits the data to 2^32-1 bytes, which is
  * around 4GB.
- * <p>
+ *
  * NameSize: Integer indicating the size of the name in the header.
- * <p>
+ *
  * Name: Name of the archive, it is relative to the parent root of the compressed items. That means
  * that a single file will have its file name as a name but in a folder structure they will have
  * canonical structure until the root parent. ie: if zipping \\users\\ex\\test and it is a file in
  * the directory \\users\\ex\\test\\a\\b\\c.txt, the name will be a\\b\\c.txt.
- * <p>
+ *
  * DATA: the encoded data of the file.
  */
 public class ZipStream extends DataOutputStream {
@@ -65,6 +72,7 @@ public class ZipStream extends DataOutputStream {
    * counter <code>written</code> is set to zero.
    *
    * @param out the underlying output stream, to be saved for later use.
+   *
    * @see FilterOutputStream#out
    */
   private ZipStream(OutputStream out, File file) {
@@ -80,14 +88,22 @@ public class ZipStream extends DataOutputStream {
    * @param itemC item to add
    */
   public void addFile(ItemC itemC) throws IOException {
+    long a = System.currentTimeMillis();
     byte method = itemC.getMethod().getId();
 
     File file = itemC.getFile();
     String name = file.getAbsolutePath().replace(basePath, "");
     int nameSize = name.length();
 
+    System.out.println("Pre algorithm: " + (System.currentTimeMillis() - a));
+    a = System.currentTimeMillis();
     BaseAlgorithm algorithm = itemC.getMethod().getAlgorithm();
-    byte[] data = algorithm.encode(algorithm.readFile(file));
+    byte[] data = algorithm.readFile(file);
+    System.out.println("Read data: " + (System.currentTimeMillis() - a));
+    a = System.currentTimeMillis();
+    data = algorithm.encode(data);
+    System.out.println("Algorithm: " + (System.currentTimeMillis() - a));
+    a = System.currentTimeMillis();
 
     int dataSize = data.length;
 
@@ -99,10 +115,12 @@ public class ZipStream extends DataOutputStream {
     writeInt(nameSize);
     writeBytes(name);
 
+    System.out.println("Post algorithm - no write data: " + (System.currentTimeMillis() - a));
+    a = System.currentTimeMillis();
     for (byte b : data) {
       writeByte(b);
     }
-
+    System.out.println("Post algorithm - Write data: " + (System.currentTimeMillis() - a));
     totalSize += headerSize + dataSize;
   }
 

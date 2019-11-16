@@ -55,23 +55,24 @@ public class UnzipStream {
       if (!file.exists()) {
         file.getParentFile().mkdirs();
         file.createNewFile();
-
-        byte[] data = new byte[dataSize];
-        dis.read(data, 0, dataSize);
-
-        DataOutputStream dos = new DataOutputStream(new FileOutputStream(file));
-        dos.writeBytes(new String(algorithm.getAlgorithm().decode(data)));
-        dos.close();
-
-        unzip();
-      } else {
-        throw new RuntimeException("File already exists, cannot be overwritten");
       }
-    } catch (EOFException ignore) {
+
+      byte[] data = new byte[dataSize];
+      dis.read(data, 0, dataSize);
+
+      DataOutputStream dos = new DataOutputStream(new FileOutputStream(file));
+      dos.writeBytes(new String(algorithm.getAlgorithm().decode(data)));
+      dos.close();
+
+      unzip();
+
+    } catch (
+        EOFException ignore) {
       // do not throw EOF exception to presentation layer, it is an exception we expect to get
     } finally {
       dis.close();
     }
+
   }
 
   private int getHeaderSize() throws IOException {

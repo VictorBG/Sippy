@@ -1,7 +1,9 @@
 package algorithms.lz78;
 
 import algorithms.base.BaseAlgorithm;
+import java.awt.Stroke;
 import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -9,6 +11,7 @@ import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import utils.Bytes;
 
@@ -17,30 +20,44 @@ import utils.Bytes;
  * <p>
  * Implementation of the LZ78 algorithm.
  * <p>
+ * Improvements:
+ * - Variable number of bits on index. We can assumme that the x index wont have a
+ * number greater than x-1, so we can define that the number of bits that this position can take as
+ * maximum is log2(x) instead of taking 24 bits everytime, which also puts a theoric limit of 2^24
+ * values for the index. It is also expensive for low sized files.
+ * - Use a Trie insead of a HashMap. It will improve but not much.
+ * - Output directly to the file: It will improve a lot, as most of the time is spent on writting to
+ * the file once the compression is
+ * done, but this would require a refactor of the BaseAlgorithm to accept an output stream (and also
+ * a input stream).
  */
 public class LZ78 implements BaseAlgorithm {
 
 
   @Override
   public byte[] encode(byte[] data) {
-    List<String> dictionary = new ArrayList<>();
-    byte[] result = new byte[0];
+    ByteArrayOutputStream baos = new ByteArrayOutputStream();
+    HashMap<String, Integer> dictionary = new HashMap<>();
 
     String s = "";
-    int pos = 0;
-    int j=0;
+    Integer pos = 0;
+    int index = 1;
     for (String b : new String(data).split("")) {
       s += String.valueOf(b);
-      if (!dictionary.contains(s)) {
-        dictionary.add(s);
-        result = Bytes.concat(result, new Pair(pos, s.charAt(s.length() - 1)).getBytes());
-        pos = 0;
+      if (!dictionary.containsKey(s)) {
+        dictionary.put(s, index++);
+        try {
+          baos.write(new Pair(pos, b.charAt(0)).getBytes());
+        } catch (IOException e) {
+          e.printStackTrace();
+        }
         s = "";
+        pos = 0;
       } else {
-        pos = dictionary.indexOf(s);
+        pos = dictionary.get(s);
       }
     }
-    return result;
+    return baos.toByteArray();
   }
 
   @Override
@@ -48,39 +65,35 @@ public class LZ78 implements BaseAlgorithm {
     StringBuilder result = new StringBuilder();
     HashMap<Integer, Pair> dictionary = new HashMap<>();
 
-    int k = 0, j = 0;
+    int k = 1, j = 0;
 
-    int i;
-    for (i = 0; i < input.length; i += 3) {
-      int number = byteArrayToInt(new byte[]{input[i], input[i + 1]});
-      int value = input[i + 2];
+    for (int i = 0; i < input.length; i += 4) {
+      int number = byteArrayToInt(new byte[]{input[i], input[i + 1], input[i + 2]});
+      int value = input[i + 3];
       if (value < 0) {
         value += 256;
       }
       char data = (char) value;
-      dictionary.put(k++, new Pair(number, data));
-      result.append(getDicString(dictionary, j++));
+      dictionary.put(k, new Pair(number, data));
+      result.append(getString(dictionary, k++));
     }
 
     return result.toString().getBytes();
   }
 
-  private String getDicString(HashMap<Integer, Pair> dictionary, int start) {
-    if (dictionary.get(start) == null) {
-      return "";
+  private String getString(HashMap<Integer, Pair> dic, int value) {
+    if (dic.get(value).getFirst() == 0) {
+      return String.valueOf(dic.get(value).getSecond());
+    } else {
+      return getString(dic, dic.get(value).getFirst()) + dic.get(value).getSecond();
     }
-    if (dictionary.get(start).getFirst() == 0) {
-      return String.valueOf(dictionary.get(start).getSecond());
-    }
-
-    return getDicString(dictionary, dictionary.get(start).getFirst()) + dictionary
-        .get(start).getSecond();
   }
 
   private int byteArrayToInt(byte[] b) {
     return
-        (b[1] & 0xFF) |
-            (b[0] & 0xFF) << 8;
+        (b[2] & 0xFF) |
+            (b[1] & 0xFF) << 8 |
+            (b[0] & 0xFF) << 16;
   }
 
   @Override
