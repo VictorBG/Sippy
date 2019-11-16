@@ -24,9 +24,11 @@ public abstract class BaseAlgorithmDriver {
   private String name = getAlgorithm().name();
 
   private Scanner scanner;
+  private Scanner scannerString;
 
   BaseAlgorithmDriver() {
     scanner = new Scanner(System.in);
+    scannerString = new Scanner(System.in);
     start();
   }
 
@@ -47,17 +49,18 @@ public abstract class BaseAlgorithmDriver {
 
   private void encodeString() {
     System.out.println("\nProvide the text you want to test:  ");
-    String test = readUntilEnter();
+    String test = scannerString.nextLine();
     byte[] output = algorithm.encode(test.getBytes());
     System.out.println("Encoded: " + new String(output));
     System.out.println("Decoded: " + new String(algorithm.decode(output)));
+    System.out.println("\n\n");
     start();
   }
 
   private void encodeFile() throws IOException {
     System.out
         .println("\nProvide the file path you want to test (only txt extension is supported):  ");
-    String path = readUntilEnter();
+    String path = scanner.next();
     if (!"txt".equals(FileUtils.getFileExtension(path))) {
       System.out.println("\nOther extensions that are not txt is not supported\n");
       encodeFile();
@@ -65,25 +68,8 @@ public abstract class BaseAlgorithmDriver {
     byte[] output = algorithm.encode(algorithm.readFile(new File(path)));
     System.out.println("Encoded: " + new String(output));
     System.out.println("Decoded: " + new String(algorithm.decode(output)));
+    System.out.println("\n\n");
     start();
-  }
-
-  private String readUntilEnter() {
-    StringBuilder result = new StringBuilder();
-    String readString = scanner.nextLine();
-    while (readString != null) {
-      result.append(readString);
-      if (readString.isEmpty()) {
-        break;
-      }
-
-      if (scanner.hasNextLine()) {
-        readString = scanner.nextLine();
-      } else {
-        readString = null;
-      }
-    }
-    return result.toString();
   }
 
 }
