@@ -435,12 +435,8 @@ public class JPEG implements BaseAlgorithm {
 
 
     private void marchThroughSippy(String input) throws IOException {
-        int i = 0;
-        int value = 0;
-        String bits = "";
-        Node current;
-        int id = 0;
-        BinaryTree bt = dc0Tree;
+        int i = 0; int value = 0; int id = 0;
+        String bits = ""; Node current; BinaryTree bt = dc0Tree;
         int num; int espais = 0;
         version = input.substring(0, input.indexOf(" "));
         input = input.substring(input.indexOf(" ") +1);
@@ -449,10 +445,12 @@ public class JPEG implements BaseAlgorithm {
         h = Integer.parseInt(input.substring(0,input.indexOf(" ")));
         input = input.substring(input.indexOf(" ") +1);
 
-        output += version + " " + w + " " + h + " " + "255" + "\n";
+        output += version + "\n" + w + " " + h + "\n" + "255" + "\n";
         out.write(output.getBytes());
         output = "";
 
+        double[][] matrixR = new double[h][w]; double[][] matrixG = new double[h][w]; double[][] matrixB = new double[h][w];
+        int jj = 0; int ii = 0;
         //System.out.println(input.length());
         //for(int j = 1204217; j < input.length(); ++j)System.out.println(input.charAt(j));
 
@@ -553,20 +551,34 @@ public class JPEG implements BaseAlgorithm {
             /*System.out.println("Queue: ");
             for (int e : queue) System.out.print(" " + e + " ");
             System.out.println();*/
-            inverseZigzag(queue, id);
+            double[][] submatrix;
+            submatrix = inverseZigzag(queue, id);
 
-            if (id != 2) {
+            if (id == 0) {
+                for(int k = 0; k < 8; ++k) {
+                    System.arraycopy(submatrix[k], 0, matrixR[k + ii], jj, 8);
+                }
+                bt = dc1Tree;
+                ++id;
+            }
+            else if (id == 1) {
+                for(int k = 0; k < 8; ++k) System.arraycopy(submatrix[k], 0, matrixG[k + ii], jj, 8);
                 bt = dc1Tree;
                 ++id;
             } else {
+                for(int k = 0; k < 8; ++k) System.arraycopy(submatrix[k], 0, matrixB[k + ii], jj, 8);
                 bt = dc0Tree;
                 id = 0;
+                if (jj == w - 8) {
+                    ii += 8;
+                    jj = 0;
+                } else jj += 8;
             }
-
             //System.out.println(i);
         }
 
-        writePPM();
+
+        writePPM(matrixR, matrixG, matrixB);
         /*int[][] mat = new int[8][8];
         for(int k = 0; k < 8; ++k) {
             for (int j = 0; j < 8; ++j) {
@@ -593,7 +605,7 @@ public class JPEG implements BaseAlgorithm {
         return num;
     }
 
-    private void inverseZigzag(Queue<Integer> queue, int id) {
+    private double[][] inverseZigzag(Queue<Integer> queue, int id) {
         double[][] matrix = new double[8][8];
 
         int i = 0;
@@ -638,10 +650,10 @@ public class JPEG implements BaseAlgorithm {
             for(j = 0; j < 8; ++j) System.out.print(" " + matrix[i][j] + " ");
         }*/
 
-        reverseQuantization(matrix, id);
+        return reverseQuantization(matrix, id);
     }
 
-    private void reverseQuantization(double[][] m, int id) {
+    private double[][] reverseQuantization(double[][] m, int id) {
         /*m = new double[][]{{-26,-3,-6,2,2,-1,0,0},{0,-2,-4,1,1,0,0,0},
                 {-3,1,5,-1,-1,0,0,0},{-3,1,2,-1,0,0,0,0},
                 {1,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},
@@ -664,10 +676,10 @@ public class JPEG implements BaseAlgorithm {
             for(int j = 0; j < 8; ++j) System.out.print(" " + m[i][j] + " ");
         }*/
 
-        reverseDCT(m, id);
+        return reverseDCT(m, id);
     }
 
-    private void reverseDCT(double[][] matrix, int id) {
+    private double[][] reverseDCT(double[][] matrix, int id) {
 
         double[][] aux = new double[8][8];
 
@@ -703,6 +715,7 @@ public class JPEG implements BaseAlgorithm {
             for(int j = 0; j < 8; ++j) System.out.print(" " + matrix[i][j] + " ");
         }*/
 
+
         ArrayList<Integer> color;
         if (id == 0) color = y;
         else if (id == 1) color = cb;
@@ -713,18 +726,22 @@ public class JPEG implements BaseAlgorithm {
                 color.add((int)matrix[i][j]);
             }
         }
+        return matrix;
 
         //for (int x : color) System.out.print(" " + x);
     }
 
-    private void writePPM() {
+    private void writePPM(double[][] y, double[][] cb, double[][] cr) throws IOException {
         int r; int g; int b;
-        for (int i = 0; i < y.size(); ++i) {
-            r = (int) (y.get(i) + 1.402 * (cr.get(i) - 128)) -128;
-            g = (int) (y.get(i) - 0.344136 * (cb.get(i) - 128) - 0.714136 * (cr.get(i) - 128)) -128;
-            b = (int) (y.get(i) + 1.722 * (cb.get(i) - 128)) -128;
-            out.write(r); out.write(g); out.write(b);
+        for (int i = 0; i < h; ++i) {
+            for (int j = 0; j < w; ++j) {
+                r = (int) (y[i][j] + 1.402 * (cr[i][j] - 128)) - 128;
+                g = (int) (y[i][j] - 0.344136 * (cb[i][j] - 128) - 0.714136 * (cr[i][j] - 128)) - 128;
+                b = (int) (y[i][j] + 1.722 * (cb[i][j] - 128)) - 128;
+                out.write(r); out.write(g); out.write(b);
+            }
         }
+        out.close();
     }
 
     @Override
