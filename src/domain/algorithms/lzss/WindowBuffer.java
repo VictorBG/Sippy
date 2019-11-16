@@ -54,6 +54,9 @@ public class WindowBuffer {
     public EncodedString continueMatching(short posS) {
 
         short i = posS; //index for SB
+        if (posS == 0) {
+            int a = 0;
+        }
         short j = lookAheadL; //index for LAB
 
         EncodedString result = new EncodedString();
