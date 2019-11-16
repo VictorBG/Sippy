@@ -147,7 +147,7 @@ public class OnApplicationStart {
     time = time/1000;
     double initialSize = zip.getResult().getInitialSize();
     double finalSize = zip.getResult().getFinalSize();
-    double compression = (finalSize/initialSize) * 100.0;
+    double compression = ((finalSize-initialSize)/initialSize) * 100.0;
 
     System.out.print("\n Your compression has finished.\n ");
     System.out.print("\n Statistics: \n " + "Elapsed time: " + formatter.format(time) +" seconds"+ "\n The initial size was: "
