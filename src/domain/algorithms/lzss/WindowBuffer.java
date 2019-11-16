@@ -3,7 +3,7 @@ package domain.algorithms.lzss;
 /**
  * Author: Miguel Angel Cabrera
  *
- * Class representing the a WindowBuffer for decoding porpouses.
+ * Class represents a WindowBuffer for encode porpouses.
  *
  */
 public class WindowBuffer {
@@ -145,7 +145,6 @@ public class WindowBuffer {
     }
 
     public void shiftLeft (int positions) {
-
         for (int i = 0; i<positions; i++) {
             shiftLeftOne();
         }

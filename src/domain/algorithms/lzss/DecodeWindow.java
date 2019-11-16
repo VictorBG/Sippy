@@ -2,7 +2,7 @@ package domain.algorithms.lzss;
 /**
  * Author: Miguel Angel Cabrera
  *
- * Enum with the list of the Algorithms availables in the system and its respective id.
+ * This class represents an Decode window buffer.
  *
  */
 public class DecodeWindow {
@@ -32,7 +32,6 @@ public class DecodeWindow {
         }
         int positions = len;
         int off = offset;
-        //System.out.println(buffer);
 
         int index = buffer.length()-off;
         if (index+positions < 0 ) {

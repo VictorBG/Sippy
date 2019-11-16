@@ -2,7 +2,7 @@ package domain.algorithms.lzss;
 /**
  * Author: Miguel Angel Cabrera
  *
- * Class representing an encoded token
+ * Class represents an encoded token
  *
  */
 public class EncodedString {
