@@ -1,0 +1,18 @@
+Objeto de prueba: Clase LZ78 (Algoritmo)
+
+Drivers: DriverLZ78
+   - Codificar y descodificar cadena de caracteres
+   - Codificar y descodificar archivo
+
+
+Valores estudiados:
+   - Codificación de una cadena de caracteres y su posterior descodificación
+   - Codificación de una cadena de caracteres archivadas en un archivo txt en el sistema y su posterior descodificación
+
+Operativa:
+    - Se abre un menú para seleccionar si se quiere testear una entrada de texto o un archivo
+    - En caso de que sea entrada de texto, introducir el texto
+    - En caso de que sea archivo, introducir path al archivo
+    - El driver mostrara el output de la codificación, y su posterior descodificación
+    - Volver al punto 1 si se quieren seguir haciendo cosas
+    - Introducir la opción de salir

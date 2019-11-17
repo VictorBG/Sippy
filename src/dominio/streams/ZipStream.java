@@ -88,7 +88,6 @@ public class ZipStream extends DataOutputStream {
    * @param itemC item to add
    */
   public void addFile(ItemC itemC) throws IOException {
-    long a = System.currentTimeMillis();
     byte method = itemC.getMethod().getId();
 
     File file = itemC.getFile();

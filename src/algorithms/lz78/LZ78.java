@@ -1,7 +1,6 @@
 package algorithms.lz78;
 
 import algorithms.base.BaseAlgorithm;
-import java.awt.Stroke;
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -9,11 +8,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import utils.Bytes;
 
 /**
  * Author: Victor Blanco
@@ -21,15 +16,11 @@ import utils.Bytes;
  * Implementation of the LZ78 algorithm.
  * <p>
  * Improvements:
- * - Variable number of bits on index. We can assumme that the x index wont have a
+ * - Variable number of bits on index. We can assume that the x index wont have a
  * number greater than x-1, so we can define that the number of bits that this position can take as
- * maximum is log2(x) instead of taking 24 bits everytime, which also puts a theoric limit of 2^24
+ * maximum is log2(x) instead of taking 24 bits always, which also puts a theoric limit of 2^24
  * values for the index. It is also expensive for low sized files.
- * - Use a Trie insead of a HashMap. It will improve but not much.
- * - Output directly to the file: It will improve a lot, as most of the time is spent on writting to
- * the file once the compression is
- * done, but this would require a refactor of the BaseAlgorithm to accept an output stream (and also
- * a input stream).
+ * - Use a Trie instead of a HashMap. It will improve but not much.
  */
 public class LZ78 implements BaseAlgorithm {
 
@@ -42,7 +33,8 @@ public class LZ78 implements BaseAlgorithm {
     String s = "";
     Integer pos = 0;
     int index = 1;
-    for (String b : new String(data).split("")) {
+    String text = new String(data);
+    for (String b : text.split("")) {
       s += String.valueOf(b);
       if (!dictionary.containsKey(s)) {
         dictionary.put(s, index++);
@@ -56,6 +48,13 @@ public class LZ78 implements BaseAlgorithm {
         pos = dictionary.get(s);
       }
     }
+
+    if (pos != 0) {
+      try {
+        baos.write(new Pair(pos, Character.MIN_VALUE).getBytes());
+      } catch (IOException ignore) {
+      }
+    }
     return baos.toByteArray();
   }
 
@@ -64,7 +63,7 @@ public class LZ78 implements BaseAlgorithm {
     StringBuilder result = new StringBuilder();
     HashMap<Integer, Pair> dictionary = new HashMap<>();
 
-    int k = 1, j = 0;
+    int k = 1;
 
     for (int i = 0; i < input.length; i += 4) {
       int number = byteArrayToInt(new byte[]{input[i], input[i + 1], input[i + 2]});
@@ -82,10 +81,18 @@ public class LZ78 implements BaseAlgorithm {
 
   private String getString(HashMap<Integer, Pair> dic, int value) {
     if (dic.get(value).getFirst() == 0) {
-      return String.valueOf(dic.get(value).getSecond());
+      return charAt(dic, value);
     } else {
-      return getString(dic, dic.get(value).getFirst()) + dic.get(value).getSecond();
+      return getString(dic, dic.get(value).getFirst()) + charAt(dic, value);
     }
+  }
+
+  private String charAt(HashMap<Integer, Pair> dic, int pos) {
+    Character res;
+    if ((res = dic.get(pos).getSecond()) == Character.MIN_VALUE) {
+      return "";
+    }
+    return String.valueOf(res);
   }
 
   private int byteArrayToInt(byte[] b) {

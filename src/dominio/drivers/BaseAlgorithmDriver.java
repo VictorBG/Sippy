@@ -15,15 +15,18 @@ import utils.FileUtils;
  */
 public abstract class BaseAlgorithmDriver {
 
-  /**
-   * Must be implemented by the childrens
-   */
   protected abstract Algorithm getAlgorithm();
 
   private BaseAlgorithm algorithm = getAlgorithm().getAlgorithm();
   private String name = getAlgorithm().name();
 
   private Scanner scanner;
+
+  /**
+   * Scanner used only to get the input if the user selects String option.
+   * If the one used is {@link #scanner} it will not fully read correctly due
+   * it has been written before (to select the option).
+   */
   private Scanner scannerString;
 
   BaseAlgorithmDriver() {
@@ -53,8 +56,7 @@ public abstract class BaseAlgorithmDriver {
     byte[] output = algorithm.encode(test.getBytes());
     System.out.println("Encoded: " + new String(output));
     System.out.println("Decoded: " + new String(algorithm.decode(output)));
-    System.out.println("\n\n");
-    start();
+    end();
   }
 
   private void encodeFile() throws IOException {
@@ -68,8 +70,15 @@ public abstract class BaseAlgorithmDriver {
     byte[] output = algorithm.encode(algorithm.readFile(new File(path)));
     System.out.println("Encoded: " + new String(output));
     System.out.println("Decoded: " + new String(algorithm.decode(output)));
+    end();
+  }
+
+  private void end() {
     System.out.println("\n\n");
-    start();
+    System.out.println("Select option:\n\t1. Start over\n\t2. Exit");
+    if (scanner.nextInt() == 1) {
+      start();
+    }
   }
 
 }
