@@ -1,4 +1,4 @@
-package algorithms.lzss;
+package prop.algorithms.lzss;
 
 /**
  * Author: Miguel Angel Cabrera

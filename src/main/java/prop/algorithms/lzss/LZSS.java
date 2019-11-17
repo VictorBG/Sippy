@@ -1,7 +1,4 @@
-package algorithms.lzss;
-
-import algorithms.base.BaseAlgorithm;
-import utils.Bytes;
+package prop.algorithms.lzss;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -11,6 +8,7 @@ import java.io.FileInputStream;
 import java.io.File;
 import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
+import prop.utils.Bytes;
 
 /**
  * Author: Miguel Angel Cabrera
@@ -18,7 +16,7 @@ import java.nio.charset.StandardCharsets;
  * Main class of LZSS algorithm
  *
  */
-public class LZSS implements BaseAlgorithm {
+public class LZSS implements prop.algorithms.base.BaseAlgorithm {
 
     private ByteArrayOutputStream baos;
 

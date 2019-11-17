@@ -3,6 +3,7 @@ package prop.algorithms;
 import prop.algorithms.base.BaseAlgorithm;
 import prop.algorithms.jpeg.JPEG;
 import prop.algorithms.lz78.LZ78;
+import prop.algorithms.lzss.LZSS;
 import prop.algorithms.lzw.LZW;
 
 /**

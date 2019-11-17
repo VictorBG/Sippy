@@ -1,15 +1,10 @@
 package prop.algorithms.lz78;
 
-
-import prop.algorithms.base.BaseAlgorithm;
-import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
+import prop.algorithms.base.BaseAlgorithm;
 
 /**
  * Author: Victor Blanco
@@ -30,20 +25,19 @@ public class LZ78 implements BaseAlgorithm {
   public byte[] encode(byte[] data) {
     ByteArrayOutputStream baos = new ByteArrayOutputStream();
     HashMap<String, Integer> dictionary = new HashMap<>();
-    HashMap<Integer, Pair> a = new HashMap<>();
 
     String s = "";
     Integer pos = 0;
     int index = 1;
-    for (String b : new String(data, StandardCharsets.UTF_8).split("")) {
+    String text = new String(data, StandardCharsets.UTF_8);
+    for (String b : text.split("")) {
       s += String.valueOf(b);
       if (!dictionary.containsKey(s)) {
-        dictionary.put(s, index);
+        dictionary.put(s, index++);
         try {
           baos.write(new Pair(pos, b.charAt(0)).getBytes());
         } catch (IOException ignore) {
         }
-        a.put(index++, new Pair(pos, b.charAt(0)));
         s = "";
         pos = 0;
       } else {
@@ -77,8 +71,8 @@ public class LZ78 implements BaseAlgorithm {
       dictionary.put(k, new Pair(number, data));
       result.append(getString(dictionary, k++));
     }
-    byte[] j = result.toString().getBytes(StandardCharsets.ISO_8859_1);
-    return j;
+
+    return result.toString().getBytes(StandardCharsets.ISO_8859_1);
   }
 
   private String getString(HashMap<Integer, Pair> dic, int value) {
@@ -107,7 +101,7 @@ public class LZ78 implements BaseAlgorithm {
 //  @Override
 //  public byte[] readFile(File file) throws IOException {
 //    BufferedReader bufRdr = new BufferedReader(
-//        new UnicodeReader(new FileInputStream(file), "UTF-8"));
+//        new InputStreamReader(new FileInputStream(file), StandardCharsets.ISO_8859_1));
 //    return bufRdr.lines().map(i -> i + "\n").reduce(String::concat).get().getBytes();
 //  }
 }
