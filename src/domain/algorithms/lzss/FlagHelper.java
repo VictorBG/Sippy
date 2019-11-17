@@ -1,8 +1,14 @@
 package domain.algorithms.lzss;
 
-
 import java.util.BitSet;
 
+/**
+ * Author: Miguel Angel Cabrera
+ *
+ * Auxiliary class for manage 1 bit flags of Encoded
+ * Strings and literals.
+ *
+ */
 public class FlagHelper {
 
     public BitSet flags;
