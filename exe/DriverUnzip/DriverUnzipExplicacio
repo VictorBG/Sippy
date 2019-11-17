@@ -1,0 +1,15 @@
+Objecte de prova: Classe Unzip (Transacció)
+
+Drivers: DriverUnzip
+- Descompressió d'arxius
+
+Valors estudiats:
+- Lectura d'un arxiu
+- Lectura dels headers dels arxius (per llegir el nom i l'algorisme utilitzat)
+- Descodificació dels valors llegits
+- Escriptura dades codificades en un arxiu amb el nom original.
+
+Operativa:
+- Introduir path a descomprimir
+- Tornar al punt 1 si es volen continuar fent cuses
+- Introduir l'opció de sortir
