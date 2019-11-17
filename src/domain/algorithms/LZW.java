@@ -2,6 +2,7 @@ package domain.algorithms;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.HashMap;
 import domain.algorithms.base.BaseAlgorithm;
 
@@ -23,7 +24,7 @@ public class LZW implements BaseAlgorithm {
     String stringBuilder = "";
     char character = getChar(data, j++);
     byte[] buffer = new byte[3];
-    boolean half = true;
+    boolean lowerBits = true;
     //Here we construct the dictionary with all ASCII characters
     for (int i = 0; i < 256; i++) {
       dictionary.put(Character.toString((char) i), i);
@@ -34,31 +35,34 @@ public class LZW implements BaseAlgorithm {
       character = getChar(data, j++);
 
       if (!dictionary.containsKey(stringBuilder + character)) {
-        int compressed = dictionary.get(stringBuilder);
-        if (half) {
-          buffer[0] = (byte) (compressed & 0xff);
-          buffer[1] = (byte) ((compressed >> 8) << 4);
+        int position = dictionary.get(stringBuilder);
+        //This boolean indicates when we have to write in the lower part of the buffer
+        if (lowerBits) {
+          //Takes the 12 bits of position
+          buffer[0] = (byte) (position & 0xff);
+          buffer[1] = (byte) ((position >> 8) << 4);
         } else {
-          buffer[1] += (byte) (compressed & 0xf);
-          buffer[2] = (byte) (compressed >> 4);
-
-          for (int b = 0; b < buffer.length; b++) {
-            arrayOutputStream.write(buffer[b]);
-            buffer[b] = 0;
+          //Takes the 12 bits of position
+          buffer[1] += (byte) (position & 0xf);
+          buffer[2] = (byte) (position >> 4);
+          try {
+            arrayOutputStream.write(buffer);
+          } catch (IOException e) {
+            e.printStackTrace();
           }
+          Arrays.fill(buffer, (byte) 0);
         }
-        half = !half;
+        lowerBits = !lowerBits;
         if (dictSize < 4096) {
           dictionary.put(stringBuilder + character, dictSize++);
         }
-
         stringBuilder = "" + character;
       } else {
         stringBuilder = stringBuilder + character;
       }
     }
     int compressed = dictionary.get(stringBuilder);
-    if (half) {
+    if (lowerBits) {
       buffer[0] = (byte) (compressed & 0xff);
       buffer[1] = (byte) ((compressed >> 8) << 4);
       arrayOutputStream.write(buffer[0]);
@@ -67,22 +71,13 @@ public class LZW implements BaseAlgorithm {
       buffer[1] += (byte) (compressed & 0xf);
       buffer[2] = (byte) (compressed >> 4);
 
-      for (int b = 0; b < buffer.length; b++) {
-        arrayOutputStream.write(buffer[b]);
-        buffer[b] = 0;
+      try {
+        arrayOutputStream.write(buffer);
+      } catch (IOException e) {
+        e.printStackTrace();
       }
     }
     return arrayOutputStream.toByteArray();
-  }
-
-  /**
-   * Converts 8 bits to 12 bits
-   *
-   * @param i - Integer value
-   * @return - String value of integer in 12 bit
-   */
-  private String extendTo12Bits(int i) {
-    return extend(Integer.toBinaryString(i), "0", 12);
   }
 
   /**
@@ -95,7 +90,6 @@ public class LZW implements BaseAlgorithm {
   private char getChar(byte[] data, int pos) {
     byte b = data[pos];
     int i = new Byte(b).intValue();
-
     if (i < 0) {
       i += 256;
     }
@@ -107,74 +101,59 @@ public class LZW implements BaseAlgorithm {
   public byte[] decode(final byte[] input) {
     HashMap<Integer, String> dictionary = new HashMap<>();
     arrayOutputStream = new ByteArrayOutputStream();
-    String[] arrayChar;
-    int dictSize = 256;
-    int currword;
-    int priorword;
+    int currentValue;
+    int lastValue;
     byte[] buffer = new byte[3];
-    boolean onleft = false;
-
-    arrayChar = new String[4096];
+    boolean lowerBits = false;
 
     for (int i = 0; i < 256; i++) {
       dictionary.put(i, Character.toString((char) i));
-      arrayChar[i] = Character.toString((char) i);
     }
-    // Gets the first word in code and outputs its corresponding char
     buffer[0] = input[0];
     buffer[1] = input[1];
-    priorword = getValue(buffer[0], buffer[1], true);
-    String s = arrayChar[priorword];
+    lastValue = getValue(buffer[0], buffer[1], true);
+    String s = dictionary.get(lastValue);
     byte[] aux = s.getBytes();
     try {
       arrayOutputStream.write(aux);
     } catch (IOException e) {
       e.printStackTrace();
     }
-    // Reads every 3 bytes and generates corresponding characters
+    // Reads 3 bytes and decode
     int j = 2;
     while (j < input.length) {
-      if (onleft) {
+      if (lowerBits) {
         buffer[0] = input[j++];
         buffer[1] = input[j++];
-        currword = getValue(buffer[0], buffer[1], onleft);
+        currentValue = getValue(buffer[0], buffer[1], true);
       } else {
         buffer[2] = input[j++];
-        currword = getValue(buffer[1], buffer[2], onleft);
+        currentValue = getValue(buffer[1], buffer[2], false);
       }
-      onleft = !onleft;
+      lowerBits = !lowerBits;
 
-      if (currword >= dictSize) {
-        if (dictSize < 4096) {
-          arrayChar[dictSize] = arrayChar[priorword]
-              + arrayChar[priorword].charAt(0);
+      if (currentValue >= dictionary.size()) {
+        s = dictionary.get(lastValue) + dictionary.get(lastValue).charAt(0);
+        if (dictionary.size() < 4096) {
+          dictionary.put(dictionary.size(),s);
         }
-        dictSize++;
-
-        s = arrayChar[priorword] + arrayChar[priorword].charAt(0);
-        aux = s.getBytes();
         try {
-          arrayOutputStream.write(aux);
+          arrayOutputStream.write(s.getBytes());
         } catch (IOException e) {
           e.printStackTrace();
         }
-
       } else {
-        if (dictSize < 4096) {
-          arrayChar[dictSize] = arrayChar[priorword]
-              + arrayChar[currword].charAt(0);
+        s = dictionary.get(currentValue);
+        if (dictionary.size() < 4096) {
+          dictionary.put(dictionary.size(), dictionary.get(lastValue) + s.charAt(0));
         }
-        dictSize++;
-        s = arrayChar[currword];
-
-        aux = s.getBytes();
         try {
-          arrayOutputStream.write(aux);
+          arrayOutputStream.write(s.getBytes());
         } catch (IOException e) {
           e.printStackTrace();
         }
       }
-      priorword = currword;
+      lastValue = currentValue;
     }
     return arrayOutputStream.toByteArray();
   }
@@ -189,23 +168,11 @@ public class LZW implements BaseAlgorithm {
    */
   public int getValue(byte b1, byte b2, boolean onleft) {
     int value;
-
     if (onleft) {
       value = ((int) b1 & 0xFF) + ((((int) b2 & 0xFF) >> 4) << 8);
     } else {
       value = ((int) b1 & 0xF) + (((int) b2 & 0xFF) << 4);
     }
-
     return value;
   }
-
-  private String extend(String input, String value, int length) {
-    StringBuilder inputBuilder = new StringBuilder(input);
-    while (inputBuilder.length() < length) {
-      inputBuilder.insert(0, value);
-    }
-    return inputBuilder.toString();
-  }
-
-
 }
