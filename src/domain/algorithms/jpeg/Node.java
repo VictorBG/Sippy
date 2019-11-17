@@ -1,4 +1,5 @@
 package domain.algorithms.jpeg;
+//author: Yaiza Cano
 
 public class Node {
     private String value;

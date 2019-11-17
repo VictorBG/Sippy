@@ -1,4 +1,5 @@
 package domain.algorithms.jpeg;
+//author: Yaiza Cano
 
 import java.util.ArrayList;
 
