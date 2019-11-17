@@ -7,6 +7,7 @@ import java.io.*;
 import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
+import java.sql.SQLOutput;
 
 /**
  * Author: Miguel Angel Cabrera
@@ -110,13 +111,16 @@ public class Lzss implements BaseAlgorithm {
             WindowBuffer w = new WindowBuffer((short)BUFFER_SIZE_SEARCH,(short)BUFFER_SIZE_LOOKAHEAD,inputSB);
             w.fillLookAheadBuffer();
             int i = 0;
+
             while (!w.lookAheadIsEmpty()) {
-                if (i == 50) {
+                if (i == 5492) {
                     int a = 0;
                 }
                 EncodedString es = w.findMatch();
-                //es.print();
+
+                //System.out.print(w.getFirstCharLookAheadBuffer());
                 if (es.getLength() >= MIN_LEN_MATCH) {
+                    //es.print();
                     if (es.getLength() != 0) {
                         int a = 0;
                     }

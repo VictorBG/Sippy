@@ -96,7 +96,7 @@ public class WindowBuffer {
         }
         int indexOf = 0; //first offset, no match
         int j = 0; //index for LAB
-        while(LAB.length() > 0 && SB.indexOf(LAB.substring(0,j)) >= indexOf) {
+        while(LAB.length() > j && SB.indexOf(LAB.substring(0,j)) >= indexOf) {
             int indexOfNew = SB.indexOf(LAB.substring(0,j));
             if (indexOfNew>indexOf) indexOf = indexOfNew;
             j++;
@@ -154,7 +154,7 @@ public class WindowBuffer {
     public void shiftLeftOne() {
 
         //shift search
-        for (int i = searchL; i<=searchR; i++) {
+        for (int i = searchL+1; i<=searchR; i++) {
             buffers[i-1] = buffers[i];
         }
         if (lookAheadL == searchR+1 && searchL > 0) --searchL;
