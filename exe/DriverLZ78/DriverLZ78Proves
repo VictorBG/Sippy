@@ -47,6 +47,7 @@ Sortida:
   Decoded: abababagagagabaabagagagsnsdkhbhhahhahhhhhahahheeeeehehhahabababagagagabaabagagagsnsdkhbhhahhahhhhhahahheeeeehehhah
 
 
+
 Prova 5:
 Descripció: Comprovació que l'algorisme funciona per arxius.
 Objectius: Comprovar que l'algorisme codifica i descodifica un arxiu lleugerament llarg (3244 caràcters)
