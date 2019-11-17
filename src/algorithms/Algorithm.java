@@ -3,7 +3,7 @@ package algorithms;
 import algorithms.base.BaseAlgorithm;
 import algorithms.lz78.LZ78;
 import algorithms.lzw.LZW;
-import algorithms.lzss.Lzss;
+import algorithms.lzss.LZSS;
 
 /**
  * Author: Victor Blanco
@@ -15,7 +15,7 @@ public enum Algorithm {
   LZ78((byte) 0x0, new LZ78()),
   LZW((byte) 0x1, new LZW()),
   JPEG((byte) 0x2, null),
-  LZSS((byte) 0x3, new Lzss()),
+  LZSS((byte) 0x3, new LZSS()),
   AUTOMATIC((byte) 0x4, null);
 
   private BaseAlgorithm algorithm;

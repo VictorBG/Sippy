@@ -1,6 +1,6 @@
-package domain.algorithms.lzss;
+package algorithms.lzss;
 
-import domain.algorithms.base.BaseAlgorithm;
+import algorithms.base.BaseAlgorithm;
 import utils.Bytes;
 
 import java.io.ByteArrayOutputStream;
@@ -18,7 +18,7 @@ import java.nio.charset.StandardCharsets;
  * Main class of LZSS algorithm
  *
  */
-public class Lzss implements BaseAlgorithm {
+public class LZSS implements BaseAlgorithm {
 
     public static ByteArrayOutputStream baos;
 

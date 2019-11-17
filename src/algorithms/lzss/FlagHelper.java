@@ -1,4 +1,4 @@
-package domain.algorithms.lzss;
+package algorithms.lzss;
 
 import java.util.BitSet;
 
