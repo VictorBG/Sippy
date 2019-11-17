@@ -1,0 +1,100 @@
+Prova 1:
+Descripció: Comprovació que l'algorisme funciona per a textos simples.
+Objectius: Comprovar que l'algorisme codifica i descodifica un text simple.
+Entrada: 1  DON QUIJOTE DE LA MANCHA
+Sortida:
+  Encoded:    D   O   N       Q   U   I   J  T   E  D
+      L   A  M  N   C   H  
+  Decoded: DON QUIJOTE DE LA MANCHA
+
+
+
+Prova 2:
+Descripció: Comprovació que l'algorisme funciona per a textos amb caràcters no alfanumèrics.
+Objectius: Comprovar que l'algorisme codifica i descodifica un text amb caràcters no alfanumèrics.
+Entrada: 1 éST0 3s ùNN\ntextö?de EJem^pl_o%º
+Sortida:
+  Encoded:    1       �   S   T   0  3   s  �   N
+  �   ?   d      E   J  m   ^   p   l   _   o   %   �
+  Decoded: 1 éST0 3s ùNN\ntextö?de EJem^pl_o%º
+
+
+
+Prova 3:
+Descripció: Comprovació que l'algorisme funciona per a textos amb cap repetició de cadenes de text.
+Objectius: Comprovar que l'algorisme codifica i descodifica un text amb cap repetició de cadenes de
+  text i comprovar que, efectivament, no funciona realment bé ja que no hi ha cadenes de text
+  repetides, per tant té una sortida major que l'entrada pel que fa a quantitat de bytes.
+Entrada: 1 abcdefghijklmnopqrstuvwxyz1234567890.
+Output:
+  Encoded:    a   b   c   d   e   f   g   h   i   j   k   l   m   n   o   p   q   r   s   t   u   v
+    w   x   y   z   1   2   3   4   5   6   7   8   9   0   .
+  Decoded: abcdefghijklmnopqrstuvwxyz1234567890.
+
+
+
+
+Prova 4:
+Descripció: Comprovació que l'algorisme funciona per a textos amb moltes repeticions de cadenes de text.
+Objectius: Comprovar que l'algorisme codifica i descodifica un text amb moltes repeticions de cadenes de
+  text i comprovar que, efectivament, funciona realment bé. Podem veure que la sortida és lleugerament
+  més llarga que a la prova 3 sent l'entrada més del triple de llarg (37 vs 117).
+Entrada: 1 abababagagagabaabagagagsnsdkhbhhahhahhhhhahahheeeeehehhahabababagagagabaabagagagsnsdkhbhh
+  ahhahhhhhahahheeeeehehhah
+Sortida:
+  Encoded:    a   b  b  a   g  g  a  a  g  g   s   n  d   k   h  h  a  h  h  h  h  h   e  e  h  h  a b  	a  a  b  a g
+  s  s   d  h  h  a  h  h  e  e  e  a  
+  Decoded: abababagagagabaabagagagsnsdkhbhhahhahhhhhahahheeeeehehhahabababagagagabaabagagagsnsdkhbhhahhahhhhhahahheeeeehehhah
+
+
+Prova 5:
+Descripció: Comprovació que l'algorisme funciona per arxius.
+Objectius: Comprovar que l'algorisme codifica i descodifica un arxiu lleugerament llarg (3244 caràcters)
+  de forma correcta.
+Input
+2 ./data/lz78/quijote.txt
+
+Output:
+Encoded:    P   r   i   m   e  a       p   a  t      d  l  i   n   g  n  o   s   o  h  d  	l  o  d  n  Q   u  j  t  d  l  	    M  	n   c   h
+
+  '
+    f  	m  s  .h  a   l  
+  o  <Q  i  ?o  ,e  e  l  !M  #c  %a  (
+   E  <u  <l  g  	r  P   Ia  M  Sh  	,  [c  y  .n  m   b  e  n  .q  Me  o  a  $o  d  Zm  ,  fo  a  m  c  %o  't  e  p  gu  v  v  +a  u  <h  Hl     e  Qo        \n   z  !e  <a  t  l  Ie  i,  jd  Zg  !a  t  g  a   ,  'r  c  +n  f  \c  .y  g  g  .c  r  ed  �.  U  a  o  Il  6e  jl  ~m   �  �v  	c  !q  e  8a  n  1o  �
+a
+e  �c  z  �   
+  �e  �u  K  a  �l  �f  us  ,a  �c     u  �p  #t  f  �s  [l  .m  �m  ,  y  �   �  �d  
+l  �� o  q�  �f  n  2    T  �  �n  s  �c  �a  {n  &a     q  �   s a "s  8u  Ze  �a  �y -a *o  dr %a  �u  n  .l  �g 3   !l  �v  i  �e  �y -   o  �o  `a  vo   l  	z  _  0u  a  �  >n  i  �b  �l  r  ��  <c  co  t  ca  �   \
+ o  �d  1a  �    F  i  �b Ba  >d  �   �n  �s  ,r  Gi  �l  ~c l  �c %c  �n    	�  F;  >r  �
+  km Me   x  ;n We  $i Os  c  �c  Zn  �, Sj  t  �r  Ft  �   r  �m  �r  Ya  Kr La  �g  
+  �l a  �a bQ  hr     c  r =e [e  � V   o ;e  �m �   �Q  Mj  �a  �o  3e  �d  _
+ Pe S   �t  Ga  =   �u d  f  1e  c  a �l  �a �o  �  �   s  O   $a �   �c db  ;  'a  n �,  p  �   kn  ?e  ,u  s  v  �s  +m  �e  �s  e  ?a St  d  1  �s   l  Ea  �
+   Q  �j  #a bP  �  �o  m _r sp  �o  j   u �r  �u o   ;  b  �t  �u  e  �   �r  c {
+  �  �n  .s  s  �a Gp �t  �l  !v  1d  �.  '
+Decoded: Primera parte del ingenioso hidalgo don Quijote de la Mancha
+
+
+
+
+
+Capítulo primero. Que trata de la condición y ejercicio del famoso hidalgo
+don Quijote de la Mancha
+
+
+En un lugar de la Mancha, de cuyo nombre no quiero acordarme, no ha mucho
+tiempo que vivía un hidalgo de los de lanza en astillero, adarga antigua,
+rocín flaco y galgo corredor. Una olla de algo más vaca que carnero,
+salpicón las más noches, duelos y quebrantos los sábados, lantejas los
+viernes, algún palomino de añadidura los domingos, consumían las tres
+partes de su hacienda. El resto della concluían sayo de velarte, calzas de
+velludo para las fiestas, con sus pantuflos de lo mesmo, y los días de
+entresemana se honraba con su vellorí de lo más fino. Tenía en su casa una
+ama que pasaba de los cuarenta, y una sobrina que no llegaba a los veinte,
+y un mozo de campo y plaza, que así ensillaba el rocín como tomaba la
+podadera. Frisaba la edad de nuestro hidalgo con los cincuenta años; era de
+complexión recia, seco de carnes, enjuto de rostro, gran madrugador y amigo
+de la caza. Quieren decir que tenía el sobrenombre de Quijada, o Quesada,
+que en esto hay alguna diferencia en los autores que deste caso escriben;
+aunque, por conjeturas verosímiles, se deja entender que se llamaba
+Quejana. Pero esto importa poco a nuestro cuento; basta que en la narración
+dél no se salga un punto de la verdad.

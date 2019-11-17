@@ -21,6 +21,24 @@ import java.util.HashMap;
  * maximum is log2(x) instead of taking 24 bits always, which also puts a theoric limit of 2^24
  * values for the index. It is also expensive for low sized files.
  * - Use a Trie instead of a HashMap. It will improve but not much.
+ *
+ * Explicación algoritmo:
+ *
+ * El algoritmo LZ78 se basa en construir un diccionario basado en repeticiones de cadenas de
+ * caracteres.
+ * La descodificación es volver a reconstruir este diccionario y seguir la "ruta" para reconstruir
+ * una cadena de caracteres.
+ *
+ * En cuanto a la codificacion, el algoritmo recorre caracter a caracter el string que se quiere
+ * codificar,
+ * por cada caracter se comprueba si ya ha existido en el documento, en caso que no sea asi, se
+ * añade
+ * una entrada al output con el ultimo caracter del string no encontrado y apuntando a la posicion
+ * anterior
+ * (que a su vez apuntara a una posición anterior con otro caracter, hasta que se llega al 0,
+ * y esto construye el string de esa posicion). En casode que sea afirmativo, se pasa al siguiente
+ * caracter
+ * y se vuelve a comprobar si existe.
  */
 public class LZ78 implements BaseAlgorithm {
 
@@ -105,7 +123,7 @@ public class LZ78 implements BaseAlgorithm {
   @Override
   public byte[] readFile(File file) throws IOException {
     BufferedReader bufRdr = new BufferedReader(
-        new InputStreamReader(new FileInputStream(file), StandardCharsets.ISO_8859_1));
+        new InputStreamReader(new FileInputStream(file), StandardCharsets.UTF_8));
     return bufRdr.lines().map(i -> i + "\n").reduce(String::concat).get().getBytes();
   }
 }
