@@ -113,7 +113,6 @@ public class Lzss implements BaseAlgorithm {
         try {
             WindowBuffer w = new WindowBuffer((short)BUFFER_SIZE_SEARCH,(short)BUFFER_SIZE_LOOKAHEAD,inputSB);
             w.fillLookAheadBuffer();
-            int i = 0;
             while (!w.lookAheadIsEmpty()) {
 
                 EncodedString es = w.findMatch();
@@ -141,8 +140,6 @@ public class Lzss implements BaseAlgorithm {
                     w.shiftLeft(1);
                 }
                 NUMBER_OF_TOKENS++;
-                i++;
-
             }
 
         } catch (IOException e) {
