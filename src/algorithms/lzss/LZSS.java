@@ -142,10 +142,9 @@ public class LZSS implements BaseAlgorithm {
         }
 
         flags.addFlag(true); //special flag at last
-        byte[] losf = flags.toByteArray();
-        byte[] hola = Bytes.concat(intToBytes(NUMBER_OF_TOKENS), flags.toByteArray());
-        byte[] hola2 = Bytes.concat(hola, baos.toByteArray());
-        return hola2;
+        byte[] tokensFlags = Bytes.concat(intToBytes(NUMBER_OF_TOKENS), flags.toByteArray());
+        byte[] tfAndBytes = Bytes.concat(tokensFlags, baos.toByteArray());
+        return tfAndBytes;
     }
 
     @Override
