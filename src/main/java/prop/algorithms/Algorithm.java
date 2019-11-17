@@ -3,6 +3,7 @@ package prop.algorithms;
 import prop.algorithms.base.BaseAlgorithm;
 import prop.algorithms.jpeg.JPEG;
 import prop.algorithms.lz78.LZ78;
+import prop.algorithms.lzss.LZSS;
 import prop.algorithms.lzw.LZW;
 
 /**
@@ -14,7 +15,7 @@ public enum Algorithm {
   LZ78((byte) 0x0, new LZ78()),
   LZW((byte) 0x1, new LZW()),
   JPEG((byte) 0x2, new JPEG()),
-  LZSS((byte) 0x3, null),
+  LZSS((byte) 0x3, new LZSS()),
   AUTOMATIC((byte) 0x4, null);
 
   private BaseAlgorithm algorithm;

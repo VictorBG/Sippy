@@ -25,7 +25,7 @@ public abstract class BaseAlgorithmTest {
     testDecode(algorithm);
   }
 
-  private void testEncode(BaseAlgorithm algorithm) {
+  protected void testEncode(BaseAlgorithm algorithm) {
 
     List<byte[]> outputs = getOutputs();
 
@@ -36,7 +36,7 @@ public abstract class BaseAlgorithmTest {
         outputs.get(index[0]++)));
   }
 
-  private void testDecode(BaseAlgorithm algorithm) {
+  protected void testDecode(BaseAlgorithm algorithm) {
     List<byte[]> inputs = getInputs();
 
     int[] index = {0};
