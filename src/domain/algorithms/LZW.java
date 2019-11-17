@@ -34,17 +34,17 @@ public class LZW implements BaseAlgorithm {
       character = getChar(data, j++);
 
       if (!dictionary.containsKey(stringBuilder + character)) {
-        String s12 = extendTo12Bits(dictionary.get(stringBuilder));
+        String stringWith12Bits = extendTo12Bits(dictionary.get(stringBuilder));
         if (half) {
           buffer[0] = (byte) Integer.parseInt(
-              s12.substring(0, 8), 2);
+              stringWith12Bits.substring(0, 8), 2);
           buffer[1] = (byte) Integer.parseInt(
-              s12.substring(8, 12) + "0000", 2);
+              stringWith12Bits.substring(8, 12) + "0000", 2);
         } else {
           buffer[1] += (byte) Integer.parseInt(
-              s12.substring(0, 4), 2);
+              stringWith12Bits.substring(0, 4), 2);
           buffer[2] = (byte) Integer.parseInt(
-              s12.substring(4, 12), 2);
+              stringWith12Bits.substring(4, 12), 2);
 
           for (int b = 0; b < buffer.length; b++) {
             arrayOutputStream.write(buffer[b]);
