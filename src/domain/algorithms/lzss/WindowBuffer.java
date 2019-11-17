@@ -79,8 +79,38 @@ public class WindowBuffer {
 
         EncodedString matchData = new EncodedString();
         matchData.setLength((short)0);
-        int longestMatch = -1;
+        if (searchIsEmpty()) {
+            return matchData;
+        }
+        String buffer = String.valueOf(buffers);
+        if (lookAheadR > buffer.length()) {
+            int a = 0;
+        }
 
+        String LAB = buffer.substring(lookAheadL,lookAheadR);
+        String SB = buffer.substring(searchL,searchR);
+
+        String pattern = getFirstCharLookAheadBuffer()+"";
+        if (pattern.equals("m")) {
+            int a = 0;
+        }
+        int indexOf = 0; //first offset, no match
+        int j = 0; //index for LAB
+        while(LAB.length() > 0 && SB.indexOf(LAB.substring(0,j)) >= indexOf) {
+            int indexOfNew = SB.indexOf(LAB.substring(0,j));
+            if (indexOfNew>indexOf) indexOf = indexOfNew;
+            j++;
+        }
+
+        if (j>0) {
+            matchData.setOffset((short)(SB.indexOf(LAB.substring(0,j-1)) + 1 ));
+            matchData.setLength((short)(j-1));
+        }
+        if (matchData.getLength() <= 0) matchData.setOffset((short)0);
+
+        return matchData;
+
+        /*
         for (short i = searchR; i>=searchL; i--) {
             if (buffers[i] == buffers[lookAheadL]) { //char match!
                 EncodedString es = continueMatching(i);
@@ -90,36 +120,89 @@ public class WindowBuffer {
                 }
             }
         }
+
+
         return matchData;
+
+         */
     }
 
     public WindowBuffer (short searchBufferSize, short lookAheadBufferSize, StringBuilder inputString) {
         buffers = new char[searchBufferSize+lookAheadBufferSize];
         input = inputString;
         length = (short)buffers.length;
-        searchL = 0;
+        searchL = searchBufferSize;
         searchR = (short)(searchBufferSize-1);
-        lookAheadL = searchBufferSize;
+        lookAheadL = (short)(buffers.length-1);
         lookAheadR = (short)(buffers.length-1);
     }
 
     public boolean lookAheadIsEmpty() {
         return lookAheadR < lookAheadL;
     }
+    public boolean searchIsEmpty() {
+        return searchR < searchL;
+    }
 
     public void fillLookAheadBuffer() {
         int originalLookAheadR = lookAheadR;
-        for (int i = lookAheadL; i<=originalLookAheadR; i++) {
+        for (int i = searchR+1; i<=originalLookAheadR; i++) {
             shiftLeftOne();
         }
     }
 
     public void shiftLeftOne() {
+
+        //shift search
+        for (int i = searchL; i<=searchR; i++) {
+            buffers[i-1] = buffers[i];
+        }
+        if (lookAheadL == searchR+1 && searchL > 0) --searchL;
+
+        //shift lookAhead
+        for (int i = lookAheadL; i<=lookAheadR; i++) {
+            buffers[i-1] = buffers[i];
+        }
+        if (lookAheadL > searchR+1) --lookAheadL;
+
+        //shift input
+        if (input.length() != 0) {
+            //shift by 1 input to buffers
+            buffers[buffers.length-1] = input.charAt(0);
+            //shift by 1 input
+            StringBuilder inputString = new StringBuilder(input.substring(1));
+            input = new StringBuilder(inputString);
+        }
+        else {
+            if (lookAheadR >= lookAheadL) {
+                buffers[lookAheadR] = '-';
+                --lookAheadR;
+
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /*
         //shift searchBuffer
+        if (lookAheadL == searchL && searchL > 0) {
+            --searchL;
+        }
         for (int i = searchL+1; i<=searchR; i++) {
             buffers[i-1] = buffers[i];
         }
-
+        //first time lookAhead is empty
+        if (lookAheadL == buffers.length) lookAheadL--;
         //shift lookahead
         for (int i = lookAheadL; i<=lookAheadR; i++) {
             buffers[i-1] = buffers[i];
@@ -128,6 +211,7 @@ public class WindowBuffer {
         if (input.length() != 0) {
             //shift by 1 input to buffers
             buffers[buffers.length-1] = input.charAt(0);
+            if (lookAheadL> searchR+1) --lookAheadL;
             //shift by 1 input
             StringBuilder inputString = new StringBuilder(input.substring(1));
             input = new StringBuilder(inputString);
@@ -142,6 +226,8 @@ public class WindowBuffer {
             }
 
         }
+
+         */
     }
 
     public void shiftLeft (int positions) {
