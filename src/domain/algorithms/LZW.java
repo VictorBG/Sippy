@@ -13,10 +13,10 @@ import domain.algorithms.base.BaseAlgorithm;
 
 public class LZW implements BaseAlgorithm {
 
-  ByteArrayOutputStream baos;
+  ByteArrayOutputStream arrayOutputStream;
 
   public byte[] encode(byte[] data) {
-    baos = new ByteArrayOutputStream();
+    arrayOutputStream = new ByteArrayOutputStream();
     HashMap<String, Integer> dictionary = new HashMap<>();
     int dictSize = 256;
     int j = 0;
@@ -47,12 +47,11 @@ public class LZW implements BaseAlgorithm {
               s12.substring(4, 12), 2);
 
           for (int b = 0; b < buffer.length; b++) {
-            baos.write(buffer[b]);
+            arrayOutputStream.write(buffer[b]);
             buffer[b] = 0;
           }
         }
         half = !half;
-
         if (dictSize < 4096) {
           dictionary.put(stringBuilder + character, dictSize++);
         }
@@ -61,26 +60,24 @@ public class LZW implements BaseAlgorithm {
       } else {
         stringBuilder = stringBuilder + character;
       }
-
     }
-
     String str12bit = extendTo12Bits(dictionary.get(stringBuilder));
     if (half) {
       buffer[0] = (byte) Integer.parseInt(str12bit.substring(0, 8), 2);
       buffer[1] = (byte) Integer.parseInt(str12bit.substring(8, 12)
           + "0000", 2);
-      baos.write(buffer[0]);
-      baos.write(buffer[1]);
+      arrayOutputStream.write(buffer[0]);
+      arrayOutputStream.write(buffer[1]);
     } else {
       buffer[1] += (byte) Integer.parseInt(str12bit.substring(0, 4), 2);
       buffer[2] = (byte) Integer.parseInt(str12bit.substring(4, 12), 2);
 
       for (int b = 0; b < buffer.length; b++) {
-        baos.write(buffer[b]);
+        arrayOutputStream.write(buffer[b]);
         buffer[b] = 0;
       }
     }
-    return baos.toByteArray();
+    return arrayOutputStream.toByteArray();
   }
 
   /**
@@ -114,7 +111,7 @@ public class LZW implements BaseAlgorithm {
   @Override
   public byte[] decode(final byte[] input) {
     HashMap<Integer, String> dictionary = new HashMap<>();
-    baos = new ByteArrayOutputStream();
+    arrayOutputStream = new ByteArrayOutputStream();
     String[] arrayChar;
     int dictSize = 256;
     int currword;
@@ -135,7 +132,7 @@ public class LZW implements BaseAlgorithm {
     String s = arrayChar[priorword];
     byte[] aux = s.getBytes();
     try {
-      baos.write(aux);
+      arrayOutputStream.write(aux);
     } catch (IOException e) {
       e.printStackTrace();
     }
@@ -162,7 +159,7 @@ public class LZW implements BaseAlgorithm {
         s = arrayChar[priorword] + arrayChar[priorword].charAt(0);
         aux = s.getBytes();
         try {
-          baos.write(aux);
+          arrayOutputStream.write(aux);
         } catch (IOException e) {
           e.printStackTrace();
         }
@@ -177,14 +174,14 @@ public class LZW implements BaseAlgorithm {
 
         aux = s.getBytes();
         try {
-          baos.write(aux);
+          arrayOutputStream.write(aux);
         } catch (IOException e) {
           e.printStackTrace();
         }
       }
       priorword = currword;
     }
-    return baos.toByteArray();
+    return arrayOutputStream.toByteArray();
   }
 
   /**
