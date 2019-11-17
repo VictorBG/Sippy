@@ -66,32 +66,32 @@ public class Lzss implements BaseAlgorithm {
         return 0;
     }
 
-    public static byte get_length_byte_3_low_bits (byte length) {
+    public static byte getLengthByte3LowBits(byte length) {
 
         byte result = (byte)(length);
         return result;
     }
 
-    public static byte get_offset_byte_3_4_5_6_high_bits(byte offset) {
+    public static byte getOffsetByte3456HighBits(byte offset) {
 
         byte result = (byte)(offset << 3);
         return result;
     }
 
-    public static byte codify_offset_length_one_byte_with_flag(byte offset, byte length) {
+    public static byte codifyOffsetLengthOneByteWithFlag(byte offset, byte length) {
         //resto 3
         offset = mapOffsetToCodedOffset(offset);
         length = mapLengthToCodedLength(length);
 
-        byte o = get_offset_byte_3_4_5_6_high_bits(offset);
-        byte l = get_length_byte_3_low_bits(length);
+        byte o = getOffsetByte3456HighBits(offset);
+        byte l = getLengthByte3LowBits(length);
 
         byte result = (byte)(o | l);
         result = (byte)(result | 0x80); //higher bit flag=1
         return result;
     }
 
-    public static int[] decodify_offset_length_one_byte(byte off_len) {
+    public static int[] decodifyOffsetLengthOneByte(byte off_len) {
         int off_len_int = unsignedByteToInt(off_len);
         int length = off_len_int & 0x07;
         off_len_int = off_len_int >> 3;
