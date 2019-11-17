@@ -3,26 +3,26 @@ package domain.algorithms.jpeg;
 
 import domain.algorithms.base.BaseAlgorithm;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.*;
 
 import static java.lang.Math.abs;
 
 public class JPEG implements BaseAlgorithm {
 // region Global variables
-    private HashMap<String, String> dc0Map = new HashMap<String, String>();
-    private HashMap<String, String> ac0Map = new HashMap<String, String>();
-    private HashMap<String, String> dc1Map = new HashMap<String, String>();
-    private HashMap<String, String> ac1Map = new HashMap<String, String>();
+    private HashMap<String, String> dc0Map = new HashMap<>();
+    private HashMap<String, String> ac0Map = new HashMap<>();
+    private HashMap<String, String> dc1Map = new HashMap<>();
+    private HashMap<String, String> ac1Map = new HashMap<>();
     private BinaryTree dc0Tree = new BinaryTree();
     private BinaryTree ac0Tree = new BinaryTree();
     private BinaryTree dc1Tree = new BinaryTree();
     private BinaryTree ac1Tree = new BinaryTree();
     private String output = "";
     private ByteArrayOutputStream out;
-    private int lastDCY = 0;
-    private int lastDCCb = 0;
-    private int lastDCr = 0;
     private String version;
     private int w;
     private int h;
@@ -41,11 +41,6 @@ public class JPEG implements BaseAlgorithm {
             {0.2778f, -0.4904f, 0.0975f, 0.4157f, -0.4157f, -0.0975f, 0.4904f, -0.2778f},
             {0.1913f, -0.4619f, 0.4619f, -0.1913f, -0.1913f, 0.4619f, -0.4619f, 0.1913f},
             {0.0975f, -0.2778f, 0.4157f, -0.4904f, 0.4904f, -0.4157f, 0.2778f, -0.0975f}};
-    private ArrayList<Integer> y = new ArrayList<>();
-    private ArrayList<Integer> cb = new ArrayList<>();
-    private ArrayList<Integer> cr = new ArrayList<>();
-
-    //private  int z = 0;
 // endregion
 
     private void huffmanTables() throws IOException {
@@ -80,7 +75,6 @@ public class JPEG implements BaseAlgorithm {
             ac1Map.put(s[0], s[1]);
             omplirArbresHuffman(ac1Tree, s[0], s[1]);
         }
-        //dc1Tree.write(dc1Tree.getRoot());
     }
 
     private void omplirArbresHuffman(BinaryTree tree, String key, String bits) {
@@ -113,7 +107,6 @@ public class JPEG implements BaseAlgorithm {
 
     private void marchThroughImage(byte[] image) throws IOException {
         version = String.valueOf((char) image[0]) + String.valueOf((char) image[1]);
-        //System.out.println("version: " + version);
         boolean width = false;
         boolean comment = false;
         boolean height = false;
@@ -137,16 +130,12 @@ public class JPEG implements BaseAlgorithm {
                 else h = h * 10 + (c - '0');
             }
         }
-        //System.out.println("width: " + w);
-        //System.out.println("height: " + h);
         output += version + " " + w + " " + h + " ";
         out.write(output.getBytes());
         output = "";
 
         int header = image.length - w * h * 3;
         byte[] rgb = Arrays.copyOfRange(image, header, image.length);
-
-        //for (int j = 0; j < 27; ++j) System.out.print(rgb[j] + " ");
 
         int[][] matrixR = new int[h][w];
         int[][] matrixG = new int[h][w];
@@ -195,22 +184,13 @@ public class JPEG implements BaseAlgorithm {
             dctTransform(auxcb, false);
             dctTransform(auxcr, false);
 
-           /*for(i = 0; i < 8; ++i) { //guardamos el resultado de la dct transform de nuevo en la matriz YCbCr
-                System.arraycopy(auxy[i], 0, matrixY[i + ii], jj, 8);
-                System.arraycopy(auxcb[i], 0, matrixCb[i + ii], jj, 8);
-                System.arraycopy(auxcr[i], 0, matrixCr[i + ii], jj, 8);
-            }*/
-
             if (jj == w - 8) {
                 ii += 8;
                 jj = 0;
             } else jj += 8;
             if (ii == h) end = true;
-            //System.out.println("I: " + ii + " J: " +jj);
         }
-        //int a = 0;
         out.close();
-
     }
 
     private void dctTransform(double[][] matrix, boolean y) throws IOException {
@@ -232,15 +212,7 @@ public class JPEG implements BaseAlgorithm {
             }
         }
 
-        /*System.out.println("DCT");
-        for(int i = 0; i < 8; ++i) {
-            System.out.println();
-            for(int j = 0; j < 8; ++j) System.out.print(" " + matrix[i][j] + " ");
-        }*/
-
-
         quantization(matrix, y);
-        //System.out.println("Z: " + z++);
     }
 
     private void quantization(double[][] m, boolean y) throws IOException {
@@ -254,20 +226,11 @@ public class JPEG implements BaseAlgorithm {
                 m[i][j] = Math.round(m[i][j]);
             }
         }
-
-        /*if (y) System.out.println("Lum");
-        else System.out.println("CbCr");
-        for(int i = 0; i < 8; ++i) {
-            System.out.println();
-            for(int j = 0; j < 8; ++j) System.out.print(m[i][j] + " ");
-        }
-        System.out.println();*/
-
         zigzag(m, y);
     }
 
     private void zigzag(double[][] m, boolean y) throws IOException {
-        ArrayList<Integer> zigzag = new ArrayList<Integer>();
+        ArrayList<Integer> zigzag = new ArrayList<>();
 
         int i = 0;
         int j = 0;
@@ -304,13 +267,6 @@ public class JPEG implements BaseAlgorithm {
                 break;
             }
         }
-        //++z;
-        //System.out.println(z);
-        //System.out.print("Zigzag A" + z + " ");
-        //for(int x : zigzag) System.out.print(x + " ");
-        //int a = 10;
-        //System.out.println();
-        //output += "A" + z +" ";
         if (y) encodeLum(zigzag);
         else encodeChro(zigzag);
     }
@@ -322,13 +278,9 @@ public class JPEG implements BaseAlgorithm {
         for (int x : zigzag) {
             if (!dc) {
                 dc = true;
-                //aux = x - lastDCY;
                 aux = x;
-                //System.out.print(x + " " + lastDCY + " " + aux + " ");
-                //lastDCY = x;
                 int length = Integer.toBinaryString(abs(aux)).length();
                 String key = "0" + Integer.toHexString(length).toUpperCase();
-                //System.out.print(key + " " + dc0Map.get(key));
                 output += dc0Map.get(key);
                 if (aux < 0) {
                     aux = (int) (aux + Math.pow(2, length) - 1);
@@ -336,7 +288,6 @@ public class JPEG implements BaseAlgorithm {
                     while (length-- - l != 0) output += "0";
                 }
                 output += Integer.toBinaryString(aux);
-                //System.out.println(" " + Integer.toBinaryString(aux));
             } else {
                 if (x == 0) count++;
                 else {
@@ -363,9 +314,6 @@ public class JPEG implements BaseAlgorithm {
 
         out.write(output.getBytes());
         output = "";
-        //z++;
-        // output += "FIY";
-        //System.out.println(output);
     }
 
     private void encodeChro(ArrayList<Integer> zigzag) throws IOException {
@@ -451,59 +399,25 @@ public class JPEG implements BaseAlgorithm {
 
         double[][] matrixR = new double[h][w]; double[][] matrixG = new double[h][w]; double[][] matrixB = new double[h][w];
         int jj = 0; int ii = 0;
-        //System.out.println(input.length());
-        //for(int j = 1204217; j < input.length(); ++j)System.out.println(input.charAt(j));
 
         while (i < input.length()) {
 
             current = bt.getRoot();
             Queue<Integer> queue = new LinkedList<>();
 
-            //System.out.print("Bits: ");
-//        System.out.println(("ID: " + id));
             for (; i < input.length(); ++i) {
-                //System.out.print(" i: " + i + " char: " + input.charAt(i));
                 if (!bt.isLeaf(current)) {
                     if (input.charAt(i) == '0') current = bt.getNodeLeft(current);
                     else current = bt.getNodeRight(current);
                 } else {
                     value = Integer.parseInt(current.getValue(), 16);
-                    //System.out.println("VAL: " + value);
                     bits = input.substring(i, i + value);
                     i += value;
                     break;
                 }
             }
-            //System.out.println();
             num = Integer.parseInt(bits, 2);
             if (bits.charAt(0) == '0') num -= (int) Math.pow(2, value) - 1;
-            //System.out.println("Value " + value + " Num_ " + num + " bits: " + bits);
-            /*switch (id) {
-                case 0:
-                    //System.out.println("Last: " + lastDCY);
-                    num += lastDCY;
-                    //System.out.println("mnumn" + num);
-                    lastDCY = num;
-                    //id++;
-                    //bt = dc1Tree;
-                    break;
-                case 1:
-                    //System.out.println("Last: " + lastDCCb);
-                    num += lastDCCb;
-                    //System.out.println("num: " + num);
-                    lastDCCb = num;
-                    //id++;
-                    //bt = dc1Tree;
-                    break;
-                case 2:
-                    //System.out.println("Last: " + lastDCr);
-                    //System.out.println("num: " + num);
-                    num += lastDCr;
-                    lastDCr = num;
-                    //id = 0;
-                    //bt = dc0Tree;
-                    break;
-            }*/
 
             queue.add(num);
 
@@ -511,18 +425,11 @@ public class JPEG implements BaseAlgorithm {
             else bt = ac1Tree;
 
             current = bt.getRoot();
-            //System.out.println("DCT : " + num + " bits " + bits + "Value: " + value);
-            //System.out.println();
-
-            //(ceros,size)(num)
             int zeros;
             int size;
             boolean eob = false;
 
-            //System.out.print("Bits: ");
-
             while (!eob) {
-                //System.out.println(" i: " + i + " c " + input.charAt(i));
                 if (!bt.isLeaf(current)) {
                     if (input.charAt(i) == '0') current = bt.getNodeLeft(current);
                     else current = bt.getNodeRight(current);
@@ -532,14 +439,11 @@ public class JPEG implements BaseAlgorithm {
                     size = Integer.parseInt(String.valueOf(current.getValue().charAt(1)), 16);
                     if (zeros == 0 && size == 0) eob = true;
                     else {
-                        //System.out.println();
-                        //System.out.println("if0: " + zeros + " " + size);
                         while (zeros-- > 0) queue.add(0);
                         if (size != 0) {
                             bits = input.substring(i, i + size);
                             num = tractaBits(bits, size);
                             queue.add(tractaBits(bits, size));
-                            //System.out.println(" bits " + bits + " num " + num);
                         }
                         i += size;
                         current = bt.getRoot();
@@ -547,10 +451,6 @@ public class JPEG implements BaseAlgorithm {
                 }
             }
 
-            //System.out.println();
-            /*System.out.println("Queue: ");
-            for (int e : queue) System.out.print(" " + e + " ");
-            System.out.println();*/
             double[][] submatrix;
             submatrix = inverseZigzag(queue, id);
 
@@ -574,29 +474,9 @@ public class JPEG implements BaseAlgorithm {
                     jj = 0;
                 } else jj += 8;
             }
-            //System.out.println(i);
         }
-
-
         writePPM(matrixR, matrixG, matrixB);
-        /*int[][] mat = new int[8][8];
-        for(int k = 0; k < 8; ++k) {
-            for (int j = 0; j < 8; ++j) {
-                if (!aux.isEmpty()) {
-                    mat[k][j] = aux.get(0);
-                    aux.remove(0);
-                }
-                else mat[k][j] = 0;
-            }
-        }*/
-/*
-
-        for (int k[] : mat) {
-            System.out.println();
-            for (int x : k) System.out.print(" " + x + " ");
-        }*/
-
-
+        out.close();
     }
 
     private int tractaBits(String bits, int value) {
@@ -644,12 +524,6 @@ public class JPEG implements BaseAlgorithm {
             }
         }
 
-        /*System.out.println("Zigzag");
-        for(i = 0; i < 8; ++i) {
-            System.out.println();
-            for(j = 0; j < 8; ++j) System.out.print(" " + matrix[i][j] + " ");
-        }*/
-
         return reverseQuantization(matrix, id);
     }
 
@@ -658,7 +532,6 @@ public class JPEG implements BaseAlgorithm {
                 {-3,1,5,-1,-1,0,0,0},{-3,1,2,-1,0,0,0,0},
                 {1,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},
                 {0,0,0,0,0,0,0,0}};*/
-
         int[][] qt;
         if (id == 0) qt = qtY;
         else qt = qtC;
@@ -669,13 +542,6 @@ public class JPEG implements BaseAlgorithm {
                 m[i][j] = Math.round(m[i][j]);
             }
         }
-
-        /*System.out.println("Quantization");
-        for(int i = 0; i < 8; ++i) {
-            System.out.println();
-            for(int j = 0; j < 8; ++j) System.out.print(" " + m[i][j] + " ");
-        }*/
-
         return reverseDCT(m, id);
     }
 
@@ -701,37 +567,10 @@ public class JPEG implements BaseAlgorithm {
                 else if (matrix[i][j] > 255) matrix[i][j] = 255;
             }
         }
-       /* dct = new double[][]{{-66, -63, -71, -68, -56, -65, -68, -46},
-                {-71, -73, -72, -46, -20, -41, -66, -57},
-                {-70, -78, -68, -17, 20, -14, -61, -63},
-                {-63, -73, -62, -8, 27, -14, -60, -58},
-                {-58, -65, -61, -27, -6, -40, -68, -50},
-                {-57, -57, -64, -58, -48, -66, -72, -47},
-                {-53, -46, -61, -74, -65, -63, -62, -45},
-                {-47, -34, -53, -74, -60, -47, -47, -41}};*/
-        //System.out.println("DCT");
-        /*for(int i = 0; i < 8; ++i) {
-            System.out.println();
-            for(int j = 0; j < 8; ++j) System.out.print(" " + matrix[i][j] + " ");
-        }*/
-
-
-        ArrayList<Integer> color;
-        if (id == 0) color = y;
-        else if (id == 1) color = cb;
-        else color = cr;
-
-        for (int i = 0; i < 8; ++i) {
-            for (int j = 0; j < 8; ++j) {
-                color.add((int)matrix[i][j]);
-            }
-        }
         return matrix;
-
-        //for (int x : color) System.out.print(" " + x);
     }
 
-    private void writePPM(double[][] y, double[][] cb, double[][] cr) throws IOException {
+    private void writePPM(double[][] y, double[][] cb, double[][] cr) {
         int r; int g; int b;
         for (int i = 0; i < h; ++i) {
             for (int j = 0; j < w; ++j) {
@@ -741,7 +580,6 @@ public class JPEG implements BaseAlgorithm {
                 out.write(r); out.write(g); out.write(b);
             }
         }
-        out.close();
     }
 
     @Override
@@ -754,7 +592,6 @@ public class JPEG implements BaseAlgorithm {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         return out.toByteArray();
     }
 
