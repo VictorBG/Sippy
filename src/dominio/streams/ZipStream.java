@@ -108,9 +108,8 @@ public class ZipStream extends DataOutputStream {
     writeInt(nameSize);
     writeBytes(name);
 
-    for (byte b : data) {
-      writeByte(b);
-    }
+    write(data, 0, data.length);
+
     totalSize += headerSize + dataSize;
   }
 

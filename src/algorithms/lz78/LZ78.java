@@ -48,8 +48,7 @@ public class LZ78 implements BaseAlgorithm {
         dictionary.put(s, index++);
         try {
           baos.write(new Pair(pos, b.charAt(0)).getBytes());
-        } catch (IOException e) {
-          e.printStackTrace();
+        } catch (IOException ignore) {
         }
         s = "";
         pos = 0;
