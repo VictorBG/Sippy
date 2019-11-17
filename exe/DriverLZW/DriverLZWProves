@@ -1,0 +1,81 @@
+Prova 1:
+Descripció: Comprovació que l'algorisme funciona per a textos simples.
+Objectius: Comprovar que l'algorisme codifica i descodifica un text simple.
+Entrada: 1  DON QUIJOTE DE LA MANCHA
+Sortida:
+  Encoded: DN QI
+  OE D
+  AA
+  Decoded: DON QUIJOTE DE LA MANCHA
+
+
+
+Prova 2:
+Descripció: Comprovació que l'algorisme funciona per a textos amb caràcters no alfanumèrics.
+Objectius: Comprovar que l'algorisme codifica i descodifica un text amb caràcters no alfanumèrics.
+Entrada: 1 éST0 3s ùNN\ntextö?de EJem^pl_o%º
+Sortida: (No ens deixa copiar l'encoded desde la terminal)
+  Encoded: éT
+  Decoded: éST0 3s ùNN\ntextö?de EJem^pl_o%º
+
+
+
+Prova 3:
+Descripció: Comprovació que l'algorisme funciona per a textos amb cap repetició de cadenes de text.
+Objectius: Comprovar que l'algorisme codifica i descodifica un text amb cap repetició de cadenes de
+  text i comprovar que, efectivament, no funciona realment bé ja que no hi ha cadenes de text
+  repetides, per tant té una sortida major que l'entrada pel que fa a quantitat de bytes.
+Entrada: 1 abcdefghijklmnopqrstuvwxyz1234567890.
+Output:
+  Encoded: acei
+  kmo qsuy
+  1359 .
+  Decoded: abcdefghijklmnopqrstuvwxyz1234567890.
+
+
+
+
+Prova 4:
+Descripció: Comprovació que l'algorisme funciona per a textos amb moltes repeticions de cadenes de text.
+Objectius: Comprovar que l'algorisme codifica i descodifica un text amb moltes repeticions de cadenes de
+  text i comprovar que, efectivament, funciona realment bé. Podem veure que la sortida és lleugerament
+  més llarga que a la prova 3 sent l'entrada més del triple de llarg (37 vs 117).
+Entrada: 1 abababagagagabaabagagagsnsdkhbhhahhahhhhhahahheeeeehehhahabababagagagabaabagagagsnsdkhbhhahhahhhhhahahheeeeehehhah
+Sortida:
+   Encoded: a gsshee	
+   $g/ 
+   Decoded: abababagagagabaabagagagsnsdkhbhhahhahhhhhahahheeeeehehhahabababagagagabaabagagagsnsdkhbhhahhahhhhhahahheeeeehehhah
+
+
+
+Prova 5:
+Descripció: Comprovació que l'algorisme funciona per arxius.
+Objectius: Comprovar que l'algorisme codifica i descodifica un arxiu lleugerament llarg (3244 caràcters)
+  de forma correcta.
+Input
+2 ./data/lzw/quijote.txt
+
+Output: (Hi ha un problema al passar a String, per fer l'output del decode, que fa que certs caràcters no es vegin
+        de forma correcta, això si es guarda a un arxiu, es veu bé, ja que ho guardem byte a byte i no transformant-lo
+        a String, no hem trobat cap solució perquè es vegi bé)
+  Encoded: DN QI
+  OE D
+
+  iul d evne avdaR	MRPR	A I�UO 1
+   3a!Vod	c	on y e
+  h	dlm. i
+  o	WY'h
+  'sh3"S$c+'""im*,(�T�%�%!! V
+  4n��-�%#`'�%$�"g$��x�`-�/,= */jt.�1o�d*2.%f.p!�Q
+  $W� )�'��6�5��*6'5*3d,4<,f5r)�,$�3�% �	$gc+b)� �q)t
+  2G�#�&O9�J|$E�&vC�,4�+.�"'i1?Q<\%%0!^%7�;r
+  (�N?�G�*MH�EaL5%�Kf �2(WL(G,�&4cH!^ &d./�8�.3O3.�8�"$PD]FO!0�K�4D~)By +$VQ��O~+ �'R3�14F3V7��9.Rb�-]-e,Qy3K5$8�S+5B'L^�2"+�!�?&):�A'S�QF65-WlN�JO <]BW�CQ6#UVE0R2\;&�#�7PY#]$^_=%�1A-#A.N<2C�FE*'�=M�/�4�/S�5*E6$�9�\*(�[ �8m!�F-]>U�B#_D�W�&0A1>7)9�/:�U$sI-�6Y".NB�9Q�JW02($1+8�R�G�'@�&�BT�G� �5;a�!+�2Z}YN\)*�1KX*uT*]�7�&�?G !\<@ 04S/6( ?;r �36�XG+-WO�'2y�2;@J�-//� 8>?N�B	-"�&yO@][0��! �F�&c	7J/*>P��8W�CB.&�..>9*xH;�*�\Z!+,m%�C�S�LbyFB�:L��L/AE(�&7�,1EAG7I�;K )o*Y�R{I*�&�'YE�;�-4�;�P�87g.T�BFMg Oe0�<54=Ui9�E,��?�;$�#��7�P".*/,=��9-e3-�4&�R*![��Ud�[P	rQ*AAIJY�:6A4�"(CY4�+�Y:N!Y �c�;1�K)�-�2"/!�N5�P%�-�.rl �^Gn.�B�T"�8+*oGJ>5�H(r�QkdmY�^�K�mH*!�mu	�R[1,�YL=2�M6q.F=�&a�3[.Lg}B;�G]4�Z[�LI�T�[CD�!?P7�4�6b�_X�JN7��ld&�\@Cq�i:)S�<HNNB0l9wc_g(9%)�PeyD�#'�v�'7�PH�vB]w�q?X/Go;�O+4ni�>N�Pw6<Hf5Eo#Tq)U�X�a�ZlL#,*�Fp2�El�F(+^g]L^7<(*G);xaBP	%2t]BR-r�FD�3R-"UL�a!�);q�WeOeO�l+2kUUb^sGP�0�#o:<4�V\�=�?`"Rg! _�\2}E|=�a�"d�G7Aa"�)-%h�N07�D^Q{�]E�U�f	>5�kv&�)Q�^T$�`0�TZp
+  Decoded: DON QUIJOTE DE LA MANCHA
+  Miguel de Cervantes Saavedra
+
+  PRIMERA PARTE
+  CAPIÌTULO 1: Que trata de la condicioÌn y ejercicio del famoso hidalgo D. Quijote de la Mancha
+  En un lugar de la Mancha, de cuyo nombre no quiero acordarme, no ha mucho tiempo que viviÌa un hidalgo de los de lanza en astillero, adarga antigua, rociÌn flaco y galgo corredor. Una olla de algo maÌs vaca que carnero, salpicoÌn las maÌs noches, duelos y quebrantos los saÌbados, lentejas los viernes, alguÌn palomino de anÌadidura los domingos, consumiÌan las tres partes de su hacienda. El resto della concluiÌan sayo de velarte, calzas de velludo para las fiestas con sus pantuflos de lo mismo, los diÌas de entre semana se honraba con su vellori de lo maÌs fino. TeniÌa en su casa una ama que pasaba de los cuarenta, y una sobrina que no llegaba a los veinte, y un mozo de campo y plaza, que asiÌ ensillaba el rociÌn como tomaba la podadera. Frisaba la edad de nuestro hidalgo con los cincuenta anÌos, era de complexioÌn recia, seco de carnes, enjuto de rostro; gran madrugador y amigo de la caza. Quieren decir que teniÌa el sobrenombre de Quijada o Quesada (que en esto hay alguna diferencia en los autores que deste caso escriben), aunque por conjeturas verosiÌmiles se deja entender que se llama Quijana; pero esto importa poco a nuestro cuento; basta que en la narracioÌn deÌl no se salga un punto de la verdad. Es, pues, de saber, que este sobredicho hidalgo, los ratos que estaba ocioso (que eran los maÌs del anÌo) se daba a leer libros de caballeriÌas con tanta aficioÌn y gusto, que olvidoÌ casi de todo punto el ejercicio de la caza, y aun la administracioÌn de su hacienda; y llegoÌ a tanto su curiosidad y desatino en esto, que vendioÌ muchas hanegas de tierra de sembradura, para comprar libros de caballeriÌas en que leer; y asiÌ llevoÌ a su casa todos cuantos pudo haber dellos; y de todos ningunos le pareciÌan tan bien como los que compuso el famoso Feliciano de Silva: porque la claridad de su prosa, y aquellas intrincadas razones suyas, le pareciÌan de perlas; y maÌs cuando llegaba a leer aquellos requiebros y cartas de desafiÌo, donde en muchas partes hallaba escrito: la razoÌn de la sinrazoÌn que a mi razoÌn se hace, de tal manera mi razoÌn enflaquece, que con razoÌn me quejo de la vuestra fermosura, y tambieÌn cuando leiÌa: los altos cielos que de vuestra divinidad divinamente con las estrellas se fortifican, y os hacen merecedora del merecimiento que merece la vuestra grandeza. Con estas y semejantes razones perdiÌa el pobre caballero el juicio, y desvelaÌbase por entenderlas, y desentranÌarles el sentido, que no se lo sacara, ni las entendiera el mismo AristoÌteles, si resucitara para soÌlo ello. No estaba muy bien con las heridas que don Belianis daba y recibiÌa, porque se imaginaba que por grandes maestros que le hubiesen curado, no dejariÌa de tener el rostro y todo el cuerpo lleno de cicatrices y senÌales; pero con todo alababa en su autor aquel acabar su libro con la promesa de aquella inacabable aventura, y muchas veces le vino deseo de tomar la pluma, y darle fin al pie de la letra como alliÌ se promete; y sin duda alguna lo hiciera, y aun saliera con ello, si otros mayores y continuos pensamientos no se lo estorbaran.
+  Tuvo muchas veces competencia con el cura de su lugar (que era hombre docto graduado en SiguÌenza), sobre cuaÌl habiÌa sido mejor caballero, PalmeriÌn de Inglaterra o AmadiÌs de Gaula; mas maese NicolaÌs, barbero del mismo pueblo, deciÌa que ninguno llegaba al caballero del Febo, y que si alguno se le podiÌa comparar, era don Galaor, hermano de AmadiÌs de Gaula, porque teniÌa muy acomodada condicioÌn para todo; que no era caballero melindroso, ni tan lloroÌn como su hermano, y que en lo de la valentiÌa no le iba en zaga.
+  En resolucioÌn, eÌl se enfrascoÌ tanto en su lectura, que se le pasaban las noches leyendo de claro en claro, y los diÌas de turbio en turbio, y asiÌ, del poco dormir y del mucho leer, se le secoÌ el cerebro, de manera que vino a perder el juicio. LlenoÌsele la fantasiÌa de todo aquello que leiÌa en los libros, asiÌ de encantamientos, como de pendencias, batallas, desafiÌos, heridas, requiebros, amores, tormentas y disparates imposibles, y asentoÌsele de tal modo en la imaginacioÌn que era verdad toda aquella maÌquina de aquellas sonÌadas invenciones que leiÌa, que para eÌl no habiÌa otra
+  historia maÌs cierta en el mundo.
