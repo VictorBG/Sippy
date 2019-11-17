@@ -1,6 +1,7 @@
 package algorithms;
 
 import algorithms.base.BaseAlgorithm;
+import algorithms.jpeg.JPEG;
 import algorithms.lz78.LZ78;
 import algorithms.lzw.LZW;
 
@@ -8,12 +9,11 @@ import algorithms.lzw.LZW;
  * Author: Victor Blanco
  *
  * Enum with the list of the Algorithms availables in the system and its respective id.
- *
  */
 public enum Algorithm {
   LZ78((byte) 0x0, new LZ78()),
   LZW((byte) 0x1, new LZW()),
-  JPEG((byte) 0x2, null),
+  JPEG((byte) 0x2, new JPEG()),
   LZSS((byte) 0x3, null),
   AUTOMATIC((byte) 0x4, null);
 
