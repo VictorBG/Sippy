@@ -18,7 +18,7 @@ public class Lzss implements BaseAlgorithm {
 
     public static ByteArrayOutputStream baos;
 
-    public static final int MIN_LEN_MATCH = 2;
+    public static final int MIN_LEN_MATCH = 3;
                                                 //max2^8 = 255
     public static final int BUFFER_SIZE_LOOKAHEAD = 100;
                                                 //max2^8 = 255
