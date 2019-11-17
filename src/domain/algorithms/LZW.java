@@ -34,17 +34,13 @@ public class LZW implements BaseAlgorithm {
       character = getChar(data, j++);
 
       if (!dictionary.containsKey(stringBuilder + character)) {
-        String stringWith12Bits = extendTo12Bits(dictionary.get(stringBuilder));
+        int compressed = dictionary.get(stringBuilder);
         if (half) {
-          buffer[0] = (byte) Integer.parseInt(
-              stringWith12Bits.substring(0, 8), 2);
-          buffer[1] = (byte) Integer.parseInt(
-              stringWith12Bits.substring(8, 12) + "0000", 2);
+          buffer[0] = (byte) (compressed & 0xff);
+          buffer[1] = (byte) ((compressed >> 8) << 4);
         } else {
-          buffer[1] += (byte) Integer.parseInt(
-              stringWith12Bits.substring(0, 4), 2);
-          buffer[2] = (byte) Integer.parseInt(
-              stringWith12Bits.substring(4, 12), 2);
+          buffer[1] += (byte) (compressed & 0xf);
+          buffer[2] = (byte) (compressed >> 4);
 
           for (int b = 0; b < buffer.length; b++) {
             arrayOutputStream.write(buffer[b]);
@@ -61,16 +57,15 @@ public class LZW implements BaseAlgorithm {
         stringBuilder = stringBuilder + character;
       }
     }
-    String str12bit = extendTo12Bits(dictionary.get(stringBuilder));
+    int compressed = dictionary.get(stringBuilder);
     if (half) {
-      buffer[0] = (byte) Integer.parseInt(str12bit.substring(0, 8), 2);
-      buffer[1] = (byte) Integer.parseInt(str12bit.substring(8, 12)
-          + "0000", 2);
+      buffer[0] = (byte) (compressed & 0xff);
+      buffer[1] = (byte) ((compressed >> 8) << 4);
       arrayOutputStream.write(buffer[0]);
       arrayOutputStream.write(buffer[1]);
     } else {
-      buffer[1] += (byte) Integer.parseInt(str12bit.substring(0, 4), 2);
-      buffer[2] = (byte) Integer.parseInt(str12bit.substring(4, 12), 2);
+      buffer[1] += (byte) (compressed & 0xf);
+      buffer[2] = (byte) (compressed >> 4);
 
       for (int b = 0; b < buffer.length; b++) {
         arrayOutputStream.write(buffer[b]);
@@ -193,21 +188,15 @@ public class LZW implements BaseAlgorithm {
    * @return - An Integer which holds the value of the key
    */
   public int getValue(byte b1, byte b2, boolean onleft) {
-    String s1 = extend(Integer.toBinaryString(b1), "0", 8);
-    String s2 = extend(Integer.toBinaryString(b2), "0", 8);
-
-    if (s1.length() == 32) {
-      s1 = s1.substring(24, 32);
-    }
-    if (s2.length() == 32) {
-      s2 = s2.substring(24, 32);
-    }
+    int value;
 
     if (onleft) {
-      return Integer.parseInt(s1 + s2.substring(0, 4), 2);
+      value = ((int) b1 & 0xFF) + ((((int) b2 & 0xFF) >> 4) << 8);
     } else {
-      return Integer.parseInt(s1.substring(4, 8) + s2, 2);
+      value = ((int) b1 & 0xF) + (((int) b2 & 0xFF) << 4);
     }
+
+    return value;
   }
 
   private String extend(String input, String value, int length) {
