@@ -116,15 +116,10 @@ public class Lzss implements BaseAlgorithm {
             while (!w.lookAheadIsEmpty()) {
 
                 EncodedString es = w.findMatch();
-                //es.print();
                 if (es.getLength() >= MIN_LEN_MATCH) {
                     flags.addFlag(true); //flag 1 indicates <length,offset> token
                     byte offset = (byte)es.getOffset(); //cast negative!!
                     byte length = (byte)es.getLength();
-                    if (unsignedByteToInt(offset) < unsignedByteToInt(length)) {
-                        int a = 0;
-                    }
-
                     baos.write(offset);
                     baos.write(length);
 
@@ -134,7 +129,6 @@ public class Lzss implements BaseAlgorithm {
                     flags.addFlag(false); //flag 0 indicates literal
                     //only ASCII
                     String symbol = w.getFirstCharLookAheadBuffer()+"";
-
                     byte[] symb = symbol.getBytes("UTF-8");
                     baos.write(symb);
                     w.shiftLeft(1);
@@ -180,9 +174,6 @@ public class Lzss implements BaseAlgorithm {
             try {
                 int i = 4+flagArray.length;
                 while (i < input.length) {
-                    if (i == 246679) {
-                        int a = 0;
-                    }
                     if (flags.next() == false) { //literal
                         byte byte_read = input[i];
                         if (unsignedByteToInt(byte_read) < 128) { //ascii literal
@@ -197,7 +188,6 @@ public class Lzss implements BaseAlgorithm {
                             dw.addChar(utf.charAt(0));
                         }
                     }
-
                     else {
                         //b was offset_length
                         byte o = input[i];

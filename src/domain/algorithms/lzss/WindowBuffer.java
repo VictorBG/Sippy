@@ -69,9 +69,6 @@ public class WindowBuffer {
             result.decrementLengthByOne();
             j--;
         }
-        if (result.length > result.offset) {
-            int a = 0;
-        }
         return result;
     }
 
