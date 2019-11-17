@@ -1,0 +1,16 @@
+Objecte de prova: Classe Zip (Transacció)
+
+Drivers: DriverZip
+- Compressió d'arxius
+
+
+Valors estudiats:
+- Lectura d'un arxiu
+- Codificació dels valors llegits
+- Escriptura dades codificades en un arxiu amb el mateix nom però diferent extensió
+
+Operativa:
+- Introduir path a comprimir
+- Seleccionar algorisme de compressió
+- Tornar al punt 1 si és volen continuar fent coses
+- Introduir l'opció de sortir
