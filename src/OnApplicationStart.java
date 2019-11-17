@@ -107,6 +107,7 @@ public class OnApplicationStart {
               case 3:
                 System.out.print("\nCompressing using LZW \n \n");
                 zip = new Zip(ItemNC.create(new File(path)), Algorithm.LZW);
+
                 break;
               case 4:
                 System.out.print("\nCompressing using JPEG \n");
