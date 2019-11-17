@@ -17,27 +17,24 @@ public class LZW implements BaseAlgorithm {
 
   public byte[] encode(byte[] data) {
     baos = new ByteArrayOutputStream();
-    int dictSize = 256;
     HashMap<String, Integer> dictionary = new HashMap<>();
+    int dictSize = 256;
+    int j = 0;
     String stringBuilder = "";
+    char character = getChar(data, j++);
     byte[] buffer = new byte[3];
     boolean half = true;
-    int j = 0;
     //Here we construct the dictionary with all ASCII characters
     for (int i = 0; i < 256; i++) {
       dictionary.put(Character.toString((char) i), i);
     }
-    char character = getChar(data, j++);
     stringBuilder = "" + character;
     //Loop that iterates through all the data vector
     while (j < data.length) {
       character = getChar(data, j++);
 
-      if (dictionary.containsKey(stringBuilder + character)) {
-        stringBuilder = stringBuilder + character;
-      } else {
-        String s12 = to12bit(dictionary.get(stringBuilder));
-
+      if (!dictionary.containsKey(stringBuilder + character)) {
+        String s12 = extendTo12Bits(dictionary.get(stringBuilder));
         if (half) {
           buffer[0] = (byte) Integer.parseInt(
               s12.substring(0, 8), 2);
@@ -61,10 +58,13 @@ public class LZW implements BaseAlgorithm {
         }
 
         stringBuilder = "" + character;
+      } else {
+        stringBuilder = stringBuilder + character;
       }
+
     }
 
-    String str12bit = to12bit(dictionary.get(stringBuilder));
+    String str12bit = extendTo12Bits(dictionary.get(stringBuilder));
     if (half) {
       buffer[0] = (byte) Integer.parseInt(str12bit.substring(0, 8), 2);
       buffer[1] = (byte) Integer.parseInt(str12bit.substring(8, 12)
@@ -89,7 +89,7 @@ public class LZW implements BaseAlgorithm {
    * @param i - Integer value
    * @return - String value of integer in 12 bit
    */
-  private String to12bit(int i) {
+  private String extendTo12Bits(int i) {
     return extend(Integer.toBinaryString(i), "0", 12);
   }
 
