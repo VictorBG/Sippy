@@ -1,0 +1,94 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    testImplementation 'junit:junit:4.12'
+    testImplementation group: 'org.hamcrest', name: 'hamcrest-core', version: '1.3'
+    testImplementation group: 'org.hamcrest', name: 'hamcrest-library', version: '1.3'
+}
+
+application {
+    mainClassName = 'prop.Launcher'
+}
+
+test {
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+    outputs.upToDateWhen { false }
+}
+
+run {
+    standardInput = System.in
+}
+
+task buildMain(type: Jar) {
+    manifest {
+        attributes "Main-Class": "prop.Launcher"
+    }
+
+    baseName = 'Sippy'
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
+
+task LZ78Driver(type: Jar) {
+    manifest {
+        attributes "Main-Class": "prop.dominio.drivers.LZ78Driver"
+    }
+
+    baseName = 'LZ78Driver'
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
+
+task LZWDriver(type: Jar) {
+    manifest {
+        attributes "Main-Class": "prop.dominio.drivers.LZWDriver"
+    }
+
+    baseName = 'LZWDriver'
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
+
+task LZSSDriver(type: Jar) {
+    manifest {
+        attributes "Main-Class": "prop.dominio.drivers.LZSSDriver"
+    }
+
+    baseName = 'LZSSDriver'
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
+
+task ZipDriver(type: Jar) {
+    manifest {
+        attributes "Main-Class": "prop.dominio.drivers.ZipDriver"
+    }
+
+    baseName = 'ZipDriver'
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
+
+task UnzipDriver(type: Jar) {
+    manifest {
+        attributes "Main-Class": "prop.dominio.drivers.UnzipDriver"
+    }
+
+    baseName = 'UnzipDriver'
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
+
+

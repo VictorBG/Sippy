@@ -1,0 +1,33 @@
+Prova 1:
+Descripció: Comprovació de la transacció per a l'algoritme LZ78.
+Objectius: Comprovar que l'algorisme llegeix un arxiu, el codifica amb l'algorisme
+LZ78 i guarda el seu contingut a un nou arxiu amb una nova extensió.
+Entrada: ./data/zip/test1.txt 1
+Sortida: ./data/zip/test1.sippy (Ha de ser equivalent a l'arxiu ./data/unzip/test1_lz78.sippy)
+
+
+
+Prova 2:
+Descripció: Comprovació de la transacció per a l'algoritme LZW.
+Objectius: Comprovar que l'algorisme llegeix un arxiu, el codifica amb l'algorisme
+LZW i guarda el seu contingut a un nou arxiu amb una nova extensió.
+Entrada: ./data/zip/test1.txt 2
+Sortida: ./data/zip/test1.sippy (Ha de ser equivalent a l'arxiu ./data/unzip/test1_lzw.sippy)
+
+
+
+Prova 3:
+Descripció: Comprovació de la transacció per a l'algoritme JPEG.
+Objectius: Comprovar que l'algorisme llegeix un arxiu, el codifica amb l'algorisme
+JPEG i guarda el seu contingut a un nou arxiu amb una nova extensió.
+Entrada: ./data/zip/dog.ppm 3
+Sortida: ./data/zip/dog.sippy (Ha de ser equivalent a l'arxiu ./data/unzip/dog.sippy)
+
+
+
+Prova 4:
+Descripció: Comprovació de la transacció per a l'algoritme LZSS.
+Objectius: Comprovar que l'algorisme llegeix un arxiu, el codifica amb l'algorisme
+LZSS i guarda el seu contingut a un nou arxiu amb una nova extensió.
+Entrada: ./data/zip/test1.txt 4
+Sortida: ./data/zip/test1.sippy (Ha de ser equivalent a l'arxiu ./data/unzip/test1_lzss.sippy)
