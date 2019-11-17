@@ -29,7 +29,7 @@ public abstract class BaseAlgorithmDriver {
    */
   private Scanner scannerString;
 
-  BaseAlgorithmDriver() {
+  public BaseAlgorithmDriver() {
     scanner = new Scanner(System.in);
     scannerString = new Scanner(System.in);
     start();

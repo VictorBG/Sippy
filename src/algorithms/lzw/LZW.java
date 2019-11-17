@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashMap;
 import algorithms.base.BaseAlgorithm;
-import utils.Bytes;
 
 /**
  * Author: Sergio Vazquez
@@ -15,7 +14,7 @@ import utils.Bytes;
 
 public class LZW implements BaseAlgorithm {
 
-  ByteArrayOutputStream arrayOutputStream;
+  private ByteArrayOutputStream arrayOutputStream;
 
   public byte[] encode(byte[] data) {
     arrayOutputStream = new ByteArrayOutputStream();

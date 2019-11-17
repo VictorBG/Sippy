@@ -1,6 +1,7 @@
 package dominio;
 
 import dominio.model.ItemC;
+import dominio.model.Statistics;
 import dominio.streams.UnzipStream;
 import java.io.IOException;
 
