@@ -3,9 +3,13 @@ package domain.algorithms.lzss;
 import domain.algorithms.base.BaseAlgorithm;
 import utils.Bytes;
 
-import java.io.*;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.FileInputStream;
+import java.io.File;
 import java.nio.ByteBuffer;
-import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 
 /**
@@ -133,11 +137,7 @@ public class Lzss implements BaseAlgorithm {
                     String symbol = w.getFirstCharLookAheadBuffer()+"";
 
                     byte[] symb = symbol.getBytes("UTF-8");
-
-                    //bos.write(flag_literal);
-
                     baos.write(symb);
-                    //System.out.printf("00%c", w.getFirstCharLookAheadBuffer());
                     w.shiftLeft(1);
                 }
                 NUMBER_OF_TOKENS++;
@@ -191,10 +191,6 @@ public class Lzss implements BaseAlgorithm {
                         if (unsignedByteToInt(byte_read) < 128) { //ascii literal
                             //no flag byte, directly char
                             dw.addChar((char)byte_read);
-                            System.out.print((char)byte_read);
-                            if (unsignedByteToInt(byte_read) >= 256) {
-                                int a = 0;
-                            }
                         }
                         else {
                             i++;
@@ -202,7 +198,6 @@ public class Lzss implements BaseAlgorithm {
                             byte[] utfBytes = {byte_read, byte2};
                             String utf = new String(utfBytes, StandardCharsets.UTF_8);
                             dw.addChar(utf.charAt(0));
-                            System.out.print(utf.charAt(0));
                         }
                     }
 
@@ -214,20 +209,12 @@ public class Lzss implements BaseAlgorithm {
                         i++;
                         int len = input[i];
                         len = unsignedByteToInt(input[i]);
-                        System.out.printf("<"+off+","+len+">");
-
-                        if (off < len) {
-                            int a = 0;
-                        }
-                        //OFF_LEN
+                        //OFF_LEN encoded
                         //int[] off_len = decodify_offset_length_one_byte(input[i]);
                         //int len = off_len[1];
                         //int off = off_len[0];
                         dw.copyCharsSince(len,off);
                     }
-                    //System.out.print("la i vale");
-                    //System.out.print(i);
-
                     i++;
                 }
             }

@@ -16,7 +16,6 @@ public class FlagHelper {
 
     public FlagHelper(int numFlags, byte[] flagArray) {
         flags = BitSet.valueOf(flagArray);
-        System.out.println(flags.toString());
         current_flag = -1;
 
     }
