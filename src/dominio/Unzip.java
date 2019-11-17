@@ -14,7 +14,7 @@ import java.io.IOException;
  * The {@link UnzipStream} is responsible of handle the decode of the data and creation of the files
  * (and folders if neccessary).
  */
-public class Unzip extends Transaction<Void> {
+public class Unzip extends Transaction<Statistics> {
 
   private ItemC item;
 
@@ -24,6 +24,9 @@ public class Unzip extends Transaction<Void> {
 
   @Override
   public void execute() throws IOException {
+    Statistics stats = new Statistics(item.getSize());
     new UnzipStream(item).unzip();
+    stats.stopTimer();
+    setResult(stats);
   }
 }

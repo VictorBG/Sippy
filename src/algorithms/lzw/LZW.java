@@ -1,5 +1,8 @@
 package algorithms.lzw;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.util.Arrays;
 import java.util.HashMap;
 import algorithms.base.BaseAlgorithm;
 import utils.Bytes;
@@ -12,97 +15,82 @@ import utils.Bytes;
 
 public class LZW implements BaseAlgorithm {
 
-  public byte[] encode(byte[] data) {
-    int dictSize = 256;
+  ByteArrayOutputStream arrayOutputStream;
 
+  public byte[] encode(byte[] data) {
+    arrayOutputStream = new ByteArrayOutputStream();
     HashMap<String, Integer> dictionary = new HashMap<>();
-    String stringBuilder = "";
-    byte[] buffer = new byte[3];
-    boolean half = true;
+    int dictSize = 256;
     int j = 0;
-    byte[] output = new byte[]{};
+    String stringBuilder = "";
+    char character = getChar(data, j++);
+    byte[] buffer = new byte[3];
+    boolean lowerBits = true;
     //Here we construct the dictionary with all ASCII characters
     for (int i = 0; i < 256; i++) {
       dictionary.put(Character.toString((char) i), i);
     }
-
-    char character = getChar(data, j++);
     stringBuilder = "" + character;
     //Loop that iterates through all the data vector
     while (j < data.length) {
       character = getChar(data, j++);
 
-      if (dictionary.containsKey(stringBuilder + character)) {
-        stringBuilder = stringBuilder + character;
-      } else {
-        String s12 = to12bit(dictionary.get(stringBuilder));
-
-        if (half) {
-          buffer[0] = (byte) Integer.parseInt(
-              s12.substring(0, 8), 2);
-          buffer[1] = (byte) Integer.parseInt(
-              s12.substring(8, 12) + "0000", 2);
+      if (!dictionary.containsKey(stringBuilder + character)) {
+        int position = dictionary.get(stringBuilder);
+        //This boolean indicates when we have to write in the lower part of the buffer
+        if (lowerBits) {
+          //Takes the 12 bits of position
+          buffer[0] = (byte) (position & 0xff);
+          buffer[1] = (byte) ((position >> 8) << 4);
         } else {
-          buffer[1] += (byte) Integer.parseInt(
-              s12.substring(0, 4), 2);
-          buffer[2] = (byte) Integer.parseInt(
-              s12.substring(4, 12), 2);
-
-          for (int b = 0; b < buffer.length; b++) {
-            output = Bytes.concat(output, new byte[]{buffer[b]});
-            buffer[b] = 0;
+          //Takes the 12 bits of position
+          buffer[1] += (byte) (position & 0xf);
+          buffer[2] = (byte) (position >> 4);
+          try {
+            arrayOutputStream.write(buffer);
+          } catch (IOException e) {
+            e.printStackTrace();
           }
+          Arrays.fill(buffer, (byte) 0);
         }
-        half = !half;
-
+        lowerBits = !lowerBits;
         if (dictSize < 4096) {
           dictionary.put(stringBuilder + character, dictSize++);
         }
-
         stringBuilder = "" + character;
+      } else {
+        stringBuilder = stringBuilder + character;
       }
     }
-
-    String str12bit = to12bit(dictionary.get(stringBuilder));
-    if (half) {
-      buffer[0] = (byte) Integer.parseInt(str12bit.substring(0, 8), 2);
-      buffer[1] = (byte) Integer.parseInt(str12bit.substring(8, 12)
-          + "0000", 2);
-      output = Bytes.concat(output, new byte[]{buffer[0]});
-      output = Bytes.concat(output, new byte[]{buffer[1]});
+    int compressed = dictionary.get(stringBuilder);
+    if (lowerBits) {
+      buffer[0] = (byte) (compressed & 0xff);
+      buffer[1] = (byte) ((compressed >> 8) << 4);
+      arrayOutputStream.write(buffer[0]);
+      arrayOutputStream.write(buffer[1]);
     } else {
-      buffer[1] += (byte) Integer.parseInt(str12bit.substring(0, 4), 2);
-      buffer[2] = (byte) Integer.parseInt(str12bit.substring(4, 12), 2);
+      buffer[1] += (byte) (compressed & 0xf);
+      buffer[2] = (byte) (compressed >> 4);
 
-      for (int b = 0; b < buffer.length; b++) {
-        output = Bytes.concat(output, new byte[]{buffer[b]});
-        buffer[b] = 0;
+      try {
+        arrayOutputStream.write(buffer);
+      } catch (IOException e) {
+        e.printStackTrace();
       }
     }
-    return output;
+    return arrayOutputStream.toByteArray();
   }
 
   /**
    * Converts 8 bits to 12 bits
    *
-   * @param i - Integer value
-   * @return - String value of integer in 12 bit
-   */
-  private String to12bit(int i) {
-    return extend(Integer.toBinaryString(i), "0", 12);
-  }
-
-  /**
-   * Converts 8 bits to 12 bits
-   *
-   * @param data - bytes vector , pos - the position inside data vector that we want to obtain
-   *             out - char to insert in dictionary
+   * @param data - bytes vector , pos - the position inside data vector that we want to obtain out -
+   *             char to insert in dictionary
    * @return - String value of integer in 12 bit
    */
   private char getChar(byte[] data, int pos) {
     byte b = data[pos];
     int i = new Byte(b).intValue();
-
     if (i < 0) {
       i += 256;
     }
@@ -113,65 +101,62 @@ public class LZW implements BaseAlgorithm {
   @Override
   public byte[] decode(final byte[] input) {
     HashMap<Integer, String> dictionary = new HashMap<>();
-    String[] arrayChar;
-    int dictSize = 256;
-    int currword;
-    int priorword;
+    arrayOutputStream = new ByteArrayOutputStream();
+    int currentValue;
+    int lastValue;
     byte[] buffer = new byte[3];
-    boolean onleft = false;
-
-    arrayChar = new String[4096];
-    byte[] output = new byte[0];
+    boolean lowerBits = false;
 
     for (int i = 0; i < 256; i++) {
       dictionary.put(i, Character.toString((char) i));
-      arrayChar[i] = Character.toString((char) i);
     }
-    // Gets the first word in code and outputs its corresponding char
     buffer[0] = input[0];
     buffer[1] = input[1];
-    priorword = getValue(buffer[0], buffer[1], true);
-    String s = arrayChar[priorword];
+    lastValue = getValue(buffer[0], buffer[1], true);
+    String s = dictionary.get(lastValue);
     byte[] aux = s.getBytes();
-    output = Bytes.concat(output, aux);
-    // Reads every 3 bytes and generates corresponding characters
+    try {
+      arrayOutputStream.write(aux);
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+    // Reads 3 bytes and decode
     int j = 2;
     while (j < input.length) {
-      if (onleft) {
+      if (lowerBits) {
         buffer[0] = input[j++];
         buffer[1] = input[j++];
-        currword = getValue(buffer[0], buffer[1], onleft);
+        currentValue = getValue(buffer[0], buffer[1], true);
       } else {
         buffer[2] = input[j++];
-        currword = getValue(buffer[1], buffer[2], onleft);
+        currentValue = getValue(buffer[1], buffer[2], false);
       }
-      onleft = !onleft;
+      lowerBits = !lowerBits;
 
-      if (currword >= dictSize) {
-        if (dictSize < 4096) {
-          arrayChar[dictSize] = arrayChar[priorword]
-              + arrayChar[priorword].charAt(0);
+      if (currentValue >= dictionary.size()) {
+        s = dictionary.get(lastValue) + dictionary.get(lastValue).charAt(0);
+        if (dictionary.size() < 4096) {
+          dictionary.put(dictionary.size(),s);
         }
-        dictSize++;
-
-        s = arrayChar[priorword] + arrayChar[priorword].charAt(0);
-        aux = s.getBytes();
-        output = Bytes.concat(output, aux);
-
+        try {
+          arrayOutputStream.write(s.getBytes());
+        } catch (IOException e) {
+          e.printStackTrace();
+        }
       } else {
-        if (dictSize < 4096) {
-          arrayChar[dictSize] = arrayChar[priorword]
-              + arrayChar[currword].charAt(0);
+        s = dictionary.get(currentValue);
+        if (dictionary.size() < 4096) {
+          dictionary.put(dictionary.size(), dictionary.get(lastValue) + s.charAt(0));
         }
-        dictSize++;
-        s = arrayChar[currword];
-
-        aux = s.getBytes();
-        output = Bytes.concat(output, aux);
+        try {
+          arrayOutputStream.write(s.getBytes());
+        } catch (IOException e) {
+          e.printStackTrace();
+        }
       }
-      priorword = currword;
+      lastValue = currentValue;
     }
-    return output;
+    return arrayOutputStream.toByteArray();
   }
 
   /**
@@ -183,30 +168,12 @@ public class LZW implements BaseAlgorithm {
    * @return - An Integer which holds the value of the key
    */
   public int getValue(byte b1, byte b2, boolean onleft) {
-    String s1 = extend(Integer.toBinaryString(b1), "0", 8);
-    String s2 = extend(Integer.toBinaryString(b2), "0", 8);
-
-    if (s1.length() == 32) {
-      s1 = s1.substring(24, 32);
-    }
-    if (s2.length() == 32) {
-      s2 = s2.substring(24, 32);
-    }
-
+    int value;
     if (onleft) {
-      return Integer.parseInt(s1 + s2.substring(0, 4), 2);
+      value = ((int) b1 & 0xFF) + ((((int) b2 & 0xFF) >> 4) << 8);
     } else {
-      return Integer.parseInt(s1.substring(4, 8) + s2, 2);
+      value = ((int) b1 & 0xF) + (((int) b2 & 0xFF) << 4);
     }
+    return value;
   }
-
-  private String extend(String input, String value, int length) {
-    StringBuilder inputBuilder = new StringBuilder(input);
-    while (inputBuilder.length() < length) {
-      inputBuilder.insert(0, value);
-    }
-    return inputBuilder.toString();
-  }
-
-
 }
