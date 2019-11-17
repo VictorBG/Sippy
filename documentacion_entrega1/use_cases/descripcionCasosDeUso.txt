@@ -1,0 +1,15 @@
+*General*
+Mostra un esquema general de l'ús de Sippy.
+
+*Compress file*
+Aquest cas d'ús aplica a la feature de comprimir només fitxers individuals, se 
+li dóna a l'usuari l'opció de triar entre seleccionar un algoritme dels 
+disponibles o deixar que Sippy trii (mode automàtic).
+
+*Compress folder*
+Idem que l'anterior, però comprimint directoris.
+
+*Uncompress*
+Fa referència a descomprimir un fitxer o directori, és transparent a l'usuari
+alhora de triar fitxer o directori, Sippy sap si es tracta d'un fitxer o d'un
+directori.
