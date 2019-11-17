@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 
 /**
- * Author: Victor Blanco
+ * Author: Sergio Vazquez
  */
 public class FileUtils {
 
@@ -50,6 +50,7 @@ public class FileUtils {
     if (lastIndexOf == -1) {
       return "";
     }
-    return path.substring(lastIndexOf + 1);
+    String s = path.substring(lastIndexOf + 1);
+    return s;
   }
 }
