@@ -1,0 +1,18 @@
+Objecte de prova: Classe LZSS (Algorisme)
+
+Drivers: DriverLZSS
+- Codificar i descodificar cadena de caràcters
+- Codificar i descodificar arxiu
+
+
+Valors estudiats:
+- Codificació d'una cadena de caràcters i la seva posterior descodificació
+- Codificació d'una cadena de caràcters arxivades en un arxiu txt en el sistema i la seva posterior descodificació
+
+Operativa:
+- S'obre un menú per a seleccionar si es vol provar una entrada de text o un arxiu
+  - En cas que sigui entrada de text, introduir el text
+  - En cas que sigui arxiu, introduir el path a l'arxiu
+- El driver mostra l'output de la codificació, i la seva posterior descodificació
+- Tornar al punt 1 si es volen continuar fent coses
+- Introduir l'opció de sortir
