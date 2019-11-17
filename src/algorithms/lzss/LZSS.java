@@ -20,33 +20,33 @@ import java.nio.charset.StandardCharsets;
  */
 public class LZSS implements BaseAlgorithm {
 
-    public static ByteArrayOutputStream baos;
+    private ByteArrayOutputStream baos;
 
-    public static final int MIN_LEN_MATCH = 3;
+    private static final int MIN_LEN_MATCH = 3;
                                                 //max2^8 = 255
-    public static final int BUFFER_SIZE_LOOKAHEAD = 100;
+    private static final int BUFFER_SIZE_LOOKAHEAD = 100;
                                                 //max2^8 = 255
-    public static final int BUFFER_SIZE_SEARCH = 255;
+    private static final int BUFFER_SIZE_SEARCH = 255;
 
-    public static int NUMBER_OF_TOKENS = 0;
+    private int NUMBER_OF_TOKENS = 0;
 
-    public static int unsignedByteToInt(byte b) {
+    public int unsignedByteToInt(byte b) {
         return (int) b & 0xFF;
     }
 
-    public static byte mapOffsetToCodedOffset(byte offset) {
+    public byte mapOffsetToCodedOffset(byte offset) {
         return (byte)(offset-MIN_LEN_MATCH);
     }
 
-    public static byte mapLengthToCodedLength(byte length) {
+    public byte mapLengthToCodedLength(byte length) {
         return (byte)(length-MIN_LEN_MATCH);
     }
 
-    public static int mapCodedOffsetToOffset(int offset) {
+    public int mapCodedOffsetToOffset(int offset) {
         return (offset+MIN_LEN_MATCH);
     }
 
-    public static int mapCodedLengthToLenght(int length) {
+    public int mapCodedLengthToLength(int length) {
         return (length+MIN_LEN_MATCH);
     }
 
@@ -56,7 +56,7 @@ public class LZSS implements BaseAlgorithm {
         return bb.array();
     }
 
-    public static int byteArrayToInt(byte[] b) {
+    private int byteArrayToInt(byte[] b) {
         if (b.length == 4)
             return b[0] << 24 | (b[1] & 0xff) << 16 | (b[2] & 0xff) << 8
                     | (b[3] & 0xff);
@@ -66,19 +66,19 @@ public class LZSS implements BaseAlgorithm {
         return 0;
     }
 
-    public static byte getLengthByte3LowBits(byte length) {
+    private byte getLengthByte3LowBits(byte length) {
 
         byte result = (byte)(length);
         return result;
     }
 
-    public static byte getOffsetByte3456HighBits(byte offset) {
+    private byte getOffsetByte3456HighBits(byte offset) {
 
         byte result = (byte)(offset << 3);
         return result;
     }
 
-    public static byte codifyOffsetLengthOneByteWithFlag(byte offset, byte length) {
+    private byte codifyOffsetLengthOneByteWithFlag(byte offset, byte length) {
         //resto 3
         offset = mapOffsetToCodedOffset(offset);
         length = mapLengthToCodedLength(length);
@@ -91,7 +91,7 @@ public class LZSS implements BaseAlgorithm {
         return result;
     }
 
-    public static int[] decodifyOffsetLengthOneByte(byte off_len) {
+    private int[] decodifyOffsetLengthOneByte(byte off_len) {
         int off_len_int = unsignedByteToInt(off_len);
         int length = off_len_int & 0x07;
         off_len_int = off_len_int >> 3;
@@ -100,7 +100,7 @@ public class LZSS implements BaseAlgorithm {
 
         //sumo 3
         offset = mapCodedOffsetToOffset(offset);
-        length = mapCodedLengthToLenght(length);
+        length = mapCodedLengthToLength(length);
 
         return new int[] {offset, length};
     }
