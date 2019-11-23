@@ -3,9 +3,9 @@ package prop.dominio;
 import java.io.IOException;
 
 /**
+ * @class Transaction
+ * @brief Transaction model.
  * Author: Sergio Vazquez.
- * <p>
- * Transaction model.
  */
 public abstract class Transaction<Output> {
 

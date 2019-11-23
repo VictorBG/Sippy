@@ -1,9 +1,9 @@
 package prop.utils;
 
 /**
-* Author: Sergio Vazquez
- Utils class, used for concat byte arrays
-
+ * @class Bytes
+ * @brief  Utils class, used for concat byte arrays
+ * Author: Sergio Vazquez
  */
 
 public class Bytes {

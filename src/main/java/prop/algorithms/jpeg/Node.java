@@ -1,6 +1,7 @@
 package prop.algorithms.jpeg;
 
 /**
+ * @class Node
  * Author: Yaiza Cano
  */
 

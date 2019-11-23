@@ -4,11 +4,11 @@ import prop.algorithms.Algorithm;
 import java.io.File;
 
 /**
+ * @class ItemC
+ * @brief   A representation of a compressed item. Note: it is used mainly for the zip operation,
+ *  for the unzip operation it is merely used to save the file object (algorithm cannot be
+ *  set due the file has not been parsed, neither its headers).
  * Author: Sergio Vazquez
- *
- * A representation of a compressed item. Note: it is used mainly for the zip operation,
- * for the unzip operation it is merely used to save the file object (algorithm cannot be
- * set due the file has not been parsed, neither its headers).
  */
 public class ItemC {
 

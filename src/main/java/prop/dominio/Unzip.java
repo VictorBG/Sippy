@@ -6,10 +6,9 @@ import prop.dominio.streams.UnzipStream;
 import java.io.IOException;
 
 /**
+ * @class Unzip
+ * @brief Unzip transaction.
  * Author: Sergio Vazquez.
- * <p>
- * Unzip transaction.
- * <p>
  * Creates an {@link UnzipStream} with the provided {@link ItemC} and unzips it.
  * <p>
  * The {@link UnzipStream} is responsible of handle the decode of the data and creation of the files

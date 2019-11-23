@@ -8,10 +8,9 @@ import prop.dominio.streams.ZipStream;
 import java.io.IOException;
 
 /**
+ * @class Zip
+ * @brief Zip transaction.
  * Author: Sergio Vazquez.
- * <p>
- * Zip transaction.
- * <p>
  * Creates a {@link ZipStream} and adds every item inside the {@link prop.dominio.model.ItemC} to the
  * stream, which will be encoded inside using the {@link Algorithm} provided (or a default if the
  * one provided is {@link Algorithm#AUTOMATIC}).
