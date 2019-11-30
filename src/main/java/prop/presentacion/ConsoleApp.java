@@ -16,9 +16,9 @@ import prop.dominio.model.ItemNC;
 import prop.dominio.model.Statistics;
 
 /**
+ * @class ConsoleApp
+ * @brief: Presentation layer for first deliverable
  * Author: Sergio Vazquez
- * <p>
- * Presentation layer for first deliverable
  */
 
 
@@ -84,8 +84,7 @@ public class ConsoleApp {
           }
           canContinue = true;
         } else {
-          System.out
-              .print("\nAl right, choose now the algorithm:\n 1. LZ78 2. LZSS 3. LZW 4. JPEG \n");
+          System.out.print("\nAl right, choose now the algorithm:\n 1.LZ78     2.LZSS    3.LZW    4.JPEG \n");
           do {
             System.out.print("Enter 1, 2, 3 or 4 : ");
             algorithm = keyBoard.nextInt();

@@ -9,9 +9,9 @@ import java.util.List;
 import prop.utils.FileUtils;
 
 /**
+ * @class ItemNC
+ * @brief Representation of a non compressed item. Used mainly for the zip operation.
  * Author: Sergio Vazquez
- * <p>
- * Representation of a non compressed item. Used mainly for the zip operation.
  */
 public abstract class ItemNC {
 

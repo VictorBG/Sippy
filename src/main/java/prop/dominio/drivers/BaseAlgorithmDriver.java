@@ -1,6 +1,5 @@
 package prop.dominio.drivers;
 
-import java.nio.charset.StandardCharsets;
 import prop.algorithms.Algorithm;
 import prop.algorithms.base.BaseAlgorithm;
 import java.io.File;

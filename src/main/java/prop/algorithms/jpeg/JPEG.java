@@ -1,5 +1,6 @@
 package prop.algorithms.jpeg;
 /**
+ * @class JPEG
  * Author: Yaiza Cano
  */
 

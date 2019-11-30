@@ -7,9 +7,9 @@ import java.util.HashMap;
 import prop.algorithms.base.BaseAlgorithm;
 
 /**
+ * @class LZW
+ * @brief LZW implementation doesnt compress ppm files
  * Author: Sergio Vazquez
- * <p>
- * LZW implementation doesnt compress ppm files
  */
 
 public class LZW implements BaseAlgorithm {

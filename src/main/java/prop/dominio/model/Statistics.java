@@ -1,9 +1,10 @@
 package prop.dominio.model;
 
 /**
+ * @class Statistics
+ * @brief Statistics for the zip and unzip operation
  * Author: Sergio Vazquez
- * <p>
- * Statistics for the zip operation.
+
  */
 public class Statistics {
 

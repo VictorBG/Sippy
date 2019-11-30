@@ -1,6 +1,7 @@
 package prop.algorithms.lz78;
 
 /**
+ * @class Pair
  * Author: Victor Blanco
  */
 public class Pair {
