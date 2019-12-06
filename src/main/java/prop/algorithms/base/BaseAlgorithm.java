@@ -6,9 +6,9 @@ import prop.utils.FileUtils;
 
 /**
  * @class BaseAlgorithm
- * @brief Interficie per a la implementació dels mètodes comprimir i descomprimir dels algorismes,
- * i per a la implementació del mètode de lectura del arxiu, que per defecte llegeix els bytes a
- * través del mètode Files.readAllBytes().
+ * @brief Interficie per a la implementacio dels mètodes comprimir i descomprimir dels algorismes,
+ * i per a la implementacio del mètode de lectura del arxiu, que per defecte llegeix els bytes a
+ * traves del metode Files.readAllBytes().
  * Author: Victor Blanco
  */
 public interface BaseAlgorithm {
