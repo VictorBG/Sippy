@@ -7,10 +7,11 @@ import java.util.Iterator;
 //  Represents an array implementation of a queue in which the
 //  indexes for the front and rear of the queue circle back to 0
 //  when they reach the end of the array.
+//  http://faculty.washington.edu/moishe/javademos/ch07%20Code/jss2/CircularArrayQueue.java
 //********************************************************************
 public class CircularBuffer {
     private final int DEFAULT_CAPACITY = 4096;
-    private int front, rear, count;
+    public int front, rear, count;
     private char[] queue;
 
 
@@ -92,6 +93,11 @@ public class CircularBuffer {
     public int size()
     {
         return count;
+    }
+
+    public EncodedString findMatch(EncodedString tk) {
+        EncodedString token = new EncodedString();
+
     }
 
     //-----------------------------------------------------------------
