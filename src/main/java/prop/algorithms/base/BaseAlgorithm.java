@@ -5,9 +5,11 @@ import java.io.IOException;
 import prop.utils.FileUtils;
 
 /**
+ * @class BaseAlgorithm
+ * @brief Interficie per a la implementació dels mètodes comprimir i descomprimir dels algorismes,
+ * i per a la implementació del mètode de lectura del arxiu, que per defecte llegeix els bytes a
+ * través del mètode Files.readAllBytes().
  * Author: Victor Blanco
- * <p>
- * Base interface for the implementation of the encode/decode of an algorithm
  */
 public interface BaseAlgorithm {
 

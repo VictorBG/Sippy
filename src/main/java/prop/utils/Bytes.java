@@ -1,13 +1,17 @@
 package prop.utils;
 
 /**
-* Author: Sergio Vazquez
- Utils class, used for concat byte arrays
-
+ * @class Bytes
+ * @brief  Utils class, used for concat byte arrays
+ * Author: Sergio Vazquez
  */
-
+/// \code{.java}
 public class Bytes {
-
+  /**
+   * @brief Concatena arrays de bytes
+   *\pre array existent
+   * \post Concatena els arrays de bytes i retorna la concatenació
+   */
   public static byte[] concat(byte[]... arrays) {
     int length = 0;
     for (byte[] array : arrays) {
@@ -22,3 +26,4 @@ public class Bytes {
     return result;
   }
 }
+/// \endcode

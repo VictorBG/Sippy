@@ -22,6 +22,8 @@ import java.io.PushbackInputStream;
 import java.io.Reader;
 
 /**
+ * @class UnicodeReader
+ * @brief
  * Generic Unicode text reader, which uses a BOM (Byte Order Mark) to identify
  * the encoding to be used. This also has the side effect of removing the BOM
  * from the input stream (when present).

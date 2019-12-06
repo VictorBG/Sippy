@@ -11,10 +11,9 @@ import java.nio.charset.StandardCharsets;
 import prop.utils.Bytes;
 
 /**
+ * @class LZSS
+ * @brief Main class of LZSS algorithm
  * Author: Miguel Angel Cabrera
- *
- * Main class of LZSS algorithm
- *
  */
 public class LZSS implements prop.algorithms.base.BaseAlgorithm {
 

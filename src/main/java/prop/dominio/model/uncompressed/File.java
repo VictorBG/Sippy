@@ -7,16 +7,30 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * @class File
+ * @brief Classe del model per a mantenir l’informació dels itemNC de tipus file
  * Author: Victor Blanco
- * <p>
- * File model class to keep info of the {@link ItemNC} items that are single files.
  */
 public abstract class File extends ItemNC {
 
+  /**
+   * @brief Constructora
+   *
+   * \pre path valid
+   * \post Nova instancia de File amb el path indicat
+   *
+   */
   public File(String path) {
     super(path);
   }
 
+  /**
+   * @brief Constructora
+   *
+   * \pre file valid
+   * \post Nova instancia de File amb el path del file indicat
+   *
+   */
   public File(java.io.File file) {
     super(file);
   }
@@ -31,6 +45,11 @@ public abstract class File extends ItemNC {
   }
 
   /**
+   * @brief  Retorna un ItemC amb la informació necesaria per a l’operació zip
+   *
+   * \pre Algorisme a utilitzar
+   * \post Retorna un ItemC amb la informació necesaria per a l'operació zip usant l'algorisme indicat per parametre si es compatible
+   *
    * Returns an {@link ItemC} with the info for the zip operation.
    * <p>
    * A default {@link Algorithm} is used if the algorithm provided is in {@link Algorithm#AUTOMATIC}

@@ -1,9 +1,10 @@
 package prop.dominio.model;
 
 /**
+ * @class Statistics
+ * @brief Statistics for the zip and unzip operation
  * Author: Sergio Vazquez
- * <p>
- * Statistics for the zip operation.
+
  */
 public class Statistics {
 
@@ -18,7 +19,11 @@ public class Statistics {
     initialTime = System.currentTimeMillis();
   }
 
-  /*called from zip when it finishes compressing*/
+  /**
+   * @brief Atura el contador de temps al acabar la compressio/descompressio
+   * \pre cert
+   * \post atura el contador de temps
+   */
   public void stopTimer() {
     elapsedTime = System.currentTimeMillis() - initialTime;
   }

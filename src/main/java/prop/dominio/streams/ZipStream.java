@@ -12,6 +12,8 @@ import java.io.OutputStream;
 import prop.utils.FileUtils;
 
 /**
+ * @class ZipStream
+ * @brief a new sippy file is created
  * Author: Victor Blanco
  *
  * {@link OutputStream} to output a "sippy" file format.
@@ -22,19 +24,19 @@ import prop.utils.FileUtils;
  * The "sippy" file format has the next internal layout structure:
  *
  * // TODO: Is HeaderSize this really neccessary? It is not used in the unzip operation.
- * *-------------*
+ * -------------
  * |  HeaderSize | 4B
- * *-------------*
+ * -------------
  * | Method used | 1B
- * *-------------*
+ * -------------
  * |   DataSize  | 4B
- * *-------------*
+ * -------------
  * |   NameSize  | 4B
- * *-------------*
+ * -------------
  * |    Name     | ?B Undefined size by default, indicated in NameSize
- * *-------------*
+ * -------------
  * |    DATA     | ?B Undefined size by default, indicated in DataSize
- * *-------------*
+ * -------------
  *
  * HeaderSize: integer indicating the size of the header (all but DATA).
  *
@@ -54,6 +56,13 @@ import prop.utils.FileUtils;
  */
 public class ZipStream extends DataOutputStream {
 
+  /**
+   * @brief Metode static que instancia un nou ZipStream amb l'item a comprimir i un output stream que apunta a un file nou d'extensio "sippy" per guardar les dades
+   *
+   * \pre item no nul
+   * \post Nova instancia de ZipStream
+   *
+   */
   public static ZipStream create(ItemNC itemNC) throws IOException {
     File f = new File(FileUtils
         .changeExtension(itemNC.getFile().getPath(), FileUtils.DEFAULT_ENCODING_EXTENSION));
@@ -68,6 +77,12 @@ public class ZipStream extends DataOutputStream {
   private String basePath;
 
   /**
+   *
+   * @brief Constructora
+   *
+   * \pre OutputStream no nul, file no nul
+   * \post Nova instancia de ZipStream
+   *
    * Creates a new data output stream to write data to the specified underlying output stream. The
    * counter <code>written</code> is set to zero.
    *
@@ -82,6 +97,12 @@ public class ZipStream extends DataOutputStream {
   }
 
   /**
+   *
+   * @brief Afegeix un itemc al stream per a que sigui compress i guardar a l'arxiu de sortida
+   *
+   * \pre itemc no nul
+   * \post itemc compress i guardat a l'arxiu de sortida
+   *
    * Adds a file to the output stream. It writes the neccessary header and then writes to the output
    * stream after applying the compress method.
    *
