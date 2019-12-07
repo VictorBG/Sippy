@@ -22,37 +22,9 @@ public class Folder extends ItemNC {
    * \post Nova instancia de Folder amb el path indicat i la llista dels items generada
    *
    * @param path
-   * @throws UnsupportedEncodingException
    */
-  public Folder(String path) throws UnsupportedEncodingException {
+  public Folder(String path) {
     super(path);
-    populateList();
-  }
-
-  /**
-   * @brief Constructora
-   *
-   * \pre file valid
-   * \post Nova instancia de Folder amb el path del file indicat i la llista dels items generada
-   *
-   * @param file
-   * @throws UnsupportedEncodingException
-   */
-  public Folder(java.io.File file) throws UnsupportedEncodingException {
-    super(file);
-    populateList();
-  }
-
-  /**
-   * @brief Retorna la suma de tots el tamanys dels items que hi han
-   *
-   * \pre cert
-   * \post suma de tots el tamanys
-   * @return
-   */
-  @Override
-  public double getSize() {
-    return getItems().stream().map(ItemNC::getSize).reduce(Double::sum).get();
   }
 
   /**
@@ -74,6 +46,10 @@ public class Folder extends ItemNC {
     items.add(itemNC);
   }
 
+  public void setItems(List<ItemNC> items) {
+    this.items = items;
+  }
+
   /**
    * @brief Retorna la llista de items que hi ha al folder (si hi han mes folders, repeteix aquesta accio)
    *
@@ -87,24 +63,24 @@ public class Folder extends ItemNC {
     return result;
   }
 
-  /**
-   *
-   * @brief metode usat per a generar els elements ItemNC que s’afegeixen al parametre ítem i que están continguts a la carpeta del file. Es cridat desde el constructor i serveix per tenir sempre en forma de llista tots els ítems continguts a la carpeta
-   *
-   * \pre cert
-   * \post llista generada del items del folder
-   *
-   * Populates the {@link #items} list to have the structure of the {@link #getFile()} folder.
-   * <p>
-   * It will iterate and create every object inside the folder specified by the file item, if an
-   * item inside is another {@link Folder}, it will be populated when creating the folder item, thus
-   * giving us the folder structure in a recursively way.
-   *
-   * @throws UnsupportedEncodingException if there is a file that is not supported by the program.
-   */
-  private void populateList() throws UnsupportedEncodingException {
-    for (java.io.File f : Objects.requireNonNull(getFile().listFiles())) {
-      addItem(ItemNC.create(f));
-    }
-  }
+//  /**
+//   *
+//   * @brief metode usat per a generar els elements ItemNC que s’afegeixen al parametre ítem i que están continguts a la carpeta del file. Es cridat desde el constructor i serveix per tenir sempre en forma de llista tots els ítems continguts a la carpeta
+//   *
+//   * \pre cert
+//   * \post llista generada del items del folder
+//   *
+//   * Populates the {@link #items} list to have the structure of the {@link #getFile()} folder.
+//   * <p>
+//   * It will iterate and create every object inside the folder specified by the file item, if an
+//   * item inside is another {@link Folder}, it will be populated when creating the folder item, thus
+//   * giving us the folder structure in a recursively way.
+//   *
+//   * @throws UnsupportedEncodingException if there is a file that is not supported by the program.
+//   */
+//  private void populateList() throws UnsupportedEncodingException {
+//    for (java.io.File f : Objects.requireNonNull(getFile().listFiles())) {
+//      addItem(ItemNC.create(f));
+//    }
+//  }
 }

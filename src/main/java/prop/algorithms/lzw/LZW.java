@@ -4,6 +4,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashMap;
+import prop.algorithms.Algorithm;
 import prop.algorithms.base.BaseAlgorithm;
 
 /**
@@ -174,5 +175,10 @@ public class LZW implements BaseAlgorithm {
       value = ((int) b1 & 0xF) + (((int) b2 & 0xFF) << 4);
     }
     return value;
+  }
+
+  @Override
+  public Algorithm getAlgorithmUsed() {
+    return Algorithm.LZW;
   }
 }
