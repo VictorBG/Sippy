@@ -87,7 +87,7 @@ public class LZ78 implements BaseAlgorithm {
   }
 
   private String charAt(HashMap<Integer, Pair> dic, int pos) {
-    Character res;
+    char res;
     if ((res = dic.get(pos).getSecond()) == Character.MIN_VALUE) {
       return "";
     }
@@ -105,11 +105,4 @@ public class LZ78 implements BaseAlgorithm {
   public Algorithm getAlgorithmUsed() {
     return Algorithm.LZ78;
   }
-
-  //  @Override
-  //  public byte[] readFile(File file) throws IOException {
-  //    BufferedReader bufRdr = new BufferedReader(
-  //        new InputStreamReader(new FileInputStream(file), StandardCharsets.ISO_8859_1));
-  //    return bufRdr.lines().map(i -> i + "\n").reduce(String::concat).get().getBytes();
-  //  }
 }
