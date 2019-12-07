@@ -33,33 +33,12 @@ public class WindowBuffer {
         return "hola";
     }
 
-    public EncodedString continueMatching(short posS) {
-
-        short i = posS; //index for SB
-        short j = lookAheadL; //index for LAB
-
-        EncodedString result = new EncodedString();
-        result.setOffset((short)(lookAheadL - posS));//independiente del length del match
-
-        while (i <= searchR && j <= lookAheadR && buffers[i] == buffers[j] && result.getLength() < result.getOffset()) {
-            result.incrementLengthByOne();
-            i++;
-            j++;
-        }
-        if (j>lookAheadR) { //next symbol is in input [abc|ab]c
-            //we decided dont continue matching more
-            result.decrementLengthByOne();
-            j--;
-        }
-        return result;
-    }
 
     public EncodedString findMatch () {
 
         EncodedString token = new EncodedString();
-        token.setLength((short)0);
-        int longestMatch = -1;
-        token = searchBuffer.findMatch(token);
+        String lookAheadBuffer = input.substring(lookAheadL,lookAheadR);
+        token = KMP.searchKMP(lookAheadBuffer, searchBuffer.toString());
         return token;
     }
 
@@ -78,12 +57,17 @@ public class WindowBuffer {
 
     public void fillLookAheadBuffer() {
         lookAheadR = lookAheadBufferSize;
+        if (input.length() < lookAheadR) {
+            lookAheadR = input.length();
+        }
 
     }
 
     public void shiftLeftOne() {
-        ++inputPos;
-        char inputChar = input.charAt(inputPos);
+        inputPos++;
+        if (inputPos < input.length()) {
+            char inputChar = input.charAt(inputPos);
+        }
         //shift lookahead
         char lookAheadChar = input.charAt(lookAheadL);
         searchBuffer.enqueue(lookAheadChar);

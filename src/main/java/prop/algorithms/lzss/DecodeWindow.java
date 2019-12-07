@@ -1,4 +1,5 @@
 package prop.algorithms.lzss;
+import prop.algorithms.lzss.CircularBuffer;
 /**
  * Author: Miguel Angel Cabrera
  *
@@ -7,31 +8,39 @@ package prop.algorithms.lzss;
  */
 public class DecodeWindow {
 
-    StringBuffer buffer;
+    CircularBuffer buffer;
+    StringBuffer result;
 
     public DecodeWindow(int searchBufferLength) {
 
-        buffer = new StringBuffer("");
+        buffer = new CircularBuffer();
+        result = new StringBuffer();
     }
 
     public void addChar(char c) {
-        buffer.append(c);
+
+        result.append(c);
+        buffer.enqueue(c);
     }
 
     public void print() {
-        System.out.println(buffer);
+        System.out.println(result);
     }
 
     public StringBuffer getBuffer() {
-        return buffer;
+        return result;
     }
 
     public void copyCharsSince(int len, int offset) {
         int positions = len;
         int off = offset;
+        String repetition = buffer.toString(offset, len);
+        //fill decode buffer too
+        for (int i = 0; i<len; i++) {
+            buffer.enqueue(repetition.charAt(i));
+        }
 
-        int index = buffer.length()-off;
-        buffer.append( buffer.substring(index, index+positions));
+        result.append(repetition);
     }
 
 

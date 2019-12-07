@@ -1,5 +1,5 @@
 package prop.algorithms.lzss;
-import java.util.Iterator;
+import prop.algorithms.lzss.KMP;
 
 //********************************************************************
 //  CircularArrayQueue.java       Authors: Lewis/Chase
@@ -95,17 +95,32 @@ public class CircularBuffer {
         return count;
     }
 
-    public EncodedString findMatch(EncodedString tk) {
-        EncodedString token = new EncodedString();
-
-    }
 
     //-----------------------------------------------------------------
     //  Returns a string representation of this queue.
     //-----------------------------------------------------------------
     public String toString()
     {
-        return "hola";
+        StringBuilder result = new StringBuilder();
+        int i = front;
+        while (i != rear) {
+            result.append(queue[i]);
+            i = (i+1) % queue.length;
+        }
+        return result.toString();
+
+    }
+
+    public String toString(int start, int len)
+    {
+        StringBuilder result = new StringBuilder();
+        int i = start;
+        int stop = (start+len) % queue.length;
+        while (i != stop) {
+            result.append(queue[i]);
+            i = (i+1) % queue.length;
+        }
+        return result.toString();
 
     }
 
