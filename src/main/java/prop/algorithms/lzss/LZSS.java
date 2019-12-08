@@ -122,7 +122,7 @@ public class LZSS implements BaseAlgorithm {
                     byte length = (byte)es.getLength();
                     baos.write(offset);
                     baos.write(length);
-                    es.print();
+                    //es.print();
 
                     w.shiftLeft(es.getLength());
                 } else {
@@ -133,7 +133,7 @@ public class LZSS implements BaseAlgorithm {
                     //byte[] symb = symbol.getBytes("UTF-8");
                     byte[] symb =symbol.getBytes();
                     baos.write(symb);
-                    System.out.print(symbol);
+                    //System.out.print(symbol);
                     w.shiftLeft(1);
                 }
                 NUMBER_OF_TOKENS++;

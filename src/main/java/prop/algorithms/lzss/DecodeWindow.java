@@ -18,7 +18,6 @@ public class DecodeWindow {
     }
 
     public void addChar(char c) {
-
         result.append(c);
         buffer.enqueue(c);
     }
