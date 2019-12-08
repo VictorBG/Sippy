@@ -1,13 +1,11 @@
 package prop.presentacion;
 
 import java.awt.CardLayout;
+import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import java.io.IOException;
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
@@ -18,10 +16,6 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
-import prop.algorithms.Algorithm;
-import prop.dominio.Unzip;
-import prop.dominio.Zip;
-import prop.dominio.model.Statistics;
 
 public class InterfacePane2 extends JFrame {
 
@@ -51,7 +45,7 @@ public class InterfacePane2 extends JFrame {
   private void createMainPage() {
     mainCardPane = new JPanel();
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    setBounds(100, 100, 410, 366);
+    setBounds(100, 100, 491, 368);
     contentPane = new JPanel();
     contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
     setContentPane(contentPane);
@@ -168,46 +162,47 @@ public class InterfacePane2 extends JFrame {
     manualCompressPanel.setLayout(null);
 
     JButton zipButton = new JButton("Sippejar");
-    zipButton.setBounds(129, 74, 89, 23);
+    zipButton.setBounds(189, 74, 89, 23);
     manualCompressPanel.add(zipButton);
 
     zipButton.addActionListener(e -> {
       byte algorithm = -1;
-      if (rdbtnLz78.isSelected()){
+      if (rdbtnLz78.isSelected()) {
         algorithm = 0;
       } else if (rdbtnLzss.isSelected()) {
         algorithm = 3;
-      } else if(rdbtnLzw.isSelected()){
+      } else if (rdbtnLzw.isSelected()) {
         algorithm = 1;
-      } else if (rdbtnJpeg.isSelected()){
+      } else if (rdbtnJpeg.isSelected()) {
         algorithm = 2;
       }
-      try {
-        Zip zip = new Zip(path, Algorithm.valueOf(algorithm));
-        zip.execute();
-        showStatistics(zip);
-
-      } catch (IOException ex) {
-        ex.printStackTrace();
-      }
+      // try {
+      // // Zip zip = new Zip(path, Algorithm.valueOf(algorithm));
+      // // zip.execute();
+      // // showStatistics(zip);
+      //
+      // } catch (IOException ex) {
+      // ex.printStackTrace();
+      // }
     });
   }
 
-  private void showStatistics(Zip zip) {
-    NumberFormat formatter = new DecimalFormat("#0.00000");
-    double time = zip.getResult().getElapsedTime();
-    time = time / 1000;
-    double initialSize = zip.getResult().getInitialSize();
-    double finalSize = zip.getResult().getFinalSize();
-    double compression = ((initialSize - finalSize) / initialSize) * 100.0;
-
-    System.out.print("\n Your compression has finished.\n ");
-    System.out.print("\n Statistics: \n " + "Elapsed time: " + formatter.format(time) + " seconds"
-        + "\n The initial size was: "
-        + initialSize + " Bytes" + "\n And the final is: " + finalSize + " Bytes"
-        + "\n Compression: " + formatter.format(compression) + " %" + "\n\n");
-
-  }
+  // private void showStatistics(Zip zip) {
+  // NumberFormat formatter = new DecimalFormat("#0.00000");
+  // double time = zip.getResult().getElapsedTime();
+  // time = time / 1000;
+  // double initialSize = zip.getResult().getInitialSize();
+  // double finalSize = zip.getResult().getFinalSize();
+  // double compression = ((initialSize - finalSize) / initialSize) * 100.0;
+  //
+  // System.out.print("\n Your compression has finished.\n ");
+  // System.out.print("\n Statistics: \n " + "Elapsed time: " +
+  // formatter.format(time) + " seconds"
+  // + "\n The initial size was: " + initialSize + " Bytes" + "\n And the
+  // final is: " + finalSize + " Bytes"
+  // + "\n Compression: " + formatter.format(compression) + " %" + "\n\n");
+  //
+  // }
 
   private void createCompressPanel() {
     manAutoCardPane = new JPanel();
@@ -224,11 +219,11 @@ public class InterfacePane2 extends JFrame {
     compressPathLabel.setFont(new Font("Calibri", Font.PLAIN, 16));
 
     JButton explorerButton = new JButton("Explorer");
-    explorerButton.setBounds(6, 36, 84, 23);
+    explorerButton.setBounds(6, 36, 94, 23);
     addActionToExplorerButton(explorerButton);
 
     pathField = new JTextField();
-    pathField.setBounds(110, 32, 256, 30);
+    pathField.setBounds(110, 32, 276, 30);
     pathField.setColumns(10);
     pathField.setEditable(false);
 
@@ -276,7 +271,7 @@ public class InterfacePane2 extends JFrame {
 
     JButton decBtn = new JButton("UnSippejar");
     decBtn.setVisible(false);
-    decBtn.setBounds(136, 112, 99, 23);
+    decBtn.setBounds(157, 111, 99, 23);
     decompressPanel.add(decBtn);
 
     JLabel lblYouveSelectedDecompress = new JLabel("You've selected decompress, now we need your file path: ");
@@ -285,13 +280,13 @@ public class InterfacePane2 extends JFrame {
     decompressPanel.add(lblYouveSelectedDecompress);
 
     JButton decExplorerBtn = new JButton("Explorer");
-    decExplorerBtn.setBounds(0, 37, 84, 23);
+    decExplorerBtn.setBounds(0, 37, 94, 23);
     decompressPanel.add(decExplorerBtn);
 
     pathDecField = new JTextField();
     pathDecField.setEditable(false);
     pathDecField.setColumns(10);
-    pathDecField.setBounds(104, 33, 256, 30);
+    pathDecField.setBounds(104, 33, 272, 30);
     decompressPanel.add(pathDecField);
 
     decExplorerBtn.addActionListener(new ActionListener() {
@@ -309,20 +304,20 @@ public class InterfacePane2 extends JFrame {
       }
     });
 
-    decBtn.addActionListener(e -> {
-      try {
-        Unzip unzip = new Unzip(path);
-        unzip.execute();
-        NumberFormat formatter = new DecimalFormat("#0.00000");
-        double time = unzip.getResult().getElapsedTime();
-        time = time / 1000;
-        System.out.print("\n Your decompression has finished.\n ");
-        System.out.print(
-            "\n Statistics: \n " + "Elapsed time: " + formatter.format(time) + " seconds\n\n");
-
-      } catch (IOException ex) {
-        ex.printStackTrace();
-      }
-    });
+    // decBtn.addActionListener(e -> {
+    // try {
+    // Unzip unzip = new Unzip(path);
+    // unzip.execute();
+    // NumberFormat formatter = new DecimalFormat("#0.00000");
+    // double time = unzip.getResult().getElapsedTime();
+    // time = time / 1000;
+    // System.out.print("\n Your decompression has finished.\n ");
+    // System.out.print("\n Statistics: \n " + "Elapsed time: " +
+    // formatter.format(time) + " seconds\n\n");
+    //
+    // } catch (IOException ex) {
+    // ex.printStackTrace();
+    // }
+    // });
   }
 }
