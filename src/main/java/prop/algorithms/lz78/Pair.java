@@ -2,7 +2,7 @@ package prop.algorithms.lz78;
 
 /**
  * @class Pair
- * Author: Victor Blanco
+ *     Author: Victor Blanco
  */
 public class Pair {
 
@@ -18,16 +18,8 @@ public class Pair {
     return first;
   }
 
-  public void setFirst(int first) {
-    this.first = first;
-  }
-
   char getSecond() {
     return second;
-  }
-
-  public void setSecond(char second) {
-    this.second = second;
   }
 
   byte[] getBytes() {

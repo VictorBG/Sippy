@@ -27,10 +27,6 @@ test {
     outputs.upToDateWhen { false }
 }
 
-run {
-    standardInput = System.in
-}
-
 task buildMain(type: Jar) {
     manifest {
         attributes "Main-Class": "prop.Launcher"
