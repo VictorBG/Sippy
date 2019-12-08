@@ -105,6 +105,7 @@ public class InterfacePane2 extends JFrame {
       @Override
       public void actionPerformed(ActionEvent e) {
         JFileChooser fileChooser = new JFileChooser("frame:");
+        fileChooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
         int selection = fileChooser.showSaveDialog(null);
         if (selection == JFileChooser.APPROVE_OPTION) {
           path = fileChooser.getSelectedFile().getAbsolutePath();
@@ -298,6 +299,7 @@ public class InterfacePane2 extends JFrame {
       @Override
       public void actionPerformed(ActionEvent e) {
         JFileChooser fileChooser = new JFileChooser("frame:");
+        fileChooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
         int selection = fileChooser.showSaveDialog(null);
         if (selection == JFileChooser.APPROVE_OPTION) {
           path = fileChooser.getSelectedFile().getAbsolutePath();
