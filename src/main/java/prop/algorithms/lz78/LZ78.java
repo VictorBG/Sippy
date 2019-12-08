@@ -8,6 +8,8 @@ import prop.algorithms.Algorithm;
 import prop.algorithms.base.BaseAlgorithm;
 
 /**
+ * Author: Victor Blanco
+ *
  * @class LZ78
  * @brief Implementation of the LZ78 algorithm.
  *
@@ -18,7 +20,6 @@ import prop.algorithms.base.BaseAlgorithm;
  *     maximum is log2(x) instead of taking 24 bits always, which also puts a theoric limit of 2^24
  *     values for the index. It is also expensive for low sized files.
  *     - Use a Trie instead of a HashMap. It will improve but not much.
- *     Author: Victor Blanco
  */
 public class LZ78 implements BaseAlgorithm {
 
@@ -73,12 +74,37 @@ public class LZ78 implements BaseAlgorithm {
     return result.toString().getBytes(StandardCharsets.UTF_8);
   }
 
+  /**
+   * Writes a chunk of data to the {@link #baos} output stream.
+   *
+   * @param data Data to write
+   */
   private void write(byte[] data) {
     try {
       baos.write(data);
     } catch (IOException ignore) {}
   }
 
+  // TODO: These 2 methods can be implemented better
+
+  /**
+   * Returns a String containing the recovered word from the dictionary.
+   *
+   * It reads the value element and retrieves the {@link Pair} object associated
+   * with it, it then returns the char that the pair contains concated with the
+   * string returned by this method for the value contained by the pair.
+   *
+   * If the value contained by the pair is 0, it means it reached the final of the string
+   * recovery, and will not iterate more.
+   *
+   * Note: The char is always concated at the end, as it is the last char, and the rest of the char
+   * are stored as a list of values that points to another position of the map.
+   *
+   * @param dic   Dictionary to read from
+   * @param value Value to read from the dictionary
+   *
+   * @return The recovered string of the map starting with the value object
+   */
   private String getString(HashMap<Integer, Pair> dic, int value) {
     if (dic.get(value).getFirst() == 0) {
       return charAt(dic, value);
@@ -87,6 +113,16 @@ public class LZ78 implements BaseAlgorithm {
     }
   }
 
+  /**
+   * Returns the char contained in the position (or value) of the dictionary. If the char
+   * is a {@link Character#MIN_VALUE} it returns an empty string, if not it returns
+   * the char of the position.
+   *
+   * @param dic Dictionary to read from
+   * @param pos Position (value) to read from the dictionary
+   *
+   * @return the char of the position pos of the dictionary
+   */
   private String charAt(HashMap<Integer, Pair> dic, int pos) {
     char res;
     if ((res = dic.get(pos).getSecond()) == Character.MIN_VALUE) {
@@ -95,6 +131,16 @@ public class LZ78 implements BaseAlgorithm {
     return String.valueOf(res);
   }
 
+  /**
+   * Returns a char based on the byte value.
+   *
+   * If the value is negative (ca2), it is converted into a positive value, to match the ASCII
+   * table, if not, it is return as it is
+   *
+   * @param b Byte to convert
+   *
+   * @return The byte converted into an ASCII table char
+   */
   private char getChar(byte b) {
     int i = new Byte(b).intValue();
     if (i < 0) {
@@ -103,6 +149,13 @@ public class LZ78 implements BaseAlgorithm {
     return (char) i;
   }
 
+  /**
+   * Converts the given byte array of length 3 into an int
+   *
+   * @param b Byte array to convert
+   *
+   * @return Integer contained in the byte array
+   */
   private int byteArrayToInt(byte[] b) {
     return
         (b[2] & 0xFF) |

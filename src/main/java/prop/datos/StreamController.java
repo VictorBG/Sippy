@@ -6,6 +6,8 @@ import prop.datos.streams.ZipStream;
 
 /**
  * Author: Víctor Blanco
+ *
+ * Controller for the streams object.
  */
 public class StreamController {
 

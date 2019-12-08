@@ -5,7 +5,6 @@ package prop.utils;
  * @brief  Utils class, used for concat byte arrays
  * Author: Sergio Vazquez
  */
-/// \code{.java}
 public class Bytes {
   /**
    * @brief Concatena arrays de bytes
@@ -26,4 +25,3 @@ public class Bytes {
     return result;
   }
 }
-/// \endcode

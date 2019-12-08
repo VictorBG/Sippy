@@ -5,6 +5,8 @@ import java.util.ArrayList;
 
 /**
  * Author: Sergio Vázquez
+ *
+ * Business object used to store the structure of a folder
  */
 public class FolderBO extends ItemBO {
 

@@ -8,10 +8,12 @@ import prop.algorithms.lzss.LZSS;
 import prop.algorithms.lzw.LZW;
 
 /**
+ * Author: Victor Blanco
+ *
  * @class Algorithm
  * @brief Enum amb tots els algorismes disponibles al sistema i relacionats amb la seva
  *     corresponent id.
- *     Author: Victor Blanco
+ *
  */
 public enum Algorithm {
   LZ78((byte) 0x0, new LZ78()),

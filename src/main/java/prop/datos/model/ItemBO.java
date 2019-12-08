@@ -5,6 +5,9 @@ import prop.utils.FileUtils;
 
 /**
  * Author: Sergio Vázquez
+ *
+ * Business object used to store the structure of a file of the system with some
+ * helper methods.
  */
 public class ItemBO {
 
