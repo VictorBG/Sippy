@@ -1,4 +1,3 @@
-package prop.presentacion;
 
 import java.awt.CardLayout;
 import java.awt.EventQueue;
@@ -18,6 +17,19 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 public class InterfacePane2 extends JFrame {
+
+  public static void main(String[] args) {
+    EventQueue.invokeLater(new Runnable() {
+      @Override
+      public void run() {
+        try {
+          InterfacePane2.start();
+        } catch (Exception e) {
+          e.printStackTrace();
+        }
+      }
+    });
+  }
 
   private JPanel contentPane;
   private JTextField pathField;
@@ -214,7 +226,7 @@ public class InterfacePane2 extends JFrame {
     manAutoCardPane.add(voidAutoPane, "voidPane");
 
     JLabel compressPathLabel = new JLabel("You've selected compress, now we need your file path: ");
-    compressPathLabel.setBounds(6, 11, 360, 14);
+    compressPathLabel.setBounds(6, 11, 398, 14);
     compressPanel.add(compressPathLabel);
     compressPathLabel.setFont(new Font("Calibri", Font.PLAIN, 16));
 
