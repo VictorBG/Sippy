@@ -1,3 +1,4 @@
+package prop.presentacion;
 
 import java.awt.CardLayout;
 import java.awt.EventQueue;
@@ -18,18 +19,7 @@ import javax.swing.border.EmptyBorder;
 
 public class InterfacePane2 extends JFrame {
 
-  public static void main(String[] args) {
-    EventQueue.invokeLater(new Runnable() {
-      @Override
-      public void run() {
-        try {
-          InterfacePane2.start();
-        } catch (Exception e) {
-          e.printStackTrace();
-        }
-      }
-    });
-  }
+
 
   private JPanel contentPane;
   private JTextField pathField;
@@ -57,7 +47,7 @@ public class InterfacePane2 extends JFrame {
   private void createMainPage() {
     mainCardPane = new JPanel();
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    setBounds(100, 100, 491, 368);
+    setBounds(100, 100, 414, 368);
     contentPane = new JPanel();
     contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
     setContentPane(contentPane);
@@ -288,17 +278,17 @@ public class InterfacePane2 extends JFrame {
 
     JLabel lblYouveSelectedDecompress = new JLabel("You've selected decompress, now we need your file path: ");
     lblYouveSelectedDecompress.setFont(new Font("Calibri", Font.PLAIN, 16));
-    lblYouveSelectedDecompress.setBounds(0, 11, 376, 14);
+    lblYouveSelectedDecompress.setBounds(10, 12, 408, 14);
     decompressPanel.add(lblYouveSelectedDecompress);
 
     JButton decExplorerBtn = new JButton("Explorer");
-    decExplorerBtn.setBounds(0, 37, 94, 23);
+    decExplorerBtn.setBounds(10, 37, 94, 23);
     decompressPanel.add(decExplorerBtn);
 
     pathDecField = new JTextField();
     pathDecField.setEditable(false);
     pathDecField.setColumns(10);
-    pathDecField.setBounds(104, 33, 272, 30);
+    pathDecField.setBounds(114, 33, 272, 30);
     decompressPanel.add(pathDecField);
 
     decExplorerBtn.addActionListener(new ActionListener() {
