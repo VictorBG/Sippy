@@ -39,6 +39,9 @@ public class WindowBuffer {
         EncodedString token = new EncodedString();
         String lookAheadBuffer = input.substring(lookAheadL,lookAheadR);
         token = KMP.searchKMP(lookAheadBuffer, searchBuffer.toString());
+        int circularBufferOffset = searchBuffer.front;
+        int newOffset = (token.getOffset()+circularBufferOffset) % searchBuffer.size();
+        token.setOffset((short)newOffset);
         return token;
     }
 

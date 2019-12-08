@@ -165,7 +165,7 @@ public class KMP {
             indexMatch = kmp1.search(txt);
             i++;
         }
-        while (indexMatch >= indexMatchAnt && i<pat.length() && indexMatch != txt.length());
+        while (indexMatch >= indexMatchAnt && i<=pat.length() && indexMatch != txt.length());
 
         // print results
         //System.out.println("text: " + txt);

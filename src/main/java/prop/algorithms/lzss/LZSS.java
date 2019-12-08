@@ -8,6 +8,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
+import java.sql.SQLOutput;
+
 import prop.algorithms.base.BaseAlgorithm;
 import prop.utils.Bytes;
 
@@ -20,11 +22,11 @@ public class LZSS implements BaseAlgorithm {
 
     private ByteArrayOutputStream baos;
 
-    private static final int MIN_LEN_MATCH = 3;
+    private static final int MIN_LEN_MATCH = 1;
                                                 //max2^8 = 255
-    private static final int BUFFER_SIZE_LOOKAHEAD = 100;
+    private static final int BUFFER_SIZE_LOOKAHEAD = 6;
                                                 //max2^8 = 255
-    private static final int BUFFER_SIZE_SEARCH = 255;
+    private static final int BUFFER_SIZE_SEARCH = 8;
 
     private int NUMBER_OF_TOKENS = 0;
 
@@ -120,6 +122,7 @@ public class LZSS implements BaseAlgorithm {
                     byte length = (byte)es.getLength();
                     baos.write(offset);
                     baos.write(length);
+                    es.print();
 
                     w.shiftLeft(es.getLength());
                 } else {
@@ -127,8 +130,10 @@ public class LZSS implements BaseAlgorithm {
                     flags.addFlag(false); //flag 0 indicates literal
                     //only ASCII
                     String symbol = w.getFirstCharLookAheadBuffer()+"";
-                    byte[] symb = symbol.getBytes("UTF-8");
+                    //byte[] symb = symbol.getBytes("UTF-8");
+                    byte[] symb =symbol.getBytes();
                     baos.write(symb);
+                    System.out.print(symbol);
                     w.shiftLeft(1);
                 }
                 NUMBER_OF_TOKENS++;

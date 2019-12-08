@@ -13,7 +13,7 @@ public class DecodeWindow {
 
     public DecodeWindow(int searchBufferLength) {
 
-        buffer = new CircularBuffer();
+        buffer = new CircularBuffer(searchBufferLength);
         result = new StringBuffer();
     }
 
