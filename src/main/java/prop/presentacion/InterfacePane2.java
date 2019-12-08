@@ -1,10 +1,21 @@
 package prop.presentacion;
 
-import javax.swing.*;
-import javax.swing.border.EmptyBorder;
-import java.awt.*;
+import java.awt.CardLayout;
+import java.awt.EventQueue;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import javax.swing.ButtonGroup;
+import javax.swing.JButton;
+import javax.swing.JFileChooser;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
 
 public class InterfacePane2 extends JFrame {
 
@@ -34,7 +45,7 @@ public class InterfacePane2 extends JFrame {
   private void createMainPage() {
     mainCardPane = new JPanel();
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    setBounds(100, 100, 491, 368);
+    setBounds(100, 100, 422, 368);
     contentPane = new JPanel();
     contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
     setContentPane(contentPane);
@@ -122,23 +133,23 @@ public class InterfacePane2 extends JFrame {
 
     JLabel algorithmsLabel = new JLabel("Al right, choose now the algorithm:");
     algorithmsLabel.setFont(new Font("Calibri", Font.PLAIN, 16));
-    algorithmsLabel.setBounds(10, 0, 360, 14);
+    algorithmsLabel.setBounds(0, 0, 360, 14);
     manualCompressPanel.add(algorithmsLabel);
 
     rdbtnLz78.setFont(new Font("Calibri", Font.PLAIN, 14));
-    rdbtnLz78.setBounds(10, 21, 69, 23);
+    rdbtnLz78.setBounds(0, 21, 69, 23);
     manualCompressPanel.add(rdbtnLz78);
 
     rdbtnLzss.setFont(new Font("Calibri", Font.PLAIN, 14));
-    rdbtnLzss.setBounds(94, 21, 69, 23);
+    rdbtnLzss.setBounds(86, 21, 69, 23);
     manualCompressPanel.add(rdbtnLzss);
 
     rdbtnLzw.setFont(new Font("Calibri", Font.PLAIN, 14));
-    rdbtnLzw.setBounds(179, 21, 83, 23);
+    rdbtnLzw.setBounds(170, 21, 83, 23);
     manualCompressPanel.add(rdbtnLzw);
 
     rdbtnJpeg.setFont(new Font("Calibri", Font.PLAIN, 14));
-    rdbtnJpeg.setBounds(264, 21, 83, 23);
+    rdbtnJpeg.setBounds(255, 21, 83, 23);
     manualCompressPanel.add(rdbtnJpeg);
 
     algorithmsrbsGroup.add(rdbtnLzw);
@@ -203,22 +214,22 @@ public class InterfacePane2 extends JFrame {
     manAutoCardPane.add(voidAutoPane, "voidPane");
 
     JLabel compressPathLabel = new JLabel("You've selected compress, now we need your file path: ");
-    compressPathLabel.setBounds(6, 11, 398, 14);
+    compressPathLabel.setBounds(0, 11, 398, 14);
     compressPanel.add(compressPathLabel);
     compressPathLabel.setFont(new Font("Calibri", Font.PLAIN, 16));
 
     JButton explorerButton = new JButton("Explorer");
-    explorerButton.setBounds(6, 36, 94, 23);
+    explorerButton.setBounds(0, 36, 94, 23);
     addActionToExplorerButton(explorerButton);
 
     pathField = new JTextField();
-    pathField.setBounds(110, 32, 276, 30);
+    pathField.setBounds(112, 32, 274, 30);
     pathField.setColumns(10);
     pathField.setEditable(false);
 
     manAutoRadioButtonsPanel = new JPanel(); // contains the 2 radio buttons
     manAutoRadioButtonsPanel.setVisible(false);
-    manAutoRadioButtonsPanel.setBounds(6, 70, 236, 23);
+    manAutoRadioButtonsPanel.setBounds(0, 70, 236, 23);
     manAutoRadioButtonsPanel.setLayout(null);
 
     JRadioButton rdbtnManual = new JRadioButton("Manual");
@@ -260,22 +271,22 @@ public class InterfacePane2 extends JFrame {
 
     JButton decBtn = new JButton("UnSippejar");
     decBtn.setVisible(false);
-    decBtn.setBounds(157, 111, 99, 23);
+    decBtn.setBounds(154, 111, 99, 23);
     decompressPanel.add(decBtn);
 
     JLabel lblYouveSelectedDecompress = new JLabel("You've selected decompress, now we need your file path: ");
     lblYouveSelectedDecompress.setFont(new Font("Calibri", Font.PLAIN, 16));
-    lblYouveSelectedDecompress.setBounds(0, 11, 376, 14);
+    lblYouveSelectedDecompress.setBounds(0, 11, 408, 14);
     decompressPanel.add(lblYouveSelectedDecompress);
 
     JButton decExplorerBtn = new JButton("Explorer");
-    decExplorerBtn.setBounds(0, 37, 94, 23);
+    decExplorerBtn.setBounds(0, 36, 94, 23);
     decompressPanel.add(decExplorerBtn);
 
     pathDecField = new JTextField();
     pathDecField.setEditable(false);
     pathDecField.setColumns(10);
-    pathDecField.setBounds(104, 33, 272, 30);
+    pathDecField.setBounds(114, 32, 272, 30);
     decompressPanel.add(pathDecField);
 
     decExplorerBtn.addActionListener(new ActionListener() {
