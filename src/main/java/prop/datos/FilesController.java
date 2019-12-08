@@ -64,7 +64,7 @@ public class FilesController {
    */
   private void populateFolder(FolderBO folderBO) throws IOException {
     for (File f : Objects.requireNonNull(folderBO.getFile().listFiles())) {
-      folderBO.addItem(getFile(f.getAbsolutePath()));
+      folderBO.addItem(getFile(f.getPath()));
     }
   }
 

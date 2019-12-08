@@ -54,7 +54,7 @@ public class Zip extends Transaction<Statistics> {
     ZipStream zipStream = factory.getStreamController().getZipStream(path);
 
     for (File file : item.getItems()) {
-      zipStream.compressFile(path, file.getSupportedAlgorithm(algorithm));
+      zipStream.compressFile(file.getPath(), file.getSupportedAlgorithm(algorithm));
     }
 
     statistics.stopTimer();
