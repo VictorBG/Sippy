@@ -221,7 +221,7 @@ public class InterfacePane2 extends JFrame {
     addActionToExplorerButton(explorerButton);
 
     pathField = new JTextField();
-    pathField.setBounds(104, 36, 274, 30);
+    pathField.setBounds(114, 36, 272, 30);
     pathField.setColumns(10);
     pathField.setEditable(false);
 
