@@ -202,10 +202,10 @@ public class InterfacePane2 extends JFrame {
 
    System.out.print("\n Your compression has finished.\n ");
    System.out.print("\n Statistics: \n " + "Elapsed time: " +
-     formatter.format(time) + " seconds"
-     + "\n The initial size was: " + initialSize + " Bytes" + "\n And the "
+   formatter.format(time) + " seconds"
+   + "\n The initial size was: " + initialSize + " Bytes" + "\n And the "
        + "final is: " + finalSize + " Bytes"
-     + "\n Compression: " + formatter.format(compression) + " %" + "\n\n");
+   + "\n Compression: " + formatter.format(compression) + " %" + "\n\n");
 
    }
 
@@ -224,11 +224,11 @@ public class InterfacePane2 extends JFrame {
     compressPathLabel.setFont(new Font("Calibri", Font.PLAIN, 16));
 
     JButton explorerButton = new JButton("Explorer");
-    explorerButton.setBounds(0, 36, 94, 23);
+    explorerButton.setBounds(0, 40, 94, 23);
     addActionToExplorerButton(explorerButton);
 
     pathField = new JTextField();
-    pathField.setBounds(112, 32, 274, 30);
+    pathField.setBounds(104, 36, 274, 30);
     pathField.setColumns(10);
     pathField.setEditable(false);
 
@@ -285,13 +285,13 @@ public class InterfacePane2 extends JFrame {
     decompressPanel.add(lblYouveSelectedDecompress);
 
     JButton decExplorerBtn = new JButton("Explorer");
-    decExplorerBtn.setBounds(0, 36, 94, 23);
+    decExplorerBtn.setBounds(0, 40, 94, 23);
     decompressPanel.add(decExplorerBtn);
 
     pathDecField = new JTextField();
     pathDecField.setEditable(false);
     pathDecField.setColumns(10);
-    pathDecField.setBounds(114, 32, 272, 30);
+    pathDecField.setBounds(114, 36, 272, 30);
     decompressPanel.add(pathDecField);
 
     decExplorerBtn.addActionListener(new ActionListener() {
