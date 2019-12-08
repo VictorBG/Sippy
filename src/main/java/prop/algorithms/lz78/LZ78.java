@@ -32,12 +32,12 @@ public class LZ78 implements BaseAlgorithm {
     String s = "";
     Integer pos = 0;
     int index = 1;
-    String text = new String(data, StandardCharsets.UTF_8);
-    for (String b : text.split("")) {
-      s += String.valueOf(b);
+    for (byte b : data) {
+      char c = getChar(b);
+      s += c;
       if (!dictionary.containsKey(s)) {
         dictionary.put(s, index++);
-        write(new Pair(pos, b.charAt(0)).getBytes());
+        write(new Pair(pos, c).getBytes());
         s = "";
         pos = 0;
       } else {
@@ -48,6 +48,7 @@ public class LZ78 implements BaseAlgorithm {
     if (pos != 0) {
       write(new Pair(pos, Character.MIN_VALUE).getBytes());
     }
+
     return baos.toByteArray();
   }
 
@@ -69,7 +70,7 @@ public class LZ78 implements BaseAlgorithm {
       result.append(getString(dictionary, k++));
     }
 
-    return result.toString().getBytes(StandardCharsets.ISO_8859_1);
+    return result.toString().getBytes(StandardCharsets.UTF_8);
   }
 
   private void write(byte[] data) {
@@ -92,6 +93,14 @@ public class LZ78 implements BaseAlgorithm {
       return "";
     }
     return String.valueOf(res);
+  }
+
+  private char getChar(byte b) {
+    int i = new Byte(b).intValue();
+    if (i < 0) {
+      i += 256;
+    }
+    return (char) i;
   }
 
   private int byteArrayToInt(byte[] b) {

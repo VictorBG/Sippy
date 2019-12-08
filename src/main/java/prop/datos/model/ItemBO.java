@@ -18,10 +18,6 @@ public class ItemBO {
     return file;
   }
 
-  public void setFile(File file) {
-    this.file = file;
-  }
-
   public long getSize() {
     return file.length();
   }

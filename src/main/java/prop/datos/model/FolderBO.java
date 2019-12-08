@@ -18,10 +18,6 @@ public class FolderBO extends ItemBO {
     return items;
   }
 
-  public void setItems(ArrayList<ItemBO> items) {
-    this.items = items;
-  }
-
   public void addItem(ItemBO itemBO) {
     if (items == null) {
       items = new ArrayList<>();
