@@ -30,8 +30,7 @@ import prop.utils.FileUtils;
  *     Unzips a sippy file format extension.
  *
  *     TODO: I think headerSize is not util and we could remove it from the header. The other fields
- *     are
- *     mandatory for the correct usage of this stream.
+ *     are mandatory for the correct usage of this stream.
  */
 public class UnzipStream {
 

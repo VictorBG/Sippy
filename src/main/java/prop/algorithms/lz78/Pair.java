@@ -1,8 +1,13 @@
 package prop.algorithms.lz78;
 
 /**
+ * Author: Victor Blanco
+ *
  * @class Pair
- *     Author: Victor Blanco
+ *
+ *     A simple Pair class that holds a first and a second object, in that case, first
+ *     is an integer and second is a char, as it is used mainly for the {@link LZ78} algorithm
+ *     but it could be more generic if neccessary.
  */
 public class Pair {
 

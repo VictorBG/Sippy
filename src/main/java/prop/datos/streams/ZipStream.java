@@ -49,12 +49,9 @@ import prop.utils.FileUtils;
  *     NameSize: Integer indicating the size of the name in the header.
  *
  *     Name: Name of the archive, it is relative to the parent root of the compressed items. That
- *     means
- *     that a single file will have its file name as a name but in a folder structure they will
- *     have
- *     canonical structure until the root parent. ie: if zipping \\users\\ex\\test and it is a file
- *     in
- *     the directory \\users\\ex\\test\\a\\b\\c.txt, the name will be a\\b\\c.txt.
+ *     means that a single file will have its file name as a name but in a folder structure they
+ *     will have canonical structure until the root parent. ie: if zipping \\users\\ex\\test and
+ *     it is a file in the directory \\users\\ex\\test\\a\\b\\c.txt, the name will be a\\b\\c.txt.
  *
  *     DATA: the encoded data of the file.
  */
@@ -89,9 +86,6 @@ public class ZipStream extends DataOutputStream {
    *     \post Nova instancia de ZipStream
    *
    *     Creates a new data output stream to write data to the specified underlying output stream.
-   *     The
-   *     counter <code>written</code> is set to zero.
-   * @see FilterOutputStream#out
    */
   private ZipStream(OutputStream out, File file) {
     super(out);
@@ -112,8 +106,7 @@ public class ZipStream extends DataOutputStream {
    *     \post itemc compress i guardat a l'arxiu de sortida
    *
    *     Adds a file to the output stream. It writes the neccessary header and then writes to the
-   *     output
-   *     stream after applying the compress method.
+   *     output stream after applying the compress method.
    */
   public void compressFile(String path, Algorithm alg) throws IOException {
 

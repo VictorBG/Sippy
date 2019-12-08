@@ -2,9 +2,14 @@ package prop.datos;
 
 /**
  * Author: Sergio Vázquez
+ *
+ * Singleton to get the data layer controllers
  */
 public final class DataFactory {
 
+  /**
+   * Lazy initialization of the singleton and thread safe
+   */
   private static final class SingletonHelper {
 
     public static final DataFactory INSTANCE = new DataFactory();

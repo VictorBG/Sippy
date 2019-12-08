@@ -7,6 +7,13 @@ import prop.algorithms.base.BaseAlgorithm;
 
 /**
  * Author: Victor Blanco
+ *
+ * Automatic algorithm chooser that chooses the algorithm based on the
+ * best algorithm for the given input.
+ *
+ * It iterates for all of the {@link #allowedAlgorithms} and encodes a small fragment of the data,
+ * which is 1KB if the file is larger than that or the whole file otherwise, then it returns
+ * the input encoded with the best algorithm based on the major percentage of encoding.
  */
 public class Automatic implements BaseAlgorithm {
 
