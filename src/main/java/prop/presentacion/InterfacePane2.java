@@ -101,30 +101,22 @@ public class InterfacePane2 extends JFrame {
   }
 
   private void addActionToExplorerButton(JButton explorerButton) {
-    explorerButton.addActionListener(new ActionListener() {
-      @Override
-      public void actionPerformed(ActionEvent e) {
-        JFileChooser fileChooser = new JFileChooser("frame:");
-        fileChooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
-        int selection = fileChooser.showSaveDialog(null);
-        if (selection == JFileChooser.APPROVE_OPTION) {
-          path = fileChooser.getSelectedFile().getAbsolutePath();
-          pathField.setText(path);
-          // TODO: check if path is correct
-          manAutoRadioButtonsPanel.setVisible(true);
-        } else
-          JOptionPane.showMessageDialog(mainCardPane, "Cancelled by the user");
-      }
+    explorerButton.addActionListener(e -> {
+      JFileChooser fileChooser = new JFileChooser("frame:");
+      fileChooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+      int selection = fileChooser.showSaveDialog(null);
+      if (selection == JFileChooser.APPROVE_OPTION) {
+        path = fileChooser.getSelectedFile().getAbsolutePath();
+        pathField.setText(path);
+        // TODO: check if path is correct
+        manAutoRadioButtonsPanel.setVisible(true);
+      } else
+        JOptionPane.showMessageDialog(mainCardPane, "Cancelled by the user");
     });
   }
 
   private void createListenersForRadioButtons(String panel, JPanel cardPane, JRadioButton rb) {
-    rb.addActionListener(new ActionListener() {
-      @Override
-      public void actionPerformed(ActionEvent e) {
-        ((CardLayout) cardPane.getLayout()).show(cardPane, panel);
-      }
-    });
+    rb.addActionListener(e -> ((CardLayout) cardPane.getLayout()).show(cardPane, panel));
   }
 
   private void createManualCompressPanel() {
@@ -139,7 +131,7 @@ public class InterfacePane2 extends JFrame {
 
     JLabel algorithmsLabel = new JLabel("Al right, choose now the algorithm:");
     algorithmsLabel.setFont(new Font("Calibri", Font.PLAIN, 16));
-    algorithmsLabel.setBounds(0, 0, 360, 14);
+    algorithmsLabel.setBounds(0, 0, 360, 20);
     manualCompressPanel.add(algorithmsLabel);
 
     rdbtnLz78.setFont(new Font("Calibri", Font.PLAIN, 14));
@@ -219,8 +211,8 @@ public class InterfacePane2 extends JFrame {
     JPanel voidAutoPane = new JPanel();
     manAutoCardPane.add(voidAutoPane, "voidPane");
 
-    JLabel compressPathLabel = new JLabel("Please, select the path");
-    compressPathLabel.setBounds(0, 11, 398, 14);
+    JLabel compressPathLabel = new JLabel("Please, select the path:");
+    compressPathLabel.setBounds(0, 11, 398, 20);
     compressPanel.add(compressPathLabel);
     compressPathLabel.setFont(new Font("Calibri", Font.PLAIN, 16));
 
@@ -277,12 +269,12 @@ public class InterfacePane2 extends JFrame {
 
     JButton decBtn = new JButton("UnSippejar");
     decBtn.setVisible(false);
-    decBtn.setBounds(147, 111, 99, 23);
+    decBtn.setBounds(147, 111, 105, 23);
     decompressPanel.add(decBtn);
 
-    JLabel lblYouveSelectedDecompress = new JLabel("Please, select the path");
+    JLabel lblYouveSelectedDecompress = new JLabel("Please, select the path:");
     lblYouveSelectedDecompress.setFont(new Font("Calibri", Font.PLAIN, 16));
-    lblYouveSelectedDecompress.setBounds(0, 11, 408, 14);
+    lblYouveSelectedDecompress.setBounds(0, 11, 408, 20);
     decompressPanel.add(lblYouveSelectedDecompress);
 
     JButton decExplorerBtn = new JButton("Explorer");
