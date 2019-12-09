@@ -9,12 +9,12 @@ import prop.algorithms.lzss.CircularBuffer;
 public class DecodeWindow {
 
     CircularBuffer buffer;
-    StringBuffer result;
+    StringBuilder result;
 
     public DecodeWindow(int searchBufferLength) {
 
         buffer = new CircularBuffer(searchBufferLength);
-        result = new StringBuffer();
+        result = new StringBuilder();
     }
 
     public void addChar(char c) {
@@ -26,7 +26,7 @@ public class DecodeWindow {
         System.out.println(result);
     }
 
-    public StringBuffer getBuffer() {
+    public StringBuilder getBuffer() {
         return result;
     }
 
