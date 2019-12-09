@@ -22,11 +22,11 @@ public class LZSS implements BaseAlgorithm {
 
     private ByteArrayOutputStream baos;
 
-    private static final int MIN_LEN_MATCH = 1;
+    private static final int MIN_LEN_MATCH = 3;
                                                 //max2^8 = 255
-    private static final int BUFFER_SIZE_LOOKAHEAD = 6;
+    private static final int BUFFER_SIZE_LOOKAHEAD = 100;
                                                 //max2^8 = 255
-    private static final int BUFFER_SIZE_SEARCH = 8;
+    private static final int BUFFER_SIZE_SEARCH = 200;
 
     private int NUMBER_OF_TOKENS = 0;
 
