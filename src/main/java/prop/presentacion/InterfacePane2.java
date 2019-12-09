@@ -6,6 +6,7 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import java.io.File;
 import java.io.IOException;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
@@ -26,13 +27,15 @@ import prop.dominio.Zip;
 public class InterfacePane2 extends JFrame {
   private JPanel contentPane;
   private JTextField pathField;
+  private JTextField decPathField;
   private String path;
-  private JTextField pathDecField;
   private JPanel mainCardPane;
   private JPanel manAutoRadioButtonsPanel;
   private JPanel manAutoCardPane;
   private JPanel compressPanel;
   private JPanel decompressPanel;
+  JButton explorerButton;
+  JTextField fileNameField;
 
   public static void start() {
     new InterfacePane2();
@@ -98,21 +101,7 @@ public class InterfacePane2 extends JFrame {
     mainCardPane.add(compressPanel, "compressPanel");
     compressPanel.setVisible(false);
     compressPanel.setLayout(null);
-  }
 
-  private void addActionToExplorerButton(JButton explorerButton) {
-    explorerButton.addActionListener(e -> {
-      JFileChooser fileChooser = new JFileChooser("frame:");
-      fileChooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
-      int selection = fileChooser.showSaveDialog(null);
-      if (selection == JFileChooser.APPROVE_OPTION) {
-        path = fileChooser.getSelectedFile().getAbsolutePath();
-        pathField.setText(path);
-        // TODO: check if path is correct
-        manAutoRadioButtonsPanel.setVisible(true);
-      } else
-        JOptionPane.showMessageDialog(mainCardPane, "Cancelled by the user");
-    });
   }
 
   private void createListenersForRadioButtons(String panel, JPanel cardPane, JRadioButton rb) {
@@ -126,6 +115,10 @@ public class InterfacePane2 extends JFrame {
     JRadioButton rdbtnLzss = new JRadioButton("LZSS");
     JRadioButton rdbtnLzw = new JRadioButton("LZW");
     JRadioButton rdbtnJpeg = new JRadioButton("JPEG");
+
+    rdbtnLzw.addActionListener(e->{
+      fileNameField.setText(new File(path).getName());
+    });
 
     ButtonGroup algorithmsrbsGroup = new ButtonGroup();
 
@@ -160,8 +153,14 @@ public class InterfacePane2 extends JFrame {
     manualCompressPanel.setLayout(null);
 
     JButton zipButton = new JButton("Sippejar");
-    zipButton.setBounds(146, 74, 89, 23);
+    zipButton.setBounds(238, 69, 89, 23);
     manualCompressPanel.add(zipButton);
+
+    fileNameField = new JTextField();
+    fileNameField.setBounds(22, 70, 168, 23);
+    manualCompressPanel.add(fileNameField);
+    fileNameField.setColumns(10);
+
 
     zipButton.addActionListener(e -> {
       byte algorithm = -1;
@@ -193,13 +192,11 @@ public class InterfacePane2 extends JFrame {
    double finalSize = zip.getResult().getFinalSize();
    double compression = ((initialSize - finalSize) / initialSize) * 100.0;
 
-   System.out.print("\n Your compression has finished.\n ");
-   System.out.print("\n Statistics: \n " + "Elapsed time: " +
-   formatter.format(time) + " seconds"
-   + "\n The initial size was: " + initialSize + " Bytes" + "\n And the "
-       + "final is: " + finalSize + " Bytes"
-   + "\n Compression: " + formatter.format(compression) + " %" + "\n\n");
-
+     JOptionPane.showMessageDialog(mainCardPane,"Elapsed time: " +
+         formatter.format(time) + " seconds"
+         + "\n The initial size was: " + initialSize + " Bytes" + "\n And the "
+         + "final is: " + finalSize + " Bytes"
+         + "\n Compression: " + formatter.format(compression) + " %" + "\n\n","Statistics",1);
    }
 
   private void createCompressPanel() {
@@ -216,14 +213,9 @@ public class InterfacePane2 extends JFrame {
     compressPanel.add(compressPathLabel);
     compressPathLabel.setFont(new Font("Calibri", Font.PLAIN, 16));
 
-    JButton explorerButton = new JButton("Explorer");
+    explorerButton = new JButton("Explorer");
     explorerButton.setBounds(0, 40, 94, 23);
     addActionToExplorerButton(explorerButton);
-
-    pathField = new JTextField();
-    pathField.setBounds(114, 36, 272, 30);
-    pathField.setColumns(10);
-    pathField.setEditable(false);
 
     manAutoRadioButtonsPanel = new JPanel(); // contains the 2 radio buttons
     manAutoRadioButtonsPanel.setVisible(false);
@@ -246,13 +238,17 @@ public class InterfacePane2 extends JFrame {
     manualAutorbsGroup.add(rdbtnAutomatic);
     manualAutorbsGroup.add(rdbtnManual);
 
+    pathField = new JTextField();
+    pathField.setEditable(false);
+    pathField.setColumns(10);
+    pathField.setBounds(114, 36, 272, 30);
+
     compressPanel.add(explorerButton);
     compressPanel.add(manAutoRadioButtonsPanel);
     compressPanel.add(pathField);
 
     createManualCompressPanel();
     createAutomaticCompressPanel();
-
   }
 
   private void createAutomaticCompressPanel() {
@@ -261,12 +257,21 @@ public class InterfacePane2 extends JFrame {
     manAutoCardPane.add(autoPanel, "autoPanel");
 
     JButton automaticZipButton = new JButton("Sippejar");
-    automaticZipButton.setBounds(136, 30, 89, 23);
+    automaticZipButton.setBounds(140, 30, 89, 23);
     autoPanel.add(automaticZipButton);
+
+    automaticZipButton.addActionListener(e->{
+      try {
+        Zip zip = new Zip(path,Algorithm.AUTOMATIC);
+        zip.execute();
+        showStatistics(zip);
+      } catch (IOException ex) {
+        ex.printStackTrace();
+      }
+    });
   }
 
   private void createDecompressPanel() {
-
     JButton decBtn = new JButton("UnSippejar");
     decBtn.setVisible(false);
     decBtn.setBounds(147, 111, 105, 23);
@@ -277,46 +282,55 @@ public class InterfacePane2 extends JFrame {
     lblYouveSelectedDecompress.setBounds(0, 11, 408, 20);
     decompressPanel.add(lblYouveSelectedDecompress);
 
-    JButton decExplorerBtn = new JButton("Explorer");
-    decExplorerBtn.setBounds(0, 40, 94, 23);
-    decompressPanel.add(decExplorerBtn);
+    explorerButton = new JButton("Explorer");
+    explorerButton.setBounds(0, 40, 94, 23);
+    decompressPanel.add(explorerButton);
 
-    pathDecField = new JTextField();
-    pathDecField.setEditable(false);
-    pathDecField.setColumns(10);
-    pathDecField.setBounds(114, 36, 272, 30);
-    decompressPanel.add(pathDecField);
+    decPathField = new JTextField();
+    decPathField.setEditable(false);
+    decPathField.setColumns(10);
+    decPathField.setBounds(114, 36, 272, 30);
 
-    decExplorerBtn.addActionListener(new ActionListener() {
-      @Override
-      public void actionPerformed(ActionEvent e) {
-        JFileChooser fileChooser = new JFileChooser("frame:");
-        fileChooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
-        int selection = fileChooser.showSaveDialog(null);
-        if (selection == JFileChooser.APPROVE_OPTION) {
-          path = fileChooser.getSelectedFile().getAbsolutePath();
-          pathDecField.setText(path);
-          // TODO: check if path is correct
-          decBtn.setVisible(true);
-        } else
-          JOptionPane.showMessageDialog(mainCardPane, "Cancelled by the user");
-      }
+    decompressPanel.add(decPathField);
+
+    explorerButton.addActionListener(e -> {
+      JFileChooser fileChooser = new JFileChooser("frame:");
+      fileChooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+      int selection = fileChooser.showSaveDialog(null);
+      if (selection == JFileChooser.APPROVE_OPTION) {
+        path = fileChooser.getSelectedFile().getAbsolutePath();
+        decPathField.setText(path);
+        // TODO: check if path is correct
+        decBtn.setVisible(true);
+      } else
+        JOptionPane.showMessageDialog(mainCardPane, "Cancelled by the user");
     });
-
      decBtn.addActionListener(e -> {
      try {
-     Unzip unzip = new Unzip(path);
-     unzip.execute();
-     NumberFormat formatter = new DecimalFormat("#0.00000");
-     double time = unzip.getResult().getElapsedTime();
-     time = time / 1000;
-     System.out.print("\n Your decompression has finished.\n ");
-     System.out.print("\n Statistics: \n " + "Elapsed time: " +
-     formatter.format(time) + " seconds\n\n");
-
+       Unzip unzip = new Unzip(path);
+       unzip.execute();
+       NumberFormat formatter = new DecimalFormat("#0.00000");
+       double time = unzip.getResult().getElapsedTime();
+       time = time / 1000;
+       JOptionPane.showMessageDialog(mainCardPane,"Elapsed time: " + formatter.format(time) + " seconds","Statistics",1);
      } catch (IOException ex) {
-     ex.printStackTrace();
+       ex.printStackTrace();
      }
      });
+  }
+
+  private void addActionToExplorerButton(JButton explorerButton) {
+    explorerButton.addActionListener(e -> {
+      JFileChooser fileChooser = new JFileChooser("frame:");
+      fileChooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+      int selection = fileChooser.showSaveDialog(null);
+      if (selection == JFileChooser.APPROVE_OPTION) {
+        path = fileChooser.getSelectedFile().getAbsolutePath();
+        pathField.setText(path);
+        // TODO: check if path is correct
+        manAutoRadioButtonsPanel.setVisible(true);
+      } else
+        JOptionPane.showMessageDialog(mainCardPane, "Cancelled by the user");
+    });
   }
 }
