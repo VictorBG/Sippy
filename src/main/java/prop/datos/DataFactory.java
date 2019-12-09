@@ -1,5 +1,10 @@
 package prop.datos;
 
+import prop.datos.controllers.FilesController;
+import prop.datos.controllers.StreamController;
+import prop.datos.controllers.impl.FilesControllerImpl;
+import prop.datos.controllers.impl.StreamControllerImpl;
+
 /**
  * Author: Sergio Vázquez
  *
@@ -8,7 +13,7 @@ package prop.datos;
 public final class DataFactory {
 
   /**
-   * Lazy initialization of the singleton and thread safe
+   * Lazy initialization of the singleton
    */
   private static final class SingletonHelper {
 
@@ -23,8 +28,8 @@ public final class DataFactory {
     // Prevent instantiation from outside
   }
 
-  private FilesController filesController = new FilesController();
-  private StreamController streamController = new StreamController();
+  private FilesController filesController = new FilesControllerImpl();
+  private StreamController streamController = new StreamControllerImpl();
 
 
   public FilesController getFilesController() {

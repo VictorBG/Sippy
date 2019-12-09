@@ -1,4 +1,4 @@
-package prop.datos;
+package prop.datos.controllers.impl;
 
 import static prop.utils.Constants.DEFAULT_ENCODING_EXTENSION;
 import static prop.utils.Constants.ENCODING_EXTENSION_PPM;
@@ -9,31 +9,17 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.Objects;
+import prop.datos.controllers.FilesController;
 import prop.datos.model.FolderBO;
 import prop.datos.model.ItemBO;
 import prop.utils.FileUtils;
 
 /**
  * Author: Sergio Vázquez
- *
- * Controller for the file operations.
  */
-public class FilesController {
+public class FilesControllerImpl implements FilesController {
 
-  /**
-   * Reads a path and returns an {@link ItemBO} containing the structure of
-   * the file referenced by the path. If it is a folder it returns a {@link FolderBO}
-   * that contains the structure of that folder and populates it using
-   * the {@link #populateFolder(FolderBO)} method
-   *
-   * @param path Path to read from
-   *
-   * @return {@link ItemBO} with the structure of the file referenced by the path
-   *
-   * @throws FileNotFoundException        If the file could not be found
-   * @throws UnsupportedEncodingException If the extension of the file is not supported by the
-   *                                      system
-   */
+  @Override
   public ItemBO getFile(String path) throws IOException {
     String extension = FileUtils.getFileExtension(path);
 
@@ -80,5 +66,4 @@ public class FilesController {
         || extension.equals(ENCODING_EXTENSION_PPM)
         || extension.equals(ENCODING_EXTENSION_TXT);
   }
-
 }

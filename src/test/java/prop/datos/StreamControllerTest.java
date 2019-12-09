@@ -12,6 +12,7 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
+import prop.datos.controllers.StreamController;
 import prop.datos.streams.UnzipStream;
 import prop.datos.streams.ZipStream;
 
