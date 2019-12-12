@@ -1,9 +1,10 @@
 package prop.algorithms.jpeg;
 /**
  * @class JPEG
- * Author: Yaiza Cano
+ *     Author: Yaiza Cano
  */
 
+import prop.algorithms.Algorithm;
 import prop.algorithms.base.BaseAlgorithm;
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
@@ -55,7 +56,7 @@ public class JPEG implements BaseAlgorithm {
       {0.2778f, -0.4904f, 0.0975f, 0.4157f, -0.4157f, -0.0975f, 0.4904f, -0.2778f},
       {0.1913f, -0.4619f, 0.4619f, -0.1913f, -0.1913f, 0.4619f, -0.4619f, 0.1913f},
       {0.0975f, -0.2778f, 0.4157f, -0.4904f, 0.4904f, -0.4157f, 0.2778f, -0.0975f}};
-// endregion
+  // endregion
 
   private void huffmanTables() throws IOException {
     FileReader DC0 = new FileReader("DClum.txt");
@@ -72,21 +73,28 @@ public class JPEG implements BaseAlgorithm {
     while ((dicc = d0.readLine()) != null) {
       String[] s = dicc.split(" ");
       dc0Map.put(s[0], s[1]);
+      System.out.println("put(" + s[0] + "," + s[1] + ");");
       omplirArbresHuffman(dc0Tree, s[0], s[1]);
     }
+
+    System.out.println("\n\n\n");
     while ((dicc = a0.readLine()) != null) {
       String[] s = dicc.split(" ");
       ac0Map.put(s[0], s[1]);
+      System.out.println("put(" + s[0] + "," + s[1] + ");");
       omplirArbresHuffman(ac0Tree, s[0], s[1]);
     }
+    System.out.println("\n\n\n");
     while ((dicc = d1.readLine()) != null) {
       String[] s = dicc.split(" ");
       dc1Map.put(s[0], s[1]);
       omplirArbresHuffman(dc1Tree, s[0], s[1]);
     }
+    System.out.println("\n\n\n");
     while ((dicc = a1.readLine()) != null) {
       String[] s = dicc.split(" ");
       ac1Map.put(s[0], s[1]);
+      System.out.println("put(" + s[0] + "," + s[1] + ");");
       omplirArbresHuffman(ac1Tree, s[0], s[1]);
     }
   }
@@ -102,21 +110,20 @@ public class JPEG implements BaseAlgorithm {
             tree.createNodeLeft(current);
             aux = tree.getNodeLeft(current);
           }
-          current = aux;
         } else {
           aux = tree.getNodeRight(current);
           if (aux == null) {
             tree.createNodeRight(current);
             aux = tree.getNodeRight(current);
           }
-          current = aux;
         }
+        current = aux;
       } else {
-          if (bits.charAt(i) == '0') {
-              tree.createNodeLeft(current, key);
-          } else {
-              tree.createNodeRight(current, key);
-          }
+        if (bits.charAt(i) == '0') {
+          tree.createNodeLeft(current, key);
+        } else {
+          tree.createNodeRight(current, key);
+        }
       }
     }
   }
@@ -135,25 +142,25 @@ public class JPEG implements BaseAlgorithm {
     for (i = 4; !height; ++i) {
       c = (char) image[i];
       if (comment) {
-          if (c == '\n') {
-              comment = false;
-          }
+        if (c == '\n') {
+          comment = false;
+        }
       } else if (!width) {
-          if (c == '#') {
-              comment = true;
+        if (c == '#') {
+          comment = true;
+        } else {
+          if (c == ' ') {
+            width = true;
           } else {
-              if (c == ' ') {
-                  width = true;
-              } else {
-                  w = w * 10 + (c - '0');
-              }
+            w = w * 10 + (c - '0');
           }
+        }
       } else {
-          if (c == '\n') {
-              height = true;
-          } else {
-              h = h * 10 + (c - '0');
-          }
+        if (c == '\n') {
+          height = true;
+        } else {
+          h = h * 10 + (c - '0');
+        }
       }
     }
     output += version + " " + w + " " + h + " ";
@@ -213,15 +220,15 @@ public class JPEG implements BaseAlgorithm {
       dctTransform(auxcb, false);
       dctTransform(auxcr, false);
 
-        if (jj == w - 8) {
-            ii += 8;
-            jj = 0;
-        } else {
-            jj += 8;
-        }
-        if (ii == h) {
-            end = true;
-        }
+      if (jj == w - 8) {
+        ii += 8;
+        jj = 0;
+      } else {
+        jj += 8;
+      }
+      if (ii == h) {
+        end = true;
+      }
     }
     out.close();
   }
@@ -234,18 +241,18 @@ public class JPEG implements BaseAlgorithm {
     for (int i = 0; i < 8; ++i) {
       for (int j = 0; j < 8; ++j) {
         aux[i][j] = 0;
-          for (int k = 0; k < 8; ++k) {
-              aux[i][j] += dct[i][k] * matrix[k][j];
-          }
+        for (int k = 0; k < 8; ++k) {
+          aux[i][j] += dct[i][k] * matrix[k][j];
+        }
       }
     }
 
     for (int i = 0; i < 8; ++i) {
       for (int j = 0; j < 8; ++j) {
         matrix[i][j] = 0;
-          for (int k = 0; k < 8; ++k) {
-              matrix[i][j] += aux[i][k] * dct[j][k];
-          }
+        for (int k = 0; k < 8; ++k) {
+          matrix[i][j] += aux[i][k] * dct[j][k];
+        }
       }
     }
 
@@ -254,11 +261,11 @@ public class JPEG implements BaseAlgorithm {
 
   private void quantization(double[][] m, boolean y) throws IOException {
     int[][] qt;
-      if (y) {
-          qt = qtY;
-      } else {
-          qt = qtC;
-      }
+    if (y) {
+      qt = qtY;
+    } else {
+      qt = qtC;
+    }
 
     for (int i = 0; i < 8; i++) {
       for (int j = 0; j < 8; j++) {
@@ -279,11 +286,11 @@ public class JPEG implements BaseAlgorithm {
       if ((i + j) % 2 == 0) {
         if (i == 0) {
           zigzag.add((int) m[i][j]);
-            if (j == 7) {
-                ++i;
-            } else {
-                ++j;
-            }
+          if (j == 7) {
+            ++i;
+          } else {
+            ++j;
+          }
         } else if ((j == 7)) {
           zigzag.add((int) m[i][j]);
           ++i;
@@ -310,11 +317,11 @@ public class JPEG implements BaseAlgorithm {
         break;
       }
     }
-      if (y) {
-          encodeLum(zigzag);
-      } else {
-          encodeChro(zigzag);
-      }
+    if (y) {
+      encodeLum(zigzag);
+    } else {
+      encodeChro(zigzag);
+    }
   }
 
   private void encodeLum(ArrayList<Integer> zigzag) throws IOException {
@@ -331,34 +338,34 @@ public class JPEG implements BaseAlgorithm {
         if (aux < 0) {
           aux = (int) (aux + Math.pow(2, length) - 1);
           int l = Integer.toBinaryString(aux).length();
-            while (length-- - l != 0) {
-                output += "0";
-            }
+          while (length-- - l != 0) {
+            output += "0";
+          }
         }
         output += Integer.toBinaryString(aux);
       } else {
-          if (x == 0) {
-              count++;
-          } else {
-              while (count > 15) {
-                  count -= 15;
-                  output += ac0Map.get("F0");
-              }
-              String key = Integer.toHexString(count).toUpperCase();
-              aux = x;
-              int length = Integer.toBinaryString(abs(x)).length();
-              key += Integer.toHexString(length).toUpperCase();
-              output += ac0Map.get(key);
-              if (x < 0) {
-                  aux = (int) (x + Math.pow(2, length) - 1);
-                  int l = Integer.toBinaryString(aux).length();
-                  while (length-- - l != 0) {
-                      output += "0";
-                  }
-              }
-              output += Integer.toBinaryString(aux);
-              count = 0;
+        if (x == 0) {
+          count++;
+        } else {
+          while (count > 15) {
+            count -= 15;
+            output += ac0Map.get("F0");
           }
+          String key = Integer.toHexString(count).toUpperCase();
+          aux = x;
+          int length = Integer.toBinaryString(abs(x)).length();
+          key += Integer.toHexString(length).toUpperCase();
+          output += ac0Map.get(key);
+          if (x < 0) {
+            aux = (int) (x + Math.pow(2, length) - 1);
+            int l = Integer.toBinaryString(aux).length();
+            while (length-- - l != 0) {
+              output += "0";
+            }
+          }
+          output += Integer.toBinaryString(aux);
+          count = 0;
+        }
       }
     }
     output += ac0Map.get("00");
@@ -394,38 +401,38 @@ public class JPEG implements BaseAlgorithm {
         if (aux < 0) {
           aux = (int) (aux + Math.pow(2, length) - 1);
           int l = Integer.toBinaryString(aux).length();
-            while (length-- - l != 0) {
-                output += "0";
-            }
+          while (length-- - l != 0) {
+            output += "0";
+          }
         }
         output += Integer.toBinaryString(aux);
         //System.out.println("aux: "+ aux +" Binary: " + Integer.toBinaryString(aux));
       } else {
-          if (x == 0) {
-              count++;
-          } else {
-              while (count > 15) {
-                  count -= 15;
-                  output += ac1Map.get("F0");
-              }
-              //System.out.print(x +  " " + count + " " );
-              String key = Integer.toHexString(count).toUpperCase();
-              aux = x;
-              int length = Integer.toBinaryString(abs(x)).length();
-              key += Integer.toHexString(length).toUpperCase();
-              //System.out.print(key + " " + ac1Map.get(key));
-              output += ac1Map.get(key);
-              if (x < 0) {
-                  aux = (int) (x + Math.pow(2, length) - 1);
-                  int l = Integer.toBinaryString(aux).length();
-                  while (length-- - l != 0) {
-                      output += "0";
-                  }
-              }
-              output += Integer.toBinaryString(aux);
-              //System.out.println("aux: "+ aux +" Binary: " + Integer.toBinaryString(aux));
-              count = 0;
+        if (x == 0) {
+          count++;
+        } else {
+          while (count > 15) {
+            count -= 15;
+            output += ac1Map.get("F0");
           }
+          //System.out.print(x +  " " + count + " " );
+          String key = Integer.toHexString(count).toUpperCase();
+          aux = x;
+          int length = Integer.toBinaryString(abs(x)).length();
+          key += Integer.toHexString(length).toUpperCase();
+          //System.out.print(key + " " + ac1Map.get(key));
+          output += ac1Map.get(key);
+          if (x < 0) {
+            aux = (int) (x + Math.pow(2, length) - 1);
+            int l = Integer.toBinaryString(aux).length();
+            while (length-- - l != 0) {
+              output += "0";
+            }
+          }
+          output += Integer.toBinaryString(aux);
+          //System.out.println("aux: "+ aux +" Binary: " + Integer.toBinaryString(aux));
+          count = 0;
+        }
       }
     }
     output += ac1Map.get("00");
@@ -471,11 +478,11 @@ public class JPEG implements BaseAlgorithm {
 
       for (; i < input.length(); ++i) {
         if (!bt.isLeaf(current)) {
-            if (input.charAt(i) == '0') {
-                current = bt.getNodeLeft(current);
-            } else {
-                current = bt.getNodeRight(current);
-            }
+          if (input.charAt(i) == '0') {
+            current = bt.getNodeLeft(current);
+          } else {
+            current = bt.getNodeRight(current);
+          }
         } else {
           value = Integer.parseInt(current.getValue(), 16);
           bits = input.substring(i, i + value);
@@ -484,17 +491,17 @@ public class JPEG implements BaseAlgorithm {
         }
       }
       num = Integer.parseInt(bits, 2);
-        if (bits.charAt(0) == '0') {
-            num -= (int) Math.pow(2, value) - 1;
-        }
+      if (bits.charAt(0) == '0') {
+        num -= (int) Math.pow(2, value) - 1;
+      }
 
       queue.add(num);
 
-        if (id == 0) {
-            bt = ac0Tree;
-        } else {
-            bt = ac1Tree;
-        }
+      if (id == 0) {
+        bt = ac0Tree;
+      } else {
+        bt = ac1Tree;
+      }
 
       current = bt.getRoot();
       int zeros;
@@ -503,29 +510,29 @@ public class JPEG implements BaseAlgorithm {
 
       while (!eob) {
         if (!bt.isLeaf(current)) {
-            if (input.charAt(i) == '0') {
-                current = bt.getNodeLeft(current);
-            } else {
-                current = bt.getNodeRight(current);
-            }
+          if (input.charAt(i) == '0') {
+            current = bt.getNodeLeft(current);
+          } else {
+            current = bt.getNodeRight(current);
+          }
           i++;
         } else {
           zeros = Integer.parseInt(String.valueOf(current.getValue().charAt(0)), 16);
           size = Integer.parseInt(String.valueOf(current.getValue().charAt(1)), 16);
-            if (zeros == 0 && size == 0) {
-                eob = true;
-            } else {
-                while (zeros-- > 0) {
-                    queue.add(0);
-                }
-                if (size != 0) {
-                    bits = input.substring(i, i + size);
-                    num = tractaBits(bits, size);
-                    queue.add(tractaBits(bits, size));
-                }
-                i += size;
-                current = bt.getRoot();
+          if (zeros == 0 && size == 0) {
+            eob = true;
+          } else {
+            while (zeros-- > 0) {
+              queue.add(0);
             }
+            if (size != 0) {
+              bits = input.substring(i, i + size);
+              num = tractaBits(bits, size);
+              queue.add(tractaBits(bits, size));
+            }
+            i += size;
+            current = bt.getRoot();
+          }
         }
       }
 
@@ -539,23 +546,23 @@ public class JPEG implements BaseAlgorithm {
         bt = dc1Tree;
         ++id;
       } else if (id == 1) {
-          for (int k = 0; k < 8; ++k) {
-              System.arraycopy(submatrix[k], 0, matrixG[k + ii], jj, 8);
-          }
+        for (int k = 0; k < 8; ++k) {
+          System.arraycopy(submatrix[k], 0, matrixG[k + ii], jj, 8);
+        }
         bt = dc1Tree;
         ++id;
       } else {
-          for (int k = 0; k < 8; ++k) {
-              System.arraycopy(submatrix[k], 0, matrixB[k + ii], jj, 8);
-          }
+        for (int k = 0; k < 8; ++k) {
+          System.arraycopy(submatrix[k], 0, matrixB[k + ii], jj, 8);
+        }
         bt = dc0Tree;
         id = 0;
-          if (jj == w - 8) {
-              ii += 8;
-              jj = 0;
-          } else {
-              jj += 8;
-          }
+        if (jj == w - 8) {
+          ii += 8;
+          jj = 0;
+        } else {
+          jj += 8;
+        }
       }
     }
     writePPM(matrixR, matrixG, matrixB);
@@ -564,9 +571,9 @@ public class JPEG implements BaseAlgorithm {
 
   private int tractaBits(String bits, int value) {
     int num = Integer.parseInt(bits, 2);
-      if (bits.charAt(0) == '0') {
-          num -= (int) Math.pow(2, value) - 1;
-      }
+    if (bits.charAt(0) == '0') {
+      num -= (int) Math.pow(2, value) - 1;
+    }
     return num;
   }
 
@@ -580,11 +587,11 @@ public class JPEG implements BaseAlgorithm {
       if ((i + j) % 2 == 0) {
         if (i == 0) {
           matrix[i][j] = queue.poll();
-            if (j == 7) {
-                ++i;
-            } else {
-                ++j;
-            }
+          if (j == 7) {
+            ++i;
+          } else {
+            ++j;
+          }
         } else if ((j == 7)) {
           matrix[i][j] = queue.poll();
           ++i;
@@ -621,11 +628,11 @@ public class JPEG implements BaseAlgorithm {
                 {1,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0},
                 {0,0,0,0,0,0,0,0}};*/
     int[][] qt;
-      if (id == 0) {
-          qt = qtY;
-      } else {
-          qt = qtC;
-      }
+    if (id == 0) {
+      qt = qtY;
+    } else {
+      qt = qtC;
+    }
 
     for (int i = 0; i < 8; i++) {
       for (int j = 0; j < 8; j++) {
@@ -643,9 +650,9 @@ public class JPEG implements BaseAlgorithm {
     for (int i = 0; i < 8; ++i) {
       for (int j = 0; j < 8; ++j) {
         aux[i][j] = 0;
-          for (int k = 0; k < 8; ++k) {
-              aux[i][j] += dct[k][i] * matrix[k][j];
-          }
+        for (int k = 0; k < 8; ++k) {
+          aux[i][j] += dct[k][i] * matrix[k][j];
+        }
       }
     }
 
@@ -656,11 +663,11 @@ public class JPEG implements BaseAlgorithm {
           matrix[i][j] += aux[i][k] * dct[k][j];
         }
         matrix[i][j] = Math.round(matrix[i][j]) + 128;
-          if (matrix[i][j] < 0) {
-              matrix[i][j] = 0;
-          } else if (matrix[i][j] > 255) {
-              matrix[i][j] = 255;
-          }
+        if (matrix[i][j] < 0) {
+          matrix[i][j] = 0;
+        } else if (matrix[i][j] > 255) {
+          matrix[i][j] = 255;
+        }
       }
     }
     return matrix;
@@ -706,5 +713,10 @@ public class JPEG implements BaseAlgorithm {
       e.printStackTrace();
     }
     return out.toByteArray();
+  }
+
+  @Override
+  public Algorithm getAlgorithmUsed() {
+    return Algorithm.JPEG;
   }
 }

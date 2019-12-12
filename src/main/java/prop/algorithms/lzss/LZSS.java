@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
+import prop.algorithms.Algorithm;
 import prop.algorithms.base.BaseAlgorithm;
 import prop.utils.Bytes;
 
@@ -218,5 +219,10 @@ public class LZSS implements BaseAlgorithm {
         BufferedReader bufRdr = new BufferedReader(
                 new InputStreamReader(new FileInputStream(file), StandardCharsets.UTF_8));
         return bufRdr.lines().map(i -> i + "\n").reduce(String::concat).get().getBytes();
+    }
+
+    @Override
+    public Algorithm getAlgorithmUsed() {
+        return Algorithm.LZSS;
     }
 }
