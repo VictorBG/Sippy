@@ -24,9 +24,9 @@ public class LZSS implements BaseAlgorithm {
 
     private static final int MIN_LEN_MATCH = 3;
                                                 //max2^8 = 255
-    private static final int BUFFER_SIZE_LOOKAHEAD = 100;
+    private static final int BUFFER_SIZE_LOOKAHEAD = 255;
                                                 //max2^8 = 255
-    private static final int BUFFER_SIZE_SEARCH = 200;
+    private static final int BUFFER_SIZE_SEARCH = 255;
 
     private int NUMBER_OF_TOKENS = 0;
 
@@ -110,6 +110,7 @@ public class LZSS implements BaseAlgorithm {
         baos = new ByteArrayOutputStream();
         FlagHelper flags = new FlagHelper();
         StringBuilder inputSB = new StringBuilder(new String(input));
+        int tokens_3 = 0;
         try {
             WindowBuffer w = new WindowBuffer((short)BUFFER_SIZE_SEARCH,(short)BUFFER_SIZE_LOOKAHEAD,inputSB);
             w.fillLookAheadBuffer();
@@ -130,10 +131,14 @@ public class LZSS implements BaseAlgorithm {
                     flags.addFlag(false); //flag 0 indicates literal
                     //only ASCII
                     String symbol = w.getFirstCharLookAheadBuffer()+"";
-                    //byte[] symb = symbol.getBytes("UTF-8");
-                    byte[] symb =symbol.getBytes();
+                    if (symbol == "Í") {
+                        int a = 42;
+                    }
+                    byte[] symb = symbol.getBytes("UTF-8");
+                    //byte[] symb =symbol.getBytes();
                     baos.write(symb);
                     //System.out.print(symbol);
+                    tokens_3++;
                     w.shiftLeft(1);
                 }
                 NUMBER_OF_TOKENS++;
@@ -143,7 +148,8 @@ public class LZSS implements BaseAlgorithm {
             e.printStackTrace();
             System.out.println();
         }
-
+        System.out.println("TOKENS3");
+        System.out.println(tokens_3);
         flags.addFlag(true); //special flag at last
         byte[] tokensFlags = Bytes.concat(intToBytes(NUMBER_OF_TOKENS), flags.toByteArray());
         byte[] tfAndBytes = Bytes.concat(tokensFlags, baos.toByteArray());
@@ -210,6 +216,9 @@ public class LZSS implements BaseAlgorithm {
             finally {
                 //BOM UTF-8 ??
                 baos.write(dw.getBuffer().toString().getBytes(StandardCharsets.UTF_8));
+                String res = dw.getBuffer().toString();
+                byte[] r = dw.getBuffer().toString().getBytes();
+                baos.write(dw.getBuffer().toString().getBytes());
                 baos.close();
             }
         } catch (IOException e) {

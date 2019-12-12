@@ -59,7 +59,7 @@ public class KMP {
      * @param pat the pattern string
      */
     public KMP(String pat) {
-        this.R = 256;
+        this.R = 1024; //if unicode chars: 1024. ASCII: 256
         this.pat = pat;
 
         // build DFA from pattern
@@ -67,8 +67,9 @@ public class KMP {
         dfa = new int[R][m];
         dfa[pat.charAt(0)][0] = 1;
         for (int x = 0, j = 1; j < m; j++) {
-            for (int c = 0; c < R; c++)
+            for (int c = 0; c < R; c++) {
                 dfa[c][j] = dfa[c][x];     // Copy mismatch cases.
+            }
             dfa[pat.charAt(j)][j] = j+1;   // Set match case.
             x = dfa[pat.charAt(j)][x];     // Update restart state.
         }
