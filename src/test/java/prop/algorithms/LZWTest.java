@@ -1,5 +1,6 @@
 package prop.algorithms;
 
+import java.nio.charset.StandardCharsets;
 import prop.algorithms.base.BaseAlgorithmTest;
 import java.util.ArrayList;
 import java.util.List;
@@ -8,7 +9,7 @@ import org.junit.Test;
 /**
  * Author: Sergio Vazquez
  *
- * TODO: Fix
+ * DO NOT MODIFY, they work on linux but not on Windows!
  */
 public class LZWTest extends BaseAlgorithmTest {
 
@@ -22,8 +23,9 @@ public class LZWTest extends BaseAlgorithmTest {
     return new ArrayList<byte[]>() {
       {
         add("D0N QuijoT3 DE LA MaNCh4".getBytes());
-        add("abcdefghijklmnopqrstuvwxyz!_$%&/()=?^|@#~][{}-,:;".getBytes());
-        add("áéíóúàèìòùäëïöü".getBytes());
+        add("abcdefghijklmnopqrstuvwxyz!_$%&/()=?^|@#~][{}-,:;€"
+            .getBytes(StandardCharsets.US_ASCII));
+        add("áéíóúàèìòùäëïöü".getBytes(StandardCharsets.US_ASCII));
       }
     };
   }
@@ -51,16 +53,10 @@ public class LZWTest extends BaseAlgorithmTest {
             (byte) 0x5e, (byte) 0x0c, (byte) 0x07, (byte) 0x40, (byte) 0x03, (byte) 0x02,
             (byte) 0x7e, (byte) 0x0d, (byte) 0x05, (byte) 0x5b, (byte) 0x0b, (byte) 0x07,
             (byte) 0x7d, (byte) 0x0d, (byte) 0x02, (byte) 0x2c, (byte) 0x0a, (byte) 0x03,
-            (byte) 0x3b, (byte) 0x00}
+            (byte) 0x3b, (byte) 0x0f, (byte) 0x03}
         );
-        add(new byte[]{(byte) 0xc3, (byte) 0x01, (byte) 0x0a, (byte) 0xc3, (byte) 0x09, (byte) 0x0a,
-            (byte) 0xc3, (byte) 0x0d, (byte) 0x0a, (byte) 0xc3, (byte) 0x03, (byte) 0x0b,
-            (byte) 0xc3, (byte) 0x0a, (byte) 0x0b, (byte) 0xc3, (byte) 0x00, (byte) 0x0a,
-            (byte) 0xc3, (byte) 0x08, (byte) 0x0a, (byte) 0xc3, (byte) 0x0c, (byte) 0x0a,
-            (byte) 0xc3, (byte) 0x02, (byte) 0x0b, (byte) 0xc3, (byte) 0x09, (byte) 0x0b,
-            (byte) 0xc3, (byte) 0x04, (byte) 0x0a, (byte) 0xc3, (byte) 0x0b, (byte) 0x0a,
-            (byte) 0xc3, (byte) 0x0f, (byte) 0x0a, (byte) 0xc3, (byte) 0x06, (byte) 0x0b,
-            (byte) 0xc3, (byte) 0x0c, (byte) 0x0b}
+        add(new byte[]{(byte) 0x3f, (byte) 0x00, (byte) 0x10, (byte) 0x01, (byte) 0x12, (byte) 0x10,
+            (byte) 0x03, (byte) 0x10}
         );
       }
     };

@@ -11,7 +11,6 @@ import java.nio.file.Files;
  */
 public class FileUtils {
 
-  public static final String DEFAULT_ENCODING_EXTENSION = "sippy";
 
   /**
    * @brief Llegeix un arxiu d'un path especific i el retorna com a vector de bytes
@@ -46,7 +45,6 @@ public class FileUtils {
     if (lastIndexOf == -1) {
       return "";
     }
-    String s = path.substring(lastIndexOf + 1);
-    return s;
+    return path.substring(lastIndexOf + 1);
   }
 }
