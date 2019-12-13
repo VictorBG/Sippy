@@ -36,6 +36,7 @@ public class InterfacePane2 extends JFrame {
   private JPanel decompressPanel;
   JButton explorerButton;
   JTextField fileNameField;
+  JTextField fileNameFieldDec;
 
   public static void start() {
     new InterfacePane2();
@@ -281,7 +282,7 @@ public class InterfacePane2 extends JFrame {
   private void createDecompressPanel() {
     JButton decBtn = new JButton("UnSippejar");
     decBtn.setVisible(false);
-    decBtn.setBounds(147, 111, 105, 23);
+    decBtn.setBounds(232, 112, 105, 23);
     decompressPanel.add(decBtn);
 
     JLabel lblYouveSelectedDecompress = new JLabel("Please, select the path:");
@@ -309,6 +310,8 @@ public class InterfacePane2 extends JFrame {
         decPathField.setText(path);
         // TODO: check if path is correct
         decBtn.setVisible(true);
+        fileNameFieldDec.setVisible(true);
+        fileNameFieldDec.setText(new File(path).getName());
       } else
         JOptionPane.showMessageDialog(mainCardPane, "Cancelled by the user");
     });
@@ -324,6 +327,12 @@ public class InterfacePane2 extends JFrame {
        ex.printStackTrace();
      }
      });
+
+    fileNameFieldDec = new JTextField();
+    fileNameFieldDec.setBounds(22, 112, 168, 23);
+    decompressPanel.add(fileNameFieldDec);
+    fileNameFieldDec.setColumns(10);
+    fileNameFieldDec.setVisible(false);
   }
 
   private void addActionToExplorerButton(JButton explorerButton) {
