@@ -307,7 +307,7 @@ public class InterfacePane2 extends JFrame {
     explorerButton.addActionListener(e -> {
       JFileChooser fileChooser = new JFileChooser("frame:");
       fileChooser.setApproveButtonText("Seleccionar");
-      fileChooser.setFileFilter(new FileNameExtensionFilter("SIPPY FILES", "sippy"));
+      fileChooser.setFileFilter(new FileNameExtensionFilter(".sippy", "sippy"));
       int selection = fileChooser.showSaveDialog(null);
       if (selection == JFileChooser.APPROVE_OPTION) {
         path = fileChooser.getSelectedFile().getAbsolutePath();
