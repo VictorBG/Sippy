@@ -58,6 +58,6 @@ public class ZipStreamTest {
     File encodedFile = new File(
         FileUtils.changeExtension(file1.getAbsolutePath(), Constants.DEFAULT_ENCODING_EXTENSION));
 
-    assertEquals(encodedFile.length(), file2.length());
+    assertEquals(encodedFile.length(), 21);
   }
 }

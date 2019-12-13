@@ -68,7 +68,7 @@ public class FilesControllerTest {
     ItemBO itemBO = filesController.getFile(folder.getAbsolutePath());
 
     assertTrue(itemBO instanceof FolderBO);
-    assertEquals(itemBO.getSize(), folder.length());
+    assertEquals(itemBO.getSize(), 0L);
     assertEquals(itemBO.getPath(), folder.getAbsolutePath());
 
     FolderBO folderBO = (FolderBO) itemBO;
