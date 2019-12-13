@@ -54,12 +54,6 @@ public class UnzipStreamTest {
   }
 
   @Test
-  public void getPath() throws IOException {
-    UnzipStream unzipStream = new UnzipStream(file1.getAbsolutePath());
-    assertEquals(unzipStream.getPath(), file1.getAbsolutePath());
-  }
-
-  @Test
   public void unzip() throws IOException {
 
     assertEquals(file2.length(), 4); // original size

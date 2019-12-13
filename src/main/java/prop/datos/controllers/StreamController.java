@@ -11,8 +11,8 @@ import prop.datos.streams.ZipStream;
  */
 public interface StreamController {
 
-  ZipStream getZipStream(String path) throws IOException;
+  ZipStream getZipStream(String path, String outputPath) throws IOException;
 
-  UnzipStream getUnzipStream(String path) throws IOException;
+  UnzipStream getUnzipStream(String path, String outputPath) throws IOException;
 
 }

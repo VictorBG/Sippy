@@ -1,7 +1,6 @@
 package prop.datos.streams.impl;
 
 
-import prop.algorithms.Algorithm;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.EOFException;
@@ -10,6 +9,8 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import prop.algorithms.Algorithm;
+import prop.datos.exception.UnsupportedOutputDirectoryPathname;
 import prop.datos.streams.UnzipStream;
 import prop.utils.Constants;
 import prop.utils.FileUtils;
@@ -29,15 +30,12 @@ import prop.utils.FileUtils;
  *     type of functionality.
  *     Author: Victor Blanco.
  *     Unzips a sippy file format extension.
- *
- *     TODO: I think headerSize is not util and we could remove it from the header. The other fields
- *     are mandatory for the correct usage of this stream.
  */
 public class UnzipStreamImpl implements UnzipStream {
 
   private String basePath;
-  private String path;
   private DataInputStream dis;
+  private boolean isDirectory;
 
   /**
    * @brief Constructora
@@ -45,26 +43,44 @@ public class UnzipStreamImpl implements UnzipStream {
    *     \pre item no nul
    *     \post Nova instancia de UnzipStream
    */
-  public UnzipStreamImpl(String path) throws IOException {
+  public UnzipStreamImpl(String inputPath, String outputDirectoryPath)
+      throws IOException {
+
+    checkCorrectFormat(inputPath);
+    checkOutputDirectory(outputDirectoryPath);
+
+    File f = new File(inputPath);
+    this.dis = new DataInputStream(new FileInputStream(f));
+    this.basePath = outputDirectoryPath;
+    normalizeBasePath();
+
+    this.isDirectory = this.dis.readByte() == 0b0;
+  }
+
+  private void checkCorrectFormat(String path) throws UnsupportedEncodingException {
     if (!Constants.DEFAULT_ENCODING_EXTENSION.equals(FileUtils.getFileExtension(path))) {
       throw new UnsupportedEncodingException();
     }
-
-    File f = new File(path);
-    this.dis = new DataInputStream(new FileInputStream(f));
-    this.path = path;
-    basePath = path.replace(f.getName(), "");
   }
 
-  public String getPath() {
-    return path;
+  private void checkOutputDirectory(String path) throws UnsupportedOutputDirectoryPathname {
+    File outputDirectory = new File(path);
+
+    if (!outputDirectory.isDirectory()) {
+      throw new UnsupportedOutputDirectoryPathname();
+    }
+
   }
 
+  private void normalizeBasePath() {
+    if (!basePath.endsWith(File.separator)) {
+      basePath += File.separator;
+    }
+  }
 
   @Override
   public void unzip() throws IOException {
     try {
-      int headerSize = getHeaderSize();
       Algorithm algorithm = getAlgorithm();
       int dataSize = getDataSize();
       String name = getName();
@@ -82,25 +98,20 @@ public class UnzipStreamImpl implements UnzipStream {
       dos.writeBytes(new String(algorithm.getAlgorithm().decode(data)));
       dos.close();
 
-      unzip();
-
-    } catch (
-        EOFException ignore) {
+      if (isDirectory) {
+        unzip();
+      } else {
+        FileUtils.openFile(file);
+      }
+    } catch (EOFException ignore) {
+      if (isDirectory) {
+        FileUtils.openFile(new File(basePath));
+      }
       // do not rethrow EOF exception, it is an exception we expect to get
     } finally {
       dis.close();
     }
 
-  }
-
-  /**
-   * @brief Llegueix un enter del stream d'entrada
-   *
-   *     \pre cert
-   *     \post enter
-   */
-  private int getHeaderSize() throws IOException {
-    return dis.readInt();
   }
 
   /**

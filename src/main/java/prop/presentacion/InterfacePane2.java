@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Paths;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import javax.swing.ButtonGroup;
@@ -20,11 +21,15 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import prop.algorithms.Algorithm;
 import prop.dominio.Unzip;
 import prop.dominio.Zip;
+import prop.utils.Constants;
+import prop.utils.FileUtils;
 
 public class InterfacePane2 extends JFrame {
+
   private JPanel contentPane;
   private JTextField pathField;
   private JTextField decPathField;
@@ -109,10 +114,9 @@ public class InterfacePane2 extends JFrame {
     rb.addActionListener(e -> ((CardLayout) cardPane.getLayout()).show(cardPane, panel));
   }
 
-  private void addActionToRadioButtons(JRadioButton radioButton){
-    radioButton.addActionListener(e->{
-      fileNameField.setText(new File(path).getName());
-    });
+  private void addActionToRadioButtons(JRadioButton radioButton) {
+    radioButton.addActionListener(e -> fileNameField
+        .setText(FileUtils.changeExtension(path, Constants.DEFAULT_ENCODING_EXTENSION)));
   }
 
   private void createManualCompressPanel() {
@@ -169,7 +173,6 @@ public class InterfacePane2 extends JFrame {
     manualCompressPanel.add(fileNameField);
     fileNameField.setColumns(10);
 
-
     zipButton.addActionListener(e -> {
       byte algorithm = -1;
       if (rdbtnLz78.isSelected()) {
@@ -181,31 +184,31 @@ public class InterfacePane2 extends JFrame {
       } else if (rdbtnJpeg.isSelected()) {
         algorithm = 2;
       }
-       try {
-        Zip zip = new Zip(path, Algorithm.valueOf(algorithm));
+      try {
+        Zip zip = new Zip(path, fileNameField.getText(), Algorithm.valueOf(algorithm));
         zip.execute();
         showStatistics(zip);
 
-       } catch (IOException ex) {
-       ex.printStackTrace();
-       }
+      } catch (IOException ex) {
+        ex.printStackTrace();
+      }
     });
   }
 
-   private void showStatistics(Zip zip) {
-   NumberFormat formatter = new DecimalFormat("#0.00000");
-   double time = zip.getResult().getElapsedTime();
-   time = time / 1000;
-   double initialSize = zip.getResult().getInitialSize();
-   double finalSize = zip.getResult().getFinalSize();
-   double compression = ((initialSize - finalSize) / initialSize) * 100.0;
+  private void showStatistics(Zip zip) {
+    NumberFormat formatter = new DecimalFormat("#0.00000");
+    double time = zip.getResult().getElapsedTime();
+    time = time / 1000;
+    double initialSize = zip.getResult().getInitialSize();
+    double finalSize = zip.getResult().getFinalSize();
+    double compression = ((initialSize - finalSize) / initialSize) * 100.0;
 
-     JOptionPane.showMessageDialog(mainCardPane,"Elapsed time: " +
-         formatter.format(time) + " seconds"
-         + "\n The initial size was: " + initialSize + " Bytes" + "\n And the "
-         + "final is: " + finalSize + " Bytes"
-         + "\n Compression: " + formatter.format(compression) + " %" + "\n\n","Statistics",1);
-   }
+    JOptionPane.showMessageDialog(mainCardPane, "Elapsed time: " +
+        formatter.format(time) + " seconds"
+        + "\n The initial size was: " + initialSize + " Bytes" + "\n And the "
+        + "final is: " + finalSize + " Bytes"
+        + "\n Compression: " + formatter.format(compression) + " %" + "\n\n", "Statistics", 1);
+  }
 
   private void createCompressPanel() {
     manAutoCardPane = new JPanel();
@@ -268,9 +271,9 @@ public class InterfacePane2 extends JFrame {
     automaticZipButton.setBounds(140, 30, 89, 23);
     autoPanel.add(automaticZipButton);
 
-    automaticZipButton.addActionListener(e->{
+    automaticZipButton.addActionListener(e -> {
       try {
-        Zip zip = new Zip(path,Algorithm.AUTOMATIC);
+        Zip zip = new Zip(path, fileNameField.getText(), Algorithm.AUTOMATIC);
         zip.execute();
         showStatistics(zip);
       } catch (IOException ex) {
@@ -303,7 +306,8 @@ public class InterfacePane2 extends JFrame {
 
     explorerButton.addActionListener(e -> {
       JFileChooser fileChooser = new JFileChooser("frame:");
-      fileChooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+      fileChooser.setApproveButtonText("Seleccionar");
+      fileChooser.setFileFilter(new FileNameExtensionFilter("SIPPY FILES", "sippy"));
       int selection = fileChooser.showSaveDialog(null);
       if (selection == JFileChooser.APPROVE_OPTION) {
         path = fileChooser.getSelectedFile().getAbsolutePath();
@@ -311,22 +315,23 @@ public class InterfacePane2 extends JFrame {
         // TODO: check if path is correct
         decBtn.setVisible(true);
         fileNameFieldDec.setVisible(true);
-        fileNameFieldDec.setText(new File(path).getName());
-      } else
-        JOptionPane.showMessageDialog(mainCardPane, "Cancelled by the user");
+        fileNameFieldDec.setText(Paths.get(path).getParent().toString());
+      }
     });
-     decBtn.addActionListener(e -> {
-     try {
-       Unzip unzip = new Unzip(path);
-       unzip.execute();
-       NumberFormat formatter = new DecimalFormat("#0.00000");
-       double time = unzip.getResult().getElapsedTime();
-       time = time / 1000;
-       JOptionPane.showMessageDialog(mainCardPane,"Elapsed time: " + formatter.format(time) + " seconds","Statistics",1);
-     } catch (IOException ex) {
-       ex.printStackTrace();
-     }
-     });
+    decBtn.addActionListener(e -> {
+      try {
+        Unzip unzip = new Unzip(path, fileNameFieldDec.getText());
+        unzip.execute();
+        NumberFormat formatter = new DecimalFormat("#0.00000");
+        double time = unzip.getResult().getElapsedTime();
+        time = time / 1000;
+        JOptionPane
+            .showMessageDialog(mainCardPane, "Elapsed time: " + formatter.format(time) + " seconds",
+                "Statistics", 1);
+      } catch (IOException ex) {
+        ex.printStackTrace();
+      }
+    });
 
     fileNameFieldDec = new JTextField();
     fileNameFieldDec.setBounds(22, 112, 168, 23);
@@ -339,14 +344,15 @@ public class InterfacePane2 extends JFrame {
     explorerButton.addActionListener(e -> {
       JFileChooser fileChooser = new JFileChooser("frame:");
       fileChooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+      fileChooser.setApproveButtonText("Seleccionar");
+      fileChooser.setFileFilter(new FileNameExtensionFilter(".txt, .ppm", "txt", "ppm"));
       int selection = fileChooser.showSaveDialog(null);
       if (selection == JFileChooser.APPROVE_OPTION) {
         path = fileChooser.getSelectedFile().getAbsolutePath();
-        pathField.setText(path);
+        pathField.setText(FileUtils.changeExtension(path, Constants.DEFAULT_ENCODING_EXTENSION));
         // TODO: check if path is correct
         manAutoRadioButtonsPanel.setVisible(true);
-      } else
-        JOptionPane.showMessageDialog(mainCardPane, "Cancelled by the user");
+      }
     });
   }
 }
