@@ -108,6 +108,12 @@ public class InterfacePane2 extends JFrame {
     rb.addActionListener(e -> ((CardLayout) cardPane.getLayout()).show(cardPane, panel));
   }
 
+  private void addActionToRadioButtons(JRadioButton radioButton){
+    radioButton.addActionListener(e->{
+      fileNameField.setText(new File(path).getName());
+    });
+  }
+
   private void createManualCompressPanel() {
     JPanel manualCompressPanel = new JPanel();
 
@@ -116,9 +122,10 @@ public class InterfacePane2 extends JFrame {
     JRadioButton rdbtnLzw = new JRadioButton("LZW");
     JRadioButton rdbtnJpeg = new JRadioButton("JPEG");
 
-    rdbtnLzw.addActionListener(e->{
-      fileNameField.setText(new File(path).getName());
-    });
+    addActionToRadioButtons(rdbtnLz78);
+    addActionToRadioButtons(rdbtnLzss);
+    addActionToRadioButtons(rdbtnLzw);
+    addActionToRadioButtons(rdbtnJpeg);
 
     ButtonGroup algorithmsrbsGroup = new ButtonGroup();
 
