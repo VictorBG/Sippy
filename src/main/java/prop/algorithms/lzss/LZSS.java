@@ -192,6 +192,7 @@ public class LZSS implements BaseAlgorithm {
                             i++;
                             byte byte2 = input[i];
                             byte[] utfBytes = {byte_read, byte2};
+                            //String utf = new String(utfBytes);
                             String utf = new String(utfBytes, StandardCharsets.UTF_8);
                             dw.addChar(utf.charAt(0));
                         }
@@ -216,9 +217,6 @@ public class LZSS implements BaseAlgorithm {
             finally {
                 //BOM UTF-8 ??
                 baos.write(dw.getBuffer().toString().getBytes(StandardCharsets.UTF_8));
-                String res = dw.getBuffer().toString();
-                byte[] r = dw.getBuffer().toString().getBytes();
-                baos.write(dw.getBuffer().toString().getBytes());
                 baos.close();
             }
         } catch (IOException e) {
