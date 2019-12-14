@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Author: Victor Blanco
+ * Author: Sergio Vazquez
  */
 public class StatisticsUtils {
 

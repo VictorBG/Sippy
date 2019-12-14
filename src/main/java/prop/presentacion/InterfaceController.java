@@ -11,6 +11,9 @@ import prop.dominio.model.Statistics;
 import prop.utils.Log;
 import prop.utils.StatisticsUtils;
 
+/**
+ * Author: Victor Blanco
+ */
 public class InterfaceController {
 
   private final Log log = new Log();
