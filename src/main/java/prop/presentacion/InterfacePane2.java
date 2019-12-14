@@ -326,26 +326,6 @@ public class InterfacePane2 extends JFrame implements InterfacePanelContract {
   }
 
   @Override
-  public void showCompressPanel() {
-
-  }
-
-  @Override
-  public void showDecompressPanel() {
-
-  }
-
-  @Override
-  public void showAlgorithmsPanel() {
-
-  }
-
-  @Override
-  public void showOutputPathPanel() {
-
-  }
-
-  @Override
   public void showAlert(String message, String title) {
     JOptionPane.showMessageDialog(mainCardPane, message, title, JOptionPane.ERROR_MESSAGE);
   }
