@@ -23,10 +23,10 @@ public class LZSS implements BaseAlgorithm {
     private ByteArrayOutputStream baos;
 
     private static final int MIN_LEN_MATCH = 3;
-                                                //max2^8 = 255
-    private static final int BUFFER_SIZE_LOOKAHEAD = 255;
-                                                //max2^8 = 255
-    private static final int BUFFER_SIZE_SEARCH = 255;
+                                                //max2^4 = 16
+    private static final int BUFFER_SIZE_LOOKAHEAD = 16;
+                                                //max2^12 = 4096
+    private static final int BUFFER_SIZE_SEARCH = 2000;
 
     private int NUMBER_OF_TOKENS = 0;
 
@@ -105,6 +105,17 @@ public class LZSS implements BaseAlgorithm {
         return new int[] {offset, length};
     }
 
+    private byte[] get_offset_length_encoded_12_4_bits(short off, byte len) {
+
+        byte offset8HighBits = (byte) (off >> 4);
+        byte offset4LowBits = (byte) (off & 0x0F);
+        offset4LowBits = (byte) (offset4LowBits | len);
+        byte[] result = new byte[2];
+        result[0] = offset8HighBits;
+        result[1] = offset4LowBits;
+        return result;
+    }
+
     @Override
     public byte[] encode(byte[] input) {
         baos = new ByteArrayOutputStream();
@@ -119,11 +130,12 @@ public class LZSS implements BaseAlgorithm {
                 EncodedString es = w.findMatch();
                 if (es.getLength() >= MIN_LEN_MATCH) {
                     flags.addFlag(true); //flag 1 indicates <length,offset> token
-                    byte offset = (byte)es.getOffset(); //cast negative!!
+                    short offset = (short)es.getOffset(); //cast negative!!
                     byte length = (byte)es.getLength();
-                    baos.write(offset);
-                    baos.write(length);
-                    //es.print();
+                    byte[] off_len = get_offset_length_encoded_12_4_bits(offset,length);
+                    baos.write(off_len[0]);
+                    baos.write(off_len[1]);
+                    es.print();
 
                     w.shiftLeft(es.getLength());
                 } else {
@@ -137,7 +149,7 @@ public class LZSS implements BaseAlgorithm {
                     byte[] symb = symbol.getBytes("UTF-8");
                     //byte[] symb =symbol.getBytes();
                     baos.write(symb);
-                    //System.out.print(symbol);
+                    System.out.print(symbol);
                     tokens_3++;
                     w.shiftLeft(1);
                 }
