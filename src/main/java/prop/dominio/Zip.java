@@ -1,13 +1,13 @@
 package prop.dominio;
 
+import java.io.IOException;
 import prop.algorithms.Algorithm;
 import prop.datos.DataFactory;
+import prop.datos.streams.ZipStream;
 import prop.dominio.mappers.ItemMapper;
 import prop.dominio.model.ItemNC;
 import prop.dominio.model.Statistics;
 import prop.dominio.model.uncompressed.File;
-import prop.datos.streams.ZipStream;
-import java.io.IOException;
 
 /**
  * @class Zip
@@ -26,6 +26,7 @@ import java.io.IOException;
 public class Zip extends Transaction<Statistics> {
 
   private String path;
+  private String outputPath;
   private Algorithm algorithm;
 
   /**
@@ -33,8 +34,9 @@ public class Zip extends Transaction<Statistics> {
    *     \pre item existeix, algorithm existeix
    *     \post Es ccrea una instancia de Zip
    */
-  public Zip(String path, Algorithm algorithm) {
+  public Zip(String path, String outputPath, Algorithm algorithm) {
     this.path = path;
+    this.outputPath = outputPath;
     this.algorithm = algorithm;
   }
 
@@ -51,7 +53,7 @@ public class Zip extends Transaction<Statistics> {
 
     Statistics statistics = new Statistics(item.getSize());
 
-    ZipStream zipStream = factory.getStreamController().getZipStream(path);
+    ZipStream zipStream = factory.getStreamController().getZipStream(path, outputPath);
 
     for (File file : item.getItems()) {
       zipStream.compressFile(file.getPath(), file.getSupportedAlgorithm(algorithm));

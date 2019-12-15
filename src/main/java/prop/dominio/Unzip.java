@@ -10,19 +10,20 @@ import java.io.IOException;
  * @class Unzip
  * @brief Unzip transaction.
  *     Author: Sergio Vazquez.
- *
  */
 public class Unzip extends Transaction<Statistics> {
 
   private String path;
+  private String outputPath;
 
   /**
    * @brief Constructora
    *     \pre item existeix
    *     \post Es crea una instancia de Unzip
    */
-  public Unzip(String path) {
+  public Unzip(String path, String outputPath) {
     this.path = path;
+    this.outputPath = outputPath;
   }
 
   /**
@@ -38,7 +39,7 @@ public class Unzip extends Transaction<Statistics> {
 
     Statistics stats = new Statistics(item.getSize());
 
-    factory.getStreamController().getUnzipStream(path).unzip();
+    factory.getStreamController().getUnzipStream(path, outputPath).unzip();
 
     stats.stopTimer();
     setResult(stats);
