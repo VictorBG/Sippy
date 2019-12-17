@@ -4,12 +4,13 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashMap;
+import prop.algorithms.Algorithm;
 import prop.algorithms.base.BaseAlgorithm;
 
 /**
  * @class LZW
  * @brief LZW implementation doesnt compress ppm files
- * Author: Sergio Vazquez
+ *     Author: Sergio Vazquez
  */
 
 public class LZW implements BaseAlgorithm {
@@ -135,7 +136,7 @@ public class LZW implements BaseAlgorithm {
       if (currentValue >= dictionary.size()) {
         s = dictionary.get(lastValue) + dictionary.get(lastValue).charAt(0);
         if (dictionary.size() < 4096) {
-          dictionary.put(dictionary.size(),s);
+          dictionary.put(dictionary.size(), s);
         }
         try {
           arrayOutputStream.write(s.getBytes());
@@ -155,6 +156,7 @@ public class LZW implements BaseAlgorithm {
       }
       lastValue = currentValue;
     }
+
     return arrayOutputStream.toByteArray();
   }
 
@@ -164,6 +166,7 @@ public class LZW implements BaseAlgorithm {
    * @param b1     - First byte
    * @param b2     - Second byte
    * @param onleft - True if on left, false if not
+   *
    * @return - An Integer which holds the value of the key
    */
   public int getValue(byte b1, byte b2, boolean onleft) {
@@ -174,5 +177,10 @@ public class LZW implements BaseAlgorithm {
       value = ((int) b1 & 0xF) + (((int) b2 & 0xFF) << 4);
     }
     return value;
+  }
+
+  @Override
+  public Algorithm getAlgorithmUsed() {
+    return Algorithm.LZW;
   }
 }

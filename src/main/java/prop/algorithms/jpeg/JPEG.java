@@ -1,9 +1,10 @@
 package prop.algorithms.jpeg;
 /**
  * @class JPEG
- * Author: Yaiza Cano
+ *     Author: Yaiza Cano
  */
 
+import prop.algorithms.Algorithm;
 import prop.algorithms.base.BaseAlgorithm;
 
 import java.io.ByteArrayOutputStream;
@@ -671,5 +672,10 @@ public class JPEG implements BaseAlgorithm {
             e.printStackTrace();
         }
         return out.toByteArray();
+    }
+
+    @Override
+    public Algorithm getAlgorithmUsed() {
+        return Algorithm.JPEG;
     }
 }

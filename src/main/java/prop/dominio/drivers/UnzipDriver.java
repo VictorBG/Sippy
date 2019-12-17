@@ -1,8 +1,6 @@
 package prop.dominio.drivers;
 
 import prop.dominio.Unzip;
-import prop.dominio.model.ItemC;
-import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.Scanner;
@@ -25,7 +23,7 @@ public class UnzipDriver {
     System.out.println("Path: ");
     String path = scanner.nextLine();
     try {
-      new Unzip(new ItemC(new File(path))).execute();
+      new Unzip(path, path).execute();
       System.out.println("File successfully decompressed.");
       end();
     } catch (UnsupportedEncodingException uee) {
