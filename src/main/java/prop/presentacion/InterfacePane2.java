@@ -250,8 +250,10 @@ public class InterfacePane2 extends JFrame implements InterfacePanelContract {
     automaticZipButton.setBounds(140, 30, 89, 23);
     autoPanel.add(automaticZipButton);
 
+    // On automatic, as the name says, all of the fields (output name and algorithm are
+    // choosen automatically based on the input)
     automaticZipButton.addActionListener(e -> interfaceController
-        .onCompressClick(path, fileNameField.getText(), Algorithm.LZW.getId()));
+        .onCompressClick(path, path, Algorithm.LZW.getId()));
   }
 
   private void createDecompressPanel() {

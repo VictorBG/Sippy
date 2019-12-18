@@ -16,10 +16,9 @@ import prop.algorithms.base.BaseAlgorithm;
  *     Improvements:
  *     - Variable number of bits on index. We can assume that the x index wont have a
  *     number greater than x-1, so we can define that the number of bits that this position can take
- *     as
- *     maximum is log2(x) instead of taking 24 bits always, which also puts a theoric limit of 2^24
- *     values for the index. It is also expensive for low sized files.
- *     - Use a Trie instead of a HashMap. It will improve but not much.
+ *     as maximum is log2(x) instead of taking 24 bits always, which also puts a theoric limit of 2^24
+ *     values for the index. It is also expensive (in terms of size) for low sized files.
+ *     - Use a Trie instead of a HashMap for storing the dictionary.
  */
 public class LZ78 implements BaseAlgorithm {
 

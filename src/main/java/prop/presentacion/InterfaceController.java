@@ -50,11 +50,15 @@ public class InterfaceController {
     log.log("InterfaceControllerUnzipException", exception);
   }
 
-  private void handleZipException(IOException exception) {
+  private void handleZipException(Exception exception) {
     log.log("InterfaceControllerZipException", exception);
 
     if (exception instanceof UnsupportedOutputDirectoryPathname) {
       contract.showAlert("The output path is not a valid path", "Output path error");
+    }
+
+    if (exception instanceof UnsupportedOperationException) {
+      contract.showAlert(exception.getMessage(), "The operation is not supported");
     }
 
     // TODO: Do all
