@@ -1,7 +1,6 @@
 package prop;
 
 import prop.presentacion.ConsoleApp;
-import prop.presentacion.InterfacePane2;
 
 /**
  * @class Launcher
@@ -10,6 +9,6 @@ import prop.presentacion.InterfacePane2;
 
 public class Launcher {
   public static void main(String[] args) {
-    InterfacePane2.start();
+    ConsoleApp.start();
   }
 }

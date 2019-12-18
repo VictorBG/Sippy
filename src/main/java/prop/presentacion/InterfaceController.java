@@ -27,7 +27,6 @@ public class InterfaceController {
   }
 
   public void onCompressClick(String path, String outputPath, int algorithmOptionSelected) {
-
     try {
       Zip zip = new Zip(path, outputPath, Algorithm.valueOf((byte) algorithmOptionSelected));
       zip.execute();
@@ -56,21 +55,16 @@ public class InterfaceController {
 
     if (exception instanceof UnsupportedOutputDirectoryPathname) {
       contract.showAlert("The output path is not a valid path", "Output path error");
-    }
-
-    if (exception instanceof UnsupportedOperationException) {
+    } else if (exception instanceof UnsupportedOperationException) {
       contract.showAlert(exception.getMessage(), "The operation is not supported");
-    }
-
-    if (exception instanceof FileNotFoundException) {
+    } else if (exception instanceof FileNotFoundException) {
       contract.showAlert("Could not find the file specified", "File not found");
-    }
-
-    if (exception instanceof UnsupportedEncodingException) {
+    } else if (exception instanceof UnsupportedEncodingException) {
       contract.showAlert(exception.getMessage(), "File format not supported");
+    } else {
+      unhandledException(exception);
     }
 
-    unhandledException(exception);
   }
 
   private void unhandledException(Exception exception) {
