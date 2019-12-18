@@ -12,14 +12,15 @@ import prop.utils.Constants;
 import prop.utils.FileUtils;
 
 /**
+ * Author: Victor Blanco
+ *
  * @class ZipStream
  * @brief a new sippy file is created
- *     Author: Victor Blanco
  *
  *     {@link OutputStream} to output a "sippy" file format.
  *
- *     A new sippy file is created in the root of the parent of the item passed by parameter on the
- *     constructor, and then files can be added with no limit to that file.
+ *     A new sippy file is created in the outputPath, and then files can be added with no limit
+ *     to that file.
  *
  *     The "sippy" file format has the next internal layout structure:
  *
@@ -55,6 +56,17 @@ public class ZipStreamImpl implements ZipStream {
   private String basePath;
   private DataOutputStream dos;
 
+  /**
+   * @brief Constructora
+   *
+   * \pre cert
+   * \post Crea una instancia de ZipStreamImpl i crea un arxiu d'extensió sippy on
+   * escriure els arxius comprimits
+   *
+   * @param inputFilePath  Path d'entrada
+   * @param outputPath     Path de sortida
+   * @throws IOException
+   */
   public ZipStreamImpl(String inputFilePath, String outputPath) throws IOException {
     File outputFile = createSippyFile(outputPath);
 
@@ -66,6 +78,13 @@ public class ZipStreamImpl implements ZipStream {
     this.dos.writeByte(inputFile.isDirectory() ? 0b0 : 0b1);
   }
 
+  /**
+   * @brief Crea l'arxiu identificat pel path i si no és de tipus sippy, el renombra.
+   *
+   * @param path    Path de l'arxiu a crear si no existeix
+   * @return        File de l'arxiu identificat per path
+   * @throws IOException
+   */
   private File createSippyFile(String path) throws IOException {
     if (!FileUtils.getFileExtension(path).equals(Constants.DEFAULT_ENCODING_EXTENSION)) {
       path = FileUtils.changeExtension(path, Constants.DEFAULT_ENCODING_EXTENSION);

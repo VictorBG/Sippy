@@ -86,6 +86,7 @@ public class LZW implements BaseAlgorithm {
    *
    * @param data - bytes vector , pos - the position inside data vector that we want to obtain out -
    *             char to insert in dictionary
+   *
    * @return - String value of integer in 12 bit
    */
   private char getChar(byte[] data, int pos) {

@@ -1,6 +1,8 @@
 package prop.presentacion;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import prop.algorithms.Algorithm;
@@ -58,7 +60,18 @@ public class InterfaceController {
       contract.showAlert(exception.getMessage(), "The operation is not supported");
     }
 
-    // TODO: Do all
+    if (exception instanceof FileNotFoundException) {
+      contract.showAlert("Could not find the file specified", "File not found");
+    }
+
+    if (exception instanceof UnsupportedEncodingException) {
+      contract.showAlert(exception.getMessage(), "File format not supported");
+    }
+
+
+    contract.showAlert("An unhandled exception of type " + exception.getClass().getName() +
+        " has been found ", "Unhandled exception");
+
   }
 
   private void showStatistics(Statistics statistics) {

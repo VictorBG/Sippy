@@ -16,19 +16,16 @@ import prop.utils.Constants;
 import prop.utils.FileUtils;
 
 /**
+ * Author: Victor Blanco.
+ *
  * @class UnzipStream
  * @brief Stream de sortida per descomprimir un item
  *
- *
  *     It recursively reads the headers and decodes the data using the method that the header
  *     indicates.
+ *
  *     It also preserves the state of the folders before zipping.
- *     Note: it does not override files, it will throw an exception if trying to decode a file to
- *     an
- *     existing file. For now it is not supported and not sure if support will be available for
- *     this
- *     type of functionality.
- *     Author: Victor Blanco.
+ *
  *     Unzips a sippy file format extension.
  */
 public class UnzipStreamImpl implements UnzipStream {
@@ -41,7 +38,7 @@ public class UnzipStreamImpl implements UnzipStream {
    * @brief Constructora
    *
    *     \pre item no nul
-   *     \post Nova instancia de UnzipStream
+   *     \post Nova instancia de UnzipStreamImpl
    */
   public UnzipStreamImpl(String inputPath, String outputDirectoryPath)
       throws IOException {
@@ -57,12 +54,24 @@ public class UnzipStreamImpl implements UnzipStream {
     this.isDirectory = this.dis.readByte() == 0b0;
   }
 
+  /**
+   * @brief Comprova que el path sigui un arxiu d'extensió sippy
+   *
+   *     \pre cert
+   *     \post Llança una excepció si el path no es un arxiu sippy
+   */
   private void checkCorrectFormat(String path) throws UnsupportedEncodingException {
     if (!Constants.DEFAULT_ENCODING_EXTENSION.equals(FileUtils.getFileExtension(path))) {
       throw new UnsupportedEncodingException();
     }
   }
 
+  /**
+   * @brief Comprova que el path sigui un directori
+   *
+   *     \pre cert
+   *     \post Llança una excepció si el path no es un directori
+   */
   private void checkOutputDirectory(String path) throws UnsupportedOutputDirectoryPathname {
     File outputDirectory = new File(path);
 
@@ -72,6 +81,13 @@ public class UnzipStreamImpl implements UnzipStream {
 
   }
 
+  /**
+   * @brief Afegeix un separador al final del {@link #basePath}
+   *     si no hi és.
+   *
+   *     \pre cert
+   *     \post basePath amb el separador del sistema
+   */
   private void normalizeBasePath() {
     if (!basePath.endsWith(File.separator)) {
       basePath += File.separator;
