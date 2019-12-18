@@ -47,6 +47,8 @@ public class InterfaceController {
 
   private void handleUnzipException(IOException exception) {
     log.log("InterfaceControllerUnzipException", exception);
+
+    unhandledException(exception);
   }
 
   private void handleZipException(Exception exception) {
@@ -68,10 +70,12 @@ public class InterfaceController {
       contract.showAlert(exception.getMessage(), "File format not supported");
     }
 
+    unhandledException(exception);
+  }
 
+  private void unhandledException(Exception exception) {
     contract.showAlert("An unhandled exception of type " + exception.getClass().getName() +
         " has been found ", "Unhandled exception");
-
   }
 
   private void showStatistics(Statistics statistics) {
