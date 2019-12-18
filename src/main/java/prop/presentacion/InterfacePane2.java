@@ -251,7 +251,7 @@ public class InterfacePane2 extends JFrame implements InterfacePanelContract {
     autoPanel.add(automaticZipButton);
 
     automaticZipButton.addActionListener(e -> interfaceController
-        .onCompressClick(path, fileNameField.getText(), Algorithm.LZW.getId()));
+            .onCompressClick(path, path, Algorithm.LZW.getId()));
   }
 
   private void createDecompressPanel() {

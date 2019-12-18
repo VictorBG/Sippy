@@ -31,10 +31,7 @@ public class InterfaceController {
       zip.execute();
     } catch (IOException ex) {
       handleZipException(ex);
-    } finally {
-      if (zip != null) {
-        showStatistics(zip.getResult());
-      }
+      showStatistics(zip.getResult());
     }
   }
 

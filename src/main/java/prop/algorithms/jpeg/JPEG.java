@@ -142,9 +142,9 @@ public class JPEG implements BaseAlgorithm {
         for (i = 0; i < h; ++i) {
             for (int j = 0; j < w; ++j) {
                 if (k < rgb.length) {
-                    matrixR[i][j] = rgb[k];
-                    matrixG[i][j] = rgb[k + 1];
-                    matrixB[i][j] = rgb[k + 2];
+                    matrixR[i][j] = rgb[k] & 0xFF;
+                    matrixG[i][j] = rgb[k + 1] & 0xFF;
+                    matrixB[i][j] = rgb[k + 2] & 0xFF;
                     k += 3;
                 }
             }
@@ -157,12 +157,12 @@ public class JPEG implements BaseAlgorithm {
         //RGB to YCbCr
         for (i = 0; i < h; ++i) {
             for (int j = 0; j < w; ++j) {
-                matrixY[i][j] =
-                        0 + (0.299 * matrixR[i][j]) + (0.587 * matrixG[i][j]) + (0.114 * matrixB[i][j]);
-                matrixCb[i][j] =
-                        -(0.168736 * matrixR[i][j]) - (0.331264 * matrixG[i][j]) + (0.5 * matrixB[i][j]);
-                matrixCr[i][j] =
-                        (0.5 * matrixR[i][j]) - (0.418688 * matrixG[i][j]) - (0.081312 * matrixB[i][j]);
+                matrixY[i][j] = Math.max(0,Math.min(255,
+                        (0 + (0.299 * matrixR[i][j]) + (0.587 * matrixG[i][j]) + (0.114 * matrixB[i][j])))) -128;
+                matrixCb[i][j] = Math.max(0,Math.min(255,
+                        (128 - (0.168736 * matrixR[i][j]) - (0.331264 * matrixG[i][j]) + (0.5 * matrixB[i][j])))) -128;
+                matrixCr[i][j] = Math.max(0,Math.min(255,
+                        (128 + (0.5 * matrixR[i][j]) - (0.418688 * matrixG[i][j]) + (0.081312 * matrixB[i][j])))) -128;
             }
         }
 
@@ -623,9 +623,9 @@ public class JPEG implements BaseAlgorithm {
         int b;
         for (int i = 0; i < h; ++i) {
             for (int j = 0; j < w; ++j) {
-                r = (int) (y[i][j] + 1.402 * (cr[i][j] - 128)) - 128;
-                g = (int) (y[i][j] - 0.344136 * (cb[i][j] - 128) - 0.714136 * (cr[i][j] - 128)) - 128;
-                b = (int) (y[i][j] + 1.722 * (cb[i][j] - 128)) - 128;
+                r = (int) Math.max(0,Math.min(255, (y[i][j] + 1.402 * (cr[i][j] - 128))));
+                g = (int) Math.max(0,Math.min(255, (y[i][j] - 0.344136 * (cb[i][j] - 128) - 0.714136 * (cr[i][j] - 128))));
+                b = (int) Math.max(0,Math.min(255, (y[i][j] + 1.772 * (cb[i][j] - 128))));
                 out.write(r);
                 out.write(g);
                 out.write(b);
