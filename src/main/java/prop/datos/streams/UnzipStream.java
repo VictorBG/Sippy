@@ -5,7 +5,7 @@ import java.io.IOException;
 /**
  * Author: Victor Blanco
  */
-public interface UnzipStream extends Stream {
+public interface UnzipStream {
 
   /**
    * @brief Inicia la operacio de descompressio de l'arxiu indicat a la constructora. Llegueix

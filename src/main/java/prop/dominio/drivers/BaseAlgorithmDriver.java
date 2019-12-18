@@ -65,7 +65,7 @@ public abstract class BaseAlgorithmDriver {
         .println("\nProvide the file path you want to test (only txt extension is supported):  ");
     String path = scanner.next();
     if (!"txt".equals(FileUtils.getFileExtension(path))) {
-      System.out.println("\nOther extensions that are not txt is not supported\n");
+      System.out.println("\nOther extensions that are not txt are not supported\n");
       encodeFile();
     }
     byte[] output = algorithm.encode(algorithm.readFile(new File(path)));

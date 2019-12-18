@@ -7,12 +7,15 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.nio.file.Files;
+import java.nio.file.Paths;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
 import prop.algorithms.Algorithm;
+import prop.datos.streams.impl.UnzipStreamImpl;
+import prop.datos.streams.impl.ZipStreamImpl;
 
 public class UnzipStreamTest {
 
@@ -38,7 +41,8 @@ public class UnzipStreamTest {
     FileOutputStream fileOutputStream = new FileOutputStream(file2);
     fileOutputStream.write("test".getBytes());
 
-    ZipStream.create(file2.getAbsolutePath()).compressFile(file2.getAbsolutePath(), Algorithm.LZW);
+    new ZipStreamImpl(file2.getAbsolutePath(), file2.getAbsolutePath())
+        .compressFile(file2.getAbsolutePath(), Algorithm.LZW);
 
     file1 = new File(sippyPath);
   }
@@ -50,13 +54,7 @@ public class UnzipStreamTest {
 
   @Test(expected = UnsupportedEncodingException.class)
   public void invalidExtension() throws IOException {
-    new UnzipStream("a.txt");
-  }
-
-  @Test
-  public void getPath() throws IOException {
-    UnzipStream unzipStream = new UnzipStream(file1.getAbsolutePath());
-    assertEquals(unzipStream.getPath(), file1.getAbsolutePath());
+    new UnzipStreamImpl("a.txt", null);
   }
 
   @Test
@@ -64,7 +62,8 @@ public class UnzipStreamTest {
 
     assertEquals(file2.length(), 4); // original size
 
-    UnzipStream unzipStream = new UnzipStream(file1.getAbsolutePath());
+    UnzipStream unzipStream = new UnzipStreamImpl(file1.getAbsolutePath(),
+        testFolder.getRoot().getPath());
     unzipStream.unzip();
 
     assertEquals(file2.length(), 4); // size after unzip

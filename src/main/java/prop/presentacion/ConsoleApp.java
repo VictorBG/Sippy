@@ -1,6 +1,7 @@
 package prop.presentacion;
 
 import java.io.IOException;
+import java.nio.file.Paths;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.InputMismatchException;
@@ -86,7 +87,7 @@ public class ConsoleApp {
 
         if (automaticManual == 1) {
           try {
-            zip = new Zip(path, Algorithm.AUTOMATIC);
+            zip = new Zip(path, path, Algorithm.AUTOMATIC);
             zip.execute();
           } catch (IOException e) {
             e.printStackTrace();
@@ -109,7 +110,7 @@ public class ConsoleApp {
           try {
             Algorithm a = Algorithm.valueOf((byte) (algorithm - 1));
             System.out.print("\nCompressing using " + Objects.requireNonNull(a).name());
-            zip = new Zip(path, a);
+            zip = new Zip(path, path, a);
             zip.execute();
 
           } catch (IOException e) {
@@ -121,7 +122,7 @@ public class ConsoleApp {
       } else if (compressDecscompress == 2) {
         System.out.print("You've selected Decompress, now we need your file path: ");
         path = keyBoard.next();
-        Transaction<Statistics> zip = new Unzip(path);
+        Transaction<Statistics> zip = new Unzip(path, Paths.get(path).getRoot().toString());
         try {
           zip.execute();
         } catch (IOException e) {

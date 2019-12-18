@@ -23,7 +23,7 @@ public class UnzipDriver {
     System.out.println("Path: ");
     String path = scanner.nextLine();
     try {
-      new Unzip(path).execute();
+      new Unzip(path, path).execute();
       System.out.println("File successfully decompressed.");
       end();
     } catch (UnsupportedEncodingException uee) {
