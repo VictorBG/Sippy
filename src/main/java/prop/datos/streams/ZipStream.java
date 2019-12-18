@@ -6,7 +6,7 @@ import prop.algorithms.Algorithm;
 /**
  * Author: Victor Blanco
  */
-public interface ZipStream extends Stream {
+public interface ZipStream {
 
   /**
    * @brief Afegeix un item al stream per a que sigui compress i guardar a l'arxiu de sortida

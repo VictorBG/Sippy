@@ -23,9 +23,6 @@ import prop.utils.FileUtils;
  *
  *     The "sippy" file format has the next internal layout structure:
  *
- *     // TODO: Is HeaderSize this really neccessary? It is not used in the unzip operation.
- *     -------------
- *     |  HeaderSize | 4B
  *     -------------
  *     | Method used | 1B
  *     -------------
@@ -37,8 +34,6 @@ import prop.utils.FileUtils;
  *     -------------
  *     |    DATA     | ?B Undefined size by default, indicated in DataSize
  *     -------------
- *
- *     HeaderSize: integer indicating the size of the header (all but DATA).
  *
  *     MethodUsed: Byte indicating the compression algorithm used.
  *
@@ -54,48 +49,33 @@ import prop.utils.FileUtils;
  *
  *     DATA: the encoded data of the file.
  */
-public class ZipStreamImpl extends DataOutputStream implements ZipStream {
+public class ZipStreamImpl implements ZipStream {
 
-  /**
-   * @brief Metode static que instancia un nou ZipStream amb l'item a comprimir i un output
-   *     stream que apunta a un file nou d'extensio "sippy" per guardar les dades
-   *
-   *     \pre item no nul
-   *     \post Nova instancia de ZipStream
-   */
-  public static ZipStreamImpl create(String path) throws IOException {
-    File f = new File(FileUtils.changeExtension(path, Constants.DEFAULT_ENCODING_EXTENSION));
+  private int totalSize;
+  private String basePath;
+  private DataOutputStream dos;
+
+  public ZipStreamImpl(String inputFilePath, String outputPath) throws IOException {
+    File outputFile = createSippyFile(outputPath);
+
+    File inputFile = new File(inputFilePath);
+    this.basePath = inputFile.getAbsolutePath().replace(inputFile.getName(), "");
+    this.totalSize = 0;
+    this.dos = new DataOutputStream(new FileOutputStream(outputFile));
+
+    this.dos.writeByte(inputFile.isDirectory() ? 0b0 : 0b1);
+  }
+
+  private File createSippyFile(String path) throws IOException {
+    if (!FileUtils.getFileExtension(path).equals(Constants.DEFAULT_ENCODING_EXTENSION)) {
+      path = FileUtils.changeExtension(path, Constants.DEFAULT_ENCODING_EXTENSION);
+    }
+    File f = new File(path);
     if (!f.exists()) {
       f.getParentFile().mkdirs();
       f.createNewFile();
     }
-    return new ZipStreamImpl(new FileOutputStream(f), new File(path));
-  }
-
-  private int totalSize;
-  private String basePath;
-  private String path;
-
-  /**
-   * @param out the underlying output stream, to be saved for later use.
-   *
-   * @brief Constructora
-   *
-   *     \pre OutputStream no nul, file no nul
-   *     \post Nova instancia de ZipStream
-   *
-   *     Creates a new data output stream to write data to the specified underlying output stream.
-   */
-  private ZipStreamImpl(OutputStream out, File file) {
-    super(out);
-    totalSize = 0;
-    path = file.getAbsolutePath();
-    basePath = file.getAbsolutePath().replace(file.getName(), "");
-  }
-
-
-  public String getPath() {
-    return path;
+    return f;
   }
 
   @Override
@@ -111,15 +91,14 @@ public class ZipStreamImpl extends DataOutputStream implements ZipStream {
     byte algorithmID = algorithm.getAlgorithmUsed().getId();
     int dataSize = data.length;
 
-    int headerSize = 13 + nameSize;
+    int headerSize = 9 + nameSize;
 
-    writeInt(headerSize);
-    writeByte(algorithmID);
-    writeInt(dataSize);
-    writeInt(nameSize);
-    writeBytes(name);
+    dos.writeByte(algorithmID);
+    dos.writeInt(dataSize);
+    dos.writeInt(nameSize);
+    dos.writeBytes(name);
 
-    write(data, 0, data.length);
+    dos.write(data, 0, data.length);
 
     totalSize += headerSize + dataSize;
   }

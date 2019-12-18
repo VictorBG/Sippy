@@ -12,11 +12,11 @@ import prop.datos.streams.impl.ZipStreamImpl;
  */
 public class StreamControllerImpl implements StreamController {
 
-  public ZipStream getZipStream(String path) throws IOException {
-    return ZipStreamImpl.create(path);
+  public ZipStream getZipStream(String path, String outputPath) throws IOException {
+    return new ZipStreamImpl(path, outputPath);
   }
 
-  public UnzipStream getUnzipStream(String path) throws IOException {
-    return new UnzipStreamImpl(path);
+  public UnzipStream getUnzipStream(String path, String outputPath) throws IOException {
+    return new UnzipStreamImpl(path, outputPath);
   }
 }

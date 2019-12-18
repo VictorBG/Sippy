@@ -11,6 +11,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
 import prop.algorithms.Algorithm;
+import prop.datos.streams.impl.ZipStreamImpl;
 import prop.utils.Constants;
 import prop.utils.FileUtils;
 
@@ -31,6 +32,7 @@ public class ZipStreamTest {
 
     FileOutputStream fileOutputStream = new FileOutputStream(file2);
     fileOutputStream.write("test".getBytes());
+    fileOutputStream.close();
   }
 
   @After
@@ -40,7 +42,7 @@ public class ZipStreamTest {
 
   @Test
   public void create() throws IOException {
-    ZipStream.create(file1.getAbsolutePath());
+    ZipStream zipStream = new ZipStreamImpl(file1.getAbsolutePath(), file1.getCanonicalPath());
 
     File encodedFile = new File(
         FileUtils.changeExtension(file1.getAbsolutePath(), Constants.DEFAULT_ENCODING_EXTENSION));
@@ -50,18 +52,12 @@ public class ZipStreamTest {
   }
 
   @Test
-  public void getPath() throws IOException {
-    ZipStream zipStream = ZipStream.create(file1.getAbsolutePath());
-    assertEquals(zipStream.getPath(), file1.getAbsolutePath());
-  }
-
-  @Test
   public void compressFile() throws IOException {
-    ZipStream zipStream = ZipStream.create(file1.getAbsolutePath());
+    ZipStream zipStream = new ZipStreamImpl(file1.getAbsolutePath(), file1.getCanonicalPath());
     zipStream.compressFile(file2.getAbsolutePath(), Algorithm.LZW);
     File encodedFile = new File(
         FileUtils.changeExtension(file1.getAbsolutePath(), Constants.DEFAULT_ENCODING_EXTENSION));
 
-    assertEquals(encodedFile.length(), 24);
+    assertEquals(encodedFile.length(), 21);
   }
 }
