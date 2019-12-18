@@ -117,7 +117,6 @@ public class LZSS implements BaseAlgorithm {
         baos = new ByteArrayOutputStream();
         FlagHelper flags = new FlagHelper();
         StringBuilder inputSB = new StringBuilder(new String(input));
-        int tokens_3 = 0;
         try {
             WindowBuffer w = new WindowBuffer((short)BUFFER_SIZE_SEARCH,(short)BUFFER_SIZE_LOOKAHEAD,inputSB);
             w.fillLookAheadBuffer();
@@ -131,7 +130,7 @@ public class LZSS implements BaseAlgorithm {
                     byte[] off_len = get_offset_length_encoded_12_4_bits(offset,length);
                     baos.write(off_len[0]);
                     baos.write(off_len[1]);
-                    es.print();
+                    //es.print();
 
                     w.shiftLeft(es.getLength());
                 } else {
@@ -145,8 +144,7 @@ public class LZSS implements BaseAlgorithm {
                     byte[] symb = symbol.getBytes("UTF-8");
                     //byte[] symb =symbol.getBytes();
                     baos.write(symb);
-                    System.out.print(symbol);
-                    tokens_3++;
+                    //System.out.print(symbol);
                     w.shiftLeft(1);
                 }
                 NUMBER_OF_TOKENS++;
@@ -156,8 +154,6 @@ public class LZSS implements BaseAlgorithm {
             e.printStackTrace();
             System.out.println();
         }
-        System.out.println("TOKENS3");
-        System.out.println(tokens_3);
         flags.addFlag(true); //special flag at last
         byte[] tokensFlags = Bytes.concat(intToBytes(NUMBER_OF_TOKENS), flags.toByteArray());
         byte[] tfAndBytes = Bytes.concat(tokensFlags, baos.toByteArray());
