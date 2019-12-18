@@ -7,7 +7,7 @@ import prop.datos.streams.ZipStream;
 /**
  * Author: Víctor Blanco
  *
- * Controller for the streams object.
+ * Controlador pels objectes d'streams.
  */
 public interface StreamController {
 

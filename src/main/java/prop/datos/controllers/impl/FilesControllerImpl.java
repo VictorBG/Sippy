@@ -42,11 +42,11 @@ public class FilesControllerImpl implements FilesController {
   }
 
   /**
-   * Populates the {@link FolderBO} with every item inside the folder referenced by the path
-   * the folder has. It lists every file, and for every file it returns an {@link ItemBO} using
-   * {@link #getFile(String)}. If there is another folder inside, it will repeat this process.
+   * Desplega la {@link FolderBO} amb tots els elements de la carpeta referenciada pel path que conté
+   * la carpeta. Llista tots els fitxers i per a cada fitxer retorna un {@link ItemBO} mitjançant
+   * {@link #getFile(String)}. Si hi ha una altra carpeta a dins, repetirà aquest procés recursivament.
    *
-   * @param folderBO Item to populate
+   * @param folderBO Item per desplegar.
    */
   private void populateFolder(FolderBO folderBO) throws IOException {
     for (File f : Objects.requireNonNull(folderBO.getFile().listFiles())) {
@@ -55,11 +55,11 @@ public class FilesControllerImpl implements FilesController {
   }
 
   /**
-   * Returns if the extension is a supported extension of the system.
+   * Retorna si l'extensió és admesa o no pel sistema.
    *
-   * @param extension Extension to check
+   * @param extension Extension per comprovar.
    *
-   * @return If the extension is supported
+   * @return Estat de l'extensió respecte al sistema.
    */
   private boolean isExtensionValid(String extension) {
     return extension.equals(DEFAULT_ENCODING_EXTENSION)

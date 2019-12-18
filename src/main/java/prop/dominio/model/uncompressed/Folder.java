@@ -33,9 +33,9 @@ public class Folder extends ItemNC {
    * \pre cert
    * \post L'inserta a la llista
    *
-   * Adds an item to the items list.
-   * <p>
-   * If items is null it will create it before adding a new item.
+   * Inserta un item a la llista d'ítems.
+   *
+   * Si l'ítem és nul, el crea abans d'afegir un nou ítem.
    *
    * @param itemNC item to add
    */

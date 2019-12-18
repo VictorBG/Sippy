@@ -4,6 +4,7 @@ package prop.algorithms.jpeg;
  * Author: Yaiza Cano
  */
 
+import prop.algorithms.Algorithm;
 import prop.algorithms.base.BaseAlgorithm;
 
 import java.io.ByteArrayOutputStream;
@@ -28,7 +29,6 @@ public class JPEG implements BaseAlgorithm {
     private String version;
     private int w;
     private int h;
-    //private boolean isCb = true;
     private int[][] qtY = new int[][]{{16, 11, 10, 16, 24, 40, 51, 61},
             {12, 12, 14, 19, 26, 58, 60, 55},
             {14, 13, 16, 24, 40, 57, 69, 56}, {14, 17, 22, 29, 51, 87, 80, 62},
@@ -99,7 +99,7 @@ public class JPEG implements BaseAlgorithm {
         h = 0;
         int i;
 
-        for (i = 4; !height; ++i) {
+        for (i = 3; !height; ++i) {
             c = (char) image[i];
             if (comment) {
                 if (c == '\n') {
@@ -109,17 +109,21 @@ public class JPEG implements BaseAlgorithm {
                 if (c == '#') {
                     comment = true;
                 } else {
-                    if (c == ' ') {
+                    if (w != 0 && (c == ' ' || c == '\n')) {
                         width = true;
                     } else {
                         w = w * 10 + (c - '0');
                     }
                 }
             } else {
-                if (c == '\n') {
-                    height = true;
+                if (c == '#') {
+                    comment = true;
                 } else {
-                    h = h * 10 + (c - '0');
+                    if (c == '\n' || c == ' ') {
+                        height = true;
+                    } else {
+                        h = h * 10 + (c - '0');
+                    }
                 }
             }
         }
@@ -180,7 +184,7 @@ public class JPEG implements BaseAlgorithm {
             dctTransform(auxcb, false);
             dctTransform(auxcr, false);
 
-            if (jj == w - 8) {
+            if (jj == w - 8 && ii != h) {
                 ii += 8;
                 jj = 0;
             } else {
@@ -194,9 +198,11 @@ public class JPEG implements BaseAlgorithm {
     }
 
     private void dctTransform(double[][] matrix, boolean y) throws IOException {
-        /*double[][] matrix = {{-76,-73,-67,-62,-58,-67,-64,-55},{-65,-69,-73,-38,-19,-43,-59,-56},{-66,-69,-60,-15,16,-24,-62,-55},{-65,-70,-57,-6,26,-22,-58,-59},
-               {-61,-67,-60,-24,-2,-40,-60,-58},{-49,-63,-68,-58,-51,-60,-70,-53},{-43,-57,-64,-69,-73,-67,-63,-45},{-41,-49,-59,-60,-63,-52,-50,-34}};*/
+        /*matrix = new double[][] {{-76,-73,-67,-62,-58,-67,-64,-55},{-65,-69,-73,-38,-19,-43,-59,-56},{-66,-69,-60,-15,16,-24,-62,-55},{-65,-70,-57,-6,26,-22,-58,-59},
+                {-61,-67,-60,-24,-2,-40,-60,-58},{-49,-63,-68,-58,-51,-60,-70,-53},{-43,-57,-64,-69,-73,-67,-63,-45},{-41,-49,-59,-60,-63,-52,-50,-34}};
+        */
         double[][] aux = new double[8][8];
+
 
         for (int i = 0; i < 8; ++i) {
             for (int j = 0; j < 8; ++j) {
@@ -340,23 +346,10 @@ public class JPEG implements BaseAlgorithm {
         int aux;
         for (int x : zigzag) {
             if (!dc) {
-                //System.out.print(" " + lastDCCb + " " + lastDCr + " ");
                 dc = true;
-                /*if (isCb) {
-                    aux = x - lastDCCb;
-                    lastDCCb = x;
-                    isCb = false;
-                }
-                else {
-                    aux = x - lastDCr;
-                    lastDCr = x;
-                    isCb = true;
-                }*/
                 aux = x;
                 int length = Integer.toBinaryString(abs(aux)).length();
-                //System.out.print(x +  " " + aux + " " );
                 String key = "0" + Integer.toHexString(length).toUpperCase();
-                //System.out.print(key + " " + DC1MAP.get(key));
                 output += DC1MAP.get(key);
                 if (aux < 0) {
                     aux = (int) (aux + Math.pow(2, length) - 1);
@@ -366,7 +359,6 @@ public class JPEG implements BaseAlgorithm {
                     }
                 }
                 output += Integer.toBinaryString(aux);
-                //System.out.println("aux: "+ aux +" Binary: " + Integer.toBinaryString(aux));
             } else {
                 if (x == 0) {
                     count++;
@@ -375,12 +367,10 @@ public class JPEG implements BaseAlgorithm {
                         count -= 15;
                         output += AC1MAP.get("F0");
                     }
-                    //System.out.print(x +  " " + count + " " );
                     String key = Integer.toHexString(count).toUpperCase();
                     aux = x;
                     int length = Integer.toBinaryString(abs(x)).length();
                     key += Integer.toHexString(length).toUpperCase();
-                    //System.out.print(key + " " + AC1MAP.get(key));
                     output += AC1MAP.get(key);
                     if (x < 0) {
                         aux = (int) (x + Math.pow(2, length) - 1);
@@ -390,18 +380,13 @@ public class JPEG implements BaseAlgorithm {
                         }
                     }
                     output += Integer.toBinaryString(aux);
-                    //System.out.println("aux: "+ aux +" Binary: " + Integer.toBinaryString(aux));
                     count = 0;
                 }
             }
         }
         output += AC1MAP.get("00");
-        //output += "Fi";
         out.write(output.getBytes());
         output = "";
-        //z++;
-        //output += "FIC";
-        //System.out.println(output);
     }
 
     private void marchThroughSippy(String input) throws IOException {
@@ -671,5 +656,10 @@ public class JPEG implements BaseAlgorithm {
             e.printStackTrace();
         }
         return out.toByteArray();
+    }
+
+    @Override
+    public Algorithm getAlgorithmUsed() {
+        return Algorithm.JPEG;
     }
 }

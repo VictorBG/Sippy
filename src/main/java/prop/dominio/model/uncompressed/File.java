@@ -16,8 +16,8 @@ public abstract class File extends ItemNC {
   /**
    * @brief Constructora
    *
-   *     \pre path valid
-   *     \post Nova instancia de File amb el path indicat
+   *     \pre path vàlid
+   *     \post Nova instància de File amb el path indicat
    */
   public File(String path) {
     super(path);
@@ -37,22 +37,22 @@ public abstract class File extends ItemNC {
   }
 
   /**
-   * The default {@link Algorithm} that needs to be used to compress the item.
-   * <p>
-   * <p>
-   * Pre: None. Post: Returns default algorithm.
+   * L'{@link Algorithm} necessari per comprimir l'ítem.
+   * Pre: Cert.
+   * Post: Retorna l'algorisme per defecte.
    *
-   * @return default {@link Algorithm} to use
+   * @return L'{@link Algorithm} per defecte.
    */
   public abstract Algorithm getDefaultAlgorithm();
 
   /**
-   * Returns if the {@param algorithm} is supported by the file type or not. If {@link
-   * Algorithm#AUTOMATIC} is passed it SHOULD return false.
+   * Retorna si l'{@param algorithm} és admés o no pel tipus de fitxer.
+   * En cas de que {@link Algorithm#AUTOMATIC} sigui seleccionat, HAURIA
+   * de retornar false.
    *
-   * @param algorithm Algorithm to check.
+   * @param algorithm Algorisme per comprovar.
    *
-   * @return Support status of the algorithm.
+   * @return Estat de l'algorisme respecte al fitxer.
    */
   public abstract boolean isAlgorithmSupported(Algorithm algorithm);
 }

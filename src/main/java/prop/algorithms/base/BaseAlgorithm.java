@@ -7,12 +7,11 @@ import prop.utils.FileUtils;
 
 /**
  * @class BaseAlgorithm
- * @brief Interficie per a la implementacio dels mètodes comprimir i descomprimir dels
- *     algorismes,
- *     i per a la implementacio del mètode de lectura del arxiu, que per defecte llegeix els bytes
- *     a
- *     traves del metode Files.readAllBytes().
- *     Author: Victor Blanco
+ * @brief Interfície per la implementació dels mètodes comprimir i descomprimir dels
+ *     algorismes, a més a més de la del mètode de lectura del arxiu, que per defecte
+ *     llegeix els bytes a través del mètode Files.readAllBytes().
+ *
+ * Author: Victor Blanco
  */
 public interface BaseAlgorithm {
 
@@ -22,22 +21,22 @@ public interface BaseAlgorithm {
   byte[] decode(byte[] input);
 
   /**
-   * Returns the algorithm used, it is useful for variable algorithms
-   * that may choose between others, for simple algorithms it
-   * just returns itself.
+   * Retorna l'agorisme utilitzat; és útil per algorismes variables
+   * (aquells que poden ser escollits envers altres), per algorismes
+   * simples, només els retorna.
    *
-   * @return Algorithm used
+   * @return Algorisme utilitzat.
    */
   Algorithm getAlgorithmUsed();
 
   /**
-   * Default read file, it can be overriden to customize the read of a file.
+   * Lector de fitxer per defecte: pot ésser sobreescrit per a personalitzar.
    *
-   * By default it reads the whole file as an array of bytes
+   * Llegeix el fitxer sencer com un array de bytes per defecte.
    *
-   * @param file file to read from
+   * @param file fitxer del qual es llegeix
    *
-   * @return array of bytes containing the data of the file
+   * @return array de bytes que conté les dades del fitxer.
    * @throws IOException
    */
   default byte[] readFile(File file) throws IOException {

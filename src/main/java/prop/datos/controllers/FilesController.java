@@ -9,22 +9,22 @@ import prop.datos.model.ItemBO;
 /**
  * Author: Sergio Vázquez
  *
- * Controller for the file operations.
+ * Controlador per les operacions del fitxer.
  */
 public interface FilesController {
 
   /**
-   * Reads a path and returns an {@link ItemBO} containing the structure of
-   * the file referenced by the path. If it is a folder it returns a {@link FolderBO}
-   * that contains the structure of that folder populated.
+   * Llegeix el path i retorna un {@link ItemBO} el qual conté l'estructura
+   * del fitxer referenciat pel path. En cas de que sigui una carpeta, retorna
+   * un {@link FolderBO} que conté la estructura de la carpeta desplegada.
    *
-   * @param path Path to read from
+   * @param path Path del qual es llegeix.
    *
-   * @return {@link ItemBO} with the structure of the file referenced by the path
+   * @return {@link ItemBO} amb l'estructura del fitxer referenciat pel path.
    *
-   * @throws FileNotFoundException        If the file could not be found
-   * @throws UnsupportedEncodingException If the extension of the file is not supported by the
-   *                                      system
+   * @throws FileNotFoundException        Si el fitxer no s'ha trobat.
+   * @throws UnsupportedEncodingException Si l'extensió del fitxer no és admesa pel sistema.
+   *
    */
   ItemBO getFile(String path) throws IOException;
 }

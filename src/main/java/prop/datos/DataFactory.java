@@ -8,12 +8,12 @@ import prop.datos.controllers.impl.StreamControllerImpl;
 /**
  * Author: Sergio Vázquez
  *
- * Singleton to get the data layer controllers
+ * Singleton per obtenir els controladors de capa de dades.
  */
 public final class DataFactory {
 
   /**
-   * Lazy initialization of the singleton
+   * Inicialització "lazy" del singleton.
    */
   private static final class SingletonHelper {
 

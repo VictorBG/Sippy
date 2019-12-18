@@ -5,7 +5,7 @@ import prop.presentacion.InterfacePane2;
 
 /**
  * @class Launcher
- * @brief launcher for Sippy
+ * @brief Launcher per Sippy.
  */
 
 public class Launcher {

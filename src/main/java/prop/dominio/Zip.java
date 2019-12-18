@@ -14,13 +14,9 @@ import java.io.IOException;
  * @brief Zip transaction.
  *     Author: Sergio Vazquez.
  *     Creates a {@link ZipStream} and adds every item inside the {@link prop.dominio.model.ItemC}
- *     to the
- *     stream, which will be encoded inside using the {@link Algorithm} provided (or a default if
- *     the
- *     one provided is {@link Algorithm#AUTOMATIC}).
- *     <p>
+ *     to the stream, which will be encoded inside using the {@link Algorithm} provided
+ *     (or a default if the one provided is {@link Algorithm#AUTOMATIC}).
  *     {@link ItemNC} is the responsible of the correct usage of the algorithm selected.
- *     <p>
  *     It also creates statistics of the operations and puts them to the result.
  */
 public class Zip extends Transaction<Statistics> {
