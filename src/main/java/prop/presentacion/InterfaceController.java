@@ -25,16 +25,13 @@ public class InterfaceController {
   }
 
   public void onCompressClick(String path, String outputPath, int algorithmOptionSelected) {
-    Zip zip = null;
+
     try {
-      zip = new Zip(path, outputPath, Algorithm.valueOf((byte) algorithmOptionSelected));
+      Zip zip = new Zip(path, outputPath, Algorithm.valueOf((byte) algorithmOptionSelected));
       zip.execute();
-    } catch (IOException ex) {
+      showStatistics(zip.getResult());
+    } catch (Exception ex) {
       handleZipException(ex);
-    } finally {
-      if (zip != null) {
-        showStatistics(zip.getResult());
-      }
     }
   }
 

@@ -252,8 +252,10 @@ public class InterfacePane2 extends JFrame implements InterfacePanelContract {
 
     // On automatic, as the name says, all of the fields (output name and algorithm are
     // choosen automatically based on the input)
-    automaticZipButton.addActionListener(e -> interfaceController
-        .onCompressClick(path, path, Algorithm.LZW.getId()));
+    automaticZipButton.addActionListener(e -> interfaceController.onCompressClick(
+        path,
+        FileUtils.changeExtension(path, Constants.DEFAULT_ENCODING_EXTENSION),
+        Algorithm.LZW.getId()));
   }
 
   private void createDecompressPanel() {
@@ -291,8 +293,10 @@ public class InterfacePane2 extends JFrame implements InterfacePanelContract {
         fileNameFieldDec.setText(Paths.get(path).getParent().toString());
       }
     });
-    decBtn.addActionListener(
-        e -> interfaceController.onDecompressClick(decPathField.getText(), fileNameFieldDec.getText()));
+
+    decBtn.addActionListener(e -> interfaceController.onDecompressClick(
+        decPathField.getText(),
+        fileNameFieldDec.getText()));
 
     fileNameFieldDec = new JTextField();
     fileNameFieldDec.setBounds(0, 112, 386, 23);
