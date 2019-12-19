@@ -1,23 +1,18 @@
 package prop.algorithms.lzss;
 import prop.algorithms.lzss.KMP;
 
-//********************************************************************
-//  CircularArrayQueue.java
-//
-//  Represents an array implementation of a queue in which the
-//  indexes for the front and rear of the queue circle back to 0
-//  when they reach the end of the array.
-//  http://faculty.washington.edu/moishe/javademos/ch07%20Code/jss2/CircularArrayQueue.java
-//********************************************************************
+/**
+ * Representa un array implementat coma a buffer circular
+ */
 public class CircularBuffer {
     private final int DEFAULT_CAPACITY = 4096;
     public int front, rear, size;
     private char[] queue;
 
 
-    //-----------------------------------------------------------------
-    //  Creates an empty queue using the default capacity.
-    //-----------------------------------------------------------------
+    /**
+     * Creates an empty queue using the default capacity.
+     */
     public CircularBuffer()
     {
         front = rear  = -1;
@@ -35,10 +30,11 @@ public class CircularBuffer {
         queue = (new char[initialCapacity]);
     }
 
-    //-----------------------------------------------------------------
-    //  Adds the specified element to the rear of the queue, incrementing
-    //  front if necessary.
-    //-----------------------------------------------------------------
+    /**
+     * Adds the specified element to the rear of the queue.
+     *
+     * @param element
+     */
     public void enqueue (char element)
     {
         //first case
@@ -64,36 +60,28 @@ public class CircularBuffer {
     }
 
 
-    //-----------------------------------------------------------------
-    //  Returns a reference to the element at the front of the queue.
-    //  The element is not removed from the queue.  Throws an
-    //  EmptyCollectionException if the queue is empty.
-    //-----------------------------------------------------------------
+    /**
+     * Returns a reference to the element at the front of the queue.
+     * @return
+     */
     public char first()
     {
         return queue[front];
     }
 
-    //-----------------------------------------------------------------
-    //  Returns true if this queue is empty and false otherwise.
-    //-----------------------------------------------------------------
-    public boolean isEmpty()
-    {
-        return front == rear;
-    }
-
-    //-----------------------------------------------------------------
-    //  Returns the number of elements currently in this queue.
-    //-----------------------------------------------------------------
+    /**
+     * Returns the number of elements currently in this queue.
+     */
     public int size()
     {
         return size;
     }
 
 
-    //-----------------------------------------------------------------
-    //  Returns a string representation of this queue.
-    //-----------------------------------------------------------------
+    /**
+     * Returns a string representation of this queue.
+     * @return
+     */
     public String toString()
     {
         if (front == -1) return "";
@@ -107,7 +95,10 @@ public class CircularBuffer {
         return result.toString();
 
     }
-
+    /**
+     * Returns a string representation of this queue.
+     * @return String
+     */
     public String toString(int start, int len)
     {
         StringBuilder result = new StringBuilder();
