@@ -21,24 +21,24 @@ public class FileUtilsTest {
 
   static {
     PATH_1 += DOT + EXTENSION_1;
-    PATH_1_SIPPY += DOT + FileUtils.DEFAULT_ENCODING_EXTENSION;
+    PATH_1_SIPPY += DOT + Constants.DEFAULT_ENCODING_EXTENSION;
     PATH_2 += DOT + EXTENSION_2;
-    PATH_2_SIPPY += DOT + FileUtils.DEFAULT_ENCODING_EXTENSION;
+    PATH_2_SIPPY += DOT + Constants.DEFAULT_ENCODING_EXTENSION;
     PATH_3 += DOT + EXTENSION_2;
-    PATH_3_SIPPY += DOT + FileUtils.DEFAULT_ENCODING_EXTENSION;
+    PATH_3_SIPPY += DOT + Constants.DEFAULT_ENCODING_EXTENSION;
     PATH_4 += DOT + EXTENSION_1;
-    PATH_4_SIPPY += DOT + FileUtils.DEFAULT_ENCODING_EXTENSION;
+    PATH_4_SIPPY += DOT + Constants.DEFAULT_ENCODING_EXTENSION;
   }
 
   @Test
   public void changeExtension() {
-    assertEquals(FileUtils.changeExtension(PATH_1, FileUtils.DEFAULT_ENCODING_EXTENSION),
+    assertEquals(FileUtils.changeExtension(PATH_1, Constants.DEFAULT_ENCODING_EXTENSION),
         PATH_1_SIPPY);
-    assertEquals(FileUtils.changeExtension(PATH_2, FileUtils.DEFAULT_ENCODING_EXTENSION),
+    assertEquals(FileUtils.changeExtension(PATH_2, Constants.DEFAULT_ENCODING_EXTENSION),
         PATH_2_SIPPY);
-    assertEquals(FileUtils.changeExtension(PATH_3, FileUtils.DEFAULT_ENCODING_EXTENSION),
+    assertEquals(FileUtils.changeExtension(PATH_3, Constants.DEFAULT_ENCODING_EXTENSION),
         PATH_3_SIPPY);
-    assertEquals(FileUtils.changeExtension(PATH_4, FileUtils.DEFAULT_ENCODING_EXTENSION),
+    assertEquals(FileUtils.changeExtension(PATH_4, Constants.DEFAULT_ENCODING_EXTENSION),
         PATH_4_SIPPY);
   }
 
@@ -49,9 +49,9 @@ public class FileUtilsTest {
     assertEquals(FileUtils.getFileExtension(PATH_3), EXTENSION_2);
     assertEquals(FileUtils.getFileExtension(PATH_4), EXTENSION_1);
 
-    assertEquals(FileUtils.getFileExtension(PATH_1_SIPPY), FileUtils.DEFAULT_ENCODING_EXTENSION);
-    assertEquals(FileUtils.getFileExtension(PATH_2_SIPPY), FileUtils.DEFAULT_ENCODING_EXTENSION);
-    assertEquals(FileUtils.getFileExtension(PATH_3_SIPPY), FileUtils.DEFAULT_ENCODING_EXTENSION);
-    assertEquals(FileUtils.getFileExtension(PATH_4_SIPPY), FileUtils.DEFAULT_ENCODING_EXTENSION);
+    assertEquals(FileUtils.getFileExtension(PATH_1_SIPPY), Constants.DEFAULT_ENCODING_EXTENSION);
+    assertEquals(FileUtils.getFileExtension(PATH_2_SIPPY), Constants.DEFAULT_ENCODING_EXTENSION);
+    assertEquals(FileUtils.getFileExtension(PATH_3_SIPPY), Constants.DEFAULT_ENCODING_EXTENSION);
+    assertEquals(FileUtils.getFileExtension(PATH_4_SIPPY), Constants.DEFAULT_ENCODING_EXTENSION);
   }
 }

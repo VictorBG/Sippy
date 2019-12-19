@@ -4,12 +4,14 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashMap;
+import prop.algorithms.Algorithm;
 import prop.algorithms.base.BaseAlgorithm;
 
 /**
- * @class LZW
- * @brief LZW implementation doesnt compress ppm files
  * Author: Sergio Vazquez
+ *
+ * @class LZW
+ * @brief Implementació de l'algorisme LZW. No comprimeix arxius amb format ppm.
  */
 
 public class LZW implements BaseAlgorithm {
@@ -81,11 +83,12 @@ public class LZW implements BaseAlgorithm {
   }
 
   /**
-   * Converts 8 bits to 12 bits
+   * Converteix 8 bits a 12 bits.
    *
-   * @param data - bytes vector , pos - the position inside data vector that we want to obtain out -
-   *             char to insert in dictionary
-   * @return - String value of integer in 12 bit
+   * @param data Array de bytes
+   * @param pos  Posició dins de l'array de la qual volem obtenir un char per inserir al diccionari
+   *
+   * @return - Valor en format String de l'integer en 12 bits
    */
   private char getChar(byte[] data, int pos) {
     byte b = data[pos];
@@ -135,7 +138,7 @@ public class LZW implements BaseAlgorithm {
       if (currentValue >= dictionary.size()) {
         s = dictionary.get(lastValue) + dictionary.get(lastValue).charAt(0);
         if (dictionary.size() < 4096) {
-          dictionary.put(dictionary.size(),s);
+          dictionary.put(dictionary.size(), s);
         }
         try {
           arrayOutputStream.write(s.getBytes());
@@ -155,16 +158,18 @@ public class LZW implements BaseAlgorithm {
       }
       lastValue = currentValue;
     }
+
     return arrayOutputStream.toByteArray();
   }
 
   /**
-   * Extract the 12 bit key from 2 bytes and gets the integer value of the key
+   * Estreu la key de 12 bits dels 2 bytes i obté el valor de la key en format integer.
    *
-   * @param b1     - First byte
-   * @param b2     - Second byte
-   * @param onleft - True if on left, false if not
-   * @return - An Integer which holds the value of the key
+   * @param b1     - Primer byte
+   * @param b2     - Segon byte
+   * @param onleft - True si està a l'esquerra, false altrament.
+   *
+   * @return  Integer que conté el valor de la key.
    */
   public int getValue(byte b1, byte b2, boolean onleft) {
     int value;
@@ -174,5 +179,10 @@ public class LZW implements BaseAlgorithm {
       value = ((int) b1 & 0xF) + (((int) b2 & 0xFF) << 4);
     }
     return value;
+  }
+
+  @Override
+  public Algorithm getAlgorithmUsed() {
+    return Algorithm.LZW;
   }
 }

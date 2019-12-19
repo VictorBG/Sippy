@@ -1,8 +1,13 @@
 package prop.algorithms.lz78;
 
 /**
- * @class Pair
  * Author: Victor Blanco
+ *
+ * @class Pair
+ * @brief Una classe Pair simple que conté un primer i un segon objecte.
+ * En aquest cas, el primer és un integer i el segon un char ja que
+ * s'utilitza principalment per a l'algorisme {@link LZ78} tot i que es
+ * podria fer més genèric si s'escau.
  */
 public class Pair {
 
@@ -18,16 +23,8 @@ public class Pair {
     return first;
   }
 
-  public void setFirst(int first) {
-    this.first = first;
-  }
-
   char getSecond() {
     return second;
-  }
-
-  public void setSecond(char second) {
-    this.second = second;
   }
 
   byte[] getBytes() {

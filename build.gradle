@@ -27,16 +27,22 @@ test {
     outputs.upToDateWhen { false }
 }
 
-run {
-    standardInput = System.in
+task buildMain(type: Jar) {
+    manifest {
+        attributes "Main-Class": "prop.InterfaceLauncher"
+    }
+
+    archiveBaseName.set("SippyInterface")
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
 }
 
-task buildMain(type: Jar) {
+task buildMainConsole(type: Jar) {
     manifest {
         attributes "Main-Class": "prop.Launcher"
     }
 
-    baseName = 'Sippy'
+    archiveBaseName.set("SippyConsole")
     from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
     with jar
 }
@@ -46,7 +52,7 @@ task LZ78Driver(type: Jar) {
         attributes "Main-Class": "prop.dominio.drivers.LZ78Driver"
     }
 
-    baseName = 'LZ78Driver'
+    archiveBaseName.set("LZ78Driver")
     from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
     with jar
 }
@@ -56,7 +62,7 @@ task LZWDriver(type: Jar) {
         attributes "Main-Class": "prop.dominio.drivers.LZWDriver"
     }
 
-    baseName = 'LZWDriver'
+    archiveBaseName.set("LZWDriver")
     from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
     with jar
 }
@@ -66,7 +72,7 @@ task LZSSDriver(type: Jar) {
         attributes "Main-Class": "prop.dominio.drivers.LZSSDriver"
     }
 
-    baseName = 'LZSSDriver'
+    archiveBaseName.set("LZSSDriver")
     from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
     with jar
 }
@@ -76,7 +82,7 @@ task ZipDriver(type: Jar) {
         attributes "Main-Class": "prop.dominio.drivers.ZipDriver"
     }
 
-    baseName = 'ZipDriver'
+    archiveBaseName.set("ZipDriver")
     from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
     with jar
 }
@@ -86,7 +92,7 @@ task UnzipDriver(type: Jar) {
         attributes "Main-Class": "prop.dominio.drivers.UnzipDriver"
     }
 
-    baseName = 'UnzipDriver'
+    archiveBaseName.set("UnzipDriver")
     from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
     with jar
 }

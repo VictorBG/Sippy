@@ -234,4 +234,9 @@ public class LZSS implements BaseAlgorithm {
                 new InputStreamReader(new FileInputStream(file), StandardCharsets.UTF_8));
         return bufRdr.lines().map(i -> i + "\n").reduce(String::concat).get().getBytes();
     }
+
+    @Override
+    public Algorithm getAlgorithmUsed() {
+        return Algorithm.LZSS;
+    }
 }

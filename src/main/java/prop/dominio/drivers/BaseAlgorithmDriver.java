@@ -9,9 +9,9 @@ import prop.utils.FileUtils;
 
 /**
  * Author: Victor Blanco
- * <p>
- * Base algorithm driver. It manages all the operations of the driver that corresponds to a specific
- * algorithm.
+ *
+ * Driver de la classe BaseAlgorithm. Gestiona totes les operacions
+ * del driver que corresponen a un determinat algorisme.
  */
 public abstract class BaseAlgorithmDriver {
 
@@ -23,9 +23,9 @@ public abstract class BaseAlgorithmDriver {
   private Scanner scanner;
 
   /**
-   * Scanner used only to get the input if the user selects String option.
-   * If the one used is {@link #scanner} it will not fully read correctly due
-   * it has been written before (to select the option).
+   * Escàner que només s’utilitza per obtenir l’entrada en cas que l’usuari seleccioni l’opció d'String.
+   * Si l'utilitzat és {@link #scanner}, no es llegirà tot correctament degut a que s'ha escrit
+   * anteriorment (per seleccionar l'opció).
    */
   private Scanner scannerString;
 
@@ -65,7 +65,7 @@ public abstract class BaseAlgorithmDriver {
         .println("\nProvide the file path you want to test (only txt extension is supported):  ");
     String path = scanner.next();
     if (!"txt".equals(FileUtils.getFileExtension(path))) {
-      System.out.println("\nOther extensions that are not txt is not supported\n");
+      System.out.println("\nOther extensions that are not txt are not supported\n");
       encodeFile();
     }
     byte[] output = algorithm.encode(algorithm.readFile(new File(path)));

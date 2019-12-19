@@ -4,40 +4,42 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
+import prop.algorithms.Algorithm;
 import prop.algorithms.base.BaseAlgorithm;
 
 /**
- * @class LZ78
- * @brief Implementation of the LZ78 algorithm.
- *
- * Improvements:
- * - Variable number of bits on index. We can assume that the x index wont have a
- * number greater than x-1, so we can define that the number of bits that this position can take as
- * maximum is log2(x) instead of taking 24 bits always, which also puts a theoric limit of 2^24
- * values for the index. It is also expensive for low sized files.
- * - Use a Trie instead of a HashMap. It will improve but not much.
  * Author: Victor Blanco
+ *
+ * @class LZ78
+ * @brief Implementació de l'algorisme LZ78.
+ *
+ *     Millores:
+ *     - Nombre variable de bits a l'índex. Podem suposar que l’índex x no tindrà un
+ *     nombre superior a x-1, per tant, podem definir que el nombre de bits que
+ *     aquesta posició pot prendre com a màxim és log2 (x) en lloc de prendre sempre
+ *     24 bits, cosa que també imposa un límit teòric màxim de 2 ^ 24 valors per l’índex.
+ *     És car per a fitxers de mida petita.
+ *
+ *     - Utilitza un Trie en comptes d'un HashMap.
  */
 public class LZ78 implements BaseAlgorithm {
 
+  private ByteArrayOutputStream baos;
 
   @Override
   public byte[] encode(byte[] data) {
-    ByteArrayOutputStream baos = new ByteArrayOutputStream();
+    baos = new ByteArrayOutputStream();
     HashMap<String, Integer> dictionary = new HashMap<>();
 
     String s = "";
     Integer pos = 0;
     int index = 1;
-    String text = new String(data, StandardCharsets.UTF_8);
-    for (String b : text.split("")) {
-      s += String.valueOf(b);
+    for (byte b : data) {
+      char c = getChar(b);
+      s += c;
       if (!dictionary.containsKey(s)) {
         dictionary.put(s, index++);
-        try {
-          baos.write(new Pair(pos, b.charAt(0)).getBytes());
-        } catch (IOException ignore) {
-        }
+        write(new Pair(pos, c).getBytes());
         s = "";
         pos = 0;
       } else {
@@ -46,11 +48,9 @@ public class LZ78 implements BaseAlgorithm {
     }
 
     if (pos != 0) {
-      try {
-        baos.write(new Pair(pos, Character.MIN_VALUE).getBytes());
-      } catch (IOException ignore) {
-      }
+      write(new Pair(pos, Character.MIN_VALUE).getBytes());
     }
+
     return baos.toByteArray();
   }
 
@@ -72,9 +72,38 @@ public class LZ78 implements BaseAlgorithm {
       result.append(getString(dictionary, k++));
     }
 
-    return result.toString().getBytes(StandardCharsets.ISO_8859_1);
+    return result.toString().getBytes(StandardCharsets.UTF_8);
   }
 
+  /**
+   * Escriu un tros de dades al {@link #baos} output stream.
+   *
+   * @param data dada a escriure.
+   */
+  private void write(byte[] data) {
+    try {
+      baos.write(data);
+    } catch (IOException ignore) {}
+  }
+
+  // TODO: These 2 methods can be implemented better
+
+  /**
+   * Retorna un String que conté la paraula recuperada del diccionary.
+   *
+   * Llegeix l’element de valor i recupera l’objecte {@link Pair} associat a ell,
+   * després retorna el char que el pair conté concatenat amb l'string retornat per
+   * aquest mètode, pel valor contingut pel pair.
+   *
+   * Si el valor contingut pel pair és 0, significa que s'ha arribat al final de
+   * la recuperació de l'string i no iterará més.
+   *
+   * @param dic   Diccionari del qual es llegeix.
+   * @param value Valor que es llegeix del diccionari.
+   *
+   * @return L'string recuperat del map que comença amb l'objecte value.
+   *
+   */
   private String getString(HashMap<Integer, Pair> dic, int value) {
     if (dic.get(value).getFirst() == 0) {
       return charAt(dic, value);
@@ -83,14 +112,49 @@ public class LZ78 implements BaseAlgorithm {
     }
   }
 
+  /**
+   * Retorna el char contingut a la posició (o valor) del diccionari. Si el char
+   * és un {@link Character# MIN_VALUE}, retorna un String buit, altrament
+   * retorna el char de la posició esmentada.
+   *
+   * @param dic Diccionari del qual es llegeix.
+   * @param pos Posició (valor) que es llegeix del diccionari.
+   *
+   * @return el char que es troba a la posició pos del diccionari.
+   */
   private String charAt(HashMap<Integer, Pair> dic, int pos) {
-    Character res;
+    char res;
     if ((res = dic.get(pos).getSecond()) == Character.MIN_VALUE) {
       return "";
     }
     return String.valueOf(res);
   }
 
+  /**
+   * Retorna un char segons el valor del byte.
+   *
+   * Si el valor és negatiu (ca2), aquest és convertit a valor positiu amb
+   * motiu de seguir la taula ASCII, altrament retorna el valor original.
+   *
+   * @param b Byte a convertir.
+   *
+   * @return El byte convertit en un char de la taula ASCII.
+   */
+  private char getChar(byte b) {
+    int i = new Byte(b).intValue();
+    if (i < 0) {
+      i += 256;
+    }
+    return (char) i;
+  }
+
+  /**
+   * Converteix l'array de bytes de tamany 3 donada en un int
+   *
+   * @param b Array de bytes per convertir
+   *
+   * @return Integer contingut a l'array de bytes
+   */
   private int byteArrayToInt(byte[] b) {
     return
         (b[2] & 0xFF) |
@@ -98,10 +162,8 @@ public class LZ78 implements BaseAlgorithm {
             (b[0] & 0xFF) << 16;
   }
 
-//  @Override
-//  public byte[] readFile(File file) throws IOException {
-//    BufferedReader bufRdr = new BufferedReader(
-//        new InputStreamReader(new FileInputStream(file), StandardCharsets.ISO_8859_1));
-//    return bufRdr.lines().map(i -> i + "\n").reduce(String::concat).get().getBytes();
-//  }
+  @Override
+  public Algorithm getAlgorithmUsed() {
+    return Algorithm.LZ78;
+  }
 }
