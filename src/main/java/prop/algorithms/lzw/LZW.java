@@ -168,7 +168,7 @@ public class LZW implements BaseAlgorithm {
    * @param b2     - Segon byte
    * @param onleft - True si està a l'esquerra, false altrament.
    *
-   * @return - Integer que conté el valor de la key.
+   * @return  Integer que conté el valor de la key.
    */
   public int getValue(byte b1, byte b2, boolean onleft) {
     int value;

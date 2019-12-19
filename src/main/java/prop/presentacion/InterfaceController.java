@@ -1,6 +1,8 @@
 package prop.presentacion;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import prop.algorithms.Algorithm;
@@ -25,13 +27,12 @@ public class InterfaceController {
   }
 
   public void onCompressClick(String path, String outputPath, int algorithmOptionSelected) {
-    Zip zip = null;
     try {
-      zip = new Zip(path, outputPath, Algorithm.valueOf((byte) algorithmOptionSelected));
+      Zip zip = new Zip(path, outputPath, Algorithm.valueOf((byte) algorithmOptionSelected));
       zip.execute();
-    } catch (IOException ex) {
-      handleZipException(ex);
       showStatistics(zip.getResult());
+    } catch (Exception ex) {
+      handleZipException(ex);
     }
   }
 
@@ -45,16 +46,30 @@ public class InterfaceController {
 
   private void handleUnzipException(IOException exception) {
     log.log("InterfaceControllerUnzipException", exception);
+
+    unhandledException(exception);
   }
 
-  private void handleZipException(IOException exception) {
+  private void handleZipException(Exception exception) {
     log.log("InterfaceControllerZipException", exception);
 
     if (exception instanceof UnsupportedOutputDirectoryPathname) {
       contract.showAlert("The output path is not a valid path", "Output path error");
+    } else if (exception instanceof UnsupportedOperationException) {
+      contract.showAlert(exception.getMessage(), "The operation is not supported");
+    } else if (exception instanceof FileNotFoundException) {
+      contract.showAlert("Could not find the file specified", "File not found");
+    } else if (exception instanceof UnsupportedEncodingException) {
+      contract.showAlert(exception.getMessage(), "File format not supported");
+    } else {
+      unhandledException(exception);
     }
 
-    // TODO: Do all
+  }
+
+  private void unhandledException(Exception exception) {
+    contract.showAlert("An unhandled exception of type " + exception.getClass().getName() +
+        " has been found ", "Unhandled exception");
   }
 
   private void showStatistics(Statistics statistics) {

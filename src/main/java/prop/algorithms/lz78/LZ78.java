@@ -98,11 +98,6 @@ public class LZ78 implements BaseAlgorithm {
    * Si el valor contingut pel pair és 0, significa que s'ha arribat al final de
    * la recuperació de l'string i no iterará més.
    *
-   *
-   * Nota: el char és sempre concatenat al final ja que es tracta de l'ultim char
-   * mentre que la resta de chars s'emmagatzemen com una llista de valors que
-   * assenyala a altres posicions del map.
-   *
    * @param dic   Diccionari del qual es llegeix.
    * @param value Valor que es llegeix del diccionari.
    *
