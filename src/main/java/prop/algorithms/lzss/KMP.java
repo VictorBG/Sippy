@@ -28,7 +28,7 @@ public class KMP {
      * @param pat the pattern string
      */
     public KMP(String pat) {
-        this.R = 2562; //if unicode chars: 66500. ASCII: 256
+        this.R = 256; //if unicode chars: 66500. ASCII: 256
         this.pat = pat;
 
         // build DFA from pattern
