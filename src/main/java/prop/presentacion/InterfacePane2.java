@@ -20,6 +20,12 @@ import prop.algorithms.Algorithm;
 import prop.utils.Constants;
 import prop.utils.FileUtils;
 
+/**
+ * Author: Sergio Vázquez
+ *
+ * @class InterfacePane2
+ * @brief Interficie grafica de la aplicació.
+ */
 public class InterfacePane2 extends JFrame implements InterfacePanelContract {
 
   private JTextField pathField;

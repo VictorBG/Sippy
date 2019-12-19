@@ -7,9 +7,11 @@ import java.io.IOException;
 import java.nio.file.Files;
 
 /**
+ * Author: Sergio Vazquez
+ *
  * @class FileUtils
  * @brief different utils for reading a file
- *     Author: Sergio Vazquez
+ *
  */
 public class FileUtils {
 

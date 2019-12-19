@@ -7,11 +7,13 @@ import prop.dominio.model.Statistics;
 import java.io.IOException;
 
 /**
- * @class Unzip
+ * Author: Sergio Vazquez.
+ *
+ * @class UnzipTransaction
  * @brief Unzip transaction.
- *     Author: Sergio Vazquez.
+ *
  */
-public class Unzip extends Transaction<Statistics> {
+public class UnzipTransaction extends Transaction<Statistics> {
 
   private String path;
   private String outputPath;
@@ -21,7 +23,7 @@ public class Unzip extends Transaction<Statistics> {
    *     \pre item existeix
    *     \post Es crea una instancia de Unzip
    */
-  public Unzip(String path, String outputPath) {
+  public UnzipTransaction(String path, String outputPath) {
     this.path = path;
     this.outputPath = outputPath;
   }

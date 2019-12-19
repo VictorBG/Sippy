@@ -2,7 +2,7 @@ package prop.dominio.drivers;
 
 import java.nio.file.Paths;
 import prop.algorithms.Algorithm;
-import prop.dominio.Zip;
+import prop.dominio.ZipTransaction;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.Scanner;
@@ -27,7 +27,7 @@ public class ZipDriver {
     try {
       Algorithm algorithm = selectAlgorithm();
       System.out.println("Compressing file using: " + algorithm.name());
-      new Zip(path, Paths.get(path).getRoot().toString(), algorithm).execute();
+      new ZipTransaction(path, Paths.get(path).getRoot().toString(), algorithm).execute();
       System.out.println("File successfully compressed.");
       end();
     } catch (UnsupportedEncodingException uee) {

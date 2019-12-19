@@ -6,12 +6,14 @@ import prop.algorithms.Algorithm;
 import prop.utils.FileUtils;
 
 /**
+ * Author: Victor Blanco
+ *
  * @class BaseAlgorithm
  * @brief Interfície per la implementació dels mètodes comprimir i descomprimir dels
  *     algorismes, a més a més de la del mètode de lectura del arxiu, que per defecte
  *     llegeix els bytes a través del mètode Files.readAllBytes().
  *
- * Author: Victor Blanco
+
  */
 public interface BaseAlgorithm {
 

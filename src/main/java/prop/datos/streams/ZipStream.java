@@ -5,6 +5,9 @@ import prop.algorithms.Algorithm;
 
 /**
  * Author: Victor Blanco
+ *
+ * @class ZipStream
+ * @brief Interficie per a la clase ZipStream
  */
 public interface ZipStream {
 

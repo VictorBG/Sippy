@@ -9,7 +9,8 @@ import prop.datos.model.ItemBO;
 /**
  * Author: Sergio Vázquez
  *
- * Controlador per les operacions del fitxer.
+ * @class FilesController
+ * @brief Controlador per les operacions del fitxer.
  */
 public interface FilesController {
 

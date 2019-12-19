@@ -15,7 +15,7 @@ import prop.utils.FileUtils;
  * Author: Victor Blanco
  *
  * @class ZipStream
- * @brief a new sippy file is created
+ * @brief A new sippy file is created
  *
  *     {@link OutputStream} to output a "sippy" file format.
  *

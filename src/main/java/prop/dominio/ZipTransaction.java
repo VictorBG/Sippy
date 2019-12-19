@@ -10,16 +10,16 @@ import prop.dominio.model.Statistics;
 import prop.dominio.model.uncompressed.File;
 
 /**
+ * Author: Sergio Vazquez.
+ *
  * @class Zip
- * @brief Zip transaction.
- *     Author: Sergio Vazquez.
- *     Creates a {@link ZipStream} and adds every item inside the {@link prop.dominio.model.ItemC}
+ * @brief Creates a {@link ZipStream} and adds every item inside the {@link prop.dominio.model.ItemC}
  *     to the stream, which will be encoded inside using the {@link Algorithm} provided
  *     (or a default if the one provided is {@link Algorithm#AUTOMATIC}).
  *     {@link ItemNC} is the responsible of the correct usage of the algorithm selected.
  *     It also creates statistics of the operations and puts them to the result.
  */
-public class Zip extends Transaction<Statistics> {
+public class ZipTransaction extends Transaction<Statistics> {
 
   private String path;
   private String outputPath;
@@ -30,7 +30,7 @@ public class Zip extends Transaction<Statistics> {
    *     \pre item existeix, algorithm existeix
    *     \post Es ccrea una instancia de Zip
    */
-  public Zip(String path, String outputPath, Algorithm algorithm) {
+  public ZipTransaction(String path, String outputPath, Algorithm algorithm) {
     this.path = path;
     this.outputPath = outputPath;
     this.algorithm = algorithm;

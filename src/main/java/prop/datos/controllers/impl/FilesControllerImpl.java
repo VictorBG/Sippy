@@ -16,6 +16,10 @@ import prop.utils.FileUtils;
 
 /**
  * Author: Sergio Vázquez
+ *
+ * @class FilesControllerImpl
+ * @brief Implementació de la interficie FilesController usada per la lectura de fitxers del
+ * sistema.
  */
 public class FilesControllerImpl implements FilesController {
 

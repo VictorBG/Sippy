@@ -7,9 +7,11 @@ import java.util.Scanner;
 import prop.algorithms.Algorithm;
 
 /**
+ * Author: Sergio Vazquez
+ *
  * @class ConsoleApp
  * @brief: Presentation layer for first deliverable
- *     Author: Sergio Vazquez
+ *
  */
 
 

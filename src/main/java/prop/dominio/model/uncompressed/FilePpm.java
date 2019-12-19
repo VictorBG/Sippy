@@ -3,9 +3,11 @@ package prop.dominio.model.uncompressed;
 import prop.algorithms.Algorithm;
 
 /**
+ * Author: Victor Blanco
+ *
  * @class FilePpm
  * @brief Classe del model per a mantener la información dels File de tipus ppm.
- *     Author: Victor Blanco
+ *
  */
 public class FilePpm extends File {
 

@@ -7,9 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Author: Victor Blanco
+ *
  * @class File
  * @brief Classe del model per a mantenir l’informació dels itemNC de tipus file
- *     Author: Victor Blanco
  */
 public abstract class File extends ItemNC {
 
@@ -37,22 +38,25 @@ public abstract class File extends ItemNC {
   }
 
   /**
-   * L'{@link Algorithm} necessari per comprimir l'ítem.
-   * Pre: Cert.
-   * Post: Retorna l'algorisme per defecte.
+   * @brief L'{@link Algorithm} necessari per comprimir l'ítem.
+   * \pre: Cert.
+   * \post: Retorna l'algorisme per defecte.
    *
    * @return L'{@link Algorithm} per defecte.
    */
   public abstract Algorithm getDefaultAlgorithm();
 
   /**
-   * Retorna si l'{@param algorithm} és admés o no pel tipus de fitxer.
+   * @brief Retorna si l'{@param algorithm} és admés o no pel tipus de fitxer.
    * En cas de que {@link Algorithm#AUTOMATIC} sigui seleccionat, HAURIA
    * de retornar false.
    *
+   * \pre cert
+   * \post Si el fitxer accepta l'algorisme passat per parametre.
+   *
    * @param algorithm Algorisme per comprovar.
    *
-   * @return Estat de l'algorisme respecte al fitxer.
+   * @return Si el fitxer accepta l'algorisme passat per parametre.
    */
   public abstract boolean isAlgorithmSupported(Algorithm algorithm);
 }

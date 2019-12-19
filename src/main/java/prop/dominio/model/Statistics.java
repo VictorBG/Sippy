@@ -1,10 +1,11 @@
 package prop.dominio.model;
 
 /**
+ * Author: Sergio Vazquez
+ *
  * @class Statistics
  * @brief Statistics for the zip and unzip operation
- * Author: Sergio Vazquez
-
+ *
  */
 public class Statistics {
 

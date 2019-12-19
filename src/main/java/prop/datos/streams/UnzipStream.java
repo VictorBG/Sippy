@@ -4,6 +4,9 @@ import java.io.IOException;
 
 /**
  * Author: Victor Blanco
+ *
+ * @class UnzipStream
+ * @brief Interficie per a la clase UnzipStream
  */
 public interface UnzipStream {
 

@@ -3,9 +3,11 @@ package prop.dominio.model;
 import java.util.List;
 
 /**
+ * Author: Sergio Vazquez
+ *
  * @class ItemNC
  * @brief Representation of a non compressed item. Used mainly for the zip operation.
- *     Author: Sergio Vazquez
+ *
  */
 public abstract class ItemNC {
 

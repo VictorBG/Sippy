@@ -14,9 +14,18 @@ import prop.dominio.model.uncompressed.Folder;
 
 /**
  * Author: Víctor Blanco
+ *
+ * @class ItemMapper
+ * @brief Mapeja un objete de la capa de dades a un de la capa de domini
  */
 public final class ItemMapper {
 
+  /**
+   * @@brief mapeja l'item de la capa de dades a un ItemNC
+   *
+   * \pre item no nul
+   * \post item mapejat
+   */
   public static ItemNC mapItem(ItemBO itemBO) {
     ItemNC result;
     if (itemBO instanceof FolderBO) {
@@ -43,6 +52,12 @@ public final class ItemMapper {
     return result;
   }
 
+  /**
+   * @@brief mapeja l'item de la capa de dades a un ItemC
+   *
+   * \pre item no nul
+   * \post item mapejat
+   */
   public static ItemC mapCompressedItem(ItemBO itemBO) {
     ItemC result = new ItemC(itemBO.getPath());
     result.setSize(itemBO.getSize());

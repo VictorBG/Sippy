@@ -20,7 +20,7 @@ import prop.algorithms.base.BaseAlgorithm;
  *     24 bits, cosa que també imposa un límit teòric màxim de 2 ^ 24 valors per l’índex.
  *     És car per a fitxers de mida petita.
  *
- *     - Utilitza un Tree en comptes d'un HashMap. Es veu millora però no molta.
+ *     - Utilitza un Trie en comptes d'un HashMap.
  */
 public class LZ78 implements BaseAlgorithm {
 

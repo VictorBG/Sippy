@@ -6,6 +6,9 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * Author: Sergio Vazquez
+ *
+ * @class StatisticsUtils
+ * @brief Metodes utils per formatejar certes dades usades a les estadistiques.
  */
 public class StatisticsUtils {
 

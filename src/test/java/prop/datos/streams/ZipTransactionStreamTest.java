@@ -15,7 +15,7 @@ import prop.datos.streams.impl.ZipStreamImpl;
 import prop.utils.Constants;
 import prop.utils.FileUtils;
 
-public class ZipStreamTest {
+public class ZipTransactionStreamTest {
 
   @Rule
   public TemporaryFolder testFolder = new TemporaryFolder();

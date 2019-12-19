@@ -8,6 +8,10 @@ import prop.algorithms.base.BaseAlgorithm;
 /**
  * Author: Victor Blanco
  *
+ * @class Automatic
+ * @brief La clase no es usada ja que l'algorisme automatic esta "hardcodejat" al LZW per a txt
+ * pero peticio del professor.
+ *
  * Automatic algorithm chooser that chooses the algorithm based on the
  * best algorithm for the given input.
  *

@@ -8,9 +8,10 @@ import prop.algorithms.Algorithm;
 import prop.algorithms.base.BaseAlgorithm;
 
 /**
+ * Author: Sergio Vazquez
+ *
  * @class LZW
  * @brief Implementació de l'algorisme LZW. No comprimeix arxius amb format ppm.
- * Author: Sergio Vazquez
  */
 
 public class LZW implements BaseAlgorithm {

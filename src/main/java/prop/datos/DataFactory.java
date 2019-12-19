@@ -8,7 +8,8 @@ import prop.datos.controllers.impl.StreamControllerImpl;
 /**
  * Author: Sergio Vázquez
  *
- * Singleton per obtenir els controladors de capa de dades.
+ * @class DataFactory
+ * @brief Singleton per obtenir els controladors de capa de dades.
  */
 public final class DataFactory {
 

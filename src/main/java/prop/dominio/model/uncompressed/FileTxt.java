@@ -5,9 +5,11 @@ import prop.algorithms.Algorithm;
 import prop.algorithms.automatic.Automatic;
 
 /**
+ * Author: Victor Blanco
+ *
  * @class FileTxt
  * @brief Classe del model per a mantener la información dels File de tipus txt.
- *     Author: Victor Blanco
+ *
  */
 public class FileTxt extends File {
 

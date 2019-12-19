@@ -17,7 +17,7 @@ import prop.algorithms.Algorithm;
 import prop.datos.streams.impl.UnzipStreamImpl;
 import prop.datos.streams.impl.ZipStreamImpl;
 
-public class UnzipStreamTest {
+public class UnzipTransactionStreamTest {
 
   @Rule
   public TemporaryFolder testFolder = new TemporaryFolder();

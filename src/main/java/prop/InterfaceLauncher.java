@@ -4,7 +4,7 @@ import prop.presentacion.InterfacePane2;
 
 /**
  * @class InterfaceLauncher
- * @brief launcher for Sippy with graphical interface
+ * @brief Launcher per Sippy amb GUI.
  */
 
 public class InterfaceLauncher {

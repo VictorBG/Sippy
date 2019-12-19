@@ -6,7 +6,8 @@ import prop.utils.FileUtils;
 /**
  * Author: Sergio Vázquez
  *
- * Business object utilitzat per emmagatzemar l'estructura d'un fitxer
+ * @class ItemBO
+ * @brief Objecte utilitzat per emmagatzemar l'estructura d'un fitxer
  * del sistema amb alguns mètodes auxiliars.
  */
 public class ItemBO {
