@@ -1,7 +1,11 @@
 package prop.utils;
 
 import java.text.SimpleDateFormat;
-
+/**
+ * @class Log
+ * @brief Classe usada per mostrar missatges per la consola a mode de debug
+ *     Author: Victor Blanco
+ */
 public class Log {
 
   private static final boolean DEBUG_MODE = true;
