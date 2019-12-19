@@ -1,16 +1,17 @@
 package prop.algorithms.jpeg;
 
 /**
+ * Author: Yaiza Cano
+ *
  * @class BinaryTree
- *     Author: Yaiza Cano
+ * @brief Classe que implementa un arbre binari. Útil per la decodificació de la imatge
+ *     utilitzant Huffman.
  */
 
-import java.util.ArrayList;
 
 public class BinaryTree {
 
   private Node root;
-  private ArrayList<Node> branques = new ArrayList<>();
 
   public BinaryTree() {
     root = new Node();

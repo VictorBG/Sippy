@@ -1,7 +1,9 @@
 package prop.algorithms.jpeg;
 /**
+ * Author: Yaiza Cano
+ *
  * @class JPEG
- *     Author: Yaiza Cano
+ * @brief Implementació de l'algorisme JPEG.
  */
 
 import prop.algorithms.Algorithm;
@@ -52,6 +54,9 @@ public class JPEG implements BaseAlgorithm {
       {0.0975f, -0.2778f, 0.4157f, -0.4904f, 0.4904f, -0.4157f, 0.2778f, -0.0975f}};
   // endregion
 
+  /**
+   * Passa els valors de les taules de Huffman a una altra funció que crea els arbres.
+   */
   private void huffmanTables() {
     DC0MAP.keySet().forEach(key -> fillHuffmanTrees(dc0Tree, key, DC0MAP.get(key)));
     DC1MAP.keySet().forEach(key -> fillHuffmanTrees(dc1Tree, key, DC1MAP.get(key)));
@@ -59,6 +64,17 @@ public class JPEG implements BaseAlgorithm {
     AC1MAP.keySet().forEach(key -> fillHuffmanTrees(ac1Tree, key, AC1MAP.get(key)));
   }
 
+  /**
+   * Es recorrer l'arbre seguint un ordre en format de bits
+   * per depositar un valor a un node fulla.
+   *
+   * \pre tree, key i bits existeixen.
+   * \post un nou node fulla s'ha inserit a l'arbre.
+   *
+   * @param tree Arbre al qual afegir un valor.
+   * @param key  Valor que volem afegir.
+   * @param bits Recorregut de l'arbre a seguir per col·locar el valor.
+   */
   private void fillHuffmanTrees(BinaryTree tree, String key, String bits) {
     Node current = tree.getRoot();
     Node aux;
@@ -89,6 +105,17 @@ public class JPEG implements BaseAlgorithm {
     }
   }
 
+  /**
+   * Es recorren els RGB's de la imatge, es transformen a YCbCr
+   * i s'envien en blocs de 8x8 píxels al recorregut de transformacions
+   * necessàries per dur a terme la compressió.
+   *
+   * \pre la imatge existeix.
+   * \post imatge comprimida.
+   *
+   * @param image Imatge a comprimir.
+   * @throws IOException
+   */
   private void marchThroughImage(byte[] image) throws IOException {
     version = String.valueOf((char) image[0]) + String.valueOf((char) image[1]);
     boolean width = false;
@@ -134,9 +161,15 @@ public class JPEG implements BaseAlgorithm {
     int header = image.length - w * h * 3;
     byte[] rgb = Arrays.copyOfRange(image, header, image.length);
 
-    int[][] matrixR = new int[h][w];
-    int[][] matrixG = new int[h][w];
-    int[][] matrixB = new int[h][w];
+    int ample = w;
+    int llarg = h;
+
+      while (llarg % 8 != 0) { llarg++; }
+      while (ample % 8 != 0) { ample++; }
+
+    int[][] matrixR = new int[llarg][ample];
+    int[][] matrixG = new int[llarg][ample];
+    int[][] matrixB = new int[llarg][ample];
 
     int k = 0;
     for (i = 0; i < h; ++i) {
@@ -150,9 +183,9 @@ public class JPEG implements BaseAlgorithm {
       }
     }
 
-    double[][] matrixY = new double[h][w];
-    double[][] matrixCb = new double[h][w];
-    double[][] matrixCr = new double[h][w];
+    double[][] matrixY = new double[llarg][ample];
+    double[][] matrixCb = new double[llarg][ample];
+    double[][] matrixCr = new double[llarg][ample];
 
     //RGB to YCbCr
     for (i = 0; i < h; ++i) {
@@ -164,7 +197,7 @@ public class JPEG implements BaseAlgorithm {
             (128 - (0.168736 * matrixR[i][j]) - (0.331264 * matrixG[i][j]) + (0.5
                 * matrixB[i][j])))) - 128;
         matrixCr[i][j] = Math.max(0, Math.min(255,
-            (128 + (0.5 * matrixR[i][j]) - (0.418688 * matrixG[i][j]) + (0.081312
+            (128 + (0.5 * matrixR[i][j]) - (0.418688 * matrixG[i][j]) - (0.081312
                 * matrixB[i][j])))) - 128;
       }
     }
@@ -200,6 +233,16 @@ public class JPEG implements BaseAlgorithm {
     out.close();
   }
 
+  /**
+   * Primera transformació.
+   *
+   *  \pre la matriu matrix, el booleà i la matriu dct existeixen.
+   *  \post s'ha aplicat la transformació del cosinus a la matriu matrix.
+   *
+   * @param matrix Bloc de 8x8 píxels.
+   * @param y      Booleà distintiu entre les matrius de Luminance (Y) i Chrominance (CbCr).
+   * @throws IOException
+   */
   private void dctTransform(double[][] matrix, boolean y) throws IOException {
         /*matrix = new double[][] {{-76,-73,-67,-62,-58,-67,-64,-55},{-65,-69,-73,-38,-19,-43,-59,-56},{-66,-69,-60,-15,16,-24,-62,-55},{-65,-70,-57,-6,26,-22,-58,-59},
                 {-61,-67,-60,-24,-2,-40,-60,-58},{-49,-63,-68,-58,-51,-60,-70,-53},{-43,-57,-64,-69,-73,-67,-63,-45},{-41,-49,-59,-60,-63,-52,-50,-34}};
@@ -227,6 +270,16 @@ public class JPEG implements BaseAlgorithm {
     quantization(matrix, y);
   }
 
+  /**
+   * Segona transformació.
+   *
+   * \pre la matriu m, el booleà i les matrius de quantització existeixen.
+   * \post s'ha aplicat la matriu corresponent de quantització a la matriu matrix.
+   *
+   * @param m Matriu de doubles que prové de la dctTransform.
+   * @param y Booleà distintiu entre les matrius de Luminance (Y) i Chrominance (CbCr).
+   * @throws IOException
+   */
   private void quantization(double[][] m, boolean y) throws IOException {
     int[][] qt;
     if (y) {
@@ -244,6 +297,16 @@ public class JPEG implements BaseAlgorithm {
     zigzag(m, y);
   }
 
+  /**
+   * Ordenació dels valors de la matriu m seguint un zigzag.
+   *
+   * \pre la matriu m i el booleà y existeixen.
+   * \post s'han guardat els valors de la matriu m a una arraylist seguint l'ordre indicat.
+   *
+   * @param m Matriu de doubles provinent de la quantització.
+   * @param y Booleà distintiu entre les matrius de Luminance (Y) i Chrominance (CbCr).
+   * @throws IOException
+   */
   private void zigzag(double[][] m, boolean y) throws IOException {
     ArrayList<Integer> zigzag = new ArrayList<>();
 
@@ -292,6 +355,15 @@ public class JPEG implements BaseAlgorithm {
     }
   }
 
+  /**
+   * Codificació de les submatrius de Luminance (Y) segons Huffman.
+   *
+   * \pre l'arraylist i les taules de Huffman existeixen.
+   * \post valors de l'arraylist codificats segons Huffman.
+   *
+   * @param zigzag Llista de valors a codificar.
+   * @throws IOException
+   */
   private void encodeLum(ArrayList<Integer> zigzag) throws IOException {
     boolean dc = false;
     int count = 0;
@@ -342,6 +414,15 @@ public class JPEG implements BaseAlgorithm {
     output = "";
   }
 
+  /**
+   * Codificació de les submatrius de Chrominance (CbCr) segons Huffman.
+   *
+   * \pre l'arraylist i les taules de Huffman existeixen.
+   * \post valors de l'arraylist codificats segons Huffman.
+   *
+   * @param zigzag Llista de valors a codificar.
+   * @throws IOException
+   */
   private void encodeChro(ArrayList<Integer> zigzag) throws IOException {
     boolean dc = false;
     int count = 0;
@@ -391,6 +472,18 @@ public class JPEG implements BaseAlgorithm {
     output = "";
   }
 
+
+  /**
+   * Es decodifican els bytes d'entrada amb els arbres de Huffman i els valors es
+   * van depositant en una cua per a, seguidament, passar per les transformacions
+   * inverses.
+   *
+   * \pre l'imatge comprimida i els arbres de Huffman existeixen.
+   * \post imatge descomprimida.
+   *
+   * @param input Imatge comprimida.
+   * @throws IOException
+   */
   private void marchThroughSippy(String input) throws IOException {
     int i = 0;
     int value = 0;
@@ -482,8 +575,7 @@ public class JPEG implements BaseAlgorithm {
         }
       }
 
-      double[][] submatrix;
-      submatrix = inverseZigzag(queue, id);
+      double[][] submatrix = inverseZigzag(queue, id);
 
       if (id == 0) {
         for (int k = 0; k < 8; ++k) {
@@ -515,6 +607,18 @@ public class JPEG implements BaseAlgorithm {
     out.close();
   }
 
+  /**
+   * En cas que el valor original de la imatge per alguna de les YCbCr
+   * fos negatiu (ca2), es va codificar el seu complementari i ara,
+   * s'ha de tornar a obtenir el valor correcte.
+   *
+   * \pre cert.
+   * \post retorna el valor original abans de la codificació.
+   *
+   * @param bits Valor en format binari.
+   * @param value Llargada en bits del valor.
+   * @return valor.
+   */
   private int getPositiveValue(String bits, int value) {
     int num = Integer.parseInt(bits, 2);
     if (bits.charAt(0) == '0') {
@@ -523,6 +627,16 @@ public class JPEG implements BaseAlgorithm {
     return num;
   }
 
+  /**
+   * Col·locació segons zigzag.
+   *
+   * \pre la qua amb valors i l'identificador existeixen.
+   * \post matriu amb els valors col·locats seguint un zigzag.
+   *
+   * @param queue Llista amb els valors ordenats segons estaven codificats.
+   * @param id Identificador distintiu entre les matrius de Luminance i Chrominance.
+   * @return transformació de quantització inversa per la matriu.
+   */
   private double[][] inverseZigzag(Queue<Integer> queue, int id) {
     double[][] matrix = new double[8][8];
 
@@ -568,6 +682,16 @@ public class JPEG implements BaseAlgorithm {
     return reverseQuantization(matrix, id);
   }
 
+  /**
+   * Primera transformació inversa.
+   *
+   * \pre la matriu m de doubles, l'identificador i les matrius de quantització existeixen.
+   * \post s'ha aplicat la corresponent quantització inversa a la matriu m.
+   *
+   * @param m Matriu provinent del zigzag invers.
+   * @param id Identificador distintiu entre les matrius de Luminance i Chrominance.
+   * @return transformació del cosinus invers per la matriu m.
+   */
   private double[][] reverseQuantization(double[][] m, int id) {
         /*m = new double[][]{{-26,-3,-6,2,2,-1,0,0},{0,-2,-4,1,1,0,0,0},
                 {-3,1,5,-1,-1,0,0,0},{-3,1,2,-1,0,0,0,0},
@@ -589,6 +713,16 @@ public class JPEG implements BaseAlgorithm {
     return reverseDCT(m, id);
   }
 
+  /**
+   * Segona transformació inversa.
+   *
+   * \pre la matriu, l'identificador i la matriu dct existeixen.
+   * \post s'ha aplicat la transformació del cosinus inversa a la matriu matrix.
+   *
+   * @param matrix Matriu provinent de la quantització inversa.
+   * @param id Identificador distintiu entre les matrius de Luminance i Chrominance.
+   * @return matriu matrix.
+   */
   private double[][] reverseDCT(double[][] matrix, int id) {
 
     double[][] aux = new double[8][8];
@@ -609,16 +743,22 @@ public class JPEG implements BaseAlgorithm {
           matrix[i][j] += aux[i][k] * dct[k][j];
         }
         matrix[i][j] = Math.round(matrix[i][j]) + 128;
-        if (matrix[i][j] < 0) {
-          matrix[i][j] = 0;
-        } else if (matrix[i][j] > 255) {
-          matrix[i][j] = 255;
-        }
       }
     }
     return matrix;
   }
 
+  /**
+   * Es transformen els valors YCbCr a RGB i es guarden per tornar
+   * a formar la imatge.
+   *
+   * \pre les matrius y,cb i cr existeixen.
+   * \post colors transformats i escrits.
+   *
+   * @param y Matriu de Luminance (Y).
+   * @param cb Matriu de Chrominance (Cb).
+   * @param cr Matriu de Chrominance (Cr).
+   */
   private void writePPM(double[][] y, double[][] cb, double[][] cr) {
     int r;
     int g;
