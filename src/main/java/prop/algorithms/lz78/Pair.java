@@ -5,9 +5,9 @@ package prop.algorithms.lz78;
  *
  * @class Pair
  * @brief Una classe Pair simple que conté un primer i un segon objecte.
- * En aquest cas, el primer és un integer i el segon un char ja que
- * s'utilitza principalment per a l'algorisme {@link LZ78} tot i que es
- * podria fer més genèric si s'escau.
+ *     En aquest cas, el primer és un integer i el segon un char ja que
+ *     s'utilitza principalment per a l'algorisme {@link LZ78} tot i que es
+ *     podria fer més genèric si s'escau.
  */
 public class Pair {
 

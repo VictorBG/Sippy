@@ -57,15 +57,14 @@ public class ZipStreamImpl implements ZipStream {
   private DataOutputStream dos;
 
   /**
+   * @param inputFilePath Path d'entrada
+   * @param outputPath    Path de sortida
+   *
    * @brief Constructora
    *
-   * \pre cert
-   * \post Crea una instancia de ZipStreamImpl i crea un arxiu d'extensió sippy on
-   * escriure els arxius comprimits
-   *
-   * @param inputFilePath  Path d'entrada
-   * @param outputPath     Path de sortida
-   * @throws IOException
+   *     \pre cert
+   *     \post Crea una instancia de ZipStreamImpl i crea un arxiu d'extensió sippy on
+   *     escriure els arxius comprimits
    */
   public ZipStreamImpl(String inputFilePath, String outputPath) throws IOException {
     File outputFile = createSippyFile(outputPath);
@@ -79,11 +78,11 @@ public class ZipStreamImpl implements ZipStream {
   }
 
   /**
-   * @brief Crea l'arxiu identificat pel path i si no és de tipus sippy, el renombra.
+   * @param path Path de l'arxiu a crear si no existeix
    *
-   * @param path    Path de l'arxiu a crear si no existeix
-   * @return        File de l'arxiu identificat per path
-   * @throws IOException
+   * @return File de l'arxiu identificat per path
+   *
+   * @brief Crea l'arxiu identificat pel path i si no és de tipus sippy, el renombra.
    */
   private File createSippyFile(String path) throws IOException {
     if (!FileUtils.getFileExtension(path).equals(Constants.DEFAULT_ENCODING_EXTENSION)) {

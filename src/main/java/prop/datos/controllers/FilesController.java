@@ -25,7 +25,6 @@ public interface FilesController {
    *
    * @throws FileNotFoundException        Si el fitxer no s'ha trobat.
    * @throws UnsupportedEncodingException Si l'extensió del fitxer no és admesa pel sistema.
-   *
    */
   ItemBO getFile(String path) throws IOException;
 }

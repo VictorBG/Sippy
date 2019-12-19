@@ -13,7 +13,8 @@ import prop.dominio.model.uncompressed.File;
  * Author: Sergio Vazquez.
  *
  * @class Zip
- * @brief Creates a {@link ZipStream} and adds every item inside the {@link prop.dominio.model.ItemC}
+ * @brief Creates a {@link ZipStream} and adds every item inside the {@link
+ *     prop.dominio.model.ItemC}
  *     to the stream, which will be encoded inside using the {@link Algorithm} provided
  *     (or a default if the one provided is {@link Algorithm#AUTOMATIC}).
  *     {@link ItemNC} is the responsible of the correct usage of the algorithm selected.
