@@ -22,10 +22,10 @@ public class LZSS implements BaseAlgorithm {
     private ByteArrayOutputStream baos;
 
     private static final int MIN_LEN_MATCH = 3;
-                                                //max2^8 = 255
-    private static final int BUFFER_SIZE_LOOKAHEAD = 100;
-                                                //max2^8 = 255
-    private static final int BUFFER_SIZE_SEARCH = 255;
+                                                //max2^4 = 16
+    private static final int BUFFER_SIZE_LOOKAHEAD = 16;
+                                                //max2^12 = 4096
+    private static final int BUFFER_SIZE_SEARCH = 4000;
 
     private int NUMBER_OF_TOKENS = 0;
 
@@ -90,18 +90,25 @@ public class LZSS implements BaseAlgorithm {
         return result;
     }
 
-    private int[] decodifyOffsetLengthOneByte(byte off_len) {
-        int off_len_int = unsignedByteToInt(off_len);
-        int length = off_len_int & 0x07;
-        off_len_int = off_len_int >> 3;
-        //off_len_int = unsignedByteToInt(off_len);
-        int offset = off_len_int & 0x0F;
+    private int[] decodifyOffsetLengthOneByte(byte b1, byte b2) {
+        int offset8HighBits = unsignedByteToInt(b1);
+        int offset4LowBits = unsignedByteToInt(b2) >> 4;
+        int offset12bits = offset8HighBits<<4 | offset4LowBits;
+        int length = unsignedByteToInt(b2) & 0x0F;
 
-        //sumo 3
-        offset = mapCodedOffsetToOffset(offset);
-        length = mapCodedLengthToLength(length);
+        return new int[] {offset12bits, length};
+    }
 
-        return new int[] {offset, length};
+    private byte[] get_offset_length_encoded_12_4_bits(short off, byte len) {
+
+        byte offset8HighBits = (byte) (off >> 4);
+        byte offset4LowBits = (byte) (off & 0x0F);
+        offset4LowBits = (byte) (offset4LowBits << 4);
+        offset4LowBits = (byte) (offset4LowBits | len);
+        byte[] result = new byte[2];
+        result[0] = (byte) (offset8HighBits & 0xFF);
+        result[1] = (byte) (offset4LowBits & 0xFF);
+        return result;
     }
 
     @Override
@@ -117,10 +124,12 @@ public class LZSS implements BaseAlgorithm {
                 EncodedString es = w.findMatch();
                 if (es.getLength() >= MIN_LEN_MATCH) {
                     flags.addFlag(true); //flag 1 indicates <length,offset> token
-                    byte offset = (byte)es.getOffset(); //cast negative!!
+                    short offset = (short)es.getOffset(); //cast negative!!
                     byte length = (byte)es.getLength();
-                    baos.write(offset);
-                    baos.write(length);
+                    byte[] off_len = get_offset_length_encoded_12_4_bits(offset,length);
+                    baos.write(off_len[0]);
+                    baos.write(off_len[1]);
+                    //es.print();
 
                     w.shiftLeft(es.getLength());
                 } else {
@@ -128,8 +137,13 @@ public class LZSS implements BaseAlgorithm {
                     flags.addFlag(false); //flag 0 indicates literal
                     //only ASCII
                     String symbol = w.getFirstCharLookAheadBuffer()+"";
+                    if (symbol == "Í") {
+                        int a = 42;
+                    }
                     byte[] symb = symbol.getBytes("UTF-8");
+                    //byte[] symb =symbol.getBytes();
                     baos.write(symb);
+                    //System.out.print(symbol);
                     w.shiftLeft(1);
                 }
                 NUMBER_OF_TOKENS++;
@@ -139,7 +153,6 @@ public class LZSS implements BaseAlgorithm {
             e.printStackTrace();
             System.out.println();
         }
-
         flags.addFlag(true); //special flag at last
         byte[] tokensFlags = Bytes.concat(intToBytes(NUMBER_OF_TOKENS), flags.toByteArray());
         byte[] tfAndBytes = Bytes.concat(tokensFlags, baos.toByteArray());
@@ -182,23 +195,24 @@ public class LZSS implements BaseAlgorithm {
                             i++;
                             byte byte2 = input[i];
                             byte[] utfBytes = {byte_read, byte2};
+                            //String utf = new String(utfBytes);
                             String utf = new String(utfBytes, StandardCharsets.UTF_8);
                             dw.addChar(utf.charAt(0));
                         }
                     }
                     else {
                         //b was offset_length
-                        byte o = input[i];
-                        int off = input[i];
-                        off = unsignedByteToInt(input[i]);
+                        //byte o = input[i];
+                        byte off = input[i];
+                        //off = unsignedByteToInt(input[i]);
                         i++;
-                        int len = input[i];
-                        len = unsignedByteToInt(input[i]);
-                        //OFF_LEN encoded
-                        //int[] off_len = decodify_offset_length_one_byte(input[i]);
-                        //int len = off_len[1];
-                        //int off = off_len[0];
-                        dw.copyCharsSince(len,off);
+                        //int len = input[i];
+                        //len = unsignedByteToInt(input[i]);
+                        //OFF_LEN encoded with 12|4
+                        int[] off_len = decodifyOffsetLengthOneByte(off,input[i]);
+                        int length = off_len[1];
+                        int offset = off_len[0];
+                        dw.copyCharsSince(length,offset);
                     }
                     i++;
                 }
