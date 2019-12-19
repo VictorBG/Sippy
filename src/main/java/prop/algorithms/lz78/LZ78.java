@@ -11,14 +11,16 @@ import prop.algorithms.base.BaseAlgorithm;
  * Author: Victor Blanco
  *
  * @class LZ78
- * @brief Implementation of the LZ78 algorithm.
+ * @brief Implementació de l'algorisme LZ78.
  *
- *     Improvements:
- *     - Variable number of bits on index. We can assume that the x index wont have a
- *     number greater than x-1, so we can define that the number of bits that this position can take
- *     as maximum is log2(x) instead of taking 24 bits always, which also puts a theoric limit of 2^24
- *     values for the index. It is also expensive (in terms of size) for low sized files.
- *     - Use a Trie instead of a HashMap for storing the dictionary.
+ *     Millores:
+ *     - Nombre variable de bits a l'índex. Podem suposar que l’índex x no tindrà un
+ *     nombre superior a x-1, per tant, podem definir que el nombre de bits que
+ *     aquesta posició pot prendre com a màxim és log2 (x) en lloc de prendre sempre
+ *     24 bits, cosa que també imposa un límit teòric màxim de 2 ^ 24 valors per l’índex.
+ *     És car per a fitxers de mida petita.
+ *
+ *     - Utilitza un Tree en comptes d'un HashMap. Es veu millora però no molta.
  */
 public class LZ78 implements BaseAlgorithm {
 
@@ -74,9 +76,9 @@ public class LZ78 implements BaseAlgorithm {
   }
 
   /**
-   * Writes a chunk of data to the {@link #baos} output stream.
+   * Escriu un tros de dades al {@link #baos} output stream.
    *
-   * @param data Data to write
+   * @param data dada a escriure.
    */
   private void write(byte[] data) {
     try {
@@ -87,22 +89,20 @@ public class LZ78 implements BaseAlgorithm {
   // TODO: These 2 methods can be implemented better
 
   /**
-   * Returns a String containing the recovered word from the dictionary.
+   * Retorna un String que conté la paraula recuperada del diccionary.
    *
-   * It reads the value element and retrieves the {@link Pair} object associated
-   * with it, it then returns the char that the pair contains concated with the
-   * string returned by this method for the value contained by the pair.
+   * Llegeix l’element de valor i recupera l’objecte {@link Pair} associat a ell,
+   * després retorna el char que el pair conté concatenat amb l'string retornat per
+   * aquest mètode, pel valor contingut pel pair.
    *
-   * If the value contained by the pair is 0, it means it reached the final of the string
-   * recovery, and will not iterate more.
+   * Si el valor contingut pel pair és 0, significa que s'ha arribat al final de
+   * la recuperació de l'string i no iterará més.
    *
-   * Note: The char is always concated at the end, as it is the last char, and the rest of the char
-   * are stored as a list of values that points to another position of the map.
+   * @param dic   Diccionari del qual es llegeix.
+   * @param value Valor que es llegeix del diccionari.
    *
-   * @param dic   Dictionary to read from
-   * @param value Value to read from the dictionary
+   * @return L'string recuperat del map que comença amb l'objecte value.
    *
-   * @return The recovered string of the map starting with the value object
    */
   private String getString(HashMap<Integer, Pair> dic, int value) {
     if (dic.get(value).getFirst() == 0) {
@@ -113,14 +113,14 @@ public class LZ78 implements BaseAlgorithm {
   }
 
   /**
-   * Returns the char contained in the position (or value) of the dictionary. If the char
-   * is a {@link Character#MIN_VALUE} it returns an empty string, if not it returns
-   * the char of the position.
+   * Retorna el char contingut a la posició (o valor) del diccionari. Si el char
+   * és un {@link Character# MIN_VALUE}, retorna un String buit, altrament
+   * retorna el char de la posició esmentada.
    *
-   * @param dic Dictionary to read from
-   * @param pos Position (value) to read from the dictionary
+   * @param dic Diccionari del qual es llegeix.
+   * @param pos Posició (valor) que es llegeix del diccionari.
    *
-   * @return the char of the position pos of the dictionary
+   * @return el char que es troba a la posició pos del diccionari.
    */
   private String charAt(HashMap<Integer, Pair> dic, int pos) {
     char res;
@@ -131,14 +131,14 @@ public class LZ78 implements BaseAlgorithm {
   }
 
   /**
-   * Returns a char based on the byte value.
+   * Retorna un char segons el valor del byte.
    *
-   * If the value is negative (ca2), it is converted into a positive value, to match the ASCII
-   * table, if not, it is return as it is
+   * Si el valor és negatiu (ca2), aquest és convertit a valor positiu amb
+   * motiu de seguir la taula ASCII, altrament retorna el valor original.
    *
-   * @param b Byte to convert
+   * @param b Byte a convertir.
    *
-   * @return The byte converted into an ASCII table char
+   * @return El byte convertit en un char de la taula ASCII.
    */
   private char getChar(byte b) {
     int i = new Byte(b).intValue();
@@ -149,11 +149,11 @@ public class LZ78 implements BaseAlgorithm {
   }
 
   /**
-   * Converts the given byte array of length 3 into an int
+   * Converteix l'array de bytes de tamany 3 donada en un int
    *
-   * @param b Byte array to convert
+   * @param b Array de bytes per convertir
    *
-   * @return Integer contained in the byte array
+   * @return Integer contingut a l'array de bytes
    */
   private int byteArrayToInt(byte[] b) {
     return

@@ -4,7 +4,7 @@ import prop.presentacion.ConsoleApp;
 
 /**
  * @class Launcher
- * @brief launcher for Sippy with console interface
+ * @brief Launcher per Sippy amb l'interficie per consola.
  */
 
 public class Launcher {
