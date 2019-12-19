@@ -39,7 +39,8 @@ public class ZipDriver {
   }
 
   private Algorithm selectAlgorithm() {
-    System.out.println("Select algorithm: \n\t1. LZ78\n\t2. LZW\n\t3. JPEG\n\t4. LZSS\n\t5. AUTOMATIC");
+    System.out
+        .println("Select algorithm: \n\t1. LZ78\n\t2. LZW\n\t3. JPEG\n\t4. LZSS\n\t5. AUTOMATIC");
     int algorithmSelected = scanner2.nextInt();
     if (algorithmSelected < 1 || algorithmSelected > 5) {
       return selectAlgorithm();

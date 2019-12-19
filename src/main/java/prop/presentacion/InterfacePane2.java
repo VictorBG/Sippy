@@ -329,7 +329,8 @@ public class InterfacePane2 extends JFrame implements InterfacePanelContract {
         path = fileChooser.getSelectedFile().getAbsolutePath();
         pathField.setText(path);
         manAutoRadioButtonsPanel.setVisible(true);
-        fileNameField.setText(FileUtils.changeExtension(path, Constants.DEFAULT_ENCODING_EXTENSION));
+        fileNameField
+            .setText(FileUtils.changeExtension(path, Constants.DEFAULT_ENCODING_EXTENSION));
       }
     });
   }

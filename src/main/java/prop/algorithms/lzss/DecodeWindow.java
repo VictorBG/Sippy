@@ -1,38 +1,47 @@
 package prop.algorithms.lzss;
+
+import prop.algorithms.lzss.CircularBuffer;
+
 /**
  * Author: Miguel Angel Cabrera
  *
  * This class represents an Decode window buffer.
- *
  */
 public class DecodeWindow {
 
-    StringBuffer buffer;
+  CircularBuffer buffer;
+  StringBuilder result;
 
-    public DecodeWindow(int searchBufferLength) {
+  public DecodeWindow(int searchBufferLength) {
 
-        buffer = new StringBuffer("");
+    buffer = new CircularBuffer(searchBufferLength);
+    result = new StringBuilder();
+  }
+
+  public void addChar(char c) {
+    result.append(c);
+    buffer.enqueue(c);
+  }
+
+  public void print() {
+    System.out.println(result);
+  }
+
+  public StringBuilder getBuffer() {
+    return result;
+  }
+
+  public void copyCharsSince(int len, int offset) {
+    int positions = len;
+    int off = offset;
+    String repetition = buffer.toString(offset, len);
+    //fill decode buffer too
+    for (int i = 0; i < len; i++) {
+      buffer.enqueue(repetition.charAt(i));
     }
 
-    public void addChar(char c) {
-        buffer.append(c);
-    }
-
-    public void print() {
-        System.out.println(buffer);
-    }
-
-    public StringBuffer getBuffer() {
-        return buffer;
-    }
-
-    public void copyCharsSince(int len, int offset) {
-        int positions = len;
-        int off = offset;
-
-        int index = buffer.length()-off;
-        buffer.append( buffer.substring(index, index+positions));
-    }
+    result.append(repetition);
+  }
 
 
 }

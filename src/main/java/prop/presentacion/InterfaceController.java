@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
+
 import prop.algorithms.Algorithm;
 import prop.datos.exception.UnsupportedOutputDirectoryPathname;
 import prop.dominio.UnzipTransaction;
@@ -17,9 +18,11 @@ import prop.utils.StatisticsUtils;
  * Author: Victor Blanco
  *
  * @class InterfaceController
- * @brief Controlador de la interficie que es comunica amb la interficie a través d'un contracte.
- * Serveix per desacoplar la logica de la comunicacio amb la capa de domini de la logica de creacio
- * de la interficie.
+ * @brief Controlador de la interficie que es comunica amb la interficie a través d'un
+ *     contracte.
+ *     Serveix per desacoplar la logica de la comunicacio amb la capa de domini de la logica de
+ *     creacio
+ *     de la interficie.
  */
 public class InterfaceController {
 
@@ -29,9 +32,9 @@ public class InterfaceController {
 
   /**
    * @brief Constructora
-   *
-   * \pre Contracte no nul
-   * \post Crea un objecte InterfaceController
+   *     <p>
+   *     \pre Contracte no nul
+   *     \post Crea un objecte InterfaceController
    */
   public InterfaceController(InterfacePanelContract contract) {
     this.contract = contract;
@@ -39,17 +42,14 @@ public class InterfaceController {
 
   /**
    * @brief Executa la transaccio de compressio i maneja les excepcions si n'hi han
-   *
-   * \pre paths no nuls i algorisme id dintre dels ids soportats
-   * \post mostra les estadistiques o l'error
-   *
-   * @param path
-   * @param outputPath
-   * @param algorithmOptionSelected
+   *     <p>
+   *     \pre paths no nuls i algorisme id dintre dels ids soportats
+   *     \post mostra les estadistiques o l'error
    */
   public void onCompressClick(String path, String outputPath, int algorithmOptionSelected) {
     try {
-      ZipTransaction zip = new ZipTransaction(path, outputPath, Algorithm.valueOf((byte) algorithmOptionSelected));
+      ZipTransaction zip = new ZipTransaction(path, outputPath,
+          Algorithm.valueOf((byte) algorithmOptionSelected));
       zip.execute();
       showStatistics(zip.getResult());
     } catch (Exception ex) {
@@ -59,16 +59,17 @@ public class InterfaceController {
 
   /**
    * @brief Executa la transaccio de descompressio i maneja les excepcions si n'hi han
-   *
-   * \pre paths no nuls
-   * \post mostra l'error si n'hi ha
-   *
-   * @param path
-   * @param outputPath
+   *     <p>
+   *     \pre paths no nuls
+   *     \post mostra l'error si n'hi ha
    */
   public void onDecompressClick(String path, String outputPath) {
     try {
-      new UnzipTransaction(path, outputPath).execute();
+      UnzipTransaction unzipTransaction = new UnzipTransaction(path, outputPath);
+      unzipTransaction.execute();
+      contract.showStatistics("Elapsed time: "
+          + StatisticsUtils.getTime(unzipTransaction.getResult().getElapsedTime() / 1000.0)
+          + "\n");
     } catch (IOException ex) {
       handleUnzipException(ex);
     }
@@ -76,11 +77,9 @@ public class InterfaceController {
 
   /**
    * @brief Maneja les excepcions de la transacció de descompressio
-   *
-   * \pre Excepcio no nula
-   * \post Informa a la interficie per a mostrar un avís a l'usuari
-   *
-   * @param exception
+   *     <p>
+   *     \pre Excepcio no nula
+   *     \post Informa a la interficie per a mostrar un avís a l'usuari
    */
   private void handleUnzipException(IOException exception) {
     log.log("InterfaceControllerUnzipException", exception);
@@ -90,11 +89,9 @@ public class InterfaceController {
 
   /**
    * @brief Maneja les excepcions de la transacció de compressio
-   *
-   * \pre Excepcio no nula
-   * \post Informa a la interficie per a mostrar un avís a l'usuari
-   *
-   * @param exception
+   *     <p>
+   *     \pre Excepcio no nula
+   *     \post Informa a la interficie per a mostrar un avís a l'usuari
    */
   private void handleZipException(Exception exception) {
     log.log("InterfaceControllerZipException", exception);
@@ -115,13 +112,11 @@ public class InterfaceController {
 
   /**
    * @brief Informa a la interficie per a mostrar un avís a l'usuari de que hi ha hagut un
-   * error no controlat
-   *
-   * \pre Excepcio no nula
-   * \post Informa a la interficie per a mostrar un avís a l'usuari de que hi ha hagut un
-   *    * error no controlat
-   *
-   * @param exception
+   *     error no controlat
+   *     <p>
+   *     \pre Excepcio no nula
+   *     \post Informa a la interficie per a mostrar un avís a l'usuari de que hi ha hagut un
+   *     * error no controlat
    */
   private void unhandledException(Exception exception) {
     contract.showAlert("An unhandled exception of type " + exception.getClass().getName() +
@@ -130,10 +125,9 @@ public class InterfaceController {
 
   /**
    * @brief Formateja les dades de les estadistiques i informa a la interficie per mostrarles
-   *
-   * \pre Estadistiques no nules
-   * \post Informa a la interficie de les estadistiques
-   *
+   *     <p>
+   *     \pre Estadistiques no nules
+   *     \post Informa a la interficie de les estadistiques
    */
   private void showStatistics(Statistics statistics) {
     NumberFormat formatter = new DecimalFormat("#0.000");

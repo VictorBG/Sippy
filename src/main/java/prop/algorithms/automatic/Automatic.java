@@ -10,14 +10,15 @@ import prop.algorithms.base.BaseAlgorithm;
  *
  * @class Automatic
  * @brief La clase no es usada ja que l'algorisme automatic esta "hardcodejat" al LZW per a txt
- * pero peticio del professor.
+ *     per peticio del professor.
  *
- * Automatic algorithm chooser that chooses the algorithm based on the
- * best algorithm for the given input.
+ *     Automatic algorithm chooser that chooses the algorithm based on the
+ *     best algorithm for the given input.
  *
- * It iterates for all of the {@link #allowedAlgorithms} and encodes a small fragment of the data,
- * which is 1KB if the file is larger than that or the whole file otherwise, then it returns
- * the input encoded with the best algorithm based on the major percentage of encoding.
+ *     It iterates for all of the {@link #allowedAlgorithms} and encodes a small fragment of the
+ *     data,
+ *     which is 1KB if the file is larger than that or the whole file otherwise, then it returns
+ *     the input encoded with the best algorithm based on the major percentage of encoding.
  */
 public class Automatic implements BaseAlgorithm {
 

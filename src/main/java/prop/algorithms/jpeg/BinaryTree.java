@@ -48,9 +48,9 @@ public class BinaryTree {
   }
 
   public boolean isLeaf(Node n) {
-      if (n.getValue() == null) {
-          return false;
-      }
+    if (n.getValue() == null) {
+      return false;
+    }
     return true;
   }
 
