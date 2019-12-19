@@ -104,7 +104,7 @@ public class ConsoleApp implements InterfacePanelContract {
         System.out.print("You've selected Decompress, now we need your file path: ");
         path = keyBoard.next();
 
-        interfaceController.onDecompressClick(path, Paths.get(path).getRoot().toString());
+        interfaceController.onDecompressClick(path, Paths.get(path).getParent().toString());
       }
     }
   }
