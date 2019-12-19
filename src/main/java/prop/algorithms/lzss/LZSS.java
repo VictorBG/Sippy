@@ -8,8 +8,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
-import java.sql.SQLOutput;
-
+import prop.algorithms.Algorithm;
 import prop.algorithms.base.BaseAlgorithm;
 import prop.utils.Bytes;
 
