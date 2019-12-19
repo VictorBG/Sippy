@@ -2,8 +2,10 @@ package prop.algorithms.jpeg;
 
 /**
  * Author: Yaiza Cano
+ *
  * @class BinaryTree
- * @brief Classe que implementa un arbre binari. Útil per la decodificació de la imatge utilitzant Huffman.
+ * @brief Classe que implementa un arbre binari. Útil per la decodificació de la imatge
+ *     utilitzant Huffman.
  */
 
 

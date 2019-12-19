@@ -2,6 +2,7 @@ package prop.algorithms.jpeg;
 
 /**
  * Author: Yaiza Cano
+ *
  * @class Huffman
  * @brief Classe on estàn emmagatzemades les taules predefinides de Huffman.
  */
