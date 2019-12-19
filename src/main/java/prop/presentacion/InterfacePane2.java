@@ -40,6 +40,7 @@ public class InterfacePane2 extends JFrame implements InterfacePanelContract {
   private JTextField fileNameField;
   private JTextField fileNameFieldDec;
   private JLabel outputPathLabelDec;
+  private JButton zipButton;
 
   private InterfaceController interfaceController;
 
@@ -117,8 +118,7 @@ public class InterfacePane2 extends JFrame implements InterfacePanelContract {
   }
 
   private void addActionToRadioButtons(JRadioButton radioButton) {
-    radioButton.addActionListener(e -> fileNameField
-        .setText(FileUtils.changeExtension(path, Constants.DEFAULT_ENCODING_EXTENSION)));
+    radioButton.addActionListener(e -> zipButton.setEnabled(true));
   }
 
   private void createManualCompressPanel() {
@@ -171,8 +171,9 @@ public class InterfacePane2 extends JFrame implements InterfacePanelContract {
     outputPathLabel.setBounds(0, 50, 360, 20);
     manualCompressPanel.add(outputPathLabel);
 
-    JButton zipButton = new JButton("Sippejar");
+    zipButton = new JButton("Sippejar");
     zipButton.setBounds(287, 117, 89, 23);
+    zipButton.setEnabled(false);
     manualCompressPanel.add(zipButton);
 
     fileNameField = new JTextField();
@@ -209,7 +210,7 @@ public class InterfacePane2 extends JFrame implements InterfacePanelContract {
     compressPanel.add(compressPathLabel);
     compressPathLabel.setFont(new Font("Calibri", Font.PLAIN, 16));
 
-    explorerButton = new JButton("Examinar...");
+    explorerButton = new JButton("Select...");
     explorerButton.setBounds(0, 40, 100, 23);
     addActionToExplorerButton(explorerButton);
 
@@ -275,7 +276,7 @@ public class InterfacePane2 extends JFrame implements InterfacePanelContract {
     lblYouveSelectedDecompress.setBounds(0, 11, 408, 20);
     decompressPanel.add(lblYouveSelectedDecompress);
 
-    explorerButton = new JButton("Examinar...");
+    explorerButton = new JButton("Select...");
     explorerButton.setBounds(0, 40, 100, 23);
     decompressPanel.add(explorerButton);
 
@@ -328,6 +329,7 @@ public class InterfacePane2 extends JFrame implements InterfacePanelContract {
         path = fileChooser.getSelectedFile().getAbsolutePath();
         pathField.setText(path);
         manAutoRadioButtonsPanel.setVisible(true);
+        fileNameField.setText(FileUtils.changeExtension(path, Constants.DEFAULT_ENCODING_EXTENSION));
       }
     });
   }
