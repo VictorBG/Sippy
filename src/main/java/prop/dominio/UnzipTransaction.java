@@ -11,7 +11,6 @@ import java.io.IOException;
  *
  * @class UnzipTransaction
  * @brief Unzip transaction.
- *
  */
 public class UnzipTransaction extends Transaction<Statistics> {
 

@@ -11,7 +11,6 @@ import prop.algorithms.Algorithm;
  *
  * @class ConsoleApp
  * @brief: Presentation layer for first deliverable
- *
  */
 
 

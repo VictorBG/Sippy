@@ -2,7 +2,7 @@ package prop.algorithms.jpeg;
 
 /**
  * @class BinaryTree
- * Author: Yaiza Cano
+ *     Author: Yaiza Cano
  */
 
 import java.util.ArrayList;
@@ -49,9 +49,9 @@ public class BinaryTree {
   }
 
   public boolean isLeaf(Node n) {
-      if (n.getValue() == null) {
-          return false;
-      }
+    if (n.getValue() == null) {
+      return false;
+    }
     return true;
   }
 

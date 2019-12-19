@@ -102,7 +102,6 @@ public class LZ78 implements BaseAlgorithm {
    * @param value Valor que es llegeix del diccionari.
    *
    * @return L'string recuperat del map que comença amb l'objecte value.
-   *
    */
   private String getString(HashMap<Integer, Pair> dic, int value) {
     if (dic.get(value).getFirst() == 0) {

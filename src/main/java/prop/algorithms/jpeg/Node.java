@@ -2,7 +2,7 @@ package prop.algorithms.jpeg;
 
 /**
  * @class Node
- * Author: Yaiza Cano
+ *     Author: Yaiza Cano
  */
 
 public class Node {
