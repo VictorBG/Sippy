@@ -28,7 +28,7 @@ public class KMP {
      * @param pat the pattern string
      */
     public KMP(String pat) {
-        this.R = 1024; //if unicode chars: 1024. ASCII: 256
+        this.R = 66500; //if unicode chars: 66500. ASCII: 256
         this.pat = pat;
 
         // build DFA from pattern
@@ -116,7 +116,6 @@ public class KMP {
      * searches for the pattern string in the text string; and prints
      * the first occurrence of the pattern string in the text string.
      *
-     * @param args the command-line arguments
      */
     public static EncodedString searchKMP(String pat, String txt) {
         char[] pattern = pat.toCharArray();
