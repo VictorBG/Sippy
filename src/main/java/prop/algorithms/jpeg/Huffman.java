@@ -1,5 +1,12 @@
 package prop.algorithms.jpeg;
 
+/**
+ * Author: Yaiza Cano
+ * @class Huffman
+ * @brief Classe on estàn emmagatzemades les taules predefinides de Huffman.
+ */
+
+
 import java.util.HashMap;
 
 public class Huffman {

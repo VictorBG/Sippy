@@ -1,8 +1,9 @@
 package prop.algorithms.jpeg;
 
 /**
- * @class Node
  * Author: Yaiza Cano
+ * @class Node
+ * @brief Nodes que contenen els arbres que es poden crear amb la classe BinaryTree.
  */
 
 public class Node {
