@@ -17,7 +17,7 @@ public class LZSSTest extends BaseAlgorithmTest {
 
   @Ignore
   @Test
-  public void testLZW() {
+  public void testLZSS() {
     test(Algorithm.LZSS.getAlgorithm());
   }
 
@@ -26,9 +26,9 @@ public class LZSSTest extends BaseAlgorithmTest {
     return new ArrayList<byte[]>() {
       {
         add("D0N QuijoT3 DE LA MaNCh4".getBytes());
-        add("abcdefghijklmnopqrstuvwxyz!_$%&/()=?^|@#~][{}-,:;€"
+        add("abcdefghijklmnopqrstuvwxyz"
             .getBytes(StandardCharsets.US_ASCII));
-        add("áéíóúàèìòùäëïöü".getBytes(StandardCharsets.US_ASCII));
+        add("áéíóúàèìòùäëïöü".getBytes());
       }
     };
   }

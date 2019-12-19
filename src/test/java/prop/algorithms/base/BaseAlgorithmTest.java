@@ -1,6 +1,7 @@
 package prop.algorithms.base;
 
 import java.util.List;
+
 import org.junit.Assert;
 
 /**
@@ -16,33 +17,35 @@ import org.junit.Assert;
  */
 public abstract class BaseAlgorithmTest {
 
-  protected abstract List<byte[]> getInputs();
+    protected abstract List<byte[]> getInputs();
 
-  protected abstract List<byte[]> getOutputs();
+    protected abstract List<byte[]> getOutputs();
 
-  protected void test(BaseAlgorithm algorithm) {
-    testEncode(algorithm);
-    testDecode(algorithm);
-  }
+    protected void test(BaseAlgorithm algorithm) {
+        testEncode(algorithm);
+        testDecode(algorithm);
+    }
 
-  protected void testEncode(BaseAlgorithm algorithm) {
+    protected void testEncode(BaseAlgorithm algorithm) {
 
-    List<byte[]> outputs = getOutputs();
+        List<byte[]> outputs = getOutputs();
 
-    int[] index = {0};
+        int[] index = {0};
 
-    getInputs().forEach(i -> Assert.assertArrayEquals(
-        algorithm.encode(i),
-        outputs.get(index[0]++)));
-  }
+        getInputs().forEach(i -> Assert.assertArrayEquals(
+                "Encode iteration " + index[0],
+                algorithm.encode(i),
+                outputs.get(index[0]++)));
+    }
 
-  protected void testDecode(BaseAlgorithm algorithm) {
-    List<byte[]> inputs = getInputs();
+    protected void testDecode(BaseAlgorithm algorithm) {
+        List<byte[]> inputs = getInputs();
 
-    int[] index = {0};
+        int[] index = {0};
 
-    getOutputs().forEach(i -> Assert.assertArrayEquals(
-        algorithm.decode(i),
-        inputs.get(index[0]++)));
-  }
+        getOutputs().forEach(i -> Assert.assertArrayEquals(
+                "Decode iteration " + index[0],
+                algorithm.decode(i),
+                inputs.get(index[0]++)));
+    }
 }
