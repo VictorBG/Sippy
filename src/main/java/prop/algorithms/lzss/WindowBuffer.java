@@ -33,12 +33,53 @@ public class WindowBuffer {
         return "hola";
     }
 
+    public EncodedString continueMatchingLinear(int posS) {
+
+        int i = posS; //index for SB
+        int j = lookAheadL; //index for LAB
+
+        EncodedString result = new EncodedString();
+        result.setOffset((short)(posS));//independiente del length del match
+
+        while (i <= searchBuffer.rear && j <= lookAheadR && searchBuffer.queue[i] == input.charAt(j) && result.getLength() < result.getOffset()) {
+            result.incrementLengthByOne();
+            i++;
+            j++;
+        }
+        if (j>lookAheadR) { //next symbol is in input [abc|ab]c
+            //we decided dont continue matching more
+            result.decrementLengthByOne();
+            j--;
+        }
+        return result;
+    }
+
+    public EncodedString findMatchLinear () {
+
+        EncodedString matchData = new EncodedString();
+        matchData.setLength((short)0);
+        if (searchBuffer.front == -1) return matchData;
+        int longestMatch = -1;
+
+        for (int i = searchBuffer.front; i!=searchBuffer.rear; i=searchBuffer.nexti(i)) {
+            if (searchBuffer.queue[i] == input.charAt(lookAheadL)) { //char match!
+                EncodedString es = continueMatchingLinear(i);
+                if ( es.getLength() > longestMatch ) {
+                    longestMatch = es.getLength();
+                    matchData = es;
+                }
+            }
+        }
+        return matchData;
+    }
+
 
     public EncodedString findMatch () {
 
         EncodedString token = new EncodedString();
         String lookAheadBuffer = input.substring(lookAheadL,lookAheadR);
         token = KMP.searchKMP(lookAheadBuffer, searchBuffer.toString());
+        //token = findMatchLinear();
         int circularBufferOffset = searchBuffer.front;
         int newOffset = (token.getOffset()+circularBufferOffset) % searchBuffer.size();
         token.setOffset((short)newOffset);
