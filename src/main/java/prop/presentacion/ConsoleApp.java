@@ -122,7 +122,7 @@ public class ConsoleApp {
       } else if (compressDecscompress == 2) {
         System.out.print("You've selected Decompress, now we need your file path: ");
         path = keyBoard.next();
-        Transaction<Statistics> zip = new Unzip(path, Paths.get(path).getRoot().toString());
+        Transaction<Statistics> zip = new Unzip(path, Paths.get(path).getParent().toString());
         try {
           zip.execute();
         } catch (IOException e) {

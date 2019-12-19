@@ -7,11 +7,11 @@ package prop.algorithms.lzss;
  */
 public class DecodeWindow {
 
-    StringBuffer buffer;
+    StringBuilder buffer;
 
     public DecodeWindow(int searchBufferLength) {
 
-        buffer = new StringBuffer("");
+        buffer = new StringBuilder("");
     }
 
     public void addChar(char c) {
@@ -22,7 +22,7 @@ public class DecodeWindow {
         System.out.println(buffer);
     }
 
-    public StringBuffer getBuffer() {
+    public StringBuilder getBuffer() {
         return buffer;
     }
 
@@ -30,7 +30,7 @@ public class DecodeWindow {
         int positions = len;
         int off = offset;
 
-        int index = buffer.length()-off;
+        int index = offset;
         buffer.append( buffer.substring(index, index+positions));
     }
 

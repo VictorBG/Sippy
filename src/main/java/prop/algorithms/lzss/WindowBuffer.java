@@ -1,5 +1,8 @@
 package prop.algorithms.lzss;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 /**
  * Author: Miguel Angel Cabrera
  *
@@ -8,58 +11,38 @@ package prop.algorithms.lzss;
  */
 public class WindowBuffer {
 
-    char[] buffers;
-    StringBuilder input;
-    short searchL;
-    short searchR;
-    short lookAheadL;
-    short lookAheadR;
-    short length;
+    byte[] input;
+    HashMap<Byte, ArrayList<Integer>> searchBuffer;
+    int searchL;
+    int searchR;
+    int lookAheadL;
+    int lookAheadR;
+    int length;
+    int inputPos;
 
-    public int getSearchL() {
-        return searchL;
-    }
-
-    public int getSearchR() {
-        return searchR;
-    }
-
-    public int getLookAheadL() {
-        return lookAheadL;
-    }
-
-    public int getLookAheadR() {
-        return lookAheadR;
-    }
-
-    public int length () {
-        return buffers.length;
-    }
-
-
-    public char getFirstCharLookAheadBuffer() {
-        return buffers[lookAheadL];
+    public Byte getFirstCharLookAheadBuffer() {
+        return input[lookAheadL];
     }
 
 
     @Override
     public String toString() {
         String result = "";
-        for (int i = 0; i<buffers.length; i++) {
-            result += buffers[i];
+        for (int i = 0; i<input.length; i++) {
+            result += input[i];
         }
         return result;
     }
 
-    public EncodedString continueMatching(short posS) {
+    public EncodedString continueMatching(int posS) {
 
-        short i = posS; //index for SB
-        short j = lookAheadL; //index for LAB
+        int i = posS; //index for SB
+        int j = lookAheadL; //index for LAB
 
         EncodedString result = new EncodedString();
-        result.setOffset((short)(lookAheadL - posS));//independiente del length del match
-
-        while (i <= searchR && j <= lookAheadR && buffers[i] == buffers[j] && result.getLength() < result.getOffset()) {
+        result.setOffset((short)(posS));//independiente del length del match
+        //while (i <= searchR && j <= lookAheadR && input[i] == input[j] && result.getLength() < result.getOffset()) {
+        while ( i < input.length && j < input.length && input[i] == input[j] && result.getLength() < result.getOffset()) {
             result.incrementLengthByOne();
             i++;
             j++;
@@ -74,71 +57,68 @@ public class WindowBuffer {
 
     public EncodedString findMatch () {
 
-        EncodedString matchData = new EncodedString();
-        matchData.setLength((short)0);
-        int longestMatch = -1;
-
-        for (short i = searchR; i>=searchL; i--) {
-            if (buffers[i] == buffers[lookAheadL]) { //char match!
-                EncodedString es = continueMatching(i);
-                if ( es.getLength() > longestMatch ) {
-                    longestMatch = es.getLength();
-                    matchData = es;
+        EncodedString token = new EncodedString();
+        Byte b = getFirstCharLookAheadBuffer();
+        if (searchBuffer.containsKey(b)) {
+            ArrayList<Integer> listOfPositions = searchBuffer.get(b);
+            for (int i = 0; i< listOfPositions.size(); ++i) {
+                EncodedString tok = continueMatching(listOfPositions.get(i));
+                if (tok.getLength() > token.getLength()) {
+                    token = tok;
                 }
             }
         }
-        return matchData;
+
+        return token;
     }
 
-    public WindowBuffer (short searchBufferSize, short lookAheadBufferSize, StringBuilder inputString) {
-        buffers = new char[searchBufferSize+lookAheadBufferSize];
-        input = inputString;
-        length = (short)buffers.length;
+    public WindowBuffer (short searchBufferSize, short lookAheadBufferSize, byte[] input) {
+        this.input = input;
+        searchBuffer = new HashMap<Byte, ArrayList<Integer>>();
+        length = (short)input.length;
         searchL = 0;
-        searchR = (short)(searchBufferSize-1);
-        lookAheadL = searchBufferSize;
-        lookAheadR = (short)(buffers.length-1);
+        searchR = 0;
+        lookAheadL = 0;
+        if (lookAheadBufferSize > input.length) {
+            lookAheadR = input.length-1;
+            inputPos = lookAheadR;
+        }
+        else {
+            lookAheadR = lookAheadBufferSize-1;
+            inputPos = lookAheadR+1;
+        }
+
+
     }
 
     public boolean lookAheadIsEmpty() {
         return lookAheadR < lookAheadL;
     }
 
-    public void fillLookAheadBuffer() {
-        int originalLookAheadR = lookAheadR;
-        for (int i = lookAheadL; i<=originalLookAheadR; i++) {
-            shiftLeftOne();
+    public void addByteToDictionary(Byte b, int pos) {
+        if (searchBuffer.containsKey(b)) {
+            searchBuffer.get(b).add(pos);
+        }
+        else {
+            ArrayList<Integer> list = new ArrayList<Integer>();
+            list.add(pos);
+            searchBuffer.put(b,list);
         }
     }
 
     public void shiftLeftOne() {
-        //shift searchBuffer
-        for (int i = searchL+1; i<=searchR; i++) {
-            buffers[i-1] = buffers[i];
-        }
-
+        inputPos++;
+        if (lookAheadL < input.length-1) addByteToDictionary(input[lookAheadL], lookAheadL);
         //shift lookahead
-        for (int i = lookAheadL; i<=lookAheadR; i++) {
-            buffers[i-1] = buffers[i];
+        //searchL++;
+        //searchR++;
+        //shift searchBuffer
+        lookAheadL++;
+        lookAheadR++;
+        if (lookAheadR > input.length-1) {
+            lookAheadR--;
         }
 
-        if (input.length() != 0) {
-            //shift by 1 input to buffers
-            buffers[buffers.length-1] = input.charAt(0);
-            //shift by 1 input
-            StringBuilder inputString = new StringBuilder(input.substring(1));
-            input = new StringBuilder(inputString);
-        }
-        else {//input is empty -> '<EOF>'
-            if (lookAheadL <= lookAheadR) { //LAbuffer is partially filled
-                lookAheadR--;
-            }
-            //LAbuffer is empty but searchB id partially filled
-            else if (lookAheadL == lookAheadR && searchL < searchR){
-                searchR--;
-            }
-
-        }
     }
 
     public void shiftLeft (int positions) {

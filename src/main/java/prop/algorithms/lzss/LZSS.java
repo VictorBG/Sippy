@@ -8,6 +8,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
+import java.sql.SQLOutput;
+
 import prop.algorithms.Algorithm;
 import prop.algorithms.base.BaseAlgorithm;
 import prop.utils.Bytes;
@@ -23,9 +25,9 @@ public class LZSS implements BaseAlgorithm {
 
     private static final int MIN_LEN_MATCH = 3;
                                                 //max2^8 = 255
-    private static final int BUFFER_SIZE_LOOKAHEAD = 100;
+    private static final int BUFFER_SIZE_LOOKAHEAD = 255;
                                                 //max2^8 = 255
-    private static final int BUFFER_SIZE_SEARCH = 255;
+    private static final int BUFFER_SIZE_SEARCH = 4000;
 
     private int NUMBER_OF_TOKENS = 0;
 
@@ -108,36 +110,29 @@ public class LZSS implements BaseAlgorithm {
     public byte[] encode(byte[] input) {
         baos = new ByteArrayOutputStream();
         FlagHelper flags = new FlagHelper();
-        StringBuilder inputSB = new StringBuilder(new String(input));
-        try {
-            WindowBuffer w = new WindowBuffer((short)BUFFER_SIZE_SEARCH,(short)BUFFER_SIZE_LOOKAHEAD,inputSB);
-            w.fillLookAheadBuffer();
-            while (!w.lookAheadIsEmpty()) {
+        WindowBuffer w = new WindowBuffer((short)BUFFER_SIZE_SEARCH,(short)BUFFER_SIZE_LOOKAHEAD,input);
+        while (!w.lookAheadIsEmpty()) {
+            EncodedString es = w.findMatch();
+            if (es.getLength() >= MIN_LEN_MATCH) {
+                flags.addFlag(true); //flag 1 indicates <length,offset> token
+                byte offset = (byte)es.getOffset(); //cast negative!!
+                byte length = (byte)es.getLength();
+                baos.write(offset);
+                baos.write(length);
+                //es.print();
+                //System.out.println("");
 
-                EncodedString es = w.findMatch();
-                if (es.getLength() >= MIN_LEN_MATCH) {
-                    flags.addFlag(true); //flag 1 indicates <length,offset> token
-                    byte offset = (byte)es.getOffset(); //cast negative!!
-                    byte length = (byte)es.getLength();
-                    baos.write(offset);
-                    baos.write(length);
+                w.shiftLeft(es.getLength());
+            } else {
 
-                    w.shiftLeft(es.getLength());
-                } else {
-
-                    flags.addFlag(false); //flag 0 indicates literal
-                    //only ASCII
-                    String symbol = w.getFirstCharLookAheadBuffer()+"";
-                    byte[] symb = symbol.getBytes("UTF-8");
-                    baos.write(symb);
-                    w.shiftLeft(1);
-                }
-                NUMBER_OF_TOKENS++;
+                flags.addFlag(false); //flag 0 indicates literal
+                //only ASCII
+                Byte symbol = w.getFirstCharLookAheadBuffer();
+                //System.out.println(symbol);
+                baos.write(symbol);
+                w.shiftLeft(1);
             }
-
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.out.println();
+            NUMBER_OF_TOKENS++;
         }
 
         flags.addFlag(true); //special flag at last
@@ -178,12 +173,13 @@ public class LZSS implements BaseAlgorithm {
                             //no flag byte, directly char
                             dw.addChar((char)byte_read);
                         }
-                        else {
+                        else {//accent
                             i++;
                             byte byte2 = input[i];
                             byte[] utfBytes = {byte_read, byte2};
                             String utf = new String(utfBytes, StandardCharsets.UTF_8);
                             dw.addChar(utf.charAt(0));
+                            flags.next();
                         }
                     }
                     else {

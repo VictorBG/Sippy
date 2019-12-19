@@ -29,12 +29,9 @@ public class InterfaceController {
     try {
       zip = new Zip(path, outputPath, Algorithm.valueOf((byte) algorithmOptionSelected));
       zip.execute();
+      showStatistics(zip.getResult());
     } catch (IOException ex) {
       handleZipException(ex);
-    } finally {
-      if (zip != null) {
-        showStatistics(zip.getResult());
-      }
     }
   }
 
