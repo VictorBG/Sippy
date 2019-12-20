@@ -111,7 +111,14 @@ public class UnzipStreamImpl implements UnzipStream {
       dis.read(data, 0, dataSize);
 
       DataOutputStream dos = new DataOutputStream(new FileOutputStream(file));
-      dos.writeBytes(new String(algorithm.getAlgorithm().decode(data)));
+
+      // Last hour hotfix
+      if (FileUtils.getFileExtension(file.getAbsolutePath()).equals(Constants.ENCODING_EXTENSION_PPM)) {
+        dos.write(algorithm.getAlgorithm().decode(data));
+      } else {
+        dos.writeBytes(new String(algorithm.getAlgorithm().decode(data)));
+      }
+
       dos.close();
 
       if (isDirectory) {
