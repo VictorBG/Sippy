@@ -76,15 +76,15 @@ public class WindowBuffer {
 
   public EncodedString findMatch() {
 
-    EncodedString token = new EncodedString();
-    String lookAheadBuffer = input.substring(lookAheadL, lookAheadR);
-    token = KMP.searchKMP(lookAheadBuffer, searchBuffer.toString());
-    //token = findMatchLinear();
-    int circularBufferOffset = searchBuffer.front;
-    int newOffset = (token.getOffset() + circularBufferOffset) % searchBuffer.size();
-    token.setOffset((short) newOffset);
-    return token;
-  }
+        EncodedString token = new EncodedString();
+        String lookAheadBuffer = input.substring(lookAheadL,lookAheadR);
+        //token = KMP.searchKMP(lookAheadBuffer, searchBuffer.toString());
+        token = KMPplus.searchKMPplus(lookAheadBuffer,searchBuffer.toString());
+        int circularBufferOffset = searchBuffer.front;
+        int newOffset = (token.getOffset()+circularBufferOffset) % searchBuffer.size();
+        token.setOffset((short)newOffset);
+        return token;
+    }
 
   public WindowBuffer(short searchBufferSize, short lookAheadBufferSize,
       StringBuilder inputString) {
