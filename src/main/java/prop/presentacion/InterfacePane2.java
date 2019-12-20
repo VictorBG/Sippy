@@ -87,7 +87,7 @@ public class InterfacePane2 extends JFrame implements InterfacePanelContract {
     contentPane.add(rdbtnCompress);
 
     rdbtnDecompress.setFont(new Font("Calibri", Font.PLAIN, 14));
-    rdbtnDecompress.setBounds(121, 84, 109, 23);
+    rdbtnDecompress.setBounds(121, 84, 120, 23);
     contentPane.add(rdbtnDecompress);
 
     createListenersForRadioButtons("decompressPanel", mainCardPane, rdbtnDecompress);
@@ -172,7 +172,7 @@ public class InterfacePane2 extends JFrame implements InterfacePanelContract {
     manualCompressPanel.add(outputPathLabel);
 
     zipButton = new JButton("Sippejar");
-    zipButton.setBounds(287, 117, 89, 23);
+    zipButton.setBounds(276, 117, 100, 23);
     zipButton.setEnabled(false);
     manualCompressPanel.add(zipButton);
 
@@ -254,21 +254,21 @@ public class InterfacePane2 extends JFrame implements InterfacePanelContract {
     manAutoCardPane.add(autoPanel, "autoPanel");
 
     JButton automaticZipButton = new JButton("Sippejar");
-    automaticZipButton.setBounds(140, 30, 89, 23);
+    automaticZipButton.setBounds(130, 30, 99, 23);
     autoPanel.add(automaticZipButton);
 
     // On automatic, as the name says, all of the fields (output name and algorithm are
     // choosen automatically based on the input)
     automaticZipButton.addActionListener(e -> interfaceController.onCompressClick(
-        path,
-        FileUtils.changeExtension(path, Constants.DEFAULT_ENCODING_EXTENSION),
-        Algorithm.LZW.getId()));
+            path,
+            FileUtils.changeExtension(path, Constants.DEFAULT_ENCODING_EXTENSION),
+            Algorithm.LZW.getId()));
   }
 
   private void createDecompressPanel() {
     JButton decBtn = new JButton("UnSippejar");
     decBtn.setVisible(false);
-    decBtn.setBounds(281, 216, 105, 23);
+    decBtn.setBounds(271, 216, 115, 23);
     decompressPanel.add(decBtn);
 
     JLabel lblYouveSelectedDecompress = new JLabel("Please, select the path:");
@@ -302,8 +302,8 @@ public class InterfacePane2 extends JFrame implements InterfacePanelContract {
     });
 
     decBtn.addActionListener(e -> interfaceController.onDecompressClick(
-        decPathField.getText(),
-        fileNameFieldDec.getText()));
+            decPathField.getText(),
+            fileNameFieldDec.getText()));
 
     fileNameFieldDec = new JTextField();
     fileNameFieldDec.setBounds(0, 112, 386, 23);
@@ -330,7 +330,7 @@ public class InterfacePane2 extends JFrame implements InterfacePanelContract {
         pathField.setText(path);
         manAutoRadioButtonsPanel.setVisible(true);
         fileNameField
-            .setText(FileUtils.changeExtension(path, Constants.DEFAULT_ENCODING_EXTENSION));
+                .setText(FileUtils.changeExtension(path, Constants.DEFAULT_ENCODING_EXTENSION));
       }
     });
   }
