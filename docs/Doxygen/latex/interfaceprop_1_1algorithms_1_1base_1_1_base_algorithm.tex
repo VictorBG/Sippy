@@ -1,0 +1,99 @@
+\hypertarget{interfaceprop_1_1algorithms_1_1base_1_1_base_algorithm}{}\doxysection{prop.\+algorithms.\+base.\+Base\+Algorithm Class Reference}
+\label{interfaceprop_1_1algorithms_1_1base_1_1_base_algorithm}\index{prop.algorithms.base.BaseAlgorithm@{prop.algorithms.base.BaseAlgorithm}}
+
+
+Interfície per la implementació dels mètodes comprimir i descomprimir dels algorismes, a més a més de la del mètode de lectura del arxiu, que per defecte llegeix els bytes a través del mètode Files.\+read\+All\+Bytes().  
+
+
+
+
+Inherited by \mbox{\hyperlink{classprop_1_1algorithms_1_1automatic_1_1_automatic}{prop.\+algorithms.\+automatic.\+Automatic}}, \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g}{prop.\+algorithms.\+jpeg.\+J\+P\+EG}}, \mbox{\hyperlink{classprop_1_1algorithms_1_1lz78_1_1_l_z78}{prop.\+algorithms.\+lz78.\+L\+Z78}}, \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s}{prop.\+algorithms.\+lzss.\+L\+Z\+SS}}, and \mbox{\hyperlink{classprop_1_1algorithms_1_1lzw_1_1_l_z_w}{prop.\+algorithms.\+lzw.\+L\+ZW}}.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+byte\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{interfaceprop_1_1algorithms_1_1base_1_1_base_algorithm_a6de2a6d1d1a020b915162f8ba11e9b58}{encode}} (byte\mbox{[}$\,$\mbox{]} input)
+\item 
+byte\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{interfaceprop_1_1algorithms_1_1base_1_1_base_algorithm_a4b78a5d0b4071b52dfec14f1243edb3a}{decode}} (byte\mbox{[}$\,$\mbox{]} input)
+\item 
+\mbox{\hyperlink{enumprop_1_1algorithms_1_1_algorithm}{Algorithm}} \mbox{\hyperlink{interfaceprop_1_1algorithms_1_1base_1_1_base_algorithm_a0a806b0337fbf6c1c2c2d9da22f9729d}{get\+Algorithm\+Used}} ()
+\item 
+default byte\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{interfaceprop_1_1algorithms_1_1base_1_1_base_algorithm_a0ed61b2a301d8d98a5220a0ff3b517d4}{read\+File}} (File file)  throws I\+O\+Exception 
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interfície per la implementació dels mètodes comprimir i descomprimir dels algorismes, a més a més de la del mètode de lectura del arxiu, que per defecte llegeix els bytes a través del mètode Files.\+read\+All\+Bytes(). 
+
+Author\+: Victor Blanco 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{interfaceprop_1_1algorithms_1_1base_1_1_base_algorithm_a4b78a5d0b4071b52dfec14f1243edb3a}\label{interfaceprop_1_1algorithms_1_1base_1_1_base_algorithm_a4b78a5d0b4071b52dfec14f1243edb3a}} 
+\index{prop.algorithms.base.BaseAlgorithm@{prop.algorithms.base.BaseAlgorithm}!decode@{decode}}
+\index{decode@{decode}!prop.algorithms.base.BaseAlgorithm@{prop.algorithms.base.BaseAlgorithm}}
+\doxysubsubsection{\texorpdfstring{decode()}{decode()}}
+{\footnotesize\ttfamily byte \mbox{[}$\,$\mbox{]} prop.\+algorithms.\+base.\+Base\+Algorithm.\+decode (\begin{DoxyParamCaption}\item[{byte\mbox{[}$\,$\mbox{]}}]{input }\end{DoxyParamCaption})}
+
+
+
+Reimplemented in \mbox{\hyperlink{classprop_1_1algorithms_1_1lzw_1_1_l_z_w_a852bc02ae364576e4405dcbb209fc125}{prop.\+algorithms.\+lzw.\+L\+ZW}}, \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a7b74e9f66e3ee60f644fa6ae417a4091}{prop.\+algorithms.\+jpeg.\+J\+P\+EG}}, \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_ad92e0f8e456c9f0bdcfdddc61a4a5606}{prop.\+algorithms.\+lzss.\+L\+Z\+SS}}, \mbox{\hyperlink{classprop_1_1algorithms_1_1automatic_1_1_automatic_a3cf6cfaf595405cc9a170e587e2e7466}{prop.\+algorithms.\+automatic.\+Automatic}}, and \mbox{\hyperlink{classprop_1_1algorithms_1_1lz78_1_1_l_z78_aa02abc833859d2a8a8a2cf05360e3c31}{prop.\+algorithms.\+lz78.\+L\+Z78}}.
+
+\mbox{\Hypertarget{interfaceprop_1_1algorithms_1_1base_1_1_base_algorithm_a6de2a6d1d1a020b915162f8ba11e9b58}\label{interfaceprop_1_1algorithms_1_1base_1_1_base_algorithm_a6de2a6d1d1a020b915162f8ba11e9b58}} 
+\index{prop.algorithms.base.BaseAlgorithm@{prop.algorithms.base.BaseAlgorithm}!encode@{encode}}
+\index{encode@{encode}!prop.algorithms.base.BaseAlgorithm@{prop.algorithms.base.BaseAlgorithm}}
+\doxysubsubsection{\texorpdfstring{encode()}{encode()}}
+{\footnotesize\ttfamily byte \mbox{[}$\,$\mbox{]} prop.\+algorithms.\+base.\+Base\+Algorithm.\+encode (\begin{DoxyParamCaption}\item[{byte\mbox{[}$\,$\mbox{]}}]{input }\end{DoxyParamCaption})}
+
+
+
+Reimplemented in \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_aec000356db39990835003eb922abd161}{prop.\+algorithms.\+jpeg.\+J\+P\+EG}}, \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a68646d625c40500f8f01772a40fc435a}{prop.\+algorithms.\+lzss.\+L\+Z\+SS}}, \mbox{\hyperlink{classprop_1_1algorithms_1_1automatic_1_1_automatic_af4269c443d6ce5d165ce55ec9ccb4748}{prop.\+algorithms.\+automatic.\+Automatic}}, \mbox{\hyperlink{classprop_1_1algorithms_1_1lz78_1_1_l_z78_abb81b23663ea3118e88c9f6108c3efaa}{prop.\+algorithms.\+lz78.\+L\+Z78}}, and \mbox{\hyperlink{classprop_1_1algorithms_1_1lzw_1_1_l_z_w_ae690d5803d30935d63ce197866c6ffb0}{prop.\+algorithms.\+lzw.\+L\+ZW}}.
+
+\mbox{\Hypertarget{interfaceprop_1_1algorithms_1_1base_1_1_base_algorithm_a0a806b0337fbf6c1c2c2d9da22f9729d}\label{interfaceprop_1_1algorithms_1_1base_1_1_base_algorithm_a0a806b0337fbf6c1c2c2d9da22f9729d}} 
+\index{prop.algorithms.base.BaseAlgorithm@{prop.algorithms.base.BaseAlgorithm}!getAlgorithmUsed@{getAlgorithmUsed}}
+\index{getAlgorithmUsed@{getAlgorithmUsed}!prop.algorithms.base.BaseAlgorithm@{prop.algorithms.base.BaseAlgorithm}}
+\doxysubsubsection{\texorpdfstring{getAlgorithmUsed()}{getAlgorithmUsed()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{enumprop_1_1algorithms_1_1_algorithm}{Algorithm}} prop.\+algorithms.\+base.\+Base\+Algorithm.\+get\+Algorithm\+Used (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Retorna l\textquotesingle{}agorisme utilitzat; és útil per algorismes variables (aquells que poden ser escollits envers altres), per algorismes simples, només els retorna.
+
+\begin{DoxyReturn}{Returns}
+Algorisme utilitzat. 
+\end{DoxyReturn}
+
+
+Reimplemented in \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a17e9ea81750e5ce0a40ce6a4957d2a82}{prop.\+algorithms.\+jpeg.\+J\+P\+EG}}, \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_ac603b7f71f0ceb6aa492f8a2191eb5c5}{prop.\+algorithms.\+lzss.\+L\+Z\+SS}}, \mbox{\hyperlink{classprop_1_1algorithms_1_1lzw_1_1_l_z_w_a11a75e31f912f5b987618a427692445e}{prop.\+algorithms.\+lzw.\+L\+ZW}}, \mbox{\hyperlink{classprop_1_1algorithms_1_1lz78_1_1_l_z78_a23cb1d5d61ab78471b29d71bc46d85f5}{prop.\+algorithms.\+lz78.\+L\+Z78}}, and \mbox{\hyperlink{classprop_1_1algorithms_1_1automatic_1_1_automatic_af6cb88976b23ddd4e9e03b0fc679733f}{prop.\+algorithms.\+automatic.\+Automatic}}.
+
+\mbox{\Hypertarget{interfaceprop_1_1algorithms_1_1base_1_1_base_algorithm_a0ed61b2a301d8d98a5220a0ff3b517d4}\label{interfaceprop_1_1algorithms_1_1base_1_1_base_algorithm_a0ed61b2a301d8d98a5220a0ff3b517d4}} 
+\index{prop.algorithms.base.BaseAlgorithm@{prop.algorithms.base.BaseAlgorithm}!readFile@{readFile}}
+\index{readFile@{readFile}!prop.algorithms.base.BaseAlgorithm@{prop.algorithms.base.BaseAlgorithm}}
+\doxysubsubsection{\texorpdfstring{readFile()}{readFile()}}
+{\footnotesize\ttfamily default byte \mbox{[}$\,$\mbox{]} prop.\+algorithms.\+base.\+Base\+Algorithm.\+read\+File (\begin{DoxyParamCaption}\item[{File}]{file }\end{DoxyParamCaption}) throws I\+O\+Exception}
+
+Lector de fitxer per defecte\+: pot ésser sobreescrit per a personalitzar.
+
+Llegeix el fitxer sencer com un array de bytes per defecte.
+
+
+\begin{DoxyParams}{Parameters}
+{\em file} & fitxer del qual es llegeix\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array de bytes que conté les dades del fitxer. 
+\end{DoxyReturn}
+
+
+Reimplemented in \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a08318e032b4f8229bab5c10b5cddaefd}{prop.\+algorithms.\+lzss.\+L\+Z\+SS}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{41                                                         \{}
+\DoxyCodeLine{42     \textcolor{keywordflow}{return} FileUtils.readFile(file);}
+\DoxyCodeLine{43   \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Victor/\+Desktop/sippy2/src/main/java/prop/algorithms/base/\mbox{\hyperlink{_base_algorithm_8java}{Base\+Algorithm.\+java}}\end{DoxyCompactItemize}

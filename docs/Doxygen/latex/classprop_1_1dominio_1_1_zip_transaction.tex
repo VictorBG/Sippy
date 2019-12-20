@@ -1,0 +1,115 @@
+\hypertarget{classprop_1_1dominio_1_1_zip_transaction}{}\doxysection{prop.\+dominio.\+Zip\+Transaction Class Reference}
+\label{classprop_1_1dominio_1_1_zip_transaction}\index{prop.dominio.ZipTransaction@{prop.dominio.ZipTransaction}}
+
+
+Inherits \mbox{\hyperlink{classprop_1_1dominio_1_1_transaction}{prop.\+dominio.\+Transaction$<$ Statistics $>$}}.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classprop_1_1dominio_1_1_zip_transaction_a79080d72d403460df7a757e02ba05a83}{Zip\+Transaction}} (String \mbox{\hyperlink{classprop_1_1dominio_1_1_zip_transaction_a21b01c9044ec6a8202ec09284a53aca4}{path}}, String \mbox{\hyperlink{classprop_1_1dominio_1_1_zip_transaction_ade75ab1ef6116a50d4c5b4c4ae8e6d53}{output\+Path}}, \mbox{\hyperlink{enumprop_1_1algorithms_1_1_algorithm}{Algorithm}} \mbox{\hyperlink{classprop_1_1dominio_1_1_zip_transaction_aa4b7d9fb8181e7fda718b1e3b3b05630}{algorithm}})
+\begin{DoxyCompactList}\small\item\em Constructora. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classprop_1_1dominio_1_1_zip_transaction_abd14f365bd2e387ab5708addeba9f74e}{execute}} ()  throws I\+O\+Exception 
+\begin{DoxyCompactList}\small\item\em Executa la transaccio. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+String \mbox{\hyperlink{classprop_1_1dominio_1_1_zip_transaction_a21b01c9044ec6a8202ec09284a53aca4}{path}}
+\item 
+String \mbox{\hyperlink{classprop_1_1dominio_1_1_zip_transaction_ade75ab1ef6116a50d4c5b4c4ae8e6d53}{output\+Path}}
+\item 
+\mbox{\hyperlink{enumprop_1_1algorithms_1_1_algorithm}{Algorithm}} \mbox{\hyperlink{classprop_1_1dominio_1_1_zip_transaction_aa4b7d9fb8181e7fda718b1e3b3b05630}{algorithm}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classprop_1_1dominio_1_1_zip_transaction_a79080d72d403460df7a757e02ba05a83}\label{classprop_1_1dominio_1_1_zip_transaction_a79080d72d403460df7a757e02ba05a83}} 
+\index{prop.dominio.ZipTransaction@{prop.dominio.ZipTransaction}!ZipTransaction@{ZipTransaction}}
+\index{ZipTransaction@{ZipTransaction}!prop.dominio.ZipTransaction@{prop.dominio.ZipTransaction}}
+\doxysubsubsection{\texorpdfstring{ZipTransaction()}{ZipTransaction()}}
+{\footnotesize\ttfamily prop.\+dominio.\+Zip\+Transaction.\+Zip\+Transaction (\begin{DoxyParamCaption}\item[{String}]{path,  }\item[{String}]{output\+Path,  }\item[{\mbox{\hyperlink{enumprop_1_1algorithms_1_1_algorithm}{Algorithm}}}]{algorithm }\end{DoxyParamCaption})}
+
+
+
+Constructora. 
+
+\begin{DoxyPrecond}{Precondition}
+item existeix, algorithm existeix 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Es ccrea una instancia de Zip 
+\end{DoxyPostcond}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{34                                                                              \{}
+\DoxyCodeLine{35     this.\mbox{\hyperlink{classprop_1_1dominio_1_1_zip_transaction_a21b01c9044ec6a8202ec09284a53aca4}{path}} = \mbox{\hyperlink{classprop_1_1dominio_1_1_zip_transaction_a21b01c9044ec6a8202ec09284a53aca4}{path}};}
+\DoxyCodeLine{36     this.\mbox{\hyperlink{classprop_1_1dominio_1_1_zip_transaction_ade75ab1ef6116a50d4c5b4c4ae8e6d53}{outputPath}} = \mbox{\hyperlink{classprop_1_1dominio_1_1_zip_transaction_ade75ab1ef6116a50d4c5b4c4ae8e6d53}{outputPath}};}
+\DoxyCodeLine{37     this.\mbox{\hyperlink{classprop_1_1dominio_1_1_zip_transaction_aa4b7d9fb8181e7fda718b1e3b3b05630}{algorithm}} = \mbox{\hyperlink{classprop_1_1dominio_1_1_zip_transaction_aa4b7d9fb8181e7fda718b1e3b3b05630}{algorithm}};}
+\DoxyCodeLine{38   \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classprop_1_1dominio_1_1_zip_transaction_abd14f365bd2e387ab5708addeba9f74e}\label{classprop_1_1dominio_1_1_zip_transaction_abd14f365bd2e387ab5708addeba9f74e}} 
+\index{prop.dominio.ZipTransaction@{prop.dominio.ZipTransaction}!execute@{execute}}
+\index{execute@{execute}!prop.dominio.ZipTransaction@{prop.dominio.ZipTransaction}}
+\doxysubsubsection{\texorpdfstring{execute()}{execute()}}
+{\footnotesize\ttfamily void prop.\+dominio.\+Zip\+Transaction.\+execute (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws I\+O\+Exception}
+
+
+
+Executa la transaccio. 
+
+\begin{DoxyPrecond}{Precondition}
+cert 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Es creen les estadístiques i el Zip\+Stream, al acabar s\textquotesingle{}atura el timer i es setejen els resultats 
+\end{DoxyPostcond}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{47                                            \{}
+\DoxyCodeLine{48     DataFactory factory = DataFactory.getInstance();}
+\DoxyCodeLine{49     ItemNC item = ItemMapper.mapItem(factory.getFilesController().getFile(\mbox{\hyperlink{classprop_1_1dominio_1_1_zip_transaction_a21b01c9044ec6a8202ec09284a53aca4}{path}}));}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51     Statistics statistics = \textcolor{keyword}{new} Statistics(item.getSize());}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53     ZipStream zipStream = factory.getStreamController().getZipStream(\mbox{\hyperlink{classprop_1_1dominio_1_1_zip_transaction_a21b01c9044ec6a8202ec09284a53aca4}{path}}, \mbox{\hyperlink{classprop_1_1dominio_1_1_zip_transaction_ade75ab1ef6116a50d4c5b4c4ae8e6d53}{outputPath}});}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55     \textcolor{keywordflow}{for} (File file : item.getItems()) \{}
+\DoxyCodeLine{56       zipStream.compressFile(file.getPath(), file.getSupportedAlgorithm(\mbox{\hyperlink{classprop_1_1dominio_1_1_zip_transaction_aa4b7d9fb8181e7fda718b1e3b3b05630}{algorithm}}));}
+\DoxyCodeLine{57     \}}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59     statistics.stopTimer();}
+\DoxyCodeLine{60     statistics.setFinalSize(zipStream.getTotalSize());}
+\DoxyCodeLine{61     setResult(statistics);}
+\DoxyCodeLine{62   \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classprop_1_1dominio_1_1_zip_transaction_aa4b7d9fb8181e7fda718b1e3b3b05630}\label{classprop_1_1dominio_1_1_zip_transaction_aa4b7d9fb8181e7fda718b1e3b3b05630}} 
+\index{prop.dominio.ZipTransaction@{prop.dominio.ZipTransaction}!algorithm@{algorithm}}
+\index{algorithm@{algorithm}!prop.dominio.ZipTransaction@{prop.dominio.ZipTransaction}}
+\doxysubsubsection{\texorpdfstring{algorithm}{algorithm}}
+{\footnotesize\ttfamily \mbox{\hyperlink{enumprop_1_1algorithms_1_1_algorithm}{Algorithm}} prop.\+dominio.\+Zip\+Transaction.\+algorithm\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classprop_1_1dominio_1_1_zip_transaction_ade75ab1ef6116a50d4c5b4c4ae8e6d53}\label{classprop_1_1dominio_1_1_zip_transaction_ade75ab1ef6116a50d4c5b4c4ae8e6d53}} 
+\index{prop.dominio.ZipTransaction@{prop.dominio.ZipTransaction}!outputPath@{outputPath}}
+\index{outputPath@{outputPath}!prop.dominio.ZipTransaction@{prop.dominio.ZipTransaction}}
+\doxysubsubsection{\texorpdfstring{outputPath}{outputPath}}
+{\footnotesize\ttfamily String prop.\+dominio.\+Zip\+Transaction.\+output\+Path\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classprop_1_1dominio_1_1_zip_transaction_a21b01c9044ec6a8202ec09284a53aca4}\label{classprop_1_1dominio_1_1_zip_transaction_a21b01c9044ec6a8202ec09284a53aca4}} 
+\index{prop.dominio.ZipTransaction@{prop.dominio.ZipTransaction}!path@{path}}
+\index{path@{path}!prop.dominio.ZipTransaction@{prop.dominio.ZipTransaction}}
+\doxysubsubsection{\texorpdfstring{path}{path}}
+{\footnotesize\ttfamily String prop.\+dominio.\+Zip\+Transaction.\+path\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Victor/\+Desktop/sippy2/src/main/java/prop/dominio/\mbox{\hyperlink{_zip_transaction_8java}{Zip\+Transaction.\+java}}\end{DoxyCompactItemize}

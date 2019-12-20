@@ -1,0 +1,117 @@
+\hypertarget{classprop_1_1dominio_1_1drivers_1_1_unzip_driver}{}\doxysection{prop.\+dominio.\+drivers.\+Unzip\+Driver Class Reference}
+\label{classprop_1_1dominio_1_1drivers_1_1_unzip_driver}\index{prop.dominio.drivers.UnzipDriver@{prop.dominio.drivers.UnzipDriver}}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classprop_1_1dominio_1_1drivers_1_1_unzip_driver_aa92f73d5f846c66dc7646d467ddc3327}{main}} (String\mbox{[}$\,$\mbox{]} args)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classprop_1_1dominio_1_1drivers_1_1_unzip_driver_ad5a31c4d9c0bbb0eb31e7a24f2581fb5}{Unzip\+Driver}} ()
+\item 
+void \mbox{\hyperlink{classprop_1_1dominio_1_1drivers_1_1_unzip_driver_af483d1d0a76198ede247d01c84fa3bd7}{start}} ()
+\item 
+void \mbox{\hyperlink{classprop_1_1dominio_1_1drivers_1_1_unzip_driver_a3246dc314bea8261cb6b3d9fdcd26a1e}{end}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Scanner \mbox{\hyperlink{classprop_1_1dominio_1_1drivers_1_1_unzip_driver_ac73f2182f71521c108edf814be0d6ce2}{scanner}} = new Scanner(System.\+in)
+\item 
+Scanner \mbox{\hyperlink{classprop_1_1dominio_1_1drivers_1_1_unzip_driver_aa9d12b011175100a679cb063d35035b7}{scanner2}} = new Scanner(System.\+in)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classprop_1_1dominio_1_1drivers_1_1_unzip_driver_ad5a31c4d9c0bbb0eb31e7a24f2581fb5}\label{classprop_1_1dominio_1_1drivers_1_1_unzip_driver_ad5a31c4d9c0bbb0eb31e7a24f2581fb5}} 
+\index{prop.dominio.drivers.UnzipDriver@{prop.dominio.drivers.UnzipDriver}!UnzipDriver@{UnzipDriver}}
+\index{UnzipDriver@{UnzipDriver}!prop.dominio.drivers.UnzipDriver@{prop.dominio.drivers.UnzipDriver}}
+\doxysubsubsection{\texorpdfstring{UnzipDriver()}{UnzipDriver()}}
+{\footnotesize\ttfamily prop.\+dominio.\+drivers.\+Unzip\+Driver.\+Unzip\+Driver (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{17                         \{}
+\DoxyCodeLine{18     System.out.println(\textcolor{stringliteral}{"Welcome to the driver of the Unzip transaction"});}
+\DoxyCodeLine{19     \mbox{\hyperlink{classprop_1_1dominio_1_1drivers_1_1_unzip_driver_af483d1d0a76198ede247d01c84fa3bd7}{start}}();}
+\DoxyCodeLine{20   \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classprop_1_1dominio_1_1drivers_1_1_unzip_driver_a3246dc314bea8261cb6b3d9fdcd26a1e}\label{classprop_1_1dominio_1_1drivers_1_1_unzip_driver_a3246dc314bea8261cb6b3d9fdcd26a1e}} 
+\index{prop.dominio.drivers.UnzipDriver@{prop.dominio.drivers.UnzipDriver}!end@{end}}
+\index{end@{end}!prop.dominio.drivers.UnzipDriver@{prop.dominio.drivers.UnzipDriver}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}}
+{\footnotesize\ttfamily void prop.\+dominio.\+drivers.\+Unzip\+Driver.\+end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{37                      \{}
+\DoxyCodeLine{38     System.out.println(\textcolor{stringliteral}{"\(\backslash\)n\(\backslash\)n"});}
+\DoxyCodeLine{39     System.out.println(\textcolor{stringliteral}{"Select option:\(\backslash\)n\(\backslash\)t1. Start over\(\backslash\)n\(\backslash\)t2. Exit"});}
+\DoxyCodeLine{40     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classprop_1_1dominio_1_1drivers_1_1_unzip_driver_aa9d12b011175100a679cb063d35035b7}{scanner2}}.nextInt() == 1) \{}
+\DoxyCodeLine{41       \mbox{\hyperlink{classprop_1_1dominio_1_1drivers_1_1_unzip_driver_af483d1d0a76198ede247d01c84fa3bd7}{start}}();}
+\DoxyCodeLine{42     \}}
+\DoxyCodeLine{43   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1dominio_1_1drivers_1_1_unzip_driver_aa92f73d5f846c66dc7646d467ddc3327}\label{classprop_1_1dominio_1_1drivers_1_1_unzip_driver_aa92f73d5f846c66dc7646d467ddc3327}} 
+\index{prop.dominio.drivers.UnzipDriver@{prop.dominio.drivers.UnzipDriver}!main@{main}}
+\index{main@{main}!prop.dominio.drivers.UnzipDriver@{prop.dominio.drivers.UnzipDriver}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily static void prop.\+dominio.\+drivers.\+Unzip\+Driver.\+main (\begin{DoxyParamCaption}\item[{String\mbox{[}$\,$\mbox{]}}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{13                                          \{}
+\DoxyCodeLine{14     \textcolor{keyword}{new} \mbox{\hyperlink{classprop_1_1dominio_1_1drivers_1_1_unzip_driver_ad5a31c4d9c0bbb0eb31e7a24f2581fb5}{UnzipDriver}}();}
+\DoxyCodeLine{15   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1dominio_1_1drivers_1_1_unzip_driver_af483d1d0a76198ede247d01c84fa3bd7}\label{classprop_1_1dominio_1_1drivers_1_1_unzip_driver_af483d1d0a76198ede247d01c84fa3bd7}} 
+\index{prop.dominio.drivers.UnzipDriver@{prop.dominio.drivers.UnzipDriver}!start@{start}}
+\index{start@{start}!prop.dominio.drivers.UnzipDriver@{prop.dominio.drivers.UnzipDriver}}
+\doxysubsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily void prop.\+dominio.\+drivers.\+Unzip\+Driver.\+start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{22                        \{}
+\DoxyCodeLine{23     System.out.println(\textcolor{stringliteral}{"Path: "});}
+\DoxyCodeLine{24     String path = \mbox{\hyperlink{classprop_1_1dominio_1_1drivers_1_1_unzip_driver_ac73f2182f71521c108edf814be0d6ce2}{scanner}}.nextLine();}
+\DoxyCodeLine{25     \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{26       \textcolor{keyword}{new} UnzipTransaction(path, path).execute();}
+\DoxyCodeLine{27       System.out.println(\textcolor{stringliteral}{"File successfully decompressed."});}
+\DoxyCodeLine{28       \mbox{\hyperlink{classprop_1_1dominio_1_1drivers_1_1_unzip_driver_a3246dc314bea8261cb6b3d9fdcd26a1e}{end}}();}
+\DoxyCodeLine{29     \} \textcolor{keywordflow}{catch} (UnsupportedEncodingException uee) \{}
+\DoxyCodeLine{30       System.out.println(\textcolor{stringliteral}{"Please, provide a supported extension (sippy)"});}
+\DoxyCodeLine{31       \mbox{\hyperlink{classprop_1_1dominio_1_1drivers_1_1_unzip_driver_af483d1d0a76198ede247d01c84fa3bd7}{start}}();}
+\DoxyCodeLine{32     \} \textcolor{keywordflow}{catch} (IOException e) \{}
+\DoxyCodeLine{33       e.printStackTrace();}
+\DoxyCodeLine{34     \}}
+\DoxyCodeLine{35   \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classprop_1_1dominio_1_1drivers_1_1_unzip_driver_ac73f2182f71521c108edf814be0d6ce2}\label{classprop_1_1dominio_1_1drivers_1_1_unzip_driver_ac73f2182f71521c108edf814be0d6ce2}} 
+\index{prop.dominio.drivers.UnzipDriver@{prop.dominio.drivers.UnzipDriver}!scanner@{scanner}}
+\index{scanner@{scanner}!prop.dominio.drivers.UnzipDriver@{prop.dominio.drivers.UnzipDriver}}
+\doxysubsubsection{\texorpdfstring{scanner}{scanner}}
+{\footnotesize\ttfamily Scanner prop.\+dominio.\+drivers.\+Unzip\+Driver.\+scanner = new Scanner(System.\+in)\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classprop_1_1dominio_1_1drivers_1_1_unzip_driver_aa9d12b011175100a679cb063d35035b7}\label{classprop_1_1dominio_1_1drivers_1_1_unzip_driver_aa9d12b011175100a679cb063d35035b7}} 
+\index{prop.dominio.drivers.UnzipDriver@{prop.dominio.drivers.UnzipDriver}!scanner2@{scanner2}}
+\index{scanner2@{scanner2}!prop.dominio.drivers.UnzipDriver@{prop.dominio.drivers.UnzipDriver}}
+\doxysubsubsection{\texorpdfstring{scanner2}{scanner2}}
+{\footnotesize\ttfamily Scanner prop.\+dominio.\+drivers.\+Unzip\+Driver.\+scanner2 = new Scanner(System.\+in)\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Victor/\+Desktop/sippy2/src/main/java/prop/dominio/drivers/\mbox{\hyperlink{_unzip_driver_8java}{Unzip\+Driver.\+java}}\end{DoxyCompactItemize}

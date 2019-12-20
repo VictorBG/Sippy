@@ -8,7 +8,7 @@ import prop.utils.FileUtils;
  *
  * @class ItemBO
  * @brief Objecte utilitzat per emmagatzemar l'estructura d'un fitxer
- * del sistema amb alguns mètodes auxiliars.
+ *     del sistema amb alguns mètodes auxiliars.
  */
 public class ItemBO {
 

@@ -12,7 +12,7 @@ import prop.datos.streams.impl.ZipStreamImpl;
  *
  * @class StreamControllerImpl
  * @brief Implementació de la interficie StreamController usada per obtenir els streams en les
- * operaciones de zip i unzip.
+ *     operaciones de zip i unzip.
  */
 public class StreamControllerImpl implements StreamController {
 

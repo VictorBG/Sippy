@@ -1,0 +1,93 @@
+\hypertarget{classprop_1_1dominio_1_1mappers_1_1_item_mapper}{}\doxysection{prop.\+dominio.\+mappers.\+Item\+Mapper Class Reference}
+\label{classprop_1_1dominio_1_1mappers_1_1_item_mapper}\index{prop.dominio.mappers.ItemMapper@{prop.dominio.mappers.ItemMapper}}
+
+
+Mapeja un objete de la capa de dades a un de la capa de domini.  
+
+
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1_item_n_c}{Item\+NC}} \mbox{\hyperlink{classprop_1_1dominio_1_1mappers_1_1_item_mapper_ae5a2d4d5a404580c91704a06c89e4d8a}{map\+Item}} (\mbox{\hyperlink{classprop_1_1datos_1_1model_1_1_item_b_o}{Item\+BO}} item\+BO)
+\item 
+static \mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1_item_c}{ItemC}} \mbox{\hyperlink{classprop_1_1dominio_1_1mappers_1_1_item_mapper_a9ca1a6437cd0a20fa378c799d16e9943}{map\+Compressed\+Item}} (\mbox{\hyperlink{classprop_1_1datos_1_1model_1_1_item_b_o}{Item\+BO}} item\+BO)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Mapeja un objete de la capa de dades a un de la capa de domini. 
+
+Author\+: Víctor Blanco 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classprop_1_1dominio_1_1mappers_1_1_item_mapper_a9ca1a6437cd0a20fa378c799d16e9943}\label{classprop_1_1dominio_1_1mappers_1_1_item_mapper_a9ca1a6437cd0a20fa378c799d16e9943}} 
+\index{prop.dominio.mappers.ItemMapper@{prop.dominio.mappers.ItemMapper}!mapCompressedItem@{mapCompressedItem}}
+\index{mapCompressedItem@{mapCompressedItem}!prop.dominio.mappers.ItemMapper@{prop.dominio.mappers.ItemMapper}}
+\doxysubsubsection{\texorpdfstring{mapCompressedItem()}{mapCompressedItem()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1_item_c}{ItemC}} prop.\+dominio.\+mappers.\+Item\+Mapper.\+map\+Compressed\+Item (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classprop_1_1datos_1_1model_1_1_item_b_o}{Item\+BO}}}]{item\+BO }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+@brief mapeja l\textquotesingle{}item de la capa de dades a un ItemC
+
+\begin{DoxyPrecond}{Precondition}
+item no nul 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+item mapejat 
+\end{DoxyPostcond}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{61                                                        \{}
+\DoxyCodeLine{62     ItemC result = \textcolor{keyword}{new} ItemC(itemBO.getPath());}
+\DoxyCodeLine{63     result.setSize(itemBO.getSize());}
+\DoxyCodeLine{64     \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{65   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1dominio_1_1mappers_1_1_item_mapper_ae5a2d4d5a404580c91704a06c89e4d8a}\label{classprop_1_1dominio_1_1mappers_1_1_item_mapper_ae5a2d4d5a404580c91704a06c89e4d8a}} 
+\index{prop.dominio.mappers.ItemMapper@{prop.dominio.mappers.ItemMapper}!mapItem@{mapItem}}
+\index{mapItem@{mapItem}!prop.dominio.mappers.ItemMapper@{prop.dominio.mappers.ItemMapper}}
+\doxysubsubsection{\texorpdfstring{mapItem()}{mapItem()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1_item_n_c}{Item\+NC}} prop.\+dominio.\+mappers.\+Item\+Mapper.\+map\+Item (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classprop_1_1datos_1_1model_1_1_item_b_o}{Item\+BO}}}]{item\+BO }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+@brief mapeja l\textquotesingle{}item de la capa de dades a un Item\+NC
+
+\begin{DoxyPrecond}{Precondition}
+item no nul 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+item mapejat 
+\end{DoxyPostcond}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{29                                               \{}
+\DoxyCodeLine{30     ItemNC result;}
+\DoxyCodeLine{31     \textcolor{keywordflow}{if} (itemBO instanceof FolderBO) \{}
+\DoxyCodeLine{32       FolderBO folderBO = (FolderBO) itemBO;}
+\DoxyCodeLine{33       Folder folder = \textcolor{keyword}{new} Folder(itemBO.getPath());}
+\DoxyCodeLine{34       folder.setItems(folderBO}
+\DoxyCodeLine{35           .getItems()}
+\DoxyCodeLine{36           .stream()}
+\DoxyCodeLine{37           .map(\mbox{\hyperlink{classprop_1_1dominio_1_1mappers_1_1_item_mapper_ae5a2d4d5a404580c91704a06c89e4d8a}{ItemMapper::mapItem}})}
+\DoxyCodeLine{38           .collect(Collectors.toList()));}
+\DoxyCodeLine{39       result = folder;}
+\DoxyCodeLine{40     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{41       \textcolor{keywordflow}{switch} (itemBO.getExtension()) \{}
+\DoxyCodeLine{42         \textcolor{keywordflow}{case} ENCODING\_EXTENSION\_PPM:}
+\DoxyCodeLine{43           result = \textcolor{keyword}{new} FilePpm(itemBO.getPath());}
+\DoxyCodeLine{44           \textcolor{keywordflow}{break};}
+\DoxyCodeLine{45         \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{46         \textcolor{keywordflow}{case} ENCODING\_EXTENSION\_TXT:}
+\DoxyCodeLine{47           result = \textcolor{keyword}{new} FileTxt(itemBO.getPath());}
+\DoxyCodeLine{48       \}}
+\DoxyCodeLine{49     \}}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51     result.setSize(itemBO.getSize());}
+\DoxyCodeLine{52     \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{53   \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Victor/\+Desktop/sippy2/src/main/java/prop/dominio/mappers/\mbox{\hyperlink{_item_mapper_8java}{Item\+Mapper.\+java}}\end{DoxyCompactItemize}

@@ -1,0 +1,80 @@
+\hypertarget{classprop_1_1algorithms_1_1lzss_1_1_input_string}{}\doxysection{prop.\+algorithms.\+lzss.\+Input\+String Class Reference}
+\label{classprop_1_1algorithms_1_1lzss_1_1_input_string}\index{prop.algorithms.lzss.InputString@{prop.algorithms.lzss.InputString}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_input_string_a63497566e7e43719425b2fb9ec9cfd8f}{Input\+String}} (String s)
+\item 
+char \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_input_string_a217f2cb9b7b1ec37b2f2e0189bce0828}{next\+Char}} ()
+\item 
+void \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_input_string_ab24c77b5c18d13928f0cae07b69d2ad2}{shift\+Left}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Author\+: Miguel Angel Cabrera
+
+Class representing the String line far away of look\+Ahead 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1lzss_1_1_input_string_a63497566e7e43719425b2fb9ec9cfd8f}\label{classprop_1_1algorithms_1_1lzss_1_1_input_string_a63497566e7e43719425b2fb9ec9cfd8f}} 
+\index{prop.algorithms.lzss.InputString@{prop.algorithms.lzss.InputString}!InputString@{InputString}}
+\index{InputString@{InputString}!prop.algorithms.lzss.InputString@{prop.algorithms.lzss.InputString}}
+\doxysubsubsection{\texorpdfstring{InputString()}{InputString()}}
+{\footnotesize\ttfamily prop.\+algorithms.\+lzss.\+Input\+String.\+Input\+String (\begin{DoxyParamCaption}\item[{String}]{s }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{12                                \{}
+\DoxyCodeLine{13     input = \textcolor{keyword}{new} \textcolor{keywordtype}{char}[10];}
+\DoxyCodeLine{14     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < 10 \&\& i < s.length(); i++) \{}
+\DoxyCodeLine{15       input[i] = s.charAt(i);}
+\DoxyCodeLine{16     \}}
+\DoxyCodeLine{17   \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1lzss_1_1_input_string_a217f2cb9b7b1ec37b2f2e0189bce0828}\label{classprop_1_1algorithms_1_1lzss_1_1_input_string_a217f2cb9b7b1ec37b2f2e0189bce0828}} 
+\index{prop.algorithms.lzss.InputString@{prop.algorithms.lzss.InputString}!nextChar@{nextChar}}
+\index{nextChar@{nextChar}!prop.algorithms.lzss.InputString@{prop.algorithms.lzss.InputString}}
+\doxysubsubsection{\texorpdfstring{nextChar()}{nextChar()}}
+{\footnotesize\ttfamily char prop.\+algorithms.\+lzss.\+Input\+String.\+next\+Char (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{19                          \{}
+\DoxyCodeLine{20     \textcolor{comment}{//mark <EOF>}}
+\DoxyCodeLine{21     \textcolor{keywordflow}{if} (input[0] == \textcolor{charliteral}{'.'}) \{}
+\DoxyCodeLine{22       input = \textcolor{keyword}{null};}
+\DoxyCodeLine{23       \textcolor{keywordflow}{return} \textcolor{charliteral}{'.'};}
+\DoxyCodeLine{24     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{25       this.\mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_input_string_ab24c77b5c18d13928f0cae07b69d2ad2}{shiftLeft}}();}
+\DoxyCodeLine{26       \textcolor{keywordflow}{return} input[0];}
+\DoxyCodeLine{27     \}}
+\DoxyCodeLine{28   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1lzss_1_1_input_string_ab24c77b5c18d13928f0cae07b69d2ad2}\label{classprop_1_1algorithms_1_1lzss_1_1_input_string_ab24c77b5c18d13928f0cae07b69d2ad2}} 
+\index{prop.algorithms.lzss.InputString@{prop.algorithms.lzss.InputString}!shiftLeft@{shiftLeft}}
+\index{shiftLeft@{shiftLeft}!prop.algorithms.lzss.InputString@{prop.algorithms.lzss.InputString}}
+\doxysubsubsection{\texorpdfstring{shiftLeft()}{shiftLeft()}}
+{\footnotesize\ttfamily void prop.\+algorithms.\+lzss.\+Input\+String.\+shift\+Left (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{30                           \{}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 1; i < input.length; i++) \{}
+\DoxyCodeLine{33       \textcolor{keywordtype}{char} temp = input[i -\/ 1];}
+\DoxyCodeLine{34       input[i -\/ 1] = input[i];}
+\DoxyCodeLine{35     \}}
+\DoxyCodeLine{36   \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Victor/\+Desktop/sippy2/src/main/java/prop/algorithms/lzss/\mbox{\hyperlink{_input_string_8java}{Input\+String.\+java}}\end{DoxyCompactItemize}

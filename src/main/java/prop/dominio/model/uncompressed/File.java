@@ -17,8 +17,8 @@ public abstract class File extends ItemNC {
   /**
    * @brief Constructora
    *
-   *     \pre path vàlid
-   *     \post Nova instància de File amb el path indicat
+   * \pre path vàlid
+   *  \post Nova instància de File amb el path indicat
    */
   public File(String path) {
     super(path);

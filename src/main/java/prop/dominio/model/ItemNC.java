@@ -7,7 +7,6 @@ import java.util.List;
  *
  * @class ItemNC
  * @brief Representation of a non compressed item. Used mainly for the zip operation.
- *
  */
 public abstract class ItemNC {
 
@@ -16,8 +15,8 @@ public abstract class ItemNC {
 
   /**
    * @brief Constructora que assigna un path.
-   *     \pre path correcte
-   *     \post Instancia un ItemNC
+   * \pre path correcte
+   *  \post Instancia un ItemNC
    */
   public ItemNC(String path) {
     this.path = path;
@@ -42,8 +41,8 @@ public abstract class ItemNC {
 
   /**
    * @brief Operació abstracta que retorna els ítems.
-   *     \pre cert
-   *     \post Retorna una llista d'items
+   * \pre cert
+   *  \post Retorna una llista d'items
    */
   public abstract List<prop.dominio.model.uncompressed.File> getItems();
 

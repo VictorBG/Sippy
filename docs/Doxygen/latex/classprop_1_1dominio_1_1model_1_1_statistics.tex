@@ -1,0 +1,165 @@
+\hypertarget{classprop_1_1dominio_1_1model_1_1_statistics}{}\doxysection{prop.\+dominio.\+model.\+Statistics Class Reference}
+\label{classprop_1_1dominio_1_1model_1_1_statistics}\index{prop.dominio.model.Statistics@{prop.dominio.model.Statistics}}
+
+
+Statistics for the zip and unzip operation.  
+
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1_statistics_a7fc6c7776dad91909040ad65a0ca713b}{Statistics}} (double \mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1_statistics_ad9e9be3142e3639d0dba5e5c58fe3636}{initial\+Size}})
+\item 
+void \mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1_statistics_a272bb16472b73fa99fff15e209208248}{stop\+Timer}} ()
+\begin{DoxyCompactList}\small\item\em Atura el contador de temps al acabar la compressio/descompressio. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1_statistics_a8528d912eec041ec7273c46f09635a1b}{get\+Initial\+Size}} ()
+\item 
+double \mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1_statistics_a4918b88d86d78eab9e9b2a4231a3afbb}{get\+Final\+Size}} ()
+\item 
+void \mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1_statistics_a5d27d4bcdd5f65a305914f87fc077509}{set\+Final\+Size}} (double \mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1_statistics_afee32108309e1958ac4ec83e7362d63d}{final\+Size}})
+\item 
+long \mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1_statistics_ad14696108483997ac56ed8ee56132807}{get\+Elapsed\+Time}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1_statistics_ad9e9be3142e3639d0dba5e5c58fe3636}{initial\+Size}}
+\item 
+double \mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1_statistics_afee32108309e1958ac4ec83e7362d63d}{final\+Size}}
+\item 
+long \mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1_statistics_aa0db69766395fea03eea8f230ceacce5}{elapsed\+Time}}
+\item 
+long \mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1_statistics_ac08ce5932ab94c2bc6ef152d5323a253}{initial\+Time}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Statistics for the zip and unzip operation. 
+
+Author\+: Sergio Vazquez 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classprop_1_1dominio_1_1model_1_1_statistics_a7fc6c7776dad91909040ad65a0ca713b}\label{classprop_1_1dominio_1_1model_1_1_statistics_a7fc6c7776dad91909040ad65a0ca713b}} 
+\index{prop.dominio.model.Statistics@{prop.dominio.model.Statistics}!Statistics@{Statistics}}
+\index{Statistics@{Statistics}!prop.dominio.model.Statistics@{prop.dominio.model.Statistics}}
+\doxysubsubsection{\texorpdfstring{Statistics()}{Statistics()}}
+{\footnotesize\ttfamily prop.\+dominio.\+model.\+Statistics.\+Statistics (\begin{DoxyParamCaption}\item[{double}]{initial\+Size }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{17                                         \{}
+\DoxyCodeLine{18     this.\mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1_statistics_ad9e9be3142e3639d0dba5e5c58fe3636}{initialSize}} = \mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1_statistics_ad9e9be3142e3639d0dba5e5c58fe3636}{initialSize}};}
+\DoxyCodeLine{19     \mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1_statistics_ac08ce5932ab94c2bc6ef152d5323a253}{initialTime}} = System.currentTimeMillis();}
+\DoxyCodeLine{20   \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classprop_1_1dominio_1_1model_1_1_statistics_ad14696108483997ac56ed8ee56132807}\label{classprop_1_1dominio_1_1model_1_1_statistics_ad14696108483997ac56ed8ee56132807}} 
+\index{prop.dominio.model.Statistics@{prop.dominio.model.Statistics}!getElapsedTime@{getElapsedTime}}
+\index{getElapsedTime@{getElapsedTime}!prop.dominio.model.Statistics@{prop.dominio.model.Statistics}}
+\doxysubsubsection{\texorpdfstring{getElapsedTime()}{getElapsedTime()}}
+{\footnotesize\ttfamily long prop.\+dominio.\+model.\+Statistics.\+get\+Elapsed\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{43                                \{}
+\DoxyCodeLine{44     \textcolor{keywordflow}{return} \mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1_statistics_aa0db69766395fea03eea8f230ceacce5}{elapsedTime}};}
+\DoxyCodeLine{45   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1dominio_1_1model_1_1_statistics_a4918b88d86d78eab9e9b2a4231a3afbb}\label{classprop_1_1dominio_1_1model_1_1_statistics_a4918b88d86d78eab9e9b2a4231a3afbb}} 
+\index{prop.dominio.model.Statistics@{prop.dominio.model.Statistics}!getFinalSize@{getFinalSize}}
+\index{getFinalSize@{getFinalSize}!prop.dominio.model.Statistics@{prop.dominio.model.Statistics}}
+\doxysubsubsection{\texorpdfstring{getFinalSize()}{getFinalSize()}}
+{\footnotesize\ttfamily double prop.\+dominio.\+model.\+Statistics.\+get\+Final\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{35                                \{}
+\DoxyCodeLine{36     \textcolor{keywordflow}{return} \mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1_statistics_afee32108309e1958ac4ec83e7362d63d}{finalSize}};}
+\DoxyCodeLine{37   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1dominio_1_1model_1_1_statistics_a8528d912eec041ec7273c46f09635a1b}\label{classprop_1_1dominio_1_1model_1_1_statistics_a8528d912eec041ec7273c46f09635a1b}} 
+\index{prop.dominio.model.Statistics@{prop.dominio.model.Statistics}!getInitialSize@{getInitialSize}}
+\index{getInitialSize@{getInitialSize}!prop.dominio.model.Statistics@{prop.dominio.model.Statistics}}
+\doxysubsubsection{\texorpdfstring{getInitialSize()}{getInitialSize()}}
+{\footnotesize\ttfamily double prop.\+dominio.\+model.\+Statistics.\+get\+Initial\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{31                                  \{}
+\DoxyCodeLine{32     \textcolor{keywordflow}{return} \mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1_statistics_ad9e9be3142e3639d0dba5e5c58fe3636}{initialSize}};}
+\DoxyCodeLine{33   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1dominio_1_1model_1_1_statistics_a5d27d4bcdd5f65a305914f87fc077509}\label{classprop_1_1dominio_1_1model_1_1_statistics_a5d27d4bcdd5f65a305914f87fc077509}} 
+\index{prop.dominio.model.Statistics@{prop.dominio.model.Statistics}!setFinalSize@{setFinalSize}}
+\index{setFinalSize@{setFinalSize}!prop.dominio.model.Statistics@{prop.dominio.model.Statistics}}
+\doxysubsubsection{\texorpdfstring{setFinalSize()}{setFinalSize()}}
+{\footnotesize\ttfamily void prop.\+dominio.\+model.\+Statistics.\+set\+Final\+Size (\begin{DoxyParamCaption}\item[{double}]{final\+Size }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{39                                              \{}
+\DoxyCodeLine{40     this.\mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1_statistics_afee32108309e1958ac4ec83e7362d63d}{finalSize}} = \mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1_statistics_afee32108309e1958ac4ec83e7362d63d}{finalSize}};}
+\DoxyCodeLine{41   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1dominio_1_1model_1_1_statistics_a272bb16472b73fa99fff15e209208248}\label{classprop_1_1dominio_1_1model_1_1_statistics_a272bb16472b73fa99fff15e209208248}} 
+\index{prop.dominio.model.Statistics@{prop.dominio.model.Statistics}!stopTimer@{stopTimer}}
+\index{stopTimer@{stopTimer}!prop.dominio.model.Statistics@{prop.dominio.model.Statistics}}
+\doxysubsubsection{\texorpdfstring{stopTimer()}{stopTimer()}}
+{\footnotesize\ttfamily void prop.\+dominio.\+model.\+Statistics.\+stop\+Timer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Atura el contador de temps al acabar la compressio/descompressio. 
+
+\begin{DoxyPrecond}{Precondition}
+cert 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+atura el contador de temps 
+\end{DoxyPostcond}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{27                           \{}
+\DoxyCodeLine{28     \mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1_statistics_aa0db69766395fea03eea8f230ceacce5}{elapsedTime}} = System.currentTimeMillis() -\/ \mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1_statistics_ac08ce5932ab94c2bc6ef152d5323a253}{initialTime}};}
+\DoxyCodeLine{29   \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classprop_1_1dominio_1_1model_1_1_statistics_aa0db69766395fea03eea8f230ceacce5}\label{classprop_1_1dominio_1_1model_1_1_statistics_aa0db69766395fea03eea8f230ceacce5}} 
+\index{prop.dominio.model.Statistics@{prop.dominio.model.Statistics}!elapsedTime@{elapsedTime}}
+\index{elapsedTime@{elapsedTime}!prop.dominio.model.Statistics@{prop.dominio.model.Statistics}}
+\doxysubsubsection{\texorpdfstring{elapsedTime}{elapsedTime}}
+{\footnotesize\ttfamily long prop.\+dominio.\+model.\+Statistics.\+elapsed\+Time\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classprop_1_1dominio_1_1model_1_1_statistics_afee32108309e1958ac4ec83e7362d63d}\label{classprop_1_1dominio_1_1model_1_1_statistics_afee32108309e1958ac4ec83e7362d63d}} 
+\index{prop.dominio.model.Statistics@{prop.dominio.model.Statistics}!finalSize@{finalSize}}
+\index{finalSize@{finalSize}!prop.dominio.model.Statistics@{prop.dominio.model.Statistics}}
+\doxysubsubsection{\texorpdfstring{finalSize}{finalSize}}
+{\footnotesize\ttfamily double prop.\+dominio.\+model.\+Statistics.\+final\+Size\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classprop_1_1dominio_1_1model_1_1_statistics_ad9e9be3142e3639d0dba5e5c58fe3636}\label{classprop_1_1dominio_1_1model_1_1_statistics_ad9e9be3142e3639d0dba5e5c58fe3636}} 
+\index{prop.dominio.model.Statistics@{prop.dominio.model.Statistics}!initialSize@{initialSize}}
+\index{initialSize@{initialSize}!prop.dominio.model.Statistics@{prop.dominio.model.Statistics}}
+\doxysubsubsection{\texorpdfstring{initialSize}{initialSize}}
+{\footnotesize\ttfamily double prop.\+dominio.\+model.\+Statistics.\+initial\+Size\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classprop_1_1dominio_1_1model_1_1_statistics_ac08ce5932ab94c2bc6ef152d5323a253}\label{classprop_1_1dominio_1_1model_1_1_statistics_ac08ce5932ab94c2bc6ef152d5323a253}} 
+\index{prop.dominio.model.Statistics@{prop.dominio.model.Statistics}!initialTime@{initialTime}}
+\index{initialTime@{initialTime}!prop.dominio.model.Statistics@{prop.dominio.model.Statistics}}
+\doxysubsubsection{\texorpdfstring{initialTime}{initialTime}}
+{\footnotesize\ttfamily long prop.\+dominio.\+model.\+Statistics.\+initial\+Time\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Victor/\+Desktop/sippy2/src/main/java/prop/dominio/model/\mbox{\hyperlink{_statistics_8java}{Statistics.\+java}}\end{DoxyCompactItemize}

@@ -1,0 +1,131 @@
+\hypertarget{classprop_1_1utils_1_1_file_utils}{}\doxysection{prop.\+utils.\+File\+Utils Class Reference}
+\label{classprop_1_1utils_1_1_file_utils}\index{prop.utils.FileUtils@{prop.utils.FileUtils}}
+
+
+different utils for reading a file  
+
+
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static byte\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classprop_1_1utils_1_1_file_utils_ab0b89fdb138b5f4079085ef30a6bd55a}{read\+File}} (File file)  throws I\+O\+Exception 
+\begin{DoxyCompactList}\small\item\em Llegeix un arxiu d\textquotesingle{}un path especific i el retorna com a vector de bytes. \end{DoxyCompactList}\item 
+static String \mbox{\hyperlink{classprop_1_1utils_1_1_file_utils_a550edc3c6ac30efa825527bd9632fa5a}{change\+Extension}} (String path, String extension)
+\begin{DoxyCompactList}\small\item\em Cambia l\textquotesingle{}extensio de l\textquotesingle{}arxiu passat al path per l\textquotesingle{}extensió del aparametre. \end{DoxyCompactList}\item 
+static String \mbox{\hyperlink{classprop_1_1utils_1_1_file_utils_a64d2bd6b92f3c0db561a82a6a5a03807}{get\+File\+Extension}} (String path)
+\begin{DoxyCompactList}\small\item\em Retorna la extensió del path passat per parametre. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classprop_1_1utils_1_1_file_utils_ac617367644f6ff1b1072d00d0194d4dd}{open\+File}} (File f)  throws Unsupported\+Operation\+Exception, I\+O\+Exception 
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+different utils for reading a file 
+
+Author\+: Sergio Vazquez 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classprop_1_1utils_1_1_file_utils_a550edc3c6ac30efa825527bd9632fa5a}\label{classprop_1_1utils_1_1_file_utils_a550edc3c6ac30efa825527bd9632fa5a}} 
+\index{prop.utils.FileUtils@{prop.utils.FileUtils}!changeExtension@{changeExtension}}
+\index{changeExtension@{changeExtension}!prop.utils.FileUtils@{prop.utils.FileUtils}}
+\doxysubsubsection{\texorpdfstring{changeExtension()}{changeExtension()}}
+{\footnotesize\ttfamily static String prop.\+utils.\+File\+Utils.\+change\+Extension (\begin{DoxyParamCaption}\item[{String}]{path,  }\item[{String}]{extension }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Cambia l\textquotesingle{}extensio de l\textquotesingle{}arxiu passat al path per l\textquotesingle{}extensió del aparametre. 
+
+\begin{DoxyPrecond}{Precondition}
+path i extensio correctes 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Es retorna el nou path amb la nova extensió 
+\end{DoxyPostcond}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{33                                                                       \{}
+\DoxyCodeLine{34     File file = \textcolor{keyword}{new} File(path);}
+\DoxyCodeLine{35     \textcolor{keywordflow}{if} (file.isDirectory()) \{}
+\DoxyCodeLine{36       \textcolor{keywordflow}{return} path + \textcolor{stringliteral}{"."} + extension;}
+\DoxyCodeLine{37     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{38       \textcolor{keywordflow}{return} path.replace(\mbox{\hyperlink{classprop_1_1utils_1_1_file_utils_a64d2bd6b92f3c0db561a82a6a5a03807}{getFileExtension}}(path), extension);}
+\DoxyCodeLine{39     \}}
+\DoxyCodeLine{40   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1utils_1_1_file_utils_a64d2bd6b92f3c0db561a82a6a5a03807}\label{classprop_1_1utils_1_1_file_utils_a64d2bd6b92f3c0db561a82a6a5a03807}} 
+\index{prop.utils.FileUtils@{prop.utils.FileUtils}!getFileExtension@{getFileExtension}}
+\index{getFileExtension@{getFileExtension}!prop.utils.FileUtils@{prop.utils.FileUtils}}
+\doxysubsubsection{\texorpdfstring{getFileExtension()}{getFileExtension()}}
+{\footnotesize\ttfamily static String prop.\+utils.\+File\+Utils.\+get\+File\+Extension (\begin{DoxyParamCaption}\item[{String}]{path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Retorna la extensió del path passat per parametre. 
+
+\begin{DoxyPrecond}{Precondition}
+path correcte 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Extensio del path 
+\end{DoxyPostcond}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{47                                                      \{}
+\DoxyCodeLine{48     \textcolor{keywordtype}{int} lastIndexOf = path.lastIndexOf(\textcolor{stringliteral}{"."});}
+\DoxyCodeLine{49     \textcolor{keywordflow}{if} (lastIndexOf == -\/1) \{}
+\DoxyCodeLine{50       \textcolor{keywordflow}{return} \textcolor{stringliteral}{""};}
+\DoxyCodeLine{51     \}}
+\DoxyCodeLine{52     \textcolor{keywordflow}{return} path.substring(lastIndexOf + 1);}
+\DoxyCodeLine{53   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1utils_1_1_file_utils_ac617367644f6ff1b1072d00d0194d4dd}\label{classprop_1_1utils_1_1_file_utils_ac617367644f6ff1b1072d00d0194d4dd}} 
+\index{prop.utils.FileUtils@{prop.utils.FileUtils}!openFile@{openFile}}
+\index{openFile@{openFile}!prop.utils.FileUtils@{prop.utils.FileUtils}}
+\doxysubsubsection{\texorpdfstring{openFile()}{openFile()}}
+{\footnotesize\ttfamily static void prop.\+utils.\+File\+Utils.\+open\+File (\begin{DoxyParamCaption}\item[{File}]{f }\end{DoxyParamCaption}) throws Unsupported\+Operation\+Exception, I\+O\+Exception\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{55                                                                                         \{}
+\DoxyCodeLine{56     \textcolor{keywordflow}{if} (!Desktop.isDesktopSupported()) \{}
+\DoxyCodeLine{57       \textcolor{keywordflow}{throw} \textcolor{keyword}{new} UnsupportedOperationException(\textcolor{stringliteral}{"Desktop is not supported"});}
+\DoxyCodeLine{58     \}}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60     \textcolor{keywordflow}{if} (!f.exists()) \{}
+\DoxyCodeLine{61       \textcolor{keywordflow}{throw} \textcolor{keyword}{new} FileNotFoundException();}
+\DoxyCodeLine{62     \}}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64     Desktop.getDesktop().open(f);}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1utils_1_1_file_utils_ab0b89fdb138b5f4079085ef30a6bd55a}\label{classprop_1_1utils_1_1_file_utils_ab0b89fdb138b5f4079085ef30a6bd55a}} 
+\index{prop.utils.FileUtils@{prop.utils.FileUtils}!readFile@{readFile}}
+\index{readFile@{readFile}!prop.utils.FileUtils@{prop.utils.FileUtils}}
+\doxysubsubsection{\texorpdfstring{readFile()}{readFile()}}
+{\footnotesize\ttfamily static byte \mbox{[}$\,$\mbox{]} prop.\+utils.\+File\+Utils.\+read\+File (\begin{DoxyParamCaption}\item[{File}]{file }\end{DoxyParamCaption}) throws I\+O\+Exception\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Llegeix un arxiu d\textquotesingle{}un path especific i el retorna com a vector de bytes. 
+
+\begin{DoxyPrecond}{Precondition}
+file existeix 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Retorna la file en forma de vector de bytes 
+\end{DoxyPostcond}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{24                                                               \{}
+\DoxyCodeLine{25     \textcolor{keywordflow}{return} Files.readAllBytes(file.toPath());}
+\DoxyCodeLine{26   \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Victor/\+Desktop/sippy2/src/main/java/prop/utils/\mbox{\hyperlink{_file_utils_8java}{File\+Utils.\+java}}\end{DoxyCompactItemize}

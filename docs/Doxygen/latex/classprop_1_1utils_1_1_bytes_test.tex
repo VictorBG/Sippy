@@ -1,0 +1,111 @@
+\hypertarget{classprop_1_1utils_1_1_bytes_test}{}\doxysection{prop.\+utils.\+Bytes\+Test Class Reference}
+\label{classprop_1_1utils_1_1_bytes_test}\index{prop.utils.BytesTest@{prop.utils.BytesTest}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classprop_1_1utils_1_1_bytes_test_a0c7015ab9a475cb46c086da4b29be599}{concat}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static final byte\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classprop_1_1utils_1_1_bytes_test_abab9cec028d83991ed939fce8d791e16}{B1}} = new byte\mbox{[}$\,$\mbox{]}\{1, 2, 3, 4\}
+\item 
+static final byte\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classprop_1_1utils_1_1_bytes_test_a2f86a0cafd0cd5b9c791d0ae6945115b}{B2}} = new byte\mbox{[}$\,$\mbox{]}\{4, 3, 2, 1\}
+\item 
+static final byte\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classprop_1_1utils_1_1_bytes_test_ac2ce93a0d5c3977f01ee2149a2572934}{B3}} = new byte\mbox{[}$\,$\mbox{]}\{2, 4, 6, 8\}
+\item 
+static final byte\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classprop_1_1utils_1_1_bytes_test_ab28e77667fe13aedf41c359c04cfe3b4}{B12}} = new byte\mbox{[}$\,$\mbox{]}\{1, 2, 3, 4, 4, 3, 2, 1\}
+\item 
+static final byte\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classprop_1_1utils_1_1_bytes_test_a591e596e911011132f8b56a1bfdc5ce3}{B21}} = new byte\mbox{[}$\,$\mbox{]}\{4, 3, 2, 1, 1, 2, 3, 4,\}
+\item 
+static final byte\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classprop_1_1utils_1_1_bytes_test_aa192bbe8bf7e1948f60299c950d6c0de}{B23}} = new byte\mbox{[}$\,$\mbox{]}\{4, 3, 2, 1, 2, 4, 6, 8\}
+\item 
+static final byte\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classprop_1_1utils_1_1_bytes_test_a93d41cd346d5e8bcb4950d3c8df7c93d}{B32}} = new byte\mbox{[}$\,$\mbox{]}\{2, 4, 6, 8, 4, 3, 2, 1\}
+\item 
+static final byte\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classprop_1_1utils_1_1_bytes_test_a5d0f44af04e56743b032a8208a38dac0}{B13}} = new byte\mbox{[}$\,$\mbox{]}\{1, 2, 3, 4, 2, 4, 6, 8\}
+\item 
+static final byte\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classprop_1_1utils_1_1_bytes_test_a1039653bb73f695e41a89b8c68aa8a8a}{B31}} = new byte\mbox{[}$\,$\mbox{]}\{2, 4, 6, 8, 1, 2, 3, 4\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classprop_1_1utils_1_1_bytes_test_a0c7015ab9a475cb46c086da4b29be599}\label{classprop_1_1utils_1_1_bytes_test_a0c7015ab9a475cb46c086da4b29be599}} 
+\index{prop.utils.BytesTest@{prop.utils.BytesTest}!concat@{concat}}
+\index{concat@{concat}!prop.utils.BytesTest@{prop.utils.BytesTest}}
+\doxysubsubsection{\texorpdfstring{concat()}{concat()}}
+{\footnotesize\ttfamily void prop.\+utils.\+Bytes\+Test.\+concat (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{21                        \{}
+\DoxyCodeLine{22     assertArrayEquals(Bytes.concat(\mbox{\hyperlink{classprop_1_1utils_1_1_bytes_test_abab9cec028d83991ed939fce8d791e16}{B1}}, \mbox{\hyperlink{classprop_1_1utils_1_1_bytes_test_a2f86a0cafd0cd5b9c791d0ae6945115b}{B2}}), \mbox{\hyperlink{classprop_1_1utils_1_1_bytes_test_ab28e77667fe13aedf41c359c04cfe3b4}{B12}});}
+\DoxyCodeLine{23     assertArrayEquals(Bytes.concat(\mbox{\hyperlink{classprop_1_1utils_1_1_bytes_test_a2f86a0cafd0cd5b9c791d0ae6945115b}{B2}}, \mbox{\hyperlink{classprop_1_1utils_1_1_bytes_test_abab9cec028d83991ed939fce8d791e16}{B1}}), \mbox{\hyperlink{classprop_1_1utils_1_1_bytes_test_a591e596e911011132f8b56a1bfdc5ce3}{B21}});}
+\DoxyCodeLine{24     assertArrayEquals(Bytes.concat(\mbox{\hyperlink{classprop_1_1utils_1_1_bytes_test_a2f86a0cafd0cd5b9c791d0ae6945115b}{B2}}, \mbox{\hyperlink{classprop_1_1utils_1_1_bytes_test_ac2ce93a0d5c3977f01ee2149a2572934}{B3}}), \mbox{\hyperlink{classprop_1_1utils_1_1_bytes_test_aa192bbe8bf7e1948f60299c950d6c0de}{B23}});}
+\DoxyCodeLine{25     assertArrayEquals(Bytes.concat(\mbox{\hyperlink{classprop_1_1utils_1_1_bytes_test_ac2ce93a0d5c3977f01ee2149a2572934}{B3}}, \mbox{\hyperlink{classprop_1_1utils_1_1_bytes_test_a2f86a0cafd0cd5b9c791d0ae6945115b}{B2}}), \mbox{\hyperlink{classprop_1_1utils_1_1_bytes_test_a93d41cd346d5e8bcb4950d3c8df7c93d}{B32}});}
+\DoxyCodeLine{26     assertArrayEquals(Bytes.concat(\mbox{\hyperlink{classprop_1_1utils_1_1_bytes_test_abab9cec028d83991ed939fce8d791e16}{B1}}, \mbox{\hyperlink{classprop_1_1utils_1_1_bytes_test_ac2ce93a0d5c3977f01ee2149a2572934}{B3}}), \mbox{\hyperlink{classprop_1_1utils_1_1_bytes_test_a5d0f44af04e56743b032a8208a38dac0}{B13}});}
+\DoxyCodeLine{27     assertArrayEquals(Bytes.concat(\mbox{\hyperlink{classprop_1_1utils_1_1_bytes_test_ac2ce93a0d5c3977f01ee2149a2572934}{B3}}, \mbox{\hyperlink{classprop_1_1utils_1_1_bytes_test_abab9cec028d83991ed939fce8d791e16}{B1}}), \mbox{\hyperlink{classprop_1_1utils_1_1_bytes_test_a1039653bb73f695e41a89b8c68aa8a8a}{B31}});}
+\DoxyCodeLine{28   \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classprop_1_1utils_1_1_bytes_test_abab9cec028d83991ed939fce8d791e16}\label{classprop_1_1utils_1_1_bytes_test_abab9cec028d83991ed939fce8d791e16}} 
+\index{prop.utils.BytesTest@{prop.utils.BytesTest}!B1@{B1}}
+\index{B1@{B1}!prop.utils.BytesTest@{prop.utils.BytesTest}}
+\doxysubsubsection{\texorpdfstring{B1}{B1}}
+{\footnotesize\ttfamily final byte \mbox{[}$\,$\mbox{]} prop.\+utils.\+Bytes\+Test.\+B1 = new byte\mbox{[}$\,$\mbox{]}\{1, 2, 3, 4\}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{classprop_1_1utils_1_1_bytes_test_ab28e77667fe13aedf41c359c04cfe3b4}\label{classprop_1_1utils_1_1_bytes_test_ab28e77667fe13aedf41c359c04cfe3b4}} 
+\index{prop.utils.BytesTest@{prop.utils.BytesTest}!B12@{B12}}
+\index{B12@{B12}!prop.utils.BytesTest@{prop.utils.BytesTest}}
+\doxysubsubsection{\texorpdfstring{B12}{B12}}
+{\footnotesize\ttfamily final byte \mbox{[}$\,$\mbox{]} prop.\+utils.\+Bytes\+Test.\+B12 = new byte\mbox{[}$\,$\mbox{]}\{1, 2, 3, 4, 4, 3, 2, 1\}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{classprop_1_1utils_1_1_bytes_test_a5d0f44af04e56743b032a8208a38dac0}\label{classprop_1_1utils_1_1_bytes_test_a5d0f44af04e56743b032a8208a38dac0}} 
+\index{prop.utils.BytesTest@{prop.utils.BytesTest}!B13@{B13}}
+\index{B13@{B13}!prop.utils.BytesTest@{prop.utils.BytesTest}}
+\doxysubsubsection{\texorpdfstring{B13}{B13}}
+{\footnotesize\ttfamily final byte \mbox{[}$\,$\mbox{]} prop.\+utils.\+Bytes\+Test.\+B13 = new byte\mbox{[}$\,$\mbox{]}\{1, 2, 3, 4, 2, 4, 6, 8\}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{classprop_1_1utils_1_1_bytes_test_a2f86a0cafd0cd5b9c791d0ae6945115b}\label{classprop_1_1utils_1_1_bytes_test_a2f86a0cafd0cd5b9c791d0ae6945115b}} 
+\index{prop.utils.BytesTest@{prop.utils.BytesTest}!B2@{B2}}
+\index{B2@{B2}!prop.utils.BytesTest@{prop.utils.BytesTest}}
+\doxysubsubsection{\texorpdfstring{B2}{B2}}
+{\footnotesize\ttfamily final byte \mbox{[}$\,$\mbox{]} prop.\+utils.\+Bytes\+Test.\+B2 = new byte\mbox{[}$\,$\mbox{]}\{4, 3, 2, 1\}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{classprop_1_1utils_1_1_bytes_test_a591e596e911011132f8b56a1bfdc5ce3}\label{classprop_1_1utils_1_1_bytes_test_a591e596e911011132f8b56a1bfdc5ce3}} 
+\index{prop.utils.BytesTest@{prop.utils.BytesTest}!B21@{B21}}
+\index{B21@{B21}!prop.utils.BytesTest@{prop.utils.BytesTest}}
+\doxysubsubsection{\texorpdfstring{B21}{B21}}
+{\footnotesize\ttfamily final byte \mbox{[}$\,$\mbox{]} prop.\+utils.\+Bytes\+Test.\+B21 = new byte\mbox{[}$\,$\mbox{]}\{4, 3, 2, 1, 1, 2, 3, 4,\}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{classprop_1_1utils_1_1_bytes_test_aa192bbe8bf7e1948f60299c950d6c0de}\label{classprop_1_1utils_1_1_bytes_test_aa192bbe8bf7e1948f60299c950d6c0de}} 
+\index{prop.utils.BytesTest@{prop.utils.BytesTest}!B23@{B23}}
+\index{B23@{B23}!prop.utils.BytesTest@{prop.utils.BytesTest}}
+\doxysubsubsection{\texorpdfstring{B23}{B23}}
+{\footnotesize\ttfamily final byte \mbox{[}$\,$\mbox{]} prop.\+utils.\+Bytes\+Test.\+B23 = new byte\mbox{[}$\,$\mbox{]}\{4, 3, 2, 1, 2, 4, 6, 8\}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{classprop_1_1utils_1_1_bytes_test_ac2ce93a0d5c3977f01ee2149a2572934}\label{classprop_1_1utils_1_1_bytes_test_ac2ce93a0d5c3977f01ee2149a2572934}} 
+\index{prop.utils.BytesTest@{prop.utils.BytesTest}!B3@{B3}}
+\index{B3@{B3}!prop.utils.BytesTest@{prop.utils.BytesTest}}
+\doxysubsubsection{\texorpdfstring{B3}{B3}}
+{\footnotesize\ttfamily final byte \mbox{[}$\,$\mbox{]} prop.\+utils.\+Bytes\+Test.\+B3 = new byte\mbox{[}$\,$\mbox{]}\{2, 4, 6, 8\}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{classprop_1_1utils_1_1_bytes_test_a1039653bb73f695e41a89b8c68aa8a8a}\label{classprop_1_1utils_1_1_bytes_test_a1039653bb73f695e41a89b8c68aa8a8a}} 
+\index{prop.utils.BytesTest@{prop.utils.BytesTest}!B31@{B31}}
+\index{B31@{B31}!prop.utils.BytesTest@{prop.utils.BytesTest}}
+\doxysubsubsection{\texorpdfstring{B31}{B31}}
+{\footnotesize\ttfamily final byte \mbox{[}$\,$\mbox{]} prop.\+utils.\+Bytes\+Test.\+B31 = new byte\mbox{[}$\,$\mbox{]}\{2, 4, 6, 8, 1, 2, 3, 4\}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{classprop_1_1utils_1_1_bytes_test_a93d41cd346d5e8bcb4950d3c8df7c93d}\label{classprop_1_1utils_1_1_bytes_test_a93d41cd346d5e8bcb4950d3c8df7c93d}} 
+\index{prop.utils.BytesTest@{prop.utils.BytesTest}!B32@{B32}}
+\index{B32@{B32}!prop.utils.BytesTest@{prop.utils.BytesTest}}
+\doxysubsubsection{\texorpdfstring{B32}{B32}}
+{\footnotesize\ttfamily final byte \mbox{[}$\,$\mbox{]} prop.\+utils.\+Bytes\+Test.\+B32 = new byte\mbox{[}$\,$\mbox{]}\{2, 4, 6, 8, 4, 3, 2, 1\}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Victor/\+Desktop/sippy2/src/test/java/prop/utils/\mbox{\hyperlink{_bytes_test_8java}{Bytes\+Test.\+java}}\end{DoxyCompactItemize}

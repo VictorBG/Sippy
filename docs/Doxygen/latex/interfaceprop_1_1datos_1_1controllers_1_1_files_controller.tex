@@ -1,0 +1,56 @@
+\hypertarget{interfaceprop_1_1datos_1_1controllers_1_1_files_controller}{}\doxysection{prop.\+datos.\+controllers.\+Files\+Controller Class Reference}
+\label{interfaceprop_1_1datos_1_1controllers_1_1_files_controller}\index{prop.datos.controllers.FilesController@{prop.datos.controllers.FilesController}}
+
+
+Controlador per les operacions del fitxer.  
+
+
+
+
+Inherited by \mbox{\hyperlink{classprop_1_1datos_1_1controllers_1_1impl_1_1_files_controller_impl}{prop.\+datos.\+controllers.\+impl.\+Files\+Controller\+Impl}}.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classprop_1_1datos_1_1model_1_1_item_b_o}{Item\+BO}} \mbox{\hyperlink{interfaceprop_1_1datos_1_1controllers_1_1_files_controller_a1a18f0e6f5cf2960b10aa9880e3bf037}{get\+File}} (String path)  throws I\+O\+Exception
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Controlador per les operacions del fitxer. 
+
+Author\+: Sergio Vázquez 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{interfaceprop_1_1datos_1_1controllers_1_1_files_controller_a1a18f0e6f5cf2960b10aa9880e3bf037}\label{interfaceprop_1_1datos_1_1controllers_1_1_files_controller_a1a18f0e6f5cf2960b10aa9880e3bf037}} 
+\index{prop.datos.controllers.FilesController@{prop.datos.controllers.FilesController}!getFile@{getFile}}
+\index{getFile@{getFile}!prop.datos.controllers.FilesController@{prop.datos.controllers.FilesController}}
+\doxysubsubsection{\texorpdfstring{getFile()}{getFile()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classprop_1_1datos_1_1model_1_1_item_b_o}{Item\+BO}} prop.\+datos.\+controllers.\+Files\+Controller.\+get\+File (\begin{DoxyParamCaption}\item[{String}]{path }\end{DoxyParamCaption}) throws I\+O\+Exception}
+
+Llegeix el path i retorna un \mbox{\hyperlink{}{Item\+BO}} el qual conté l\textquotesingle{}estructura del fitxer referenciat pel path. En cas de que sigui una carpeta, retorna un \mbox{\hyperlink{}{Folder\+BO}} que conté la estructura de la carpeta desplegada.
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & Path del qual es llegeix.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{}{Item\+BO}} amb l\textquotesingle{}estructura del fitxer referenciat pel path.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em File\+Not\+Found\+Exception} & Si el fitxer no s\textquotesingle{}ha trobat. \\
+\hline
+{\em Unsupported\+Encoding\+Exception} & Si l\textquotesingle{}extensió del fitxer no és admesa pel sistema. \\
+\hline
+\end{DoxyExceptions}
+
+
+Reimplemented in \mbox{\hyperlink{classprop_1_1datos_1_1controllers_1_1impl_1_1_files_controller_impl_a41998a385edceaf6e26ed9f06bc03775}{prop.\+datos.\+controllers.\+impl.\+Files\+Controller\+Impl}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Victor/\+Desktop/sippy2/src/main/java/prop/datos/controllers/\mbox{\hyperlink{_files_controller_8java}{Files\+Controller.\+java}}\end{DoxyCompactItemize}

@@ -1,0 +1,109 @@
+\hypertarget{classprop_1_1algorithms_1_1base_1_1_base_algorithm_test}{}\doxysection{prop.\+algorithms.\+base.\+Base\+Algorithm\+Test Class Reference}
+\label{classprop_1_1algorithms_1_1base_1_1_base_algorithm_test}\index{prop.algorithms.base.BaseAlgorithmTest@{prop.algorithms.base.BaseAlgorithmTest}}
+
+
+Inherited by \mbox{\hyperlink{classprop_1_1algorithms_1_1_l_z78_test}{prop.\+algorithms.\+L\+Z78\+Test}}, \mbox{\hyperlink{classprop_1_1algorithms_1_1_l_z_s_s_test}{prop.\+algorithms.\+L\+Z\+S\+S\+Test}}, and \mbox{\hyperlink{classprop_1_1algorithms_1_1_l_z_w_test}{prop.\+algorithms.\+L\+Z\+W\+Test}}.
+
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+abstract List$<$ byte\mbox{[}$\,$\mbox{]}$>$ \mbox{\hyperlink{classprop_1_1algorithms_1_1base_1_1_base_algorithm_test_a3e5cd49877298ac102709db40c46b0d9}{get\+Inputs}} ()
+\item 
+abstract List$<$ byte\mbox{[}$\,$\mbox{]}$>$ \mbox{\hyperlink{classprop_1_1algorithms_1_1base_1_1_base_algorithm_test_a692c559f79ebb855bef4fecb338674d2}{get\+Outputs}} ()
+\item 
+void \mbox{\hyperlink{classprop_1_1algorithms_1_1base_1_1_base_algorithm_test_ad094da463e3ff06c471086fe8fa38d95}{test}} (\mbox{\hyperlink{interfaceprop_1_1algorithms_1_1base_1_1_base_algorithm}{Base\+Algorithm}} algorithm)
+\item 
+void \mbox{\hyperlink{classprop_1_1algorithms_1_1base_1_1_base_algorithm_test_ab4d05eecca67ac792f92ec0da550c3dc}{test\+Encode}} (\mbox{\hyperlink{interfaceprop_1_1algorithms_1_1base_1_1_base_algorithm}{Base\+Algorithm}} algorithm)
+\item 
+void \mbox{\hyperlink{classprop_1_1algorithms_1_1base_1_1_base_algorithm_test_ab994fb4e101fef50feb92ca3bc95a2f4}{test\+Decode}} (\mbox{\hyperlink{interfaceprop_1_1algorithms_1_1base_1_1_base_algorithm}{Base\+Algorithm}} algorithm)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Author\+: Victor Blanco 
+
+Base implementation to test an algorithm. 
+
+A subclass must implement the \mbox{\hyperlink{classprop_1_1algorithms_1_1base_1_1_base_algorithm_test_a3e5cd49877298ac102709db40c46b0d9}{get\+Inputs()}} and \mbox{\hyperlink{classprop_1_1algorithms_1_1base_1_1_base_algorithm_test_a692c559f79ebb855bef4fecb338674d2}{get\+Outputs()}} methods, every position of one list must corresponds to the same position of the other list, then when \{\mbox{\hyperlink{classprop_1_1algorithms_1_1base_1_1_base_algorithm_test_ad094da463e3ff06c471086fe8fa38d95}{\} is called, the  Base\+Algorithm\#decode(byte\mbox{[}$\,$\mbox{]})\} and \{ Base\+Algorithm\#encode(byte\mbox{[}$\,$\mbox{]})\} method of the  Base\+Algorithm\} provided are tested based on the values of the input and output lists. }}
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1base_1_1_base_algorithm_test_a3e5cd49877298ac102709db40c46b0d9}\label{classprop_1_1algorithms_1_1base_1_1_base_algorithm_test_a3e5cd49877298ac102709db40c46b0d9}} 
+\index{prop.algorithms.base.BaseAlgorithmTest@{prop.algorithms.base.BaseAlgorithmTest}!getInputs@{getInputs}}
+\index{getInputs@{getInputs}!prop.algorithms.base.BaseAlgorithmTest@{prop.algorithms.base.BaseAlgorithmTest}}
+\doxysubsubsection{\texorpdfstring{getInputs()}{getInputs()}}
+{\footnotesize\ttfamily abstract List$<$byte\mbox{[}$\,$\mbox{]}$>$ prop.\+algorithms.\+base.\+Base\+Algorithm\+Test.\+get\+Inputs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [abstract]}, {\ttfamily [protected]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{classprop_1_1algorithms_1_1_l_z_s_s_test_ab1bdb25d65465b7fd69a11ce734b0a1e}{prop.\+algorithms.\+L\+Z\+S\+S\+Test}}, \mbox{\hyperlink{classprop_1_1algorithms_1_1_l_z78_test_afe04a7633c051b52d62cc51b786eccba}{prop.\+algorithms.\+L\+Z78\+Test}}, and \mbox{\hyperlink{classprop_1_1algorithms_1_1_l_z_w_test_a5cad6a89f3037715de87df6a64ef598d}{prop.\+algorithms.\+L\+Z\+W\+Test}}.
+
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1base_1_1_base_algorithm_test_a692c559f79ebb855bef4fecb338674d2}\label{classprop_1_1algorithms_1_1base_1_1_base_algorithm_test_a692c559f79ebb855bef4fecb338674d2}} 
+\index{prop.algorithms.base.BaseAlgorithmTest@{prop.algorithms.base.BaseAlgorithmTest}!getOutputs@{getOutputs}}
+\index{getOutputs@{getOutputs}!prop.algorithms.base.BaseAlgorithmTest@{prop.algorithms.base.BaseAlgorithmTest}}
+\doxysubsubsection{\texorpdfstring{getOutputs()}{getOutputs()}}
+{\footnotesize\ttfamily abstract List$<$byte\mbox{[}$\,$\mbox{]}$>$ prop.\+algorithms.\+base.\+Base\+Algorithm\+Test.\+get\+Outputs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [abstract]}, {\ttfamily [protected]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{classprop_1_1algorithms_1_1_l_z_s_s_test_ab321abbdc8a890965bbde32b4e5cdcf5}{prop.\+algorithms.\+L\+Z\+S\+S\+Test}}, \mbox{\hyperlink{classprop_1_1algorithms_1_1_l_z78_test_af2cbb0d94a5aee73c39859f925cfc285}{prop.\+algorithms.\+L\+Z78\+Test}}, and \mbox{\hyperlink{classprop_1_1algorithms_1_1_l_z_w_test_a78339b01001d0e0757dbcd139e8e7e38}{prop.\+algorithms.\+L\+Z\+W\+Test}}.
+
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1base_1_1_base_algorithm_test_ad094da463e3ff06c471086fe8fa38d95}\label{classprop_1_1algorithms_1_1base_1_1_base_algorithm_test_ad094da463e3ff06c471086fe8fa38d95}} 
+\index{prop.algorithms.base.BaseAlgorithmTest@{prop.algorithms.base.BaseAlgorithmTest}!test@{test}}
+\index{test@{test}!prop.algorithms.base.BaseAlgorithmTest@{prop.algorithms.base.BaseAlgorithmTest}}
+\doxysubsubsection{\texorpdfstring{test()}{test()}}
+{\footnotesize\ttfamily void prop.\+algorithms.\+base.\+Base\+Algorithm\+Test.\+test (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interfaceprop_1_1algorithms_1_1base_1_1_base_algorithm}{Base\+Algorithm}}}]{algorithm }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{24                                                  \{}
+\DoxyCodeLine{25         \mbox{\hyperlink{classprop_1_1algorithms_1_1base_1_1_base_algorithm_test_ab4d05eecca67ac792f92ec0da550c3dc}{testEncode}}(algorithm);}
+\DoxyCodeLine{26         \mbox{\hyperlink{classprop_1_1algorithms_1_1base_1_1_base_algorithm_test_ab994fb4e101fef50feb92ca3bc95a2f4}{testDecode}}(algorithm);}
+\DoxyCodeLine{27     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1base_1_1_base_algorithm_test_ab994fb4e101fef50feb92ca3bc95a2f4}\label{classprop_1_1algorithms_1_1base_1_1_base_algorithm_test_ab994fb4e101fef50feb92ca3bc95a2f4}} 
+\index{prop.algorithms.base.BaseAlgorithmTest@{prop.algorithms.base.BaseAlgorithmTest}!testDecode@{testDecode}}
+\index{testDecode@{testDecode}!prop.algorithms.base.BaseAlgorithmTest@{prop.algorithms.base.BaseAlgorithmTest}}
+\doxysubsubsection{\texorpdfstring{testDecode()}{testDecode()}}
+{\footnotesize\ttfamily void prop.\+algorithms.\+base.\+Base\+Algorithm\+Test.\+test\+Decode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interfaceprop_1_1algorithms_1_1base_1_1_base_algorithm}{Base\+Algorithm}}}]{algorithm }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{41                                                        \{}
+\DoxyCodeLine{42         List<byte[]> inputs = \mbox{\hyperlink{classprop_1_1algorithms_1_1base_1_1_base_algorithm_test_a3e5cd49877298ac102709db40c46b0d9}{getInputs}}();}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44         \textcolor{keywordtype}{int}[] index = \{0\};}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46         \mbox{\hyperlink{classprop_1_1algorithms_1_1base_1_1_base_algorithm_test_a692c559f79ebb855bef4fecb338674d2}{getOutputs}}().forEach(i -\/> Assert.assertArrayEquals(}
+\DoxyCodeLine{47                 \textcolor{stringliteral}{"Decode iteration "} + index[0],}
+\DoxyCodeLine{48                 algorithm.decode(i),}
+\DoxyCodeLine{49                 inputs.get(index[0]++)));}
+\DoxyCodeLine{50     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1base_1_1_base_algorithm_test_ab4d05eecca67ac792f92ec0da550c3dc}\label{classprop_1_1algorithms_1_1base_1_1_base_algorithm_test_ab4d05eecca67ac792f92ec0da550c3dc}} 
+\index{prop.algorithms.base.BaseAlgorithmTest@{prop.algorithms.base.BaseAlgorithmTest}!testEncode@{testEncode}}
+\index{testEncode@{testEncode}!prop.algorithms.base.BaseAlgorithmTest@{prop.algorithms.base.BaseAlgorithmTest}}
+\doxysubsubsection{\texorpdfstring{testEncode()}{testEncode()}}
+{\footnotesize\ttfamily void prop.\+algorithms.\+base.\+Base\+Algorithm\+Test.\+test\+Encode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interfaceprop_1_1algorithms_1_1base_1_1_base_algorithm}{Base\+Algorithm}}}]{algorithm }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{29                                                        \{}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31         List<byte[]> outputs = \mbox{\hyperlink{classprop_1_1algorithms_1_1base_1_1_base_algorithm_test_a692c559f79ebb855bef4fecb338674d2}{getOutputs}}();}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33         \textcolor{keywordtype}{int}[] index = \{0\};}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35         \mbox{\hyperlink{classprop_1_1algorithms_1_1base_1_1_base_algorithm_test_a3e5cd49877298ac102709db40c46b0d9}{getInputs}}().forEach(i -\/> Assert.assertArrayEquals(}
+\DoxyCodeLine{36                 \textcolor{stringliteral}{"Encode iteration "} + index[0],}
+\DoxyCodeLine{37                 algorithm.encode(i),}
+\DoxyCodeLine{38                 outputs.get(index[0]++)));}
+\DoxyCodeLine{39     \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Victor/\+Desktop/sippy2/src/test/java/prop/algorithms/base/\mbox{\hyperlink{_base_algorithm_test_8java}{Base\+Algorithm\+Test.\+java}}\end{DoxyCompactItemize}

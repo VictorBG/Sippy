@@ -19,7 +19,7 @@ import prop.utils.FileUtils;
  *
  * @class FilesControllerImpl
  * @brief Implementació de la interficie FilesController usada per la lectura de fitxers del
- * sistema.
+ *     sistema.
  */
 public class FilesControllerImpl implements FilesController {
 
@@ -46,9 +46,10 @@ public class FilesControllerImpl implements FilesController {
   }
 
   /**
-   * Desplega la {@link FolderBO} amb tots els elements de la carpeta referenciada pel path que conté
-   * la carpeta. Llista tots els fitxers i per a cada fitxer retorna un {@link ItemBO} mitjançant
-   * {@link #getFile(String)}. Si hi ha una altra carpeta a dins, repetirà aquest procés recursivament.
+   * Desplega la {@link FolderBO} amb tots els elements de la carpeta referenciada pel path que
+   * conté la carpeta. Llista tots els fitxers i per a cada fitxer retorna un {@link ItemBO}
+   * mitjançant  {@link #getFile(String)}. Si hi ha una altra carpeta a dins, repetirà aquest
+   * procés recursivament.
    *
    * @param folderBO Item per desplegar.
    */

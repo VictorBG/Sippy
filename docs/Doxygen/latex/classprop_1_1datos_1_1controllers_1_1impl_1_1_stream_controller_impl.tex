@@ -1,0 +1,65 @@
+\hypertarget{classprop_1_1datos_1_1controllers_1_1impl_1_1_stream_controller_impl}{}\doxysection{prop.\+datos.\+controllers.\+impl.\+Stream\+Controller\+Impl Class Reference}
+\label{classprop_1_1datos_1_1controllers_1_1impl_1_1_stream_controller_impl}\index{prop.datos.controllers.impl.StreamControllerImpl@{prop.datos.controllers.impl.StreamControllerImpl}}
+
+
+Implementació de la interficie Stream\+Controller usada per obtenir els streams en les operaciones de zip i unzip.  
+
+
+
+
+Inherits \mbox{\hyperlink{interfaceprop_1_1datos_1_1controllers_1_1_stream_controller}{prop.\+datos.\+controllers.\+Stream\+Controller}}.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interfaceprop_1_1datos_1_1streams_1_1_zip_stream}{Zip\+Stream}} \mbox{\hyperlink{classprop_1_1datos_1_1controllers_1_1impl_1_1_stream_controller_impl_af4ad446fceda65ba0d646db1d3e8ac78}{get\+Zip\+Stream}} (String path, String output\+Path)  throws I\+O\+Exception 
+\item 
+\mbox{\hyperlink{interfaceprop_1_1datos_1_1streams_1_1_unzip_stream}{Unzip\+Stream}} \mbox{\hyperlink{classprop_1_1datos_1_1controllers_1_1impl_1_1_stream_controller_impl_a24096522530e8fdf1bd6829d9c67c659}{get\+Unzip\+Stream}} (String path, String output\+Path)  throws I\+O\+Exception 
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementació de la interficie Stream\+Controller usada per obtenir els streams en les operaciones de zip i unzip. 
+
+Author\+: Víctor Blanco 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classprop_1_1datos_1_1controllers_1_1impl_1_1_stream_controller_impl_a24096522530e8fdf1bd6829d9c67c659}\label{classprop_1_1datos_1_1controllers_1_1impl_1_1_stream_controller_impl_a24096522530e8fdf1bd6829d9c67c659}} 
+\index{prop.datos.controllers.impl.StreamControllerImpl@{prop.datos.controllers.impl.StreamControllerImpl}!getUnzipStream@{getUnzipStream}}
+\index{getUnzipStream@{getUnzipStream}!prop.datos.controllers.impl.StreamControllerImpl@{prop.datos.controllers.impl.StreamControllerImpl}}
+\doxysubsubsection{\texorpdfstring{getUnzipStream()}{getUnzipStream()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{interfaceprop_1_1datos_1_1streams_1_1_unzip_stream}{Unzip\+Stream}} prop.\+datos.\+controllers.\+impl.\+Stream\+Controller\+Impl.\+get\+Unzip\+Stream (\begin{DoxyParamCaption}\item[{String}]{path,  }\item[{String}]{output\+Path }\end{DoxyParamCaption}) throws I\+O\+Exception}
+
+
+
+Reimplemented from \mbox{\hyperlink{interfaceprop_1_1datos_1_1controllers_1_1_stream_controller_affe064241b283f0d7d34b9ca96ae7f08}{prop.\+datos.\+controllers.\+Stream\+Controller}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{23                                                                                        \{}
+\DoxyCodeLine{24     \textcolor{keywordflow}{return} \textcolor{keyword}{new} UnzipStreamImpl(path, outputPath);}
+\DoxyCodeLine{25   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1datos_1_1controllers_1_1impl_1_1_stream_controller_impl_af4ad446fceda65ba0d646db1d3e8ac78}\label{classprop_1_1datos_1_1controllers_1_1impl_1_1_stream_controller_impl_af4ad446fceda65ba0d646db1d3e8ac78}} 
+\index{prop.datos.controllers.impl.StreamControllerImpl@{prop.datos.controllers.impl.StreamControllerImpl}!getZipStream@{getZipStream}}
+\index{getZipStream@{getZipStream}!prop.datos.controllers.impl.StreamControllerImpl@{prop.datos.controllers.impl.StreamControllerImpl}}
+\doxysubsubsection{\texorpdfstring{getZipStream()}{getZipStream()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{interfaceprop_1_1datos_1_1streams_1_1_zip_stream}{Zip\+Stream}} prop.\+datos.\+controllers.\+impl.\+Stream\+Controller\+Impl.\+get\+Zip\+Stream (\begin{DoxyParamCaption}\item[{String}]{path,  }\item[{String}]{output\+Path }\end{DoxyParamCaption}) throws I\+O\+Exception}
+
+
+
+Reimplemented from \mbox{\hyperlink{interfaceprop_1_1datos_1_1controllers_1_1_stream_controller_af1c430f78163cc5a4cbf410850be2c67}{prop.\+datos.\+controllers.\+Stream\+Controller}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{19                                                                                    \{}
+\DoxyCodeLine{20     \textcolor{keywordflow}{return} \textcolor{keyword}{new} ZipStreamImpl(path, outputPath);}
+\DoxyCodeLine{21   \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Victor/\+Desktop/sippy2/src/main/java/prop/datos/controllers/impl/\mbox{\hyperlink{_stream_controller_impl_8java}{Stream\+Controller\+Impl.\+java}}\end{DoxyCompactItemize}

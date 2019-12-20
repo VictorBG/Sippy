@@ -1,0 +1,61 @@
+\hypertarget{interfaceprop_1_1datos_1_1streams_1_1_zip_stream}{}\doxysection{prop.\+datos.\+streams.\+Zip\+Stream Class Reference}
+\label{interfaceprop_1_1datos_1_1streams_1_1_zip_stream}\index{prop.datos.streams.ZipStream@{prop.datos.streams.ZipStream}}
+
+
+Interficie per a la clase Zip\+Stream.  
+
+
+
+
+Inherited by \mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1impl_1_1_zip_stream_impl}{prop.\+datos.\+streams.\+impl.\+Zip\+Stream\+Impl}}.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{interfaceprop_1_1datos_1_1streams_1_1_zip_stream_aaf4604c018ad0d915378bdf8a7feebd6}{compress\+File}} (String path, \mbox{\hyperlink{enumprop_1_1algorithms_1_1_algorithm}{Algorithm}} alg)  throws I\+O\+Exception
+\begin{DoxyCompactList}\small\item\em Afegeix un item al stream per a que sigui compress i guardar a l\textquotesingle{}arxiu de sortida. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{interfaceprop_1_1datos_1_1streams_1_1_zip_stream_a076a96c797b9153af72228a54e0e3acb}{get\+Total\+Size}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interficie per a la clase Zip\+Stream. 
+
+Author\+: Victor Blanco 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{interfaceprop_1_1datos_1_1streams_1_1_zip_stream_aaf4604c018ad0d915378bdf8a7feebd6}\label{interfaceprop_1_1datos_1_1streams_1_1_zip_stream_aaf4604c018ad0d915378bdf8a7feebd6}} 
+\index{prop.datos.streams.ZipStream@{prop.datos.streams.ZipStream}!compressFile@{compressFile}}
+\index{compressFile@{compressFile}!prop.datos.streams.ZipStream@{prop.datos.streams.ZipStream}}
+\doxysubsubsection{\texorpdfstring{compressFile()}{compressFile()}}
+{\footnotesize\ttfamily void prop.\+datos.\+streams.\+Zip\+Stream.\+compress\+File (\begin{DoxyParamCaption}\item[{String}]{path,  }\item[{\mbox{\hyperlink{enumprop_1_1algorithms_1_1_algorithm}{Algorithm}}}]{alg }\end{DoxyParamCaption}) throws I\+O\+Exception}
+
+
+
+Afegeix un item al stream per a que sigui compress i guardar a l\textquotesingle{}arxiu de sortida. 
+
+\begin{DoxyPrecond}{Precondition}
+itemc no nul 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+itemc compress i guardat a l\textquotesingle{}arxiu de sortida
+\end{DoxyPostcond}
+Adds a file to the output stream. It writes the neccessary header and then writes to the output stream after applying the compress method. 
+
+Reimplemented in \mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1impl_1_1_zip_stream_impl_a8c578c157e07dc304f6c5fbbc4e81946}{prop.\+datos.\+streams.\+impl.\+Zip\+Stream\+Impl}}.
+
+\mbox{\Hypertarget{interfaceprop_1_1datos_1_1streams_1_1_zip_stream_a076a96c797b9153af72228a54e0e3acb}\label{interfaceprop_1_1datos_1_1streams_1_1_zip_stream_a076a96c797b9153af72228a54e0e3acb}} 
+\index{prop.datos.streams.ZipStream@{prop.datos.streams.ZipStream}!getTotalSize@{getTotalSize}}
+\index{getTotalSize@{getTotalSize}!prop.datos.streams.ZipStream@{prop.datos.streams.ZipStream}}
+\doxysubsubsection{\texorpdfstring{getTotalSize()}{getTotalSize()}}
+{\footnotesize\ttfamily int prop.\+datos.\+streams.\+Zip\+Stream.\+get\+Total\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Reimplemented in \mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1impl_1_1_zip_stream_impl_a60c05464a8cb93d109e72e63c89ca447}{prop.\+datos.\+streams.\+impl.\+Zip\+Stream\+Impl}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Victor/\+Desktop/sippy2/src/main/java/prop/datos/streams/\mbox{\hyperlink{_zip_stream_8java}{Zip\+Stream.\+java}}\end{DoxyCompactItemize}

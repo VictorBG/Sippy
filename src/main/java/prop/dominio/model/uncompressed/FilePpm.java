@@ -15,8 +15,8 @@ public class FilePpm extends File {
   /**
    * @brief Constructora
    *
-   *     \pre path valid
-   *     \post Es crea una nova instancia de FilePpm amb el path indicat
+   * \pre path valid
+   *  \post Es crea una nova instancia de FilePpm amb el path indicat
    */
   public FilePpm(String path) {
     super(path);
@@ -25,8 +25,8 @@ public class FilePpm extends File {
   /**
    * @brief Mètode que retorna l’algorisme per defecte a l’hora de comprimir arxius ppm
    *
-   *     \pre Cert
-   *     \post Algorisme JPEG
+   * \pre Cert
+   *  \post Algorisme JPEG
    */
   @Override
   public Algorithm getDefaultAlgorithm() {
@@ -38,8 +38,8 @@ public class FilePpm extends File {
    *
    * @brief Retorna true nomès si l’algorisme indicat per parametre és el JPEG
    *
-   *     \pre Algorisme a comprovar
-   *     \post Retorna si l'algorisme està suportat
+   * \pre Algorisme a comprovar
+   *  \post Retorna si l'algorisme està suportat
    */
   @Override
   public boolean isAlgorithmSupported(Algorithm algorithm) {

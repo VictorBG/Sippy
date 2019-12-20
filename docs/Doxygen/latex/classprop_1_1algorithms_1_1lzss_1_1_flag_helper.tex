@@ -1,0 +1,159 @@
+\hypertarget{classprop_1_1algorithms_1_1lzss_1_1_flag_helper}{}\doxysection{prop.\+algorithms.\+lzss.\+Flag\+Helper Class Reference}
+\label{classprop_1_1algorithms_1_1lzss_1_1_flag_helper}\index{prop.algorithms.lzss.FlagHelper@{prop.algorithms.lzss.FlagHelper}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_flag_helper_aa0836e7a58e2589bb94eb46701e6d09a}{Flag\+Helper}} ()
+\item 
+\mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_flag_helper_a65b8aba24a0a3c1f925b343179ba9188}{Flag\+Helper}} (int num\+Flags, byte\mbox{[}$\,$\mbox{]} flag\+Array)
+\item 
+void \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_flag_helper_a81074b4128f6708b5da8dab4e4d118b8}{add\+Flag}} (boolean flag)
+\item 
+void \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_flag_helper_a030f2aa5253e98e1d660197a9973629b}{add\+Flag\+At}} (int pos, boolean flag)
+\item 
+boolean \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_flag_helper_a7266267912d6224a7318d1b4f91b2a88}{next}} ()
+\item 
+byte\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_flag_helper_a72394dd9870ce6861c49dda6fbac11eb}{to\+Byte\+Array}} ()
+\item 
+void \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_flag_helper_a1fcf2fcfb0a4de7f38d947ae50f3dc2b}{print}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Bit\+Set \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_flag_helper_afdda5bfffa1d222b536d7a75cb3a04e9}{flags}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_flag_helper_acb74f96e744fdd5d1c51ba52ababdbe5}{current\+\_\+flag}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Author\+: Miguel Angel Cabrera
+
+Auxiliary class for manage 1 bit flags of Encoded Strings and literals. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1lzss_1_1_flag_helper_aa0836e7a58e2589bb94eb46701e6d09a}\label{classprop_1_1algorithms_1_1lzss_1_1_flag_helper_aa0836e7a58e2589bb94eb46701e6d09a}} 
+\index{prop.algorithms.lzss.FlagHelper@{prop.algorithms.lzss.FlagHelper}!FlagHelper@{FlagHelper}}
+\index{FlagHelper@{FlagHelper}!prop.algorithms.lzss.FlagHelper@{prop.algorithms.lzss.FlagHelper}}
+\doxysubsubsection{\texorpdfstring{FlagHelper()}{FlagHelper()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily prop.\+algorithms.\+lzss.\+Flag\+Helper.\+Flag\+Helper (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{16                       \{}
+\DoxyCodeLine{17     \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_flag_helper_afdda5bfffa1d222b536d7a75cb3a04e9}{flags}} = \textcolor{keyword}{new} BitSet();}
+\DoxyCodeLine{18     \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_flag_helper_acb74f96e744fdd5d1c51ba52ababdbe5}{current\_flag}} = -\/1;}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1lzss_1_1_flag_helper_a65b8aba24a0a3c1f925b343179ba9188}\label{classprop_1_1algorithms_1_1lzss_1_1_flag_helper_a65b8aba24a0a3c1f925b343179ba9188}} 
+\index{prop.algorithms.lzss.FlagHelper@{prop.algorithms.lzss.FlagHelper}!FlagHelper@{FlagHelper}}
+\index{FlagHelper@{FlagHelper}!prop.algorithms.lzss.FlagHelper@{prop.algorithms.lzss.FlagHelper}}
+\doxysubsubsection{\texorpdfstring{FlagHelper()}{FlagHelper()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily prop.\+algorithms.\+lzss.\+Flag\+Helper.\+Flag\+Helper (\begin{DoxyParamCaption}\item[{int}]{num\+Flags,  }\item[{byte\mbox{[}$\,$\mbox{]}}]{flag\+Array }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{22                                                     \{}
+\DoxyCodeLine{23     \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_flag_helper_afdda5bfffa1d222b536d7a75cb3a04e9}{flags}} = BitSet.valueOf(flagArray);}
+\DoxyCodeLine{24     \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_flag_helper_acb74f96e744fdd5d1c51ba52ababdbe5}{current\_flag}} = -\/1;}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26   \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1lzss_1_1_flag_helper_a81074b4128f6708b5da8dab4e4d118b8}\label{classprop_1_1algorithms_1_1lzss_1_1_flag_helper_a81074b4128f6708b5da8dab4e4d118b8}} 
+\index{prop.algorithms.lzss.FlagHelper@{prop.algorithms.lzss.FlagHelper}!addFlag@{addFlag}}
+\index{addFlag@{addFlag}!prop.algorithms.lzss.FlagHelper@{prop.algorithms.lzss.FlagHelper}}
+\doxysubsubsection{\texorpdfstring{addFlag()}{addFlag()}}
+{\footnotesize\ttfamily void prop.\+algorithms.\+lzss.\+Flag\+Helper.\+add\+Flag (\begin{DoxyParamCaption}\item[{boolean}]{flag }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{28                                     \{}
+\DoxyCodeLine{29     \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_flag_helper_acb74f96e744fdd5d1c51ba52ababdbe5}{current\_flag}}++;}
+\DoxyCodeLine{30     \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_flag_helper_afdda5bfffa1d222b536d7a75cb3a04e9}{flags}}.set(\mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_flag_helper_acb74f96e744fdd5d1c51ba52ababdbe5}{current\_flag}}, flag);}
+\DoxyCodeLine{31   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1lzss_1_1_flag_helper_a030f2aa5253e98e1d660197a9973629b}\label{classprop_1_1algorithms_1_1lzss_1_1_flag_helper_a030f2aa5253e98e1d660197a9973629b}} 
+\index{prop.algorithms.lzss.FlagHelper@{prop.algorithms.lzss.FlagHelper}!addFlagAt@{addFlagAt}}
+\index{addFlagAt@{addFlagAt}!prop.algorithms.lzss.FlagHelper@{prop.algorithms.lzss.FlagHelper}}
+\doxysubsubsection{\texorpdfstring{addFlagAt()}{addFlagAt()}}
+{\footnotesize\ttfamily void prop.\+algorithms.\+lzss.\+Flag\+Helper.\+add\+Flag\+At (\begin{DoxyParamCaption}\item[{int}]{pos,  }\item[{boolean}]{flag }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{33                                                \{}
+\DoxyCodeLine{34     \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_flag_helper_afdda5bfffa1d222b536d7a75cb3a04e9}{flags}}.set(pos, flag);}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1lzss_1_1_flag_helper_a7266267912d6224a7318d1b4f91b2a88}\label{classprop_1_1algorithms_1_1lzss_1_1_flag_helper_a7266267912d6224a7318d1b4f91b2a88}} 
+\index{prop.algorithms.lzss.FlagHelper@{prop.algorithms.lzss.FlagHelper}!next@{next}}
+\index{next@{next}!prop.algorithms.lzss.FlagHelper@{prop.algorithms.lzss.FlagHelper}}
+\doxysubsubsection{\texorpdfstring{next()}{next()}}
+{\footnotesize\ttfamily boolean prop.\+algorithms.\+lzss.\+Flag\+Helper.\+next (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{38                         \{}
+\DoxyCodeLine{39     ++\mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_flag_helper_acb74f96e744fdd5d1c51ba52ababdbe5}{current\_flag}};}
+\DoxyCodeLine{40     \textcolor{keywordtype}{boolean} a = \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_flag_helper_afdda5bfffa1d222b536d7a75cb3a04e9}{flags}}.get(\mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_flag_helper_acb74f96e744fdd5d1c51ba52ababdbe5}{current\_flag}});}
+\DoxyCodeLine{41     \textcolor{keywordflow}{return} a;}
+\DoxyCodeLine{42   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1lzss_1_1_flag_helper_a1fcf2fcfb0a4de7f38d947ae50f3dc2b}\label{classprop_1_1algorithms_1_1lzss_1_1_flag_helper_a1fcf2fcfb0a4de7f38d947ae50f3dc2b}} 
+\index{prop.algorithms.lzss.FlagHelper@{prop.algorithms.lzss.FlagHelper}!print@{print}}
+\index{print@{print}!prop.algorithms.lzss.FlagHelper@{prop.algorithms.lzss.FlagHelper}}
+\doxysubsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily void prop.\+algorithms.\+lzss.\+Flag\+Helper.\+print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{48                       \{}
+\DoxyCodeLine{49       \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_flag_helper_afdda5bfffa1d222b536d7a75cb3a04e9}{flags}}.length(); i++) \{ System.out.println(\mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_flag_helper_afdda5bfffa1d222b536d7a75cb3a04e9}{flags}}.get(i)); \}}
+\DoxyCodeLine{50   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1lzss_1_1_flag_helper_a72394dd9870ce6861c49dda6fbac11eb}\label{classprop_1_1algorithms_1_1lzss_1_1_flag_helper_a72394dd9870ce6861c49dda6fbac11eb}} 
+\index{prop.algorithms.lzss.FlagHelper@{prop.algorithms.lzss.FlagHelper}!toByteArray@{toByteArray}}
+\index{toByteArray@{toByteArray}!prop.algorithms.lzss.FlagHelper@{prop.algorithms.lzss.FlagHelper}}
+\doxysubsubsection{\texorpdfstring{toByteArray()}{toByteArray()}}
+{\footnotesize\ttfamily byte \mbox{[}$\,$\mbox{]} prop.\+algorithms.\+lzss.\+Flag\+Helper.\+to\+Byte\+Array (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{44                               \{}
+\DoxyCodeLine{45     \textcolor{keywordflow}{return} \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_flag_helper_afdda5bfffa1d222b536d7a75cb3a04e9}{flags}}.toByteArray();}
+\DoxyCodeLine{46   \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1lzss_1_1_flag_helper_acb74f96e744fdd5d1c51ba52ababdbe5}\label{classprop_1_1algorithms_1_1lzss_1_1_flag_helper_acb74f96e744fdd5d1c51ba52ababdbe5}} 
+\index{prop.algorithms.lzss.FlagHelper@{prop.algorithms.lzss.FlagHelper}!current\_flag@{current\_flag}}
+\index{current\_flag@{current\_flag}!prop.algorithms.lzss.FlagHelper@{prop.algorithms.lzss.FlagHelper}}
+\doxysubsubsection{\texorpdfstring{current\_flag}{current\_flag}}
+{\footnotesize\ttfamily int prop.\+algorithms.\+lzss.\+Flag\+Helper.\+current\+\_\+flag\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1lzss_1_1_flag_helper_afdda5bfffa1d222b536d7a75cb3a04e9}\label{classprop_1_1algorithms_1_1lzss_1_1_flag_helper_afdda5bfffa1d222b536d7a75cb3a04e9}} 
+\index{prop.algorithms.lzss.FlagHelper@{prop.algorithms.lzss.FlagHelper}!flags@{flags}}
+\index{flags@{flags}!prop.algorithms.lzss.FlagHelper@{prop.algorithms.lzss.FlagHelper}}
+\doxysubsubsection{\texorpdfstring{flags}{flags}}
+{\footnotesize\ttfamily Bit\+Set prop.\+algorithms.\+lzss.\+Flag\+Helper.\+flags}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Victor/\+Desktop/sippy2/src/main/java/prop/algorithms/lzss/\mbox{\hyperlink{_flag_helper_8java}{Flag\+Helper.\+java}}\end{DoxyCompactItemize}

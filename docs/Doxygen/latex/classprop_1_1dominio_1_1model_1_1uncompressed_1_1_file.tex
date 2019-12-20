@@ -1,0 +1,167 @@
+\hypertarget{classprop_1_1dominio_1_1model_1_1uncompressed_1_1_file}{}\doxysection{prop.\+dominio.\+model.\+uncompressed.\+File Class Reference}
+\label{classprop_1_1dominio_1_1model_1_1uncompressed_1_1_file}\index{prop.dominio.model.uncompressed.File@{prop.dominio.model.uncompressed.File}}
+
+
+Classe del model per a mantenir l’informació dels item\+NC de tipus file.  
+
+
+
+
+Inherits \mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1_item_n_c}{prop.\+dominio.\+model.\+Item\+NC}}.
+
+
+
+Inherited by \mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1uncompressed_1_1_file_ppm}{prop.\+dominio.\+model.\+uncompressed.\+File\+Ppm}}, and \mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1uncompressed_1_1_file_txt}{prop.\+dominio.\+model.\+uncompressed.\+File\+Txt}}.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1uncompressed_1_1_file_a5e9a2ce9a3114434f417d143f25dcb55}{File}} (String \mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1_item_n_c_a500fa985a2c7d25bed4661bcaa93ea8e}{path}})
+\begin{DoxyCompactList}\small\item\em Constructora. \end{DoxyCompactList}\item 
+List$<$ \mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1uncompressed_1_1_file}{File}} $>$ \mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1uncompressed_1_1_file_a3e9add4b36b5cb4c34d364d63c8a6c36}{get\+Items}} ()
+\begin{DoxyCompactList}\small\item\em Operació abstracta que retorna els ítems. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{enumprop_1_1algorithms_1_1_algorithm}{Algorithm}} \mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1uncompressed_1_1_file_ad54dc59ace780fe6090c76fe2eed773c}{get\+Supported\+Algorithm}} (\mbox{\hyperlink{enumprop_1_1algorithms_1_1_algorithm}{Algorithm}} algorithm)
+\item 
+abstract \mbox{\hyperlink{enumprop_1_1algorithms_1_1_algorithm}{Algorithm}} \mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1uncompressed_1_1_file_a8f9432c411e724af89469acf66457da5}{get\+Default\+Algorithm}} ()
+\begin{DoxyCompactList}\small\item\em L\textquotesingle{}\mbox{\hyperlink{}{Algorithm}} necessari per comprimir l\textquotesingle{}ítem. \end{DoxyCompactList}\item 
+abstract boolean \mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1uncompressed_1_1_file_a21b87dd64de73e9128c96517e1cafb10}{is\+Algorithm\+Supported}} (\mbox{\hyperlink{enumprop_1_1algorithms_1_1_algorithm}{Algorithm}} algorithm)
+\begin{DoxyCompactList}\small\item\em Retorna si l\textquotesingle{}\{. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe del model per a mantenir l’informació dels item\+NC de tipus file. 
+
+Author\+: Victor Blanco 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classprop_1_1dominio_1_1model_1_1uncompressed_1_1_file_a5e9a2ce9a3114434f417d143f25dcb55}\label{classprop_1_1dominio_1_1model_1_1uncompressed_1_1_file_a5e9a2ce9a3114434f417d143f25dcb55}} 
+\index{prop.dominio.model.uncompressed.File@{prop.dominio.model.uncompressed.File}!File@{File}}
+\index{File@{File}!prop.dominio.model.uncompressed.File@{prop.dominio.model.uncompressed.File}}
+\doxysubsubsection{\texorpdfstring{File()}{File()}}
+{\footnotesize\ttfamily prop.\+dominio.\+model.\+uncompressed.\+File.\+File (\begin{DoxyParamCaption}\item[{String}]{path }\end{DoxyParamCaption})}
+
+
+
+Constructora. 
+
+\begin{DoxyPrecond}{Precondition}
+path vàlid 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Nova instància de File amb el path indicat 
+\end{DoxyPostcond}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{23                            \{}
+\DoxyCodeLine{24     super(\mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1_item_n_c_a500fa985a2c7d25bed4661bcaa93ea8e}{path}});}
+\DoxyCodeLine{25   \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classprop_1_1dominio_1_1model_1_1uncompressed_1_1_file_a8f9432c411e724af89469acf66457da5}\label{classprop_1_1dominio_1_1model_1_1uncompressed_1_1_file_a8f9432c411e724af89469acf66457da5}} 
+\index{prop.dominio.model.uncompressed.File@{prop.dominio.model.uncompressed.File}!getDefaultAlgorithm@{getDefaultAlgorithm}}
+\index{getDefaultAlgorithm@{getDefaultAlgorithm}!prop.dominio.model.uncompressed.File@{prop.dominio.model.uncompressed.File}}
+\doxysubsubsection{\texorpdfstring{getDefaultAlgorithm()}{getDefaultAlgorithm()}}
+{\footnotesize\ttfamily abstract \mbox{\hyperlink{enumprop_1_1algorithms_1_1_algorithm}{Algorithm}} prop.\+dominio.\+model.\+uncompressed.\+File.\+get\+Default\+Algorithm (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [abstract]}}
+
+
+
+L\textquotesingle{}\mbox{\hyperlink{}{Algorithm}} necessari per comprimir l\textquotesingle{}ítem. 
+
+\begin{DoxyPrecond}{Precondition}
+\+: Cert. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+\+: Retorna l\textquotesingle{}algorisme per defecte.
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+L\textquotesingle{}\mbox{\hyperlink{}{Algorithm}} per defecte. 
+\end{DoxyReturn}
+
+
+Reimplemented in \mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1uncompressed_1_1_file_txt_a5a3bef4a455332ff14c17466e1698edd}{prop.\+dominio.\+model.\+uncompressed.\+File\+Txt}}, and \mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1uncompressed_1_1_file_ppm_a5b1809dd210b1ca688a9dbcc94984fa7}{prop.\+dominio.\+model.\+uncompressed.\+File\+Ppm}}.
+
+\mbox{\Hypertarget{classprop_1_1dominio_1_1model_1_1uncompressed_1_1_file_a3e9add4b36b5cb4c34d364d63c8a6c36}\label{classprop_1_1dominio_1_1model_1_1uncompressed_1_1_file_a3e9add4b36b5cb4c34d364d63c8a6c36}} 
+\index{prop.dominio.model.uncompressed.File@{prop.dominio.model.uncompressed.File}!getItems@{getItems}}
+\index{getItems@{getItems}!prop.dominio.model.uncompressed.File@{prop.dominio.model.uncompressed.File}}
+\doxysubsubsection{\texorpdfstring{getItems()}{getItems()}}
+{\footnotesize\ttfamily List$<$\mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1uncompressed_1_1_file}{File}}$>$ prop.\+dominio.\+model.\+uncompressed.\+File.\+get\+Items (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Operació abstracta que retorna els ítems. 
+
+\begin{DoxyPrecond}{Precondition}
+cert 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Retorna una llista d\textquotesingle{}items 
+\end{DoxyPostcond}
+
+
+Reimplemented from \mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1_item_n_c_a2e05680703994d0b5ab8ce5daa85641b}{prop.\+dominio.\+model.\+Item\+NC}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{28                                \{}
+\DoxyCodeLine{29     \textcolor{keywordflow}{return} \textcolor{keyword}{new} ArrayList<File>() \{}
+\DoxyCodeLine{30       \{}
+\DoxyCodeLine{31         add(\mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1uncompressed_1_1_file_a5e9a2ce9a3114434f417d143f25dcb55}{File}}.this);}
+\DoxyCodeLine{32       \}}
+\DoxyCodeLine{33     \};}
+\DoxyCodeLine{34   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1dominio_1_1model_1_1uncompressed_1_1_file_ad54dc59ace780fe6090c76fe2eed773c}\label{classprop_1_1dominio_1_1model_1_1uncompressed_1_1_file_ad54dc59ace780fe6090c76fe2eed773c}} 
+\index{prop.dominio.model.uncompressed.File@{prop.dominio.model.uncompressed.File}!getSupportedAlgorithm@{getSupportedAlgorithm}}
+\index{getSupportedAlgorithm@{getSupportedAlgorithm}!prop.dominio.model.uncompressed.File@{prop.dominio.model.uncompressed.File}}
+\doxysubsubsection{\texorpdfstring{getSupportedAlgorithm()}{getSupportedAlgorithm()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{enumprop_1_1algorithms_1_1_algorithm}{Algorithm}} prop.\+dominio.\+model.\+uncompressed.\+File.\+get\+Supported\+Algorithm (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{enumprop_1_1algorithms_1_1_algorithm}{Algorithm}}}]{algorithm }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{36                                                               \{}
+\DoxyCodeLine{37     \textcolor{keywordflow}{return} \mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1uncompressed_1_1_file_a21b87dd64de73e9128c96517e1cafb10}{isAlgorithmSupported}}(algorithm) ? algorithm : \mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1uncompressed_1_1_file_a8f9432c411e724af89469acf66457da5}{getDefaultAlgorithm}}();}
+\DoxyCodeLine{38   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1dominio_1_1model_1_1uncompressed_1_1_file_a21b87dd64de73e9128c96517e1cafb10}\label{classprop_1_1dominio_1_1model_1_1uncompressed_1_1_file_a21b87dd64de73e9128c96517e1cafb10}} 
+\index{prop.dominio.model.uncompressed.File@{prop.dominio.model.uncompressed.File}!isAlgorithmSupported@{isAlgorithmSupported}}
+\index{isAlgorithmSupported@{isAlgorithmSupported}!prop.dominio.model.uncompressed.File@{prop.dominio.model.uncompressed.File}}
+\doxysubsubsection{\texorpdfstring{isAlgorithmSupported()}{isAlgorithmSupported()}}
+{\footnotesize\ttfamily abstract boolean prop.\+dominio.\+model.\+uncompressed.\+File.\+is\+Algorithm\+Supported (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{enumprop_1_1algorithms_1_1_algorithm}{Algorithm}}}]{algorithm }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [abstract]}}
+
+
+
+Retorna si l\textquotesingle{}\{. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em algorithm\}} & és admés o no pel tipus de fitxer. En cas de que \mbox{\hyperlink{enumprop_1_1algorithms_1_1_algorithm_a02ffa606dea60728451b7ec2f3494e7a}{Algorithm\#\+A\+U\+T\+O\+M\+A\+T\+IC}} sigui seleccionat, H\+A\+U\+R\+IA de retornar false.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+cert 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Si el fitxer accepta l\textquotesingle{}algorisme passat per parametre.
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em algorithm} & Algorisme per comprovar.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Si el fitxer accepta l\textquotesingle{}algorisme passat per parametre. 
+\end{DoxyReturn}
+
+
+Reimplemented in \mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1uncompressed_1_1_file_txt_a707bea634576583618527dcd208c7dcc}{prop.\+dominio.\+model.\+uncompressed.\+File\+Txt}}, and \mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1uncompressed_1_1_file_ppm_ac430d1c5d8ec359fd341162288cedeab}{prop.\+dominio.\+model.\+uncompressed.\+File\+Ppm}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Victor/\+Desktop/sippy2/src/main/java/prop/dominio/model/uncompressed/\mbox{\hyperlink{_file_8java}{File.\+java}}\end{DoxyCompactItemize}

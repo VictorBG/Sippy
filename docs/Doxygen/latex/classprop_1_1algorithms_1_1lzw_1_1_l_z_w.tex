@@ -1,0 +1,290 @@
+\hypertarget{classprop_1_1algorithms_1_1lzw_1_1_l_z_w}{}\doxysection{prop.\+algorithms.\+lzw.\+L\+ZW Class Reference}
+\label{classprop_1_1algorithms_1_1lzw_1_1_l_z_w}\index{prop.algorithms.lzw.LZW@{prop.algorithms.lzw.LZW}}
+
+
+Implementació de l\textquotesingle{}algorisme L\+ZW. No comprimeix arxius amb format ppm.  
+
+
+
+
+Inherits \mbox{\hyperlink{interfaceprop_1_1algorithms_1_1base_1_1_base_algorithm}{prop.\+algorithms.\+base.\+Base\+Algorithm}}.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+byte\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classprop_1_1algorithms_1_1lzw_1_1_l_z_w_ae690d5803d30935d63ce197866c6ffb0}{encode}} (byte\mbox{[}$\,$\mbox{]} data)
+\item 
+byte\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classprop_1_1algorithms_1_1lzw_1_1_l_z_w_a852bc02ae364576e4405dcbb209fc125}{decode}} (final byte\mbox{[}$\,$\mbox{]} input)
+\item 
+int \mbox{\hyperlink{classprop_1_1algorithms_1_1lzw_1_1_l_z_w_a184086ccf5cb75ac99839e6913c6cb0d}{get\+Value}} (byte b1, byte b2, boolean onleft)
+\item 
+\mbox{\hyperlink{enumprop_1_1algorithms_1_1_algorithm}{Algorithm}} \mbox{\hyperlink{classprop_1_1algorithms_1_1lzw_1_1_l_z_w_a11a75e31f912f5b987618a427692445e}{get\+Algorithm\+Used}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+char \mbox{\hyperlink{classprop_1_1algorithms_1_1lzw_1_1_l_z_w_ae5cef80ef96080f0e927d8b7ec0b9cab}{get\+Char}} (byte\mbox{[}$\,$\mbox{]} data, int pos)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Byte\+Array\+Output\+Stream \mbox{\hyperlink{classprop_1_1algorithms_1_1lzw_1_1_l_z_w_a092f9d95573537ede71b8fde0d2c2b59}{array\+Output\+Stream}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementació de l\textquotesingle{}algorisme L\+ZW. No comprimeix arxius amb format ppm. 
+
+Author\+: Sergio Vazquez 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1lzw_1_1_l_z_w_a852bc02ae364576e4405dcbb209fc125}\label{classprop_1_1algorithms_1_1lzw_1_1_l_z_w_a852bc02ae364576e4405dcbb209fc125}} 
+\index{prop.algorithms.lzw.LZW@{prop.algorithms.lzw.LZW}!decode@{decode}}
+\index{decode@{decode}!prop.algorithms.lzw.LZW@{prop.algorithms.lzw.LZW}}
+\doxysubsubsection{\texorpdfstring{decode()}{decode()}}
+{\footnotesize\ttfamily byte \mbox{[}$\,$\mbox{]} prop.\+algorithms.\+lzw.\+L\+Z\+W.\+decode (\begin{DoxyParamCaption}\item[{final byte\mbox{[}$\,$\mbox{]}}]{input }\end{DoxyParamCaption})}
+
+
+
+Reimplemented from \mbox{\hyperlink{interfaceprop_1_1algorithms_1_1base_1_1_base_algorithm_a4b78a5d0b4071b52dfec14f1243edb3a}{prop.\+algorithms.\+base.\+Base\+Algorithm}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{104                                            \{}
+\DoxyCodeLine{105     HashMap<Integer, String> dictionary = \textcolor{keyword}{new} HashMap<>();}
+\DoxyCodeLine{106     \mbox{\hyperlink{classprop_1_1algorithms_1_1lzw_1_1_l_z_w_a092f9d95573537ede71b8fde0d2c2b59}{arrayOutputStream}} = \textcolor{keyword}{new} ByteArrayOutputStream();}
+\DoxyCodeLine{107     \textcolor{keywordtype}{int} currentValue;}
+\DoxyCodeLine{108     \textcolor{keywordtype}{int} lastValue;}
+\DoxyCodeLine{109     \textcolor{keywordtype}{byte}[] buffer = \textcolor{keyword}{new} \textcolor{keywordtype}{byte}[3];}
+\DoxyCodeLine{110     \textcolor{keywordtype}{boolean} lowerBits = \textcolor{keyword}{false};}
+\DoxyCodeLine{111 }
+\DoxyCodeLine{112     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < 256; i++) \{}
+\DoxyCodeLine{113       dictionary.put(i, Character.toString((\textcolor{keywordtype}{char}) i));}
+\DoxyCodeLine{114     \}}
+\DoxyCodeLine{115     buffer[0] = input[0];}
+\DoxyCodeLine{116     buffer[1] = input[1];}
+\DoxyCodeLine{117     lastValue = \mbox{\hyperlink{classprop_1_1algorithms_1_1lzw_1_1_l_z_w_a184086ccf5cb75ac99839e6913c6cb0d}{getValue}}(buffer[0], buffer[1], \textcolor{keyword}{true});}
+\DoxyCodeLine{118     String s = dictionary.get(lastValue);}
+\DoxyCodeLine{119     \textcolor{keywordtype}{byte}[] aux = s.getBytes();}
+\DoxyCodeLine{120     \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{121       \mbox{\hyperlink{classprop_1_1algorithms_1_1lzw_1_1_l_z_w_a092f9d95573537ede71b8fde0d2c2b59}{arrayOutputStream}}.write(aux);}
+\DoxyCodeLine{122     \} \textcolor{keywordflow}{catch} (IOException e) \{}
+\DoxyCodeLine{123       e.printStackTrace();}
+\DoxyCodeLine{124     \}}
+\DoxyCodeLine{125     \textcolor{comment}{// Reads 3 bytes and decode}}
+\DoxyCodeLine{126     \textcolor{keywordtype}{int} j = 2;}
+\DoxyCodeLine{127     \textcolor{keywordflow}{while} (j < input.length) \{}
+\DoxyCodeLine{128       \textcolor{keywordflow}{if} (lowerBits) \{}
+\DoxyCodeLine{129         buffer[0] = input[j++];}
+\DoxyCodeLine{130         buffer[1] = input[j++];}
+\DoxyCodeLine{131         currentValue = \mbox{\hyperlink{classprop_1_1algorithms_1_1lzw_1_1_l_z_w_a184086ccf5cb75ac99839e6913c6cb0d}{getValue}}(buffer[0], buffer[1], \textcolor{keyword}{true});}
+\DoxyCodeLine{132       \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{133         buffer[2] = input[j++];}
+\DoxyCodeLine{134         currentValue = \mbox{\hyperlink{classprop_1_1algorithms_1_1lzw_1_1_l_z_w_a184086ccf5cb75ac99839e6913c6cb0d}{getValue}}(buffer[1], buffer[2], \textcolor{keyword}{false});}
+\DoxyCodeLine{135       \}}
+\DoxyCodeLine{136       lowerBits = !lowerBits;}
+\DoxyCodeLine{137 }
+\DoxyCodeLine{138       \textcolor{keywordflow}{if} (currentValue >= dictionary.size()) \{}
+\DoxyCodeLine{139         s = dictionary.get(lastValue) + dictionary.get(lastValue).charAt(0);}
+\DoxyCodeLine{140         \textcolor{keywordflow}{if} (dictionary.size() < 4096) \{}
+\DoxyCodeLine{141           dictionary.put(dictionary.size(), s);}
+\DoxyCodeLine{142         \}}
+\DoxyCodeLine{143         \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{144           \mbox{\hyperlink{classprop_1_1algorithms_1_1lzw_1_1_l_z_w_a092f9d95573537ede71b8fde0d2c2b59}{arrayOutputStream}}.write(s.getBytes());}
+\DoxyCodeLine{145         \} \textcolor{keywordflow}{catch} (IOException e) \{}
+\DoxyCodeLine{146           e.printStackTrace();}
+\DoxyCodeLine{147         \}}
+\DoxyCodeLine{148       \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{149         s = dictionary.get(currentValue);}
+\DoxyCodeLine{150         \textcolor{keywordflow}{if} (dictionary.size() < 4096) \{}
+\DoxyCodeLine{151           dictionary.put(dictionary.size(), dictionary.get(lastValue) + s.charAt(0));}
+\DoxyCodeLine{152         \}}
+\DoxyCodeLine{153         \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{154           \mbox{\hyperlink{classprop_1_1algorithms_1_1lzw_1_1_l_z_w_a092f9d95573537ede71b8fde0d2c2b59}{arrayOutputStream}}.write(s.getBytes());}
+\DoxyCodeLine{155         \} \textcolor{keywordflow}{catch} (IOException e) \{}
+\DoxyCodeLine{156           e.printStackTrace();}
+\DoxyCodeLine{157         \}}
+\DoxyCodeLine{158       \}}
+\DoxyCodeLine{159       lastValue = currentValue;}
+\DoxyCodeLine{160     \}}
+\DoxyCodeLine{161 }
+\DoxyCodeLine{162     \textcolor{keywordflow}{return} \mbox{\hyperlink{classprop_1_1algorithms_1_1lzw_1_1_l_z_w_a092f9d95573537ede71b8fde0d2c2b59}{arrayOutputStream}}.toByteArray();}
+\DoxyCodeLine{163   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1lzw_1_1_l_z_w_ae690d5803d30935d63ce197866c6ffb0}\label{classprop_1_1algorithms_1_1lzw_1_1_l_z_w_ae690d5803d30935d63ce197866c6ffb0}} 
+\index{prop.algorithms.lzw.LZW@{prop.algorithms.lzw.LZW}!encode@{encode}}
+\index{encode@{encode}!prop.algorithms.lzw.LZW@{prop.algorithms.lzw.LZW}}
+\doxysubsubsection{\texorpdfstring{encode()}{encode()}}
+{\footnotesize\ttfamily byte \mbox{[}$\,$\mbox{]} prop.\+algorithms.\+lzw.\+L\+Z\+W.\+encode (\begin{DoxyParamCaption}\item[{byte\mbox{[}$\,$\mbox{]}}]{data }\end{DoxyParamCaption})}
+
+
+
+Reimplemented from \mbox{\hyperlink{interfaceprop_1_1algorithms_1_1base_1_1_base_algorithm_a6de2a6d1d1a020b915162f8ba11e9b58}{prop.\+algorithms.\+base.\+Base\+Algorithm}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{21                                     \{}
+\DoxyCodeLine{22     \mbox{\hyperlink{classprop_1_1algorithms_1_1lzw_1_1_l_z_w_a092f9d95573537ede71b8fde0d2c2b59}{arrayOutputStream}} = \textcolor{keyword}{new} ByteArrayOutputStream();}
+\DoxyCodeLine{23     HashMap<String, Integer> dictionary = \textcolor{keyword}{new} HashMap<>();}
+\DoxyCodeLine{24     \textcolor{keywordtype}{int} dictSize = 256;}
+\DoxyCodeLine{25     \textcolor{keywordtype}{int} j = 0;}
+\DoxyCodeLine{26     String stringBuilder = \textcolor{stringliteral}{""};}
+\DoxyCodeLine{27     \textcolor{keywordtype}{char} character = \mbox{\hyperlink{classprop_1_1algorithms_1_1lzw_1_1_l_z_w_ae5cef80ef96080f0e927d8b7ec0b9cab}{getChar}}(data, j++);}
+\DoxyCodeLine{28     \textcolor{keywordtype}{byte}[] buffer = \textcolor{keyword}{new} \textcolor{keywordtype}{byte}[3];}
+\DoxyCodeLine{29     \textcolor{keywordtype}{boolean} lowerBits = \textcolor{keyword}{true};}
+\DoxyCodeLine{30     \textcolor{comment}{//Here we construct the dictionary with all ASCII characters}}
+\DoxyCodeLine{31     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < 256; i++) \{}
+\DoxyCodeLine{32       dictionary.put(Character.toString((\textcolor{keywordtype}{char}) i), i);}
+\DoxyCodeLine{33     \}}
+\DoxyCodeLine{34     stringBuilder = \textcolor{stringliteral}{""} + character;}
+\DoxyCodeLine{35     \textcolor{comment}{//Loop that iterates through all the data vector}}
+\DoxyCodeLine{36     \textcolor{keywordflow}{while} (j < data.length) \{}
+\DoxyCodeLine{37       character = \mbox{\hyperlink{classprop_1_1algorithms_1_1lzw_1_1_l_z_w_ae5cef80ef96080f0e927d8b7ec0b9cab}{getChar}}(data, j++);}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39       \textcolor{keywordflow}{if} (!dictionary.containsKey(stringBuilder + character)) \{}
+\DoxyCodeLine{40         \textcolor{keywordtype}{int} position = dictionary.get(stringBuilder);}
+\DoxyCodeLine{41         \textcolor{comment}{//This boolean indicates when we have to write in the lower part of the buffer}}
+\DoxyCodeLine{42         \textcolor{keywordflow}{if} (lowerBits) \{}
+\DoxyCodeLine{43           \textcolor{comment}{//Takes the 12 bits of position}}
+\DoxyCodeLine{44           buffer[0] = (byte) (position \& 0xff);}
+\DoxyCodeLine{45           buffer[1] = (byte) ((position >> 8) << 4);}
+\DoxyCodeLine{46         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{47           \textcolor{comment}{//Takes the 12 bits of position}}
+\DoxyCodeLine{48           buffer[1] += (byte) (position \& 0xf);}
+\DoxyCodeLine{49           buffer[2] = (byte) (position >> 4);}
+\DoxyCodeLine{50           \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{51             \mbox{\hyperlink{classprop_1_1algorithms_1_1lzw_1_1_l_z_w_a092f9d95573537ede71b8fde0d2c2b59}{arrayOutputStream}}.write(buffer);}
+\DoxyCodeLine{52           \} \textcolor{keywordflow}{catch} (IOException e) \{}
+\DoxyCodeLine{53             e.printStackTrace();}
+\DoxyCodeLine{54           \}}
+\DoxyCodeLine{55           Arrays.fill(buffer, (\textcolor{keywordtype}{byte}) 0);}
+\DoxyCodeLine{56         \}}
+\DoxyCodeLine{57         lowerBits = !lowerBits;}
+\DoxyCodeLine{58         \textcolor{keywordflow}{if} (dictSize < 4096) \{}
+\DoxyCodeLine{59           dictionary.put(stringBuilder + character, dictSize++);}
+\DoxyCodeLine{60         \}}
+\DoxyCodeLine{61         stringBuilder = \textcolor{stringliteral}{""} + character;}
+\DoxyCodeLine{62       \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{63         stringBuilder = stringBuilder + character;}
+\DoxyCodeLine{64       \}}
+\DoxyCodeLine{65     \}}
+\DoxyCodeLine{66     \textcolor{keywordtype}{int} compressed = dictionary.get(stringBuilder);}
+\DoxyCodeLine{67     \textcolor{keywordflow}{if} (lowerBits) \{}
+\DoxyCodeLine{68       buffer[0] = (byte) (compressed \& 0xff);}
+\DoxyCodeLine{69       buffer[1] = (byte) ((compressed >> 8) << 4);}
+\DoxyCodeLine{70       \mbox{\hyperlink{classprop_1_1algorithms_1_1lzw_1_1_l_z_w_a092f9d95573537ede71b8fde0d2c2b59}{arrayOutputStream}}.write(buffer[0]);}
+\DoxyCodeLine{71       \mbox{\hyperlink{classprop_1_1algorithms_1_1lzw_1_1_l_z_w_a092f9d95573537ede71b8fde0d2c2b59}{arrayOutputStream}}.write(buffer[1]);}
+\DoxyCodeLine{72     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{73       buffer[1] += (byte) (compressed \& 0xf);}
+\DoxyCodeLine{74       buffer[2] = (byte) (compressed >> 4);}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76       \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{77         \mbox{\hyperlink{classprop_1_1algorithms_1_1lzw_1_1_l_z_w_a092f9d95573537ede71b8fde0d2c2b59}{arrayOutputStream}}.write(buffer);}
+\DoxyCodeLine{78       \} \textcolor{keywordflow}{catch} (IOException e) \{}
+\DoxyCodeLine{79         e.printStackTrace();}
+\DoxyCodeLine{80       \}}
+\DoxyCodeLine{81     \}}
+\DoxyCodeLine{82     \textcolor{keywordflow}{return} \mbox{\hyperlink{classprop_1_1algorithms_1_1lzw_1_1_l_z_w_a092f9d95573537ede71b8fde0d2c2b59}{arrayOutputStream}}.toByteArray();}
+\DoxyCodeLine{83   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1lzw_1_1_l_z_w_a11a75e31f912f5b987618a427692445e}\label{classprop_1_1algorithms_1_1lzw_1_1_l_z_w_a11a75e31f912f5b987618a427692445e}} 
+\index{prop.algorithms.lzw.LZW@{prop.algorithms.lzw.LZW}!getAlgorithmUsed@{getAlgorithmUsed}}
+\index{getAlgorithmUsed@{getAlgorithmUsed}!prop.algorithms.lzw.LZW@{prop.algorithms.lzw.LZW}}
+\doxysubsubsection{\texorpdfstring{getAlgorithmUsed()}{getAlgorithmUsed()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{enumprop_1_1algorithms_1_1_algorithm}{Algorithm}} prop.\+algorithms.\+lzw.\+L\+Z\+W.\+get\+Algorithm\+Used (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Retorna l\textquotesingle{}agorisme utilitzat; és útil per algorismes variables (aquells que poden ser escollits envers altres), per algorismes simples, només els retorna.
+
+\begin{DoxyReturn}{Returns}
+Algorisme utilitzat. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{interfaceprop_1_1algorithms_1_1base_1_1_base_algorithm_a0a806b0337fbf6c1c2c2d9da22f9729d}{prop.\+algorithms.\+base.\+Base\+Algorithm}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{185                                       \{}
+\DoxyCodeLine{186     \textcolor{keywordflow}{return} Algorithm.LZW;}
+\DoxyCodeLine{187   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1lzw_1_1_l_z_w_ae5cef80ef96080f0e927d8b7ec0b9cab}\label{classprop_1_1algorithms_1_1lzw_1_1_l_z_w_ae5cef80ef96080f0e927d8b7ec0b9cab}} 
+\index{prop.algorithms.lzw.LZW@{prop.algorithms.lzw.LZW}!getChar@{getChar}}
+\index{getChar@{getChar}!prop.algorithms.lzw.LZW@{prop.algorithms.lzw.LZW}}
+\doxysubsubsection{\texorpdfstring{getChar()}{getChar()}}
+{\footnotesize\ttfamily char prop.\+algorithms.\+lzw.\+L\+Z\+W.\+get\+Char (\begin{DoxyParamCaption}\item[{byte\mbox{[}$\,$\mbox{]}}]{data,  }\item[{int}]{pos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Converteix 8 bits a 12 bits.
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Array de bytes \\
+\hline
+{\em pos} & Posició dins de l\textquotesingle{}array de la qual volem obtenir un char per inserir al diccionari\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ Valor en format String de l\textquotesingle{}integer en 12 bits 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{93                                              \{}
+\DoxyCodeLine{94     \textcolor{keywordtype}{byte} b = data[pos];}
+\DoxyCodeLine{95     \textcolor{keywordtype}{int} i = \textcolor{keyword}{new} Byte(b).intValue();}
+\DoxyCodeLine{96     \textcolor{keywordflow}{if} (i < 0) \{}
+\DoxyCodeLine{97       i += 256;}
+\DoxyCodeLine{98     \}}
+\DoxyCodeLine{99     \textcolor{keywordflow}{return} (\textcolor{keywordtype}{char}) i;}
+\DoxyCodeLine{100   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1lzw_1_1_l_z_w_a184086ccf5cb75ac99839e6913c6cb0d}\label{classprop_1_1algorithms_1_1lzw_1_1_l_z_w_a184086ccf5cb75ac99839e6913c6cb0d}} 
+\index{prop.algorithms.lzw.LZW@{prop.algorithms.lzw.LZW}!getValue@{getValue}}
+\index{getValue@{getValue}!prop.algorithms.lzw.LZW@{prop.algorithms.lzw.LZW}}
+\doxysubsubsection{\texorpdfstring{getValue()}{getValue()}}
+{\footnotesize\ttfamily int prop.\+algorithms.\+lzw.\+L\+Z\+W.\+get\+Value (\begin{DoxyParamCaption}\item[{byte}]{b1,  }\item[{byte}]{b2,  }\item[{boolean}]{onleft }\end{DoxyParamCaption})}
+
+Estreu la key de 12 bits dels 2 bytes i obté el valor de la key en format integer.
+
+
+\begin{DoxyParams}{Parameters}
+{\em b1} & -\/ Primer byte \\
+\hline
+{\em b2} & -\/ Segon byte \\
+\hline
+{\em onleft} & -\/ True si està a l\textquotesingle{}esquerra, false altrament.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Integer que conté el valor de la key. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{174                                                         \{}
+\DoxyCodeLine{175     \textcolor{keywordtype}{int} value;}
+\DoxyCodeLine{176     \textcolor{keywordflow}{if} (onleft) \{}
+\DoxyCodeLine{177       value = ((int) b1 \& 0xFF) + ((((int) b2 \& 0xFF) >> 4) << 8);}
+\DoxyCodeLine{178     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{179       value = ((int) b1 \& 0xF) + (((int) b2 \& 0xFF) << 4);}
+\DoxyCodeLine{180     \}}
+\DoxyCodeLine{181     \textcolor{keywordflow}{return} value;}
+\DoxyCodeLine{182   \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1lzw_1_1_l_z_w_a092f9d95573537ede71b8fde0d2c2b59}\label{classprop_1_1algorithms_1_1lzw_1_1_l_z_w_a092f9d95573537ede71b8fde0d2c2b59}} 
+\index{prop.algorithms.lzw.LZW@{prop.algorithms.lzw.LZW}!arrayOutputStream@{arrayOutputStream}}
+\index{arrayOutputStream@{arrayOutputStream}!prop.algorithms.lzw.LZW@{prop.algorithms.lzw.LZW}}
+\doxysubsubsection{\texorpdfstring{arrayOutputStream}{arrayOutputStream}}
+{\footnotesize\ttfamily Byte\+Array\+Output\+Stream prop.\+algorithms.\+lzw.\+L\+Z\+W.\+array\+Output\+Stream\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Victor/\+Desktop/sippy2/src/main/java/prop/algorithms/lzw/\mbox{\hyperlink{_l_z_w_8java}{L\+Z\+W.\+java}}\end{DoxyCompactItemize}

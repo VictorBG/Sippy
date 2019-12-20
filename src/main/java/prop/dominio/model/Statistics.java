@@ -5,7 +5,6 @@ package prop.dominio.model;
  *
  * @class Statistics
  * @brief Statistics for the zip and unzip operation
- *
  */
 public class Statistics {
 
@@ -23,7 +22,7 @@ public class Statistics {
   /**
    * @brief Atura el contador de temps al acabar la compressio/descompressio
    * \pre cert
-   * \post atura el contador de temps
+   *  \post atura el contador de temps
    */
   public void stopTimer() {
     elapsedTime = System.currentTimeMillis() - initialTime;

@@ -18,8 +18,8 @@ public class FileUtils {
 
   /**
    * @brief Llegeix un arxiu d'un path especific i el retorna com a vector de bytes
-   *     \pre file existeix
-   *     \post Retorna la file en forma de vector de bytes
+   * \pre file existeix
+   *  \post Retorna la file en forma de vector de bytes
    */
   public static byte[] readFile(File file) throws IOException {
     return Files.readAllBytes(file.toPath());
@@ -27,8 +27,8 @@ public class FileUtils {
 
   /**
    * @brief Cambia l'extensio de l'arxiu passat al path per l'extensió del aparametre
-   *     \pre path i extensio correctes
-   *     \post Es retorna el nou path amb la nova extensió
+   * \pre path i extensio correctes
+   *  \post Es retorna el nou path amb la nova extensió
    */
   public static String changeExtension(String path, String extension) {
     File file = new File(path);
@@ -41,8 +41,8 @@ public class FileUtils {
 
   /**
    * @brief Retorna la extensió del path passat per parametre
-   *     \pre path correcte
-   *     \post Extensio del path
+   * \pre path correcte
+   *  \post Extensio del path
    */
   public static String getFileExtension(String path) {
     int lastIndexOf = path.lastIndexOf(".");

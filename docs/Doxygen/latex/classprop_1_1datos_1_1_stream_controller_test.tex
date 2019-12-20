@@ -1,0 +1,180 @@
+\hypertarget{classprop_1_1datos_1_1_stream_controller_test}{}\doxysection{prop.\+datos.\+Stream\+Controller\+Test Class Reference}
+\label{classprop_1_1datos_1_1_stream_controller_test}\index{prop.datos.StreamControllerTest@{prop.datos.StreamControllerTest}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classprop_1_1datos_1_1_stream_controller_test_a9f1f849bc3ca8cb3de87b8579df17371}{set\+Up}} ()  throws Exception 
+\item 
+void \mbox{\hyperlink{classprop_1_1datos_1_1_stream_controller_test_a821b9559a4b7ba80295e8806d472e34e}{tear\+Down}} ()  throws Exception 
+\item 
+void \mbox{\hyperlink{classprop_1_1datos_1_1_stream_controller_test_a604fad7c55cef4c4a855c6609ab29773}{get\+Zip\+Stream}} ()  throws I\+O\+Exception 
+\item 
+void \mbox{\hyperlink{classprop_1_1datos_1_1_stream_controller_test_ab89ff1e81809187146735ff5b2bb38f1}{get\+Unzip\+Stream}} ()  throws I\+O\+Exception 
+\item 
+void \mbox{\hyperlink{classprop_1_1datos_1_1_stream_controller_test_ab0cc14ebe7faa9870c8fefe4ab835a2a}{get\+Unzip\+Stream\+With\+Invalid\+Extension}} ()  throws I\+O\+Exception 
+\item 
+void \mbox{\hyperlink{classprop_1_1datos_1_1_stream_controller_test_aef32e59e3710bc5295df43cc577bbed7}{get\+Unzip\+Stream\+With\+Invalid\+Path}} ()  throws I\+O\+Exception 
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Temporary\+Folder \mbox{\hyperlink{classprop_1_1datos_1_1_stream_controller_test_ad5169f090f33b6988526a4675b77406c}{test\+Folder}} = new Temporary\+Folder()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+final \mbox{\hyperlink{interfaceprop_1_1datos_1_1controllers_1_1_stream_controller}{Stream\+Controller}} \mbox{\hyperlink{classprop_1_1datos_1_1_stream_controller_test_a9738b450964762d6aae41540d9974b73}{stream\+Controller}} = \mbox{\hyperlink{classprop_1_1datos_1_1_data_factory_a887dbfdca7c39adc97ed22f92722f314}{Data\+Factory.\+get\+Instance}}().get\+Stream\+Controller()
+\item 
+File \mbox{\hyperlink{classprop_1_1datos_1_1_stream_controller_test_a96c111759ef56040c1f30f01e6a1e2ef}{file1}}
+\item 
+File \mbox{\hyperlink{classprop_1_1datos_1_1_stream_controller_test_a86234612ae3807ba3f46b526add28c0b}{file2}}
+\item 
+File \mbox{\hyperlink{classprop_1_1datos_1_1_stream_controller_test_a3cd441bdab034aa63073405ae3cfe090}{file3}}
+\item 
+File \mbox{\hyperlink{classprop_1_1datos_1_1_stream_controller_test_a5a00a693b5689a44d940486dc7e66366}{file4}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classprop_1_1datos_1_1_stream_controller_test_ab89ff1e81809187146735ff5b2bb38f1}\label{classprop_1_1datos_1_1_stream_controller_test_ab89ff1e81809187146735ff5b2bb38f1}} 
+\index{prop.datos.StreamControllerTest@{prop.datos.StreamControllerTest}!getUnzipStream@{getUnzipStream}}
+\index{getUnzipStream@{getUnzipStream}!prop.datos.StreamControllerTest@{prop.datos.StreamControllerTest}}
+\doxysubsubsection{\texorpdfstring{getUnzipStream()}{getUnzipStream()}}
+{\footnotesize\ttfamily void prop.\+datos.\+Stream\+Controller\+Test.\+get\+Unzip\+Stream (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws I\+O\+Exception}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{65                                                   \{}
+\DoxyCodeLine{66     UnzipStream unzipStream = \mbox{\hyperlink{classprop_1_1datos_1_1_stream_controller_test_a9738b450964762d6aae41540d9974b73}{streamController}}.\mbox{\hyperlink{interfaceprop_1_1datos_1_1controllers_1_1_stream_controller_affe064241b283f0d7d34b9ca96ae7f08}{getUnzipStream}}(\mbox{\hyperlink{classprop_1_1datos_1_1_stream_controller_test_a3cd441bdab034aa63073405ae3cfe090}{file3}}.getAbsolutePath(),}
+\DoxyCodeLine{67         \mbox{\hyperlink{classprop_1_1datos_1_1_stream_controller_test_ad5169f090f33b6988526a4675b77406c}{testFolder}}.getRoot().getPath());}
+\DoxyCodeLine{68     assertNotNull(unzipStream);}
+\DoxyCodeLine{69     assertNotEquals(unzipStream,}
+\DoxyCodeLine{70         \mbox{\hyperlink{classprop_1_1datos_1_1_stream_controller_test_a9738b450964762d6aae41540d9974b73}{streamController}}.\mbox{\hyperlink{interfaceprop_1_1datos_1_1controllers_1_1_stream_controller_affe064241b283f0d7d34b9ca96ae7f08}{getUnzipStream}}(\mbox{\hyperlink{classprop_1_1datos_1_1_stream_controller_test_a5a00a693b5689a44d940486dc7e66366}{file4}}.getAbsolutePath(), \mbox{\hyperlink{classprop_1_1datos_1_1_stream_controller_test_ad5169f090f33b6988526a4675b77406c}{testFolder}}.getRoot().getPath()));}
+\DoxyCodeLine{71   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1datos_1_1_stream_controller_test_ab0cc14ebe7faa9870c8fefe4ab835a2a}\label{classprop_1_1datos_1_1_stream_controller_test_ab0cc14ebe7faa9870c8fefe4ab835a2a}} 
+\index{prop.datos.StreamControllerTest@{prop.datos.StreamControllerTest}!getUnzipStreamWithInvalidExtension@{getUnzipStreamWithInvalidExtension}}
+\index{getUnzipStreamWithInvalidExtension@{getUnzipStreamWithInvalidExtension}!prop.datos.StreamControllerTest@{prop.datos.StreamControllerTest}}
+\doxysubsubsection{\texorpdfstring{getUnzipStreamWithInvalidExtension()}{getUnzipStreamWithInvalidExtension()}}
+{\footnotesize\ttfamily void prop.\+datos.\+Stream\+Controller\+Test.\+get\+Unzip\+Stream\+With\+Invalid\+Extension (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws I\+O\+Exception}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{74                                                                       \{}
+\DoxyCodeLine{75     \mbox{\hyperlink{classprop_1_1datos_1_1_stream_controller_test_a9738b450964762d6aae41540d9974b73}{streamController}}.\mbox{\hyperlink{interfaceprop_1_1datos_1_1controllers_1_1_stream_controller_affe064241b283f0d7d34b9ca96ae7f08}{getUnzipStream}}(\textcolor{stringliteral}{"./a.txt"}, \mbox{\hyperlink{classprop_1_1datos_1_1_stream_controller_test_ad5169f090f33b6988526a4675b77406c}{testFolder}}.getRoot().getPath());}
+\DoxyCodeLine{76   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1datos_1_1_stream_controller_test_aef32e59e3710bc5295df43cc577bbed7}\label{classprop_1_1datos_1_1_stream_controller_test_aef32e59e3710bc5295df43cc577bbed7}} 
+\index{prop.datos.StreamControllerTest@{prop.datos.StreamControllerTest}!getUnzipStreamWithInvalidPath@{getUnzipStreamWithInvalidPath}}
+\index{getUnzipStreamWithInvalidPath@{getUnzipStreamWithInvalidPath}!prop.datos.StreamControllerTest@{prop.datos.StreamControllerTest}}
+\doxysubsubsection{\texorpdfstring{getUnzipStreamWithInvalidPath()}{getUnzipStreamWithInvalidPath()}}
+{\footnotesize\ttfamily void prop.\+datos.\+Stream\+Controller\+Test.\+get\+Unzip\+Stream\+With\+Invalid\+Path (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws I\+O\+Exception}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{79                                                                  \{}
+\DoxyCodeLine{80     \mbox{\hyperlink{classprop_1_1datos_1_1_stream_controller_test_a9738b450964762d6aae41540d9974b73}{streamController}}.\mbox{\hyperlink{interfaceprop_1_1datos_1_1controllers_1_1_stream_controller_affe064241b283f0d7d34b9ca96ae7f08}{getUnzipStream}}(\textcolor{stringliteral}{"./c.sippy"}, \mbox{\hyperlink{classprop_1_1datos_1_1_stream_controller_test_ad5169f090f33b6988526a4675b77406c}{testFolder}}.getRoot().getPath());}
+\DoxyCodeLine{81   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1datos_1_1_stream_controller_test_a604fad7c55cef4c4a855c6609ab29773}\label{classprop_1_1datos_1_1_stream_controller_test_a604fad7c55cef4c4a855c6609ab29773}} 
+\index{prop.datos.StreamControllerTest@{prop.datos.StreamControllerTest}!getZipStream@{getZipStream}}
+\index{getZipStream@{getZipStream}!prop.datos.StreamControllerTest@{prop.datos.StreamControllerTest}}
+\doxysubsubsection{\texorpdfstring{getZipStream()}{getZipStream()}}
+{\footnotesize\ttfamily void prop.\+datos.\+Stream\+Controller\+Test.\+get\+Zip\+Stream (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws I\+O\+Exception}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{56                                                 \{}
+\DoxyCodeLine{57     ZipStream zipStream = \mbox{\hyperlink{classprop_1_1datos_1_1_stream_controller_test_a9738b450964762d6aae41540d9974b73}{streamController}}}
+\DoxyCodeLine{58         .\mbox{\hyperlink{interfaceprop_1_1datos_1_1controllers_1_1_stream_controller_af1c430f78163cc5a4cbf410850be2c67}{getZipStream}}(\mbox{\hyperlink{classprop_1_1datos_1_1_stream_controller_test_a96c111759ef56040c1f30f01e6a1e2ef}{file1}}.getAbsolutePath(), \mbox{\hyperlink{classprop_1_1datos_1_1_stream_controller_test_a96c111759ef56040c1f30f01e6a1e2ef}{file1}}.getAbsolutePath());}
+\DoxyCodeLine{59     assertNotNull(zipStream);}
+\DoxyCodeLine{60     assertNotEquals(zipStream,}
+\DoxyCodeLine{61         \mbox{\hyperlink{classprop_1_1datos_1_1_stream_controller_test_a9738b450964762d6aae41540d9974b73}{streamController}}.\mbox{\hyperlink{interfaceprop_1_1datos_1_1controllers_1_1_stream_controller_af1c430f78163cc5a4cbf410850be2c67}{getZipStream}}(\mbox{\hyperlink{classprop_1_1datos_1_1_stream_controller_test_a86234612ae3807ba3f46b526add28c0b}{file2}}.getAbsolutePath(), \mbox{\hyperlink{classprop_1_1datos_1_1_stream_controller_test_a86234612ae3807ba3f46b526add28c0b}{file2}}.getAbsolutePath()));}
+\DoxyCodeLine{62   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1datos_1_1_stream_controller_test_a9f1f849bc3ca8cb3de87b8579df17371}\label{classprop_1_1datos_1_1_stream_controller_test_a9f1f849bc3ca8cb3de87b8579df17371}} 
+\index{prop.datos.StreamControllerTest@{prop.datos.StreamControllerTest}!setUp@{setUp}}
+\index{setUp@{setUp}!prop.datos.StreamControllerTest@{prop.datos.StreamControllerTest}}
+\doxysubsubsection{\texorpdfstring{setUp()}{setUp()}}
+{\footnotesize\ttfamily void prop.\+datos.\+Stream\+Controller\+Test.\+set\+Up (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws Exception}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{34                                        \{}
+\DoxyCodeLine{35     \mbox{\hyperlink{classprop_1_1datos_1_1_stream_controller_test_ad5169f090f33b6988526a4675b77406c}{testFolder}}.create();}
+\DoxyCodeLine{36     \mbox{\hyperlink{classprop_1_1datos_1_1_stream_controller_test_a96c111759ef56040c1f30f01e6a1e2ef}{file1}} = \mbox{\hyperlink{classprop_1_1datos_1_1_stream_controller_test_ad5169f090f33b6988526a4675b77406c}{testFolder}}.newFile(\textcolor{stringliteral}{"a.txt"});}
+\DoxyCodeLine{37     \mbox{\hyperlink{classprop_1_1datos_1_1_stream_controller_test_a86234612ae3807ba3f46b526add28c0b}{file2}} = \mbox{\hyperlink{classprop_1_1datos_1_1_stream_controller_test_ad5169f090f33b6988526a4675b77406c}{testFolder}}.newFile(\textcolor{stringliteral}{"b.txt"});}
+\DoxyCodeLine{38     \mbox{\hyperlink{classprop_1_1datos_1_1_stream_controller_test_a3cd441bdab034aa63073405ae3cfe090}{file3}} = \mbox{\hyperlink{classprop_1_1datos_1_1_stream_controller_test_ad5169f090f33b6988526a4675b77406c}{testFolder}}.newFile(\textcolor{stringliteral}{"a.sippy"});}
+\DoxyCodeLine{39     \mbox{\hyperlink{classprop_1_1datos_1_1_stream_controller_test_a5a00a693b5689a44d940486dc7e66366}{file4}} = \mbox{\hyperlink{classprop_1_1datos_1_1_stream_controller_test_ad5169f090f33b6988526a4675b77406c}{testFolder}}.newFile(\textcolor{stringliteral}{"b.sippy"});}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41     DataOutputStream dos = \textcolor{keyword}{new} DataOutputStream(\textcolor{keyword}{new} FileOutputStream(\mbox{\hyperlink{classprop_1_1datos_1_1_stream_controller_test_a3cd441bdab034aa63073405ae3cfe090}{file3}}));}
+\DoxyCodeLine{42     dos.writeByte(0b0);}
+\DoxyCodeLine{43     dos.close();}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45     DataOutputStream dos2 = \textcolor{keyword}{new} DataOutputStream(\textcolor{keyword}{new} FileOutputStream(\mbox{\hyperlink{classprop_1_1datos_1_1_stream_controller_test_a5a00a693b5689a44d940486dc7e66366}{file4}}));}
+\DoxyCodeLine{46     dos2.writeByte(0b0);}
+\DoxyCodeLine{47     dos2.close();}
+\DoxyCodeLine{48   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1datos_1_1_stream_controller_test_a821b9559a4b7ba80295e8806d472e34e}\label{classprop_1_1datos_1_1_stream_controller_test_a821b9559a4b7ba80295e8806d472e34e}} 
+\index{prop.datos.StreamControllerTest@{prop.datos.StreamControllerTest}!tearDown@{tearDown}}
+\index{tearDown@{tearDown}!prop.datos.StreamControllerTest@{prop.datos.StreamControllerTest}}
+\doxysubsubsection{\texorpdfstring{tearDown()}{tearDown()}}
+{\footnotesize\ttfamily void prop.\+datos.\+Stream\+Controller\+Test.\+tear\+Down (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws Exception}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{51                                           \{}
+\DoxyCodeLine{52     \mbox{\hyperlink{classprop_1_1datos_1_1_stream_controller_test_ad5169f090f33b6988526a4675b77406c}{testFolder}}.delete();}
+\DoxyCodeLine{53   \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classprop_1_1datos_1_1_stream_controller_test_a96c111759ef56040c1f30f01e6a1e2ef}\label{classprop_1_1datos_1_1_stream_controller_test_a96c111759ef56040c1f30f01e6a1e2ef}} 
+\index{prop.datos.StreamControllerTest@{prop.datos.StreamControllerTest}!file1@{file1}}
+\index{file1@{file1}!prop.datos.StreamControllerTest@{prop.datos.StreamControllerTest}}
+\doxysubsubsection{\texorpdfstring{file1}{file1}}
+{\footnotesize\ttfamily File prop.\+datos.\+Stream\+Controller\+Test.\+file1\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classprop_1_1datos_1_1_stream_controller_test_a86234612ae3807ba3f46b526add28c0b}\label{classprop_1_1datos_1_1_stream_controller_test_a86234612ae3807ba3f46b526add28c0b}} 
+\index{prop.datos.StreamControllerTest@{prop.datos.StreamControllerTest}!file2@{file2}}
+\index{file2@{file2}!prop.datos.StreamControllerTest@{prop.datos.StreamControllerTest}}
+\doxysubsubsection{\texorpdfstring{file2}{file2}}
+{\footnotesize\ttfamily File prop.\+datos.\+Stream\+Controller\+Test.\+file2\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classprop_1_1datos_1_1_stream_controller_test_a3cd441bdab034aa63073405ae3cfe090}\label{classprop_1_1datos_1_1_stream_controller_test_a3cd441bdab034aa63073405ae3cfe090}} 
+\index{prop.datos.StreamControllerTest@{prop.datos.StreamControllerTest}!file3@{file3}}
+\index{file3@{file3}!prop.datos.StreamControllerTest@{prop.datos.StreamControllerTest}}
+\doxysubsubsection{\texorpdfstring{file3}{file3}}
+{\footnotesize\ttfamily File prop.\+datos.\+Stream\+Controller\+Test.\+file3\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classprop_1_1datos_1_1_stream_controller_test_a5a00a693b5689a44d940486dc7e66366}\label{classprop_1_1datos_1_1_stream_controller_test_a5a00a693b5689a44d940486dc7e66366}} 
+\index{prop.datos.StreamControllerTest@{prop.datos.StreamControllerTest}!file4@{file4}}
+\index{file4@{file4}!prop.datos.StreamControllerTest@{prop.datos.StreamControllerTest}}
+\doxysubsubsection{\texorpdfstring{file4}{file4}}
+{\footnotesize\ttfamily File prop.\+datos.\+Stream\+Controller\+Test.\+file4\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classprop_1_1datos_1_1_stream_controller_test_a9738b450964762d6aae41540d9974b73}\label{classprop_1_1datos_1_1_stream_controller_test_a9738b450964762d6aae41540d9974b73}} 
+\index{prop.datos.StreamControllerTest@{prop.datos.StreamControllerTest}!streamController@{streamController}}
+\index{streamController@{streamController}!prop.datos.StreamControllerTest@{prop.datos.StreamControllerTest}}
+\doxysubsubsection{\texorpdfstring{streamController}{streamController}}
+{\footnotesize\ttfamily final \mbox{\hyperlink{interfaceprop_1_1datos_1_1controllers_1_1_stream_controller}{Stream\+Controller}} prop.\+datos.\+Stream\+Controller\+Test.\+stream\+Controller = \mbox{\hyperlink{classprop_1_1datos_1_1_data_factory_a887dbfdca7c39adc97ed22f92722f314}{Data\+Factory.\+get\+Instance}}().get\+Stream\+Controller()\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classprop_1_1datos_1_1_stream_controller_test_ad5169f090f33b6988526a4675b77406c}\label{classprop_1_1datos_1_1_stream_controller_test_ad5169f090f33b6988526a4675b77406c}} 
+\index{prop.datos.StreamControllerTest@{prop.datos.StreamControllerTest}!testFolder@{testFolder}}
+\index{testFolder@{testFolder}!prop.datos.StreamControllerTest@{prop.datos.StreamControllerTest}}
+\doxysubsubsection{\texorpdfstring{testFolder}{testFolder}}
+{\footnotesize\ttfamily Temporary\+Folder prop.\+datos.\+Stream\+Controller\+Test.\+test\+Folder = new Temporary\+Folder()}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Victor/\+Desktop/sippy2/src/test/java/prop/datos/\mbox{\hyperlink{_stream_controller_test_8java}{Stream\+Controller\+Test.\+java}}\end{DoxyCompactItemize}

@@ -1,0 +1,142 @@
+\hypertarget{classprop_1_1algorithms_1_1lzss_1_1_encoded_string}{}\doxysection{prop.\+algorithms.\+lzss.\+Encoded\+String Class Reference}
+\label{classprop_1_1algorithms_1_1lzss_1_1_encoded_string}\index{prop.algorithms.lzss.EncodedString@{prop.algorithms.lzss.EncodedString}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_encoded_string_a5d4853e0c594ba8cef400c94fbaed343}{Encoded\+String}} ()
+\item 
+void \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_encoded_string_a652232989d2205dd392ec8f4c7e63c8d}{print}} ()
+\item 
+int \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_encoded_string_a09c790652de2f614d5ffa6f54c211ce5}{get\+Offset}} ()
+\item 
+int \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_encoded_string_aa5d284da70fd474b80c2a777afbc00b1}{get\+Length}} ()
+\item 
+void \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_encoded_string_abaa84b6095b6591857dc9181830e54b7}{set\+Offset}} (short offset)
+\item 
+void \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_encoded_string_a11f5dbf3647b7e6d51ab82896c1264d2}{set\+Length}} (short length)
+\item 
+void \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_encoded_string_af44bea2c6adfb6561f07a91924458796}{increment\+Length\+By\+One}} ()
+\item 
+void \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_encoded_string_a43ec77b4b1c18a418cd4c29f8d61615f}{decrement\+Length\+By\+One}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Author\+: Miguel Angel Cabrera
+
+Class represents an encoded token 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1lzss_1_1_encoded_string_a5d4853e0c594ba8cef400c94fbaed343}\label{classprop_1_1algorithms_1_1lzss_1_1_encoded_string_a5d4853e0c594ba8cef400c94fbaed343}} 
+\index{prop.algorithms.lzss.EncodedString@{prop.algorithms.lzss.EncodedString}!EncodedString@{EncodedString}}
+\index{EncodedString@{EncodedString}!prop.algorithms.lzss.EncodedString@{prop.algorithms.lzss.EncodedString}}
+\doxysubsubsection{\texorpdfstring{EncodedString()}{EncodedString()}}
+{\footnotesize\ttfamily prop.\+algorithms.\+lzss.\+Encoded\+String.\+Encoded\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{13                          \{}
+\DoxyCodeLine{14     offset = 0;}
+\DoxyCodeLine{15     length = 0;}
+\DoxyCodeLine{16   \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1lzss_1_1_encoded_string_a43ec77b4b1c18a418cd4c29f8d61615f}\label{classprop_1_1algorithms_1_1lzss_1_1_encoded_string_a43ec77b4b1c18a418cd4c29f8d61615f}} 
+\index{prop.algorithms.lzss.EncodedString@{prop.algorithms.lzss.EncodedString}!decrementLengthByOne@{decrementLengthByOne}}
+\index{decrementLengthByOne@{decrementLengthByOne}!prop.algorithms.lzss.EncodedString@{prop.algorithms.lzss.EncodedString}}
+\doxysubsubsection{\texorpdfstring{decrementLengthByOne()}{decrementLengthByOne()}}
+{\footnotesize\ttfamily void prop.\+algorithms.\+lzss.\+Encoded\+String.\+decrement\+Length\+By\+One (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{42                                      \{}
+\DoxyCodeLine{43     length-\/-\/;}
+\DoxyCodeLine{44   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1lzss_1_1_encoded_string_aa5d284da70fd474b80c2a777afbc00b1}\label{classprop_1_1algorithms_1_1lzss_1_1_encoded_string_aa5d284da70fd474b80c2a777afbc00b1}} 
+\index{prop.algorithms.lzss.EncodedString@{prop.algorithms.lzss.EncodedString}!getLength@{getLength}}
+\index{getLength@{getLength}!prop.algorithms.lzss.EncodedString@{prop.algorithms.lzss.EncodedString}}
+\doxysubsubsection{\texorpdfstring{getLength()}{getLength()}}
+{\footnotesize\ttfamily int prop.\+algorithms.\+lzss.\+Encoded\+String.\+get\+Length (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{26                          \{}
+\DoxyCodeLine{27     \textcolor{keywordflow}{return} length;}
+\DoxyCodeLine{28   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1lzss_1_1_encoded_string_a09c790652de2f614d5ffa6f54c211ce5}\label{classprop_1_1algorithms_1_1lzss_1_1_encoded_string_a09c790652de2f614d5ffa6f54c211ce5}} 
+\index{prop.algorithms.lzss.EncodedString@{prop.algorithms.lzss.EncodedString}!getOffset@{getOffset}}
+\index{getOffset@{getOffset}!prop.algorithms.lzss.EncodedString@{prop.algorithms.lzss.EncodedString}}
+\doxysubsubsection{\texorpdfstring{getOffset()}{getOffset()}}
+{\footnotesize\ttfamily int prop.\+algorithms.\+lzss.\+Encoded\+String.\+get\+Offset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{22                          \{}
+\DoxyCodeLine{23     \textcolor{keywordflow}{return} offset;}
+\DoxyCodeLine{24   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1lzss_1_1_encoded_string_af44bea2c6adfb6561f07a91924458796}\label{classprop_1_1algorithms_1_1lzss_1_1_encoded_string_af44bea2c6adfb6561f07a91924458796}} 
+\index{prop.algorithms.lzss.EncodedString@{prop.algorithms.lzss.EncodedString}!incrementLengthByOne@{incrementLengthByOne}}
+\index{incrementLengthByOne@{incrementLengthByOne}!prop.algorithms.lzss.EncodedString@{prop.algorithms.lzss.EncodedString}}
+\doxysubsubsection{\texorpdfstring{incrementLengthByOne()}{incrementLengthByOne()}}
+{\footnotesize\ttfamily void prop.\+algorithms.\+lzss.\+Encoded\+String.\+increment\+Length\+By\+One (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{38                                      \{}
+\DoxyCodeLine{39     length++;}
+\DoxyCodeLine{40   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1lzss_1_1_encoded_string_a652232989d2205dd392ec8f4c7e63c8d}\label{classprop_1_1algorithms_1_1lzss_1_1_encoded_string_a652232989d2205dd392ec8f4c7e63c8d}} 
+\index{prop.algorithms.lzss.EncodedString@{prop.algorithms.lzss.EncodedString}!print@{print}}
+\index{print@{print}!prop.algorithms.lzss.EncodedString@{prop.algorithms.lzss.EncodedString}}
+\doxysubsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily void prop.\+algorithms.\+lzss.\+Encoded\+String.\+print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{18                       \{}
+\DoxyCodeLine{19     System.out.printf(\textcolor{stringliteral}{"<\%d,\%d>"}, offset, length);}
+\DoxyCodeLine{20   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1lzss_1_1_encoded_string_a11f5dbf3647b7e6d51ab82896c1264d2}\label{classprop_1_1algorithms_1_1lzss_1_1_encoded_string_a11f5dbf3647b7e6d51ab82896c1264d2}} 
+\index{prop.algorithms.lzss.EncodedString@{prop.algorithms.lzss.EncodedString}!setLength@{setLength}}
+\index{setLength@{setLength}!prop.algorithms.lzss.EncodedString@{prop.algorithms.lzss.EncodedString}}
+\doxysubsubsection{\texorpdfstring{setLength()}{setLength()}}
+{\footnotesize\ttfamily void prop.\+algorithms.\+lzss.\+Encoded\+String.\+set\+Length (\begin{DoxyParamCaption}\item[{short}]{length }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{34                                       \{}
+\DoxyCodeLine{35     this.length = length;}
+\DoxyCodeLine{36   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1lzss_1_1_encoded_string_abaa84b6095b6591857dc9181830e54b7}\label{classprop_1_1algorithms_1_1lzss_1_1_encoded_string_abaa84b6095b6591857dc9181830e54b7}} 
+\index{prop.algorithms.lzss.EncodedString@{prop.algorithms.lzss.EncodedString}!setOffset@{setOffset}}
+\index{setOffset@{setOffset}!prop.algorithms.lzss.EncodedString@{prop.algorithms.lzss.EncodedString}}
+\doxysubsubsection{\texorpdfstring{setOffset()}{setOffset()}}
+{\footnotesize\ttfamily void prop.\+algorithms.\+lzss.\+Encoded\+String.\+set\+Offset (\begin{DoxyParamCaption}\item[{short}]{offset }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{30                                       \{}
+\DoxyCodeLine{31     this.offset = offset;}
+\DoxyCodeLine{32   \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Victor/\+Desktop/sippy2/src/main/java/prop/algorithms/lzss/\mbox{\hyperlink{_encoded_string_8java}{Encoded\+String.\+java}}\end{DoxyCompactItemize}

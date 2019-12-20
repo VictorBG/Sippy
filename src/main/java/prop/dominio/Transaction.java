@@ -7,7 +7,6 @@ import java.io.IOException;
  *
  * @class Transaction
  * @brief Transaction model.
- *
  */
 public abstract class Transaction<Output> {
 

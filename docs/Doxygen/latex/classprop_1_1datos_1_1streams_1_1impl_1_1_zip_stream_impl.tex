@@ -1,0 +1,195 @@
+\hypertarget{classprop_1_1datos_1_1streams_1_1impl_1_1_zip_stream_impl}{}\doxysection{prop.\+datos.\+streams.\+impl.\+Zip\+Stream\+Impl Class Reference}
+\label{classprop_1_1datos_1_1streams_1_1impl_1_1_zip_stream_impl}\index{prop.datos.streams.impl.ZipStreamImpl@{prop.datos.streams.impl.ZipStreamImpl}}
+
+
+Inherits \mbox{\hyperlink{interfaceprop_1_1datos_1_1streams_1_1_zip_stream}{prop.\+datos.\+streams.\+Zip\+Stream}}.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1impl_1_1_zip_stream_impl_a24e8e36f2519d0ef488ac84e3a2df6f2}{Zip\+Stream\+Impl}} (String input\+File\+Path, String output\+Path)  throws I\+O\+Exception 
+\begin{DoxyCompactList}\small\item\em Constructora. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1impl_1_1_zip_stream_impl_a8c578c157e07dc304f6c5fbbc4e81946}{compress\+File}} (String path, \mbox{\hyperlink{enumprop_1_1algorithms_1_1_algorithm}{Algorithm}} alg)  throws I\+O\+Exception 
+\begin{DoxyCompactList}\small\item\em Afegeix un item al stream per a que sigui compress i guardar a l\textquotesingle{}arxiu de sortida. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1impl_1_1_zip_stream_impl_a60c05464a8cb93d109e72e63c89ca447}{get\+Total\+Size}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+File \mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1impl_1_1_zip_stream_impl_ac32d471d43a9395fe332488c98956bb1}{create\+Sippy\+File}} (String path)  throws I\+O\+Exception 
+\begin{DoxyCompactList}\small\item\em Crea l\textquotesingle{}arxiu identificat pel path i si no és de tipus sippy, el renombra. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1impl_1_1_zip_stream_impl_ad4dd2a2e75f9262e801ae125b76eb77d}{total\+Size}}
+\item 
+String \mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1impl_1_1_zip_stream_impl_a7977667c55600e9cb619d36546978f24}{base\+Path}}
+\item 
+Data\+Output\+Stream \mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1impl_1_1_zip_stream_impl_ada09e8cdb9ca0b38b0308c854f1097a2}{dos}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classprop_1_1datos_1_1streams_1_1impl_1_1_zip_stream_impl_a24e8e36f2519d0ef488ac84e3a2df6f2}\label{classprop_1_1datos_1_1streams_1_1impl_1_1_zip_stream_impl_a24e8e36f2519d0ef488ac84e3a2df6f2}} 
+\index{prop.datos.streams.impl.ZipStreamImpl@{prop.datos.streams.impl.ZipStreamImpl}!ZipStreamImpl@{ZipStreamImpl}}
+\index{ZipStreamImpl@{ZipStreamImpl}!prop.datos.streams.impl.ZipStreamImpl@{prop.datos.streams.impl.ZipStreamImpl}}
+\doxysubsubsection{\texorpdfstring{ZipStreamImpl()}{ZipStreamImpl()}}
+{\footnotesize\ttfamily prop.\+datos.\+streams.\+impl.\+Zip\+Stream\+Impl.\+Zip\+Stream\+Impl (\begin{DoxyParamCaption}\item[{String}]{input\+File\+Path,  }\item[{String}]{output\+Path }\end{DoxyParamCaption}) throws I\+O\+Exception}
+
+
+
+Constructora. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input\+File\+Path} & Path d\textquotesingle{}entrada \\
+\hline
+{\em output\+Path} & Path de sortida\\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+cert 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Crea una instancia de Zip\+Stream\+Impl i crea un arxiu d\textquotesingle{}extensió sippy on escriure els arxius comprimits 
+\end{DoxyPostcond}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{69                                                                                    \{}
+\DoxyCodeLine{70     File outputFile = \mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1impl_1_1_zip_stream_impl_ac32d471d43a9395fe332488c98956bb1}{createSippyFile}}(outputPath);}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72     File inputFile = \textcolor{keyword}{new} File(inputFilePath);}
+\DoxyCodeLine{73     this.\mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1impl_1_1_zip_stream_impl_a7977667c55600e9cb619d36546978f24}{basePath}} = inputFile.getAbsolutePath().replace(inputFile.getName(), \textcolor{stringliteral}{""});}
+\DoxyCodeLine{74     this.\mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1impl_1_1_zip_stream_impl_ad4dd2a2e75f9262e801ae125b76eb77d}{totalSize}} = 0;}
+\DoxyCodeLine{75     this.\mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1impl_1_1_zip_stream_impl_ada09e8cdb9ca0b38b0308c854f1097a2}{dos}} = \textcolor{keyword}{new} DataOutputStream(\textcolor{keyword}{new} FileOutputStream(outputFile));}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77     this.\mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1impl_1_1_zip_stream_impl_ada09e8cdb9ca0b38b0308c854f1097a2}{dos}}.writeByte(inputFile.isDirectory() ? 0b0 : 0b1);}
+\DoxyCodeLine{78   \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classprop_1_1datos_1_1streams_1_1impl_1_1_zip_stream_impl_a8c578c157e07dc304f6c5fbbc4e81946}\label{classprop_1_1datos_1_1streams_1_1impl_1_1_zip_stream_impl_a8c578c157e07dc304f6c5fbbc4e81946}} 
+\index{prop.datos.streams.impl.ZipStreamImpl@{prop.datos.streams.impl.ZipStreamImpl}!compressFile@{compressFile}}
+\index{compressFile@{compressFile}!prop.datos.streams.impl.ZipStreamImpl@{prop.datos.streams.impl.ZipStreamImpl}}
+\doxysubsubsection{\texorpdfstring{compressFile()}{compressFile()}}
+{\footnotesize\ttfamily void prop.\+datos.\+streams.\+impl.\+Zip\+Stream\+Impl.\+compress\+File (\begin{DoxyParamCaption}\item[{String}]{path,  }\item[{\mbox{\hyperlink{enumprop_1_1algorithms_1_1_algorithm}{Algorithm}}}]{alg }\end{DoxyParamCaption}) throws I\+O\+Exception}
+
+
+
+Afegeix un item al stream per a que sigui compress i guardar a l\textquotesingle{}arxiu de sortida. 
+
+\begin{DoxyPrecond}{Precondition}
+itemc no nul 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+itemc compress i guardat a l\textquotesingle{}arxiu de sortida
+\end{DoxyPostcond}
+Adds a file to the output stream. It writes the neccessary header and then writes to the output stream after applying the compress method. 
+
+Reimplemented from \mbox{\hyperlink{interfaceprop_1_1datos_1_1streams_1_1_zip_stream_aaf4604c018ad0d915378bdf8a7feebd6}{prop.\+datos.\+streams.\+Zip\+Stream}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{100                                                                           \{}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{102     File file = \textcolor{keyword}{new} File(path);}
+\DoxyCodeLine{103     String name = file.getAbsolutePath().replace(\mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1impl_1_1_zip_stream_impl_a7977667c55600e9cb619d36546978f24}{basePath}}, \textcolor{stringliteral}{""});}
+\DoxyCodeLine{104     \textcolor{keywordtype}{int} nameSize = name.length();}
+\DoxyCodeLine{105 }
+\DoxyCodeLine{106     BaseAlgorithm algorithm = alg.getAlgorithm();}
+\DoxyCodeLine{107     \textcolor{keywordtype}{byte}[] data = algorithm.encode(algorithm.readFile(file));}
+\DoxyCodeLine{108 }
+\DoxyCodeLine{109     \textcolor{keywordtype}{byte} algorithmID = algorithm.getAlgorithmUsed().getId();}
+\DoxyCodeLine{110     \textcolor{keywordtype}{int} dataSize = data.length;}
+\DoxyCodeLine{111 }
+\DoxyCodeLine{112     \textcolor{keywordtype}{int} headerSize = 9 + nameSize;}
+\DoxyCodeLine{113 }
+\DoxyCodeLine{114     \mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1impl_1_1_zip_stream_impl_ada09e8cdb9ca0b38b0308c854f1097a2}{dos}}.writeByte(algorithmID);}
+\DoxyCodeLine{115     \mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1impl_1_1_zip_stream_impl_ada09e8cdb9ca0b38b0308c854f1097a2}{dos}}.writeInt(dataSize);}
+\DoxyCodeLine{116     \mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1impl_1_1_zip_stream_impl_ada09e8cdb9ca0b38b0308c854f1097a2}{dos}}.writeInt(nameSize);}
+\DoxyCodeLine{117     \mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1impl_1_1_zip_stream_impl_ada09e8cdb9ca0b38b0308c854f1097a2}{dos}}.writeBytes(name);}
+\DoxyCodeLine{118 }
+\DoxyCodeLine{119     \mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1impl_1_1_zip_stream_impl_ada09e8cdb9ca0b38b0308c854f1097a2}{dos}}.write(data, 0, data.length);}
+\DoxyCodeLine{120 }
+\DoxyCodeLine{121     \mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1impl_1_1_zip_stream_impl_ad4dd2a2e75f9262e801ae125b76eb77d}{totalSize}} += headerSize + dataSize;}
+\DoxyCodeLine{122   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1datos_1_1streams_1_1impl_1_1_zip_stream_impl_ac32d471d43a9395fe332488c98956bb1}\label{classprop_1_1datos_1_1streams_1_1impl_1_1_zip_stream_impl_ac32d471d43a9395fe332488c98956bb1}} 
+\index{prop.datos.streams.impl.ZipStreamImpl@{prop.datos.streams.impl.ZipStreamImpl}!createSippyFile@{createSippyFile}}
+\index{createSippyFile@{createSippyFile}!prop.datos.streams.impl.ZipStreamImpl@{prop.datos.streams.impl.ZipStreamImpl}}
+\doxysubsubsection{\texorpdfstring{createSippyFile()}{createSippyFile()}}
+{\footnotesize\ttfamily File prop.\+datos.\+streams.\+impl.\+Zip\+Stream\+Impl.\+create\+Sippy\+File (\begin{DoxyParamCaption}\item[{String}]{path }\end{DoxyParamCaption}) throws I\+O\+Exception\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Crea l\textquotesingle{}arxiu identificat pel path i si no és de tipus sippy, el renombra. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & Path de l\textquotesingle{}arxiu a crear si no existeix\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+File de l\textquotesingle{}arxiu identificat per path 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{87                                                                \{}
+\DoxyCodeLine{88     \textcolor{keywordflow}{if} (!FileUtils.getFileExtension(path).equals(Constants.DEFAULT\_ENCODING\_EXTENSION)) \{}
+\DoxyCodeLine{89       path = FileUtils.changeExtension(path, Constants.DEFAULT\_ENCODING\_EXTENSION);}
+\DoxyCodeLine{90     \}}
+\DoxyCodeLine{91     File f = \textcolor{keyword}{new} File(path);}
+\DoxyCodeLine{92     \textcolor{keywordflow}{if} (!f.exists()) \{}
+\DoxyCodeLine{93       f.getParentFile().mkdirs();}
+\DoxyCodeLine{94       f.createNewFile();}
+\DoxyCodeLine{95     \}}
+\DoxyCodeLine{96     \textcolor{keywordflow}{return} f;}
+\DoxyCodeLine{97   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1datos_1_1streams_1_1impl_1_1_zip_stream_impl_a60c05464a8cb93d109e72e63c89ca447}\label{classprop_1_1datos_1_1streams_1_1impl_1_1_zip_stream_impl_a60c05464a8cb93d109e72e63c89ca447}} 
+\index{prop.datos.streams.impl.ZipStreamImpl@{prop.datos.streams.impl.ZipStreamImpl}!getTotalSize@{getTotalSize}}
+\index{getTotalSize@{getTotalSize}!prop.datos.streams.impl.ZipStreamImpl@{prop.datos.streams.impl.ZipStreamImpl}}
+\doxysubsubsection{\texorpdfstring{getTotalSize()}{getTotalSize()}}
+{\footnotesize\ttfamily int prop.\+datos.\+streams.\+impl.\+Zip\+Stream\+Impl.\+get\+Total\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Reimplemented from \mbox{\hyperlink{interfaceprop_1_1datos_1_1streams_1_1_zip_stream_a076a96c797b9153af72228a54e0e3acb}{prop.\+datos.\+streams.\+Zip\+Stream}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{124                             \{}
+\DoxyCodeLine{125     \textcolor{keywordflow}{return} \mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1impl_1_1_zip_stream_impl_ad4dd2a2e75f9262e801ae125b76eb77d}{totalSize}};}
+\DoxyCodeLine{126   \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classprop_1_1datos_1_1streams_1_1impl_1_1_zip_stream_impl_a7977667c55600e9cb619d36546978f24}\label{classprop_1_1datos_1_1streams_1_1impl_1_1_zip_stream_impl_a7977667c55600e9cb619d36546978f24}} 
+\index{prop.datos.streams.impl.ZipStreamImpl@{prop.datos.streams.impl.ZipStreamImpl}!basePath@{basePath}}
+\index{basePath@{basePath}!prop.datos.streams.impl.ZipStreamImpl@{prop.datos.streams.impl.ZipStreamImpl}}
+\doxysubsubsection{\texorpdfstring{basePath}{basePath}}
+{\footnotesize\ttfamily String prop.\+datos.\+streams.\+impl.\+Zip\+Stream\+Impl.\+base\+Path\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classprop_1_1datos_1_1streams_1_1impl_1_1_zip_stream_impl_ada09e8cdb9ca0b38b0308c854f1097a2}\label{classprop_1_1datos_1_1streams_1_1impl_1_1_zip_stream_impl_ada09e8cdb9ca0b38b0308c854f1097a2}} 
+\index{prop.datos.streams.impl.ZipStreamImpl@{prop.datos.streams.impl.ZipStreamImpl}!dos@{dos}}
+\index{dos@{dos}!prop.datos.streams.impl.ZipStreamImpl@{prop.datos.streams.impl.ZipStreamImpl}}
+\doxysubsubsection{\texorpdfstring{dos}{dos}}
+{\footnotesize\ttfamily Data\+Output\+Stream prop.\+datos.\+streams.\+impl.\+Zip\+Stream\+Impl.\+dos\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classprop_1_1datos_1_1streams_1_1impl_1_1_zip_stream_impl_ad4dd2a2e75f9262e801ae125b76eb77d}\label{classprop_1_1datos_1_1streams_1_1impl_1_1_zip_stream_impl_ad4dd2a2e75f9262e801ae125b76eb77d}} 
+\index{prop.datos.streams.impl.ZipStreamImpl@{prop.datos.streams.impl.ZipStreamImpl}!totalSize@{totalSize}}
+\index{totalSize@{totalSize}!prop.datos.streams.impl.ZipStreamImpl@{prop.datos.streams.impl.ZipStreamImpl}}
+\doxysubsubsection{\texorpdfstring{totalSize}{totalSize}}
+{\footnotesize\ttfamily int prop.\+datos.\+streams.\+impl.\+Zip\+Stream\+Impl.\+total\+Size\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Victor/\+Desktop/sippy2/src/main/java/prop/datos/streams/impl/\mbox{\hyperlink{_zip_stream_impl_8java}{Zip\+Stream\+Impl.\+java}}\end{DoxyCompactItemize}

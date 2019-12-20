@@ -1,0 +1,281 @@
+\hypertarget{classprop_1_1presentacion_1_1_interface_controller}{}\doxysection{prop.\+presentacion.\+Interface\+Controller Class Reference}
+\label{classprop_1_1presentacion_1_1_interface_controller}\index{prop.presentacion.InterfaceController@{prop.presentacion.InterfaceController}}
+
+
+Controlador de la interficie que es comunica amb la interficie a través d\textquotesingle{}un contracte. Serveix per desacoplar la logica de la comunicacio amb la capa de domini de la logica de creacio de la interficie.  
+
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classprop_1_1presentacion_1_1_interface_controller_a2daa688029531935a2fa74627b7d3327}{Interface\+Controller}} (\mbox{\hyperlink{interfaceprop_1_1presentacion_1_1_interface_panel_contract}{Interface\+Panel\+Contract}} \mbox{\hyperlink{classprop_1_1presentacion_1_1_interface_controller_ab607d7775e1b3b4e59c46cba81184c73}{contract}})
+\begin{DoxyCompactList}\small\item\em Constructora. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classprop_1_1presentacion_1_1_interface_controller_a75b4401668d0cf57ccb34157c66e385b}{on\+Compress\+Click}} (String path, String output\+Path, int algorithm\+Option\+Selected)
+\begin{DoxyCompactList}\small\item\em Executa la transaccio de compressio i maneja les excepcions si n\textquotesingle{}hi han. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classprop_1_1presentacion_1_1_interface_controller_aed2b22aa735575289818b668268a1335}{on\+Decompress\+Click}} (String path, String output\+Path)
+\begin{DoxyCompactList}\small\item\em Executa la transaccio de descompressio i maneja les excepcions si n\textquotesingle{}hi han. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classprop_1_1presentacion_1_1_interface_controller_aa3389b7d86845632762e6082d281cf47}{handle\+Unzip\+Exception}} (I\+O\+Exception exception)
+\begin{DoxyCompactList}\small\item\em Maneja les excepcions de la transacció de descompressio. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classprop_1_1presentacion_1_1_interface_controller_a0f43c76c92bafde5268dd148e0b5ff81}{handle\+Zip\+Exception}} (Exception exception)
+\begin{DoxyCompactList}\small\item\em Maneja les excepcions de la transacció de compressio. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classprop_1_1presentacion_1_1_interface_controller_add745d7cc0374b86669cad6b22f38010}{unhandled\+Exception}} (Exception exception)
+\begin{DoxyCompactList}\small\item\em Informa a la interficie per a mostrar un avís a l\textquotesingle{}usuari de que hi ha hagut un error no controlat. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classprop_1_1presentacion_1_1_interface_controller_af25e52e4bf7569de3d54ef07e8503215}{show\+Statistics}} (\mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1_statistics}{Statistics}} statistics)
+\begin{DoxyCompactList}\small\item\em Formateja les dades de les estadistiques i informa a la interficie per mostrarles. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+final \mbox{\hyperlink{classprop_1_1utils_1_1_log}{Log}} \mbox{\hyperlink{classprop_1_1presentacion_1_1_interface_controller_a811e3a41484af383f99049a0ef7a8794}{log}} = new \mbox{\hyperlink{classprop_1_1utils_1_1_log}{Log}}()
+\item 
+\mbox{\hyperlink{interfaceprop_1_1presentacion_1_1_interface_panel_contract}{Interface\+Panel\+Contract}} \mbox{\hyperlink{classprop_1_1presentacion_1_1_interface_controller_ab607d7775e1b3b4e59c46cba81184c73}{contract}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Controlador de la interficie que es comunica amb la interficie a través d\textquotesingle{}un contracte. Serveix per desacoplar la logica de la comunicacio amb la capa de domini de la logica de creacio de la interficie. 
+
+Author\+: Victor Blanco 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classprop_1_1presentacion_1_1_interface_controller_a2daa688029531935a2fa74627b7d3327}\label{classprop_1_1presentacion_1_1_interface_controller_a2daa688029531935a2fa74627b7d3327}} 
+\index{prop.presentacion.InterfaceController@{prop.presentacion.InterfaceController}!InterfaceController@{InterfaceController}}
+\index{InterfaceController@{InterfaceController}!prop.presentacion.InterfaceController@{prop.presentacion.InterfaceController}}
+\doxysubsubsection{\texorpdfstring{InterfaceController()}{InterfaceController()}}
+{\footnotesize\ttfamily prop.\+presentacion.\+Interface\+Controller.\+Interface\+Controller (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interfaceprop_1_1presentacion_1_1_interface_panel_contract}{Interface\+Panel\+Contract}}}]{contract }\end{DoxyParamCaption})}
+
+
+
+Constructora. 
+
+\begin{DoxyPrecond}{Precondition}
+Contracte no nul 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Crea un objecte Interface\+Controller 
+\end{DoxyPostcond}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{39                                                               \{}
+\DoxyCodeLine{40     this.\mbox{\hyperlink{classprop_1_1presentacion_1_1_interface_controller_ab607d7775e1b3b4e59c46cba81184c73}{contract}} = \mbox{\hyperlink{classprop_1_1presentacion_1_1_interface_controller_ab607d7775e1b3b4e59c46cba81184c73}{contract}};}
+\DoxyCodeLine{41   \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classprop_1_1presentacion_1_1_interface_controller_aa3389b7d86845632762e6082d281cf47}\label{classprop_1_1presentacion_1_1_interface_controller_aa3389b7d86845632762e6082d281cf47}} 
+\index{prop.presentacion.InterfaceController@{prop.presentacion.InterfaceController}!handleUnzipException@{handleUnzipException}}
+\index{handleUnzipException@{handleUnzipException}!prop.presentacion.InterfaceController@{prop.presentacion.InterfaceController}}
+\doxysubsubsection{\texorpdfstring{handleUnzipException()}{handleUnzipException()}}
+{\footnotesize\ttfamily void prop.\+presentacion.\+Interface\+Controller.\+handle\+Unzip\+Exception (\begin{DoxyParamCaption}\item[{I\+O\+Exception}]{exception }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Maneja les excepcions de la transacció de descompressio. 
+
+\begin{DoxyPrecond}{Precondition}
+Excepcio no nula 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Informa a la interficie per a mostrar un avís a l\textquotesingle{}usuari 
+\end{DoxyPostcond}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{84                                                            \{}
+\DoxyCodeLine{85     \mbox{\hyperlink{classprop_1_1presentacion_1_1_interface_controller_a811e3a41484af383f99049a0ef7a8794}{log}}.\mbox{\hyperlink{classprop_1_1utils_1_1_log_a2866ddccbf70a4248b9b653969655e22}{log}}(\textcolor{stringliteral}{"InterfaceControllerUnzipException"}, exception);}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{87     \mbox{\hyperlink{classprop_1_1presentacion_1_1_interface_controller_add745d7cc0374b86669cad6b22f38010}{unhandledException}}(exception);}
+\DoxyCodeLine{88   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1presentacion_1_1_interface_controller_a0f43c76c92bafde5268dd148e0b5ff81}\label{classprop_1_1presentacion_1_1_interface_controller_a0f43c76c92bafde5268dd148e0b5ff81}} 
+\index{prop.presentacion.InterfaceController@{prop.presentacion.InterfaceController}!handleZipException@{handleZipException}}
+\index{handleZipException@{handleZipException}!prop.presentacion.InterfaceController@{prop.presentacion.InterfaceController}}
+\doxysubsubsection{\texorpdfstring{handleZipException()}{handleZipException()}}
+{\footnotesize\ttfamily void prop.\+presentacion.\+Interface\+Controller.\+handle\+Zip\+Exception (\begin{DoxyParamCaption}\item[{Exception}]{exception }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Maneja les excepcions de la transacció de compressio. 
+
+\begin{DoxyPrecond}{Precondition}
+Excepcio no nula 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Informa a la interficie per a mostrar un avís a l\textquotesingle{}usuari 
+\end{DoxyPostcond}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{96                                                        \{}
+\DoxyCodeLine{97     \mbox{\hyperlink{classprop_1_1presentacion_1_1_interface_controller_a811e3a41484af383f99049a0ef7a8794}{log}}.\mbox{\hyperlink{classprop_1_1utils_1_1_log_a2866ddccbf70a4248b9b653969655e22}{log}}(\textcolor{stringliteral}{"InterfaceControllerZipException"}, exception);}
+\DoxyCodeLine{98 }
+\DoxyCodeLine{99     \textcolor{keywordflow}{if} (exception instanceof UnsupportedOutputDirectoryPathname) \{}
+\DoxyCodeLine{100       \mbox{\hyperlink{classprop_1_1presentacion_1_1_interface_controller_ab607d7775e1b3b4e59c46cba81184c73}{contract}}.\mbox{\hyperlink{interfaceprop_1_1presentacion_1_1_interface_panel_contract_aa52586cff1c77480c76feb4a01bc3ff1}{showAlert}}(\textcolor{stringliteral}{"The output path is not a valid path"}, \textcolor{stringliteral}{"Output path error"});}
+\DoxyCodeLine{101     \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (exception instanceof UnsupportedOperationException) \{}
+\DoxyCodeLine{102       \mbox{\hyperlink{classprop_1_1presentacion_1_1_interface_controller_ab607d7775e1b3b4e59c46cba81184c73}{contract}}.\mbox{\hyperlink{interfaceprop_1_1presentacion_1_1_interface_panel_contract_aa52586cff1c77480c76feb4a01bc3ff1}{showAlert}}(exception.getMessage(), \textcolor{stringliteral}{"The operation is not supported"});}
+\DoxyCodeLine{103     \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (exception instanceof FileNotFoundException) \{}
+\DoxyCodeLine{104       \mbox{\hyperlink{classprop_1_1presentacion_1_1_interface_controller_ab607d7775e1b3b4e59c46cba81184c73}{contract}}.\mbox{\hyperlink{interfaceprop_1_1presentacion_1_1_interface_panel_contract_aa52586cff1c77480c76feb4a01bc3ff1}{showAlert}}(\textcolor{stringliteral}{"Could not find the file specified"}, \textcolor{stringliteral}{"File not found"});}
+\DoxyCodeLine{105     \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (exception instanceof UnsupportedEncodingException) \{}
+\DoxyCodeLine{106       \mbox{\hyperlink{classprop_1_1presentacion_1_1_interface_controller_ab607d7775e1b3b4e59c46cba81184c73}{contract}}.\mbox{\hyperlink{interfaceprop_1_1presentacion_1_1_interface_panel_contract_aa52586cff1c77480c76feb4a01bc3ff1}{showAlert}}(exception.getMessage(), \textcolor{stringliteral}{"File format not supported"});}
+\DoxyCodeLine{107     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{108       \mbox{\hyperlink{classprop_1_1presentacion_1_1_interface_controller_add745d7cc0374b86669cad6b22f38010}{unhandledException}}(exception);}
+\DoxyCodeLine{109     \}}
+\DoxyCodeLine{110 }
+\DoxyCodeLine{111   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1presentacion_1_1_interface_controller_a75b4401668d0cf57ccb34157c66e385b}\label{classprop_1_1presentacion_1_1_interface_controller_a75b4401668d0cf57ccb34157c66e385b}} 
+\index{prop.presentacion.InterfaceController@{prop.presentacion.InterfaceController}!onCompressClick@{onCompressClick}}
+\index{onCompressClick@{onCompressClick}!prop.presentacion.InterfaceController@{prop.presentacion.InterfaceController}}
+\doxysubsubsection{\texorpdfstring{onCompressClick()}{onCompressClick()}}
+{\footnotesize\ttfamily void prop.\+presentacion.\+Interface\+Controller.\+on\+Compress\+Click (\begin{DoxyParamCaption}\item[{String}]{path,  }\item[{String}]{output\+Path,  }\item[{int}]{algorithm\+Option\+Selected }\end{DoxyParamCaption})}
+
+
+
+Executa la transaccio de compressio i maneja les excepcions si n\textquotesingle{}hi han. 
+
+\begin{DoxyPrecond}{Precondition}
+paths no nuls i algorisme id dintre dels ids soportats 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+mostra les estadistiques o l\textquotesingle{}error 
+\end{DoxyPostcond}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{49                                                                                            \{}
+\DoxyCodeLine{50     \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{51       ZipTransaction zip = \textcolor{keyword}{new} ZipTransaction(path, outputPath,}
+\DoxyCodeLine{52           Algorithm.valueOf((\textcolor{keywordtype}{byte}) algorithmOptionSelected));}
+\DoxyCodeLine{53       zip.execute();}
+\DoxyCodeLine{54       \mbox{\hyperlink{classprop_1_1presentacion_1_1_interface_controller_af25e52e4bf7569de3d54ef07e8503215}{showStatistics}}(zip.getResult());}
+\DoxyCodeLine{55     \} \textcolor{keywordflow}{catch} (Exception ex) \{}
+\DoxyCodeLine{56       \mbox{\hyperlink{classprop_1_1presentacion_1_1_interface_controller_a0f43c76c92bafde5268dd148e0b5ff81}{handleZipException}}(ex);}
+\DoxyCodeLine{57     \}}
+\DoxyCodeLine{58   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1presentacion_1_1_interface_controller_aed2b22aa735575289818b668268a1335}\label{classprop_1_1presentacion_1_1_interface_controller_aed2b22aa735575289818b668268a1335}} 
+\index{prop.presentacion.InterfaceController@{prop.presentacion.InterfaceController}!onDecompressClick@{onDecompressClick}}
+\index{onDecompressClick@{onDecompressClick}!prop.presentacion.InterfaceController@{prop.presentacion.InterfaceController}}
+\doxysubsubsection{\texorpdfstring{onDecompressClick()}{onDecompressClick()}}
+{\footnotesize\ttfamily void prop.\+presentacion.\+Interface\+Controller.\+on\+Decompress\+Click (\begin{DoxyParamCaption}\item[{String}]{path,  }\item[{String}]{output\+Path }\end{DoxyParamCaption})}
+
+
+
+Executa la transaccio de descompressio i maneja les excepcions si n\textquotesingle{}hi han. 
+
+\begin{DoxyPrecond}{Precondition}
+paths no nuls 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+mostra l\textquotesingle{}error si n\textquotesingle{}hi ha 
+\end{DoxyPostcond}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{66                                                                 \{}
+\DoxyCodeLine{67     \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{68       UnzipTransaction unzipTransaction = \textcolor{keyword}{new} UnzipTransaction(path, outputPath);}
+\DoxyCodeLine{69       unzipTransaction.execute();}
+\DoxyCodeLine{70       \mbox{\hyperlink{classprop_1_1presentacion_1_1_interface_controller_ab607d7775e1b3b4e59c46cba81184c73}{contract}}.\mbox{\hyperlink{interfaceprop_1_1presentacion_1_1_interface_panel_contract_a1916f7d812146e29c1ce181b2728a39f}{showStatistics}}(\textcolor{stringliteral}{"Elapsed time: "}}
+\DoxyCodeLine{71           + StatisticsUtils.getTime(unzipTransaction.getResult().getElapsedTime() / 1000.0)}
+\DoxyCodeLine{72           + \textcolor{stringliteral}{"\(\backslash\)n"});}
+\DoxyCodeLine{73     \} \textcolor{keywordflow}{catch} (IOException ex) \{}
+\DoxyCodeLine{74       \mbox{\hyperlink{classprop_1_1presentacion_1_1_interface_controller_aa3389b7d86845632762e6082d281cf47}{handleUnzipException}}(ex);}
+\DoxyCodeLine{75     \}}
+\DoxyCodeLine{76   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1presentacion_1_1_interface_controller_af25e52e4bf7569de3d54ef07e8503215}\label{classprop_1_1presentacion_1_1_interface_controller_af25e52e4bf7569de3d54ef07e8503215}} 
+\index{prop.presentacion.InterfaceController@{prop.presentacion.InterfaceController}!showStatistics@{showStatistics}}
+\index{showStatistics@{showStatistics}!prop.presentacion.InterfaceController@{prop.presentacion.InterfaceController}}
+\doxysubsubsection{\texorpdfstring{showStatistics()}{showStatistics()}}
+{\footnotesize\ttfamily void prop.\+presentacion.\+Interface\+Controller.\+show\+Statistics (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1_statistics}{Statistics}}}]{statistics }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Formateja les dades de les estadistiques i informa a la interficie per mostrarles. 
+
+\begin{DoxyPrecond}{Precondition}
+Estadistiques no nules 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Informa a la interficie de les estadistiques 
+\end{DoxyPostcond}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{132                                                      \{}
+\DoxyCodeLine{133     NumberFormat formatter = \textcolor{keyword}{new} DecimalFormat(\textcolor{stringliteral}{"\#0.000"});}
+\DoxyCodeLine{134     \textcolor{keywordtype}{double} time = statistics.getElapsedTime();}
+\DoxyCodeLine{135     time = time / 1000;}
+\DoxyCodeLine{136     \textcolor{keywordtype}{double} initialSize = statistics.getInitialSize();}
+\DoxyCodeLine{137     \textcolor{keywordtype}{double} finalSize = statistics.getFinalSize();}
+\DoxyCodeLine{138     \textcolor{keywordtype}{double} compression = ((initialSize -\/ finalSize) / initialSize) * 100.0;}
+\DoxyCodeLine{139 }
+\DoxyCodeLine{140     \mbox{\hyperlink{classprop_1_1presentacion_1_1_interface_controller_ab607d7775e1b3b4e59c46cba81184c73}{contract}}.\mbox{\hyperlink{interfaceprop_1_1presentacion_1_1_interface_panel_contract_a1916f7d812146e29c1ce181b2728a39f}{showStatistics}}(\textcolor{stringliteral}{"Elapsed time: "}}
+\DoxyCodeLine{141         + StatisticsUtils.getTime(time)}
+\DoxyCodeLine{142         + \textcolor{stringliteral}{"\(\backslash\)n"}}
+\DoxyCodeLine{143 }
+\DoxyCodeLine{144         + \textcolor{stringliteral}{"Initial size: "}}
+\DoxyCodeLine{145         + StatisticsUtils.getSize(initialSize)}
+\DoxyCodeLine{146         + \textcolor{stringliteral}{"\(\backslash\)n"}}
+\DoxyCodeLine{147 }
+\DoxyCodeLine{148         + \textcolor{stringliteral}{"Compressed size: "}}
+\DoxyCodeLine{149         + StatisticsUtils.getSize(finalSize)}
+\DoxyCodeLine{150         + \textcolor{stringliteral}{"\(\backslash\)n"}}
+\DoxyCodeLine{151 }
+\DoxyCodeLine{152         + \textcolor{stringliteral}{"Compression ratio: "}}
+\DoxyCodeLine{153         + formatter.format(compression)}
+\DoxyCodeLine{154         + \textcolor{stringliteral}{"\%\(\backslash\)n"});}
+\DoxyCodeLine{155   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1presentacion_1_1_interface_controller_add745d7cc0374b86669cad6b22f38010}\label{classprop_1_1presentacion_1_1_interface_controller_add745d7cc0374b86669cad6b22f38010}} 
+\index{prop.presentacion.InterfaceController@{prop.presentacion.InterfaceController}!unhandledException@{unhandledException}}
+\index{unhandledException@{unhandledException}!prop.presentacion.InterfaceController@{prop.presentacion.InterfaceController}}
+\doxysubsubsection{\texorpdfstring{unhandledException()}{unhandledException()}}
+{\footnotesize\ttfamily void prop.\+presentacion.\+Interface\+Controller.\+unhandled\+Exception (\begin{DoxyParamCaption}\item[{Exception}]{exception }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Informa a la interficie per a mostrar un avís a l\textquotesingle{}usuari de que hi ha hagut un error no controlat. 
+
+\begin{DoxyPrecond}{Precondition}
+Excepcio no nula 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Informa a la interficie per a mostrar un avís a l\textquotesingle{}usuari de que hi ha hagut un
+\begin{DoxyItemize}
+\item error no controlat 
+\end{DoxyItemize}
+\end{DoxyPostcond}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{121                                                        \{}
+\DoxyCodeLine{122     \mbox{\hyperlink{classprop_1_1presentacion_1_1_interface_controller_ab607d7775e1b3b4e59c46cba81184c73}{contract}}.\mbox{\hyperlink{interfaceprop_1_1presentacion_1_1_interface_panel_contract_aa52586cff1c77480c76feb4a01bc3ff1}{showAlert}}(\textcolor{stringliteral}{"An unhandled exception of type "} + exception.getClass().getName() +}
+\DoxyCodeLine{123         \textcolor{stringliteral}{" has been found "}, \textcolor{stringliteral}{"Unhandled exception"});}
+\DoxyCodeLine{124   \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classprop_1_1presentacion_1_1_interface_controller_ab607d7775e1b3b4e59c46cba81184c73}\label{classprop_1_1presentacion_1_1_interface_controller_ab607d7775e1b3b4e59c46cba81184c73}} 
+\index{prop.presentacion.InterfaceController@{prop.presentacion.InterfaceController}!contract@{contract}}
+\index{contract@{contract}!prop.presentacion.InterfaceController@{prop.presentacion.InterfaceController}}
+\doxysubsubsection{\texorpdfstring{contract}{contract}}
+{\footnotesize\ttfamily \mbox{\hyperlink{interfaceprop_1_1presentacion_1_1_interface_panel_contract}{Interface\+Panel\+Contract}} prop.\+presentacion.\+Interface\+Controller.\+contract\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classprop_1_1presentacion_1_1_interface_controller_a811e3a41484af383f99049a0ef7a8794}\label{classprop_1_1presentacion_1_1_interface_controller_a811e3a41484af383f99049a0ef7a8794}} 
+\index{prop.presentacion.InterfaceController@{prop.presentacion.InterfaceController}!log@{log}}
+\index{log@{log}!prop.presentacion.InterfaceController@{prop.presentacion.InterfaceController}}
+\doxysubsubsection{\texorpdfstring{log}{log}}
+{\footnotesize\ttfamily final \mbox{\hyperlink{classprop_1_1utils_1_1_log}{Log}} prop.\+presentacion.\+Interface\+Controller.\+log = new \mbox{\hyperlink{classprop_1_1utils_1_1_log}{Log}}()\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Victor/\+Desktop/sippy2/src/main/java/prop/presentacion/\mbox{\hyperlink{_interface_controller_8java}{Interface\+Controller.\+java}}\end{DoxyCompactItemize}

@@ -1,0 +1,191 @@
+\hypertarget{classprop_1_1datos_1_1_files_controller_test}{}\doxysection{prop.\+datos.\+Files\+Controller\+Test Class Reference}
+\label{classprop_1_1datos_1_1_files_controller_test}\index{prop.datos.FilesControllerTest@{prop.datos.FilesControllerTest}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classprop_1_1datos_1_1_files_controller_test_adb9b5cb5d6876175ac6b77756d229a90}{set\+Up}} ()  throws Exception 
+\item 
+void \mbox{\hyperlink{classprop_1_1datos_1_1_files_controller_test_a4073ba4ef97bfafe260e1a77b96ed43b}{tear\+Down}} ()  throws Exception 
+\item 
+void \mbox{\hyperlink{classprop_1_1datos_1_1_files_controller_test_ad89fac3c19629eb367fcf85184bd2bc3}{get\+Unsupported\+File\+Extension}} ()  throws I\+O\+Exception 
+\item 
+void \mbox{\hyperlink{classprop_1_1datos_1_1_files_controller_test_a172af3fc9083c701dc5b085090a38200}{get\+File\+Not\+Found}} ()  throws I\+O\+Exception 
+\item 
+void \mbox{\hyperlink{classprop_1_1datos_1_1_files_controller_test_a12e5bbf9404422b1254acdee13fb50ec}{get\+File}} ()  throws I\+O\+Exception 
+\item 
+void \mbox{\hyperlink{classprop_1_1datos_1_1_files_controller_test_a70a3e3b8ccd6aff3d184eb1d486651d3}{get\+Folder}} ()  throws I\+O\+Exception 
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Temporary\+Folder \mbox{\hyperlink{classprop_1_1datos_1_1_files_controller_test_aed8b5594988bcf2a3e82baaa909d74c1}{test\+Folder}} = new Temporary\+Folder()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+final \mbox{\hyperlink{interfaceprop_1_1datos_1_1controllers_1_1_files_controller}{Files\+Controller}} \mbox{\hyperlink{classprop_1_1datos_1_1_files_controller_test_a9687fb3d00078001c57a89d8df733ae9}{files\+Controller}} = \mbox{\hyperlink{classprop_1_1datos_1_1_data_factory_a887dbfdca7c39adc97ed22f92722f314}{Data\+Factory.\+get\+Instance}}().get\+Files\+Controller()
+\item 
+File \mbox{\hyperlink{classprop_1_1datos_1_1_files_controller_test_a419526e13fbeea7fb4dd40034e99675d}{invalid\+File}}
+\item 
+File \mbox{\hyperlink{classprop_1_1datos_1_1_files_controller_test_a759679f0e911750fca79df0cb84dbb23}{valid\+File}}
+\item 
+File \mbox{\hyperlink{classprop_1_1datos_1_1_files_controller_test_aa60f053c3a348c4d0d9bb76ad8aaba9d}{folder}}
+\item 
+File \mbox{\hyperlink{classprop_1_1datos_1_1_files_controller_test_a001ec0c50fa15a862fc6f71aa46caabc}{folder\+File1}}
+\item 
+File \mbox{\hyperlink{classprop_1_1datos_1_1_files_controller_test_ae907b4a2cc35242d0fa489197640af84}{folder\+File2}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classprop_1_1datos_1_1_files_controller_test_a12e5bbf9404422b1254acdee13fb50ec}\label{classprop_1_1datos_1_1_files_controller_test_a12e5bbf9404422b1254acdee13fb50ec}} 
+\index{prop.datos.FilesControllerTest@{prop.datos.FilesControllerTest}!getFile@{getFile}}
+\index{getFile@{getFile}!prop.datos.FilesControllerTest@{prop.datos.FilesControllerTest}}
+\doxysubsubsection{\texorpdfstring{getFile()}{getFile()}}
+{\footnotesize\ttfamily void prop.\+datos.\+Files\+Controller\+Test.\+get\+File (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws I\+O\+Exception}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{59                                            \{}
+\DoxyCodeLine{60     ItemBO itemBO = \mbox{\hyperlink{classprop_1_1datos_1_1_files_controller_test_a9687fb3d00078001c57a89d8df733ae9}{filesController}}.\mbox{\hyperlink{interfaceprop_1_1datos_1_1controllers_1_1_files_controller_a1a18f0e6f5cf2960b10aa9880e3bf037}{getFile}}(\mbox{\hyperlink{classprop_1_1datos_1_1_files_controller_test_a759679f0e911750fca79df0cb84dbb23}{validFile}}.getAbsolutePath());}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62     assertEquals(itemBO.getSize(), \mbox{\hyperlink{classprop_1_1datos_1_1_files_controller_test_a759679f0e911750fca79df0cb84dbb23}{validFile}}.length());}
+\DoxyCodeLine{63     assertEquals(itemBO.getPath(), \mbox{\hyperlink{classprop_1_1datos_1_1_files_controller_test_a759679f0e911750fca79df0cb84dbb23}{validFile}}.getAbsolutePath());}
+\DoxyCodeLine{64   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1datos_1_1_files_controller_test_a172af3fc9083c701dc5b085090a38200}\label{classprop_1_1datos_1_1_files_controller_test_a172af3fc9083c701dc5b085090a38200}} 
+\index{prop.datos.FilesControllerTest@{prop.datos.FilesControllerTest}!getFileNotFound@{getFileNotFound}}
+\index{getFileNotFound@{getFileNotFound}!prop.datos.FilesControllerTest@{prop.datos.FilesControllerTest}}
+\doxysubsubsection{\texorpdfstring{getFileNotFound()}{getFileNotFound()}}
+{\footnotesize\ttfamily void prop.\+datos.\+Files\+Controller\+Test.\+get\+File\+Not\+Found (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws I\+O\+Exception}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{54                                                    \{}
+\DoxyCodeLine{55     \mbox{\hyperlink{classprop_1_1datos_1_1_files_controller_test_a9687fb3d00078001c57a89d8df733ae9}{filesController}}.\mbox{\hyperlink{interfaceprop_1_1datos_1_1controllers_1_1_files_controller_a1a18f0e6f5cf2960b10aa9880e3bf037}{getFile}}(\textcolor{stringliteral}{"./b.txt"});}
+\DoxyCodeLine{56   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1datos_1_1_files_controller_test_a70a3e3b8ccd6aff3d184eb1d486651d3}\label{classprop_1_1datos_1_1_files_controller_test_a70a3e3b8ccd6aff3d184eb1d486651d3}} 
+\index{prop.datos.FilesControllerTest@{prop.datos.FilesControllerTest}!getFolder@{getFolder}}
+\index{getFolder@{getFolder}!prop.datos.FilesControllerTest@{prop.datos.FilesControllerTest}}
+\doxysubsubsection{\texorpdfstring{getFolder()}{getFolder()}}
+{\footnotesize\ttfamily void prop.\+datos.\+Files\+Controller\+Test.\+get\+Folder (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws I\+O\+Exception}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{67                                              \{}
+\DoxyCodeLine{68     ItemBO itemBO = \mbox{\hyperlink{classprop_1_1datos_1_1_files_controller_test_a9687fb3d00078001c57a89d8df733ae9}{filesController}}.\mbox{\hyperlink{interfaceprop_1_1datos_1_1controllers_1_1_files_controller_a1a18f0e6f5cf2960b10aa9880e3bf037}{getFile}}(\mbox{\hyperlink{classprop_1_1datos_1_1_files_controller_test_aa60f053c3a348c4d0d9bb76ad8aaba9d}{folder}}.getAbsolutePath());}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70     assertTrue(itemBO instanceof FolderBO);}
+\DoxyCodeLine{71     assertEquals(itemBO.getSize(), 0L);}
+\DoxyCodeLine{72     assertEquals(itemBO.getPath(), \mbox{\hyperlink{classprop_1_1datos_1_1_files_controller_test_aa60f053c3a348c4d0d9bb76ad8aaba9d}{folder}}.getAbsolutePath());}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74     FolderBO folderBO = (FolderBO) itemBO;}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76     ItemBO f1 = folderBO.getItems().get(0);}
+\DoxyCodeLine{77     ItemBO f2 = folderBO.getItems().get(1);}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79     assertEquals(f1.getSize(), \mbox{\hyperlink{classprop_1_1datos_1_1_files_controller_test_a001ec0c50fa15a862fc6f71aa46caabc}{folderFile1}}.length());}
+\DoxyCodeLine{80     assertEquals(f1.getPath(), \mbox{\hyperlink{classprop_1_1datos_1_1_files_controller_test_a001ec0c50fa15a862fc6f71aa46caabc}{folderFile1}}.getAbsolutePath());}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82     assertEquals(f2.getSize(), \mbox{\hyperlink{classprop_1_1datos_1_1_files_controller_test_ae907b4a2cc35242d0fa489197640af84}{folderFile2}}.length());}
+\DoxyCodeLine{83     assertEquals(f2.getPath(), \mbox{\hyperlink{classprop_1_1datos_1_1_files_controller_test_ae907b4a2cc35242d0fa489197640af84}{folderFile2}}.getAbsolutePath());}
+\DoxyCodeLine{84   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1datos_1_1_files_controller_test_ad89fac3c19629eb367fcf85184bd2bc3}\label{classprop_1_1datos_1_1_files_controller_test_ad89fac3c19629eb367fcf85184bd2bc3}} 
+\index{prop.datos.FilesControllerTest@{prop.datos.FilesControllerTest}!getUnsupportedFileExtension@{getUnsupportedFileExtension}}
+\index{getUnsupportedFileExtension@{getUnsupportedFileExtension}!prop.datos.FilesControllerTest@{prop.datos.FilesControllerTest}}
+\doxysubsubsection{\texorpdfstring{getUnsupportedFileExtension()}{getUnsupportedFileExtension()}}
+{\footnotesize\ttfamily void prop.\+datos.\+Files\+Controller\+Test.\+get\+Unsupported\+File\+Extension (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws I\+O\+Exception}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{49                                                                \{}
+\DoxyCodeLine{50     \mbox{\hyperlink{classprop_1_1datos_1_1_files_controller_test_a9687fb3d00078001c57a89d8df733ae9}{filesController}}.\mbox{\hyperlink{interfaceprop_1_1datos_1_1controllers_1_1_files_controller_a1a18f0e6f5cf2960b10aa9880e3bf037}{getFile}}(\mbox{\hyperlink{classprop_1_1datos_1_1_files_controller_test_a419526e13fbeea7fb4dd40034e99675d}{invalidFile}}.getAbsolutePath());}
+\DoxyCodeLine{51   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1datos_1_1_files_controller_test_adb9b5cb5d6876175ac6b77756d229a90}\label{classprop_1_1datos_1_1_files_controller_test_adb9b5cb5d6876175ac6b77756d229a90}} 
+\index{prop.datos.FilesControllerTest@{prop.datos.FilesControllerTest}!setUp@{setUp}}
+\index{setUp@{setUp}!prop.datos.FilesControllerTest@{prop.datos.FilesControllerTest}}
+\doxysubsubsection{\texorpdfstring{setUp()}{setUp()}}
+{\footnotesize\ttfamily void prop.\+datos.\+Files\+Controller\+Test.\+set\+Up (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws Exception}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{34                                        \{}
+\DoxyCodeLine{35     \mbox{\hyperlink{classprop_1_1datos_1_1_files_controller_test_aed8b5594988bcf2a3e82baaa909d74c1}{testFolder}}.create();}
+\DoxyCodeLine{36     \mbox{\hyperlink{classprop_1_1datos_1_1_files_controller_test_a419526e13fbeea7fb4dd40034e99675d}{invalidFile}} = \mbox{\hyperlink{classprop_1_1datos_1_1_files_controller_test_aed8b5594988bcf2a3e82baaa909d74c1}{testFolder}}.newFile(\textcolor{stringliteral}{"a.a"});}
+\DoxyCodeLine{37     \mbox{\hyperlink{classprop_1_1datos_1_1_files_controller_test_a759679f0e911750fca79df0cb84dbb23}{validFile}} = \mbox{\hyperlink{classprop_1_1datos_1_1_files_controller_test_aed8b5594988bcf2a3e82baaa909d74c1}{testFolder}}.newFile(\textcolor{stringliteral}{"a.txt"});}
+\DoxyCodeLine{38     \mbox{\hyperlink{classprop_1_1datos_1_1_files_controller_test_aa60f053c3a348c4d0d9bb76ad8aaba9d}{folder}} = \mbox{\hyperlink{classprop_1_1datos_1_1_files_controller_test_aed8b5594988bcf2a3e82baaa909d74c1}{testFolder}}.newFolder(\textcolor{stringliteral}{"test"});}
+\DoxyCodeLine{39     \mbox{\hyperlink{classprop_1_1datos_1_1_files_controller_test_a001ec0c50fa15a862fc6f71aa46caabc}{folderFile1}} = \mbox{\hyperlink{classprop_1_1datos_1_1_files_controller_test_aed8b5594988bcf2a3e82baaa909d74c1}{testFolder}}.newFile(\textcolor{stringliteral}{"test/a.txt"});}
+\DoxyCodeLine{40     \mbox{\hyperlink{classprop_1_1datos_1_1_files_controller_test_ae907b4a2cc35242d0fa489197640af84}{folderFile2}} = \mbox{\hyperlink{classprop_1_1datos_1_1_files_controller_test_aed8b5594988bcf2a3e82baaa909d74c1}{testFolder}}.newFile(\textcolor{stringliteral}{"test/b.txt"});}
+\DoxyCodeLine{41   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1datos_1_1_files_controller_test_a4073ba4ef97bfafe260e1a77b96ed43b}\label{classprop_1_1datos_1_1_files_controller_test_a4073ba4ef97bfafe260e1a77b96ed43b}} 
+\index{prop.datos.FilesControllerTest@{prop.datos.FilesControllerTest}!tearDown@{tearDown}}
+\index{tearDown@{tearDown}!prop.datos.FilesControllerTest@{prop.datos.FilesControllerTest}}
+\doxysubsubsection{\texorpdfstring{tearDown()}{tearDown()}}
+{\footnotesize\ttfamily void prop.\+datos.\+Files\+Controller\+Test.\+tear\+Down (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws Exception}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{44                                           \{}
+\DoxyCodeLine{45     \mbox{\hyperlink{classprop_1_1datos_1_1_files_controller_test_aed8b5594988bcf2a3e82baaa909d74c1}{testFolder}}.delete();}
+\DoxyCodeLine{46   \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classprop_1_1datos_1_1_files_controller_test_a9687fb3d00078001c57a89d8df733ae9}\label{classprop_1_1datos_1_1_files_controller_test_a9687fb3d00078001c57a89d8df733ae9}} 
+\index{prop.datos.FilesControllerTest@{prop.datos.FilesControllerTest}!filesController@{filesController}}
+\index{filesController@{filesController}!prop.datos.FilesControllerTest@{prop.datos.FilesControllerTest}}
+\doxysubsubsection{\texorpdfstring{filesController}{filesController}}
+{\footnotesize\ttfamily final \mbox{\hyperlink{interfaceprop_1_1datos_1_1controllers_1_1_files_controller}{Files\+Controller}} prop.\+datos.\+Files\+Controller\+Test.\+files\+Controller = \mbox{\hyperlink{classprop_1_1datos_1_1_data_factory_a887dbfdca7c39adc97ed22f92722f314}{Data\+Factory.\+get\+Instance}}().get\+Files\+Controller()\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classprop_1_1datos_1_1_files_controller_test_aa60f053c3a348c4d0d9bb76ad8aaba9d}\label{classprop_1_1datos_1_1_files_controller_test_aa60f053c3a348c4d0d9bb76ad8aaba9d}} 
+\index{prop.datos.FilesControllerTest@{prop.datos.FilesControllerTest}!folder@{folder}}
+\index{folder@{folder}!prop.datos.FilesControllerTest@{prop.datos.FilesControllerTest}}
+\doxysubsubsection{\texorpdfstring{folder}{folder}}
+{\footnotesize\ttfamily File prop.\+datos.\+Files\+Controller\+Test.\+folder\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classprop_1_1datos_1_1_files_controller_test_a001ec0c50fa15a862fc6f71aa46caabc}\label{classprop_1_1datos_1_1_files_controller_test_a001ec0c50fa15a862fc6f71aa46caabc}} 
+\index{prop.datos.FilesControllerTest@{prop.datos.FilesControllerTest}!folderFile1@{folderFile1}}
+\index{folderFile1@{folderFile1}!prop.datos.FilesControllerTest@{prop.datos.FilesControllerTest}}
+\doxysubsubsection{\texorpdfstring{folderFile1}{folderFile1}}
+{\footnotesize\ttfamily File prop.\+datos.\+Files\+Controller\+Test.\+folder\+File1\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classprop_1_1datos_1_1_files_controller_test_ae907b4a2cc35242d0fa489197640af84}\label{classprop_1_1datos_1_1_files_controller_test_ae907b4a2cc35242d0fa489197640af84}} 
+\index{prop.datos.FilesControllerTest@{prop.datos.FilesControllerTest}!folderFile2@{folderFile2}}
+\index{folderFile2@{folderFile2}!prop.datos.FilesControllerTest@{prop.datos.FilesControllerTest}}
+\doxysubsubsection{\texorpdfstring{folderFile2}{folderFile2}}
+{\footnotesize\ttfamily File prop.\+datos.\+Files\+Controller\+Test.\+folder\+File2\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classprop_1_1datos_1_1_files_controller_test_a419526e13fbeea7fb4dd40034e99675d}\label{classprop_1_1datos_1_1_files_controller_test_a419526e13fbeea7fb4dd40034e99675d}} 
+\index{prop.datos.FilesControllerTest@{prop.datos.FilesControllerTest}!invalidFile@{invalidFile}}
+\index{invalidFile@{invalidFile}!prop.datos.FilesControllerTest@{prop.datos.FilesControllerTest}}
+\doxysubsubsection{\texorpdfstring{invalidFile}{invalidFile}}
+{\footnotesize\ttfamily File prop.\+datos.\+Files\+Controller\+Test.\+invalid\+File\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classprop_1_1datos_1_1_files_controller_test_aed8b5594988bcf2a3e82baaa909d74c1}\label{classprop_1_1datos_1_1_files_controller_test_aed8b5594988bcf2a3e82baaa909d74c1}} 
+\index{prop.datos.FilesControllerTest@{prop.datos.FilesControllerTest}!testFolder@{testFolder}}
+\index{testFolder@{testFolder}!prop.datos.FilesControllerTest@{prop.datos.FilesControllerTest}}
+\doxysubsubsection{\texorpdfstring{testFolder}{testFolder}}
+{\footnotesize\ttfamily Temporary\+Folder prop.\+datos.\+Files\+Controller\+Test.\+test\+Folder = new Temporary\+Folder()}
+
+\mbox{\Hypertarget{classprop_1_1datos_1_1_files_controller_test_a759679f0e911750fca79df0cb84dbb23}\label{classprop_1_1datos_1_1_files_controller_test_a759679f0e911750fca79df0cb84dbb23}} 
+\index{prop.datos.FilesControllerTest@{prop.datos.FilesControllerTest}!validFile@{validFile}}
+\index{validFile@{validFile}!prop.datos.FilesControllerTest@{prop.datos.FilesControllerTest}}
+\doxysubsubsection{\texorpdfstring{validFile}{validFile}}
+{\footnotesize\ttfamily File prop.\+datos.\+Files\+Controller\+Test.\+valid\+File\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Victor/\+Desktop/sippy2/src/test/java/prop/datos/\mbox{\hyperlink{_files_controller_test_8java}{Files\+Controller\+Test.\+java}}\end{DoxyCompactItemize}

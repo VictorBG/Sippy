@@ -13,7 +13,6 @@ import prop.algorithms.lzw.LZW;
  * @class Algorithm
  * @brief Enum amb tots els algorismes disponibles al sistema i relacionats amb la seva
  *     corresponent id.
- *
  */
 public enum Algorithm {
   LZ78((byte) 0x0, new LZ78()),
@@ -41,8 +40,8 @@ public enum Algorithm {
   /**
    * @brief Retorna l’algorisme que s’identifica per el parametre d’entrada
    *
-   *     \pre id es d'un algorisme existent
-   *     \post Algorisme identificat pel parametre d'entrada
+   * \pre id es d'un algorisme existent
+   * \post Algorisme identificat pel parametre d'entrada
    */
   public static Algorithm valueOf(byte id) {
     switch (id) {

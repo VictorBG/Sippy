@@ -1,0 +1,161 @@
+\hypertarget{classprop_1_1dominio_1_1model_1_1_item_c}{}\doxysection{prop.\+dominio.\+model.\+ItemC Class Reference}
+\label{classprop_1_1dominio_1_1model_1_1_item_c}\index{prop.dominio.model.ItemC@{prop.dominio.model.ItemC}}
+
+
+A representation of a compressed item. Note\+: it is used mainly for the zip operation, for the unzip operation it is merely used to save the file object (algorithm cannot be set due the file has not been parsed, neither its headers).  
+
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1_item_c_a51017175d479eee8d64c8938fff573d1}{ItemC}} (String \mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1_item_c_a2af8b6bcd58a923db5a67fc9e893d04a}{path}})
+\item 
+\mbox{\hyperlink{enumprop_1_1algorithms_1_1_algorithm}{Algorithm}} \mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1_item_c_a9ffdfa9bdbd3e717f6ee2e18d0b2f22a}{get\+Method}} ()
+\item 
+void \mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1_item_c_aadb18d8f2d46ec0cff5ff6fe64b1550d}{set\+Method}} (\mbox{\hyperlink{enumprop_1_1algorithms_1_1_algorithm}{Algorithm}} \mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1_item_c_a94989aecd3ceb38240dfc589432a7c35}{method}})
+\item 
+String \mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1_item_c_adaec34b8b9e5be8702b63d97e83bfaad}{get\+Path}} ()
+\item 
+void \mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1_item_c_a276783aaf962a0441d6e7050ae7caa2c}{set\+Path}} (String \mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1_item_c_a2af8b6bcd58a923db5a67fc9e893d04a}{path}})
+\item 
+long \mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1_item_c_aaae2a705d6f3d1a646e649f2dbf8d4d4}{get\+Size}} ()
+\item 
+void \mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1_item_c_abcaf4a33afcb5e747e5aad6827703362}{set\+Size}} (long \mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1_item_c_adabc8d4022a9a538b3a082783d1fa06b}{size}})
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+String \mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1_item_c_a2af8b6bcd58a923db5a67fc9e893d04a}{path}}
+\item 
+\mbox{\hyperlink{enumprop_1_1algorithms_1_1_algorithm}{Algorithm}} \mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1_item_c_a94989aecd3ceb38240dfc589432a7c35}{method}}
+\item 
+long \mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1_item_c_adabc8d4022a9a538b3a082783d1fa06b}{size}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A representation of a compressed item. Note\+: it is used mainly for the zip operation, for the unzip operation it is merely used to save the file object (algorithm cannot be set due the file has not been parsed, neither its headers). 
+
+Author\+: Sergio Vazquez 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classprop_1_1dominio_1_1model_1_1_item_c_a51017175d479eee8d64c8938fff573d1}\label{classprop_1_1dominio_1_1model_1_1_item_c_a51017175d479eee8d64c8938fff573d1}} 
+\index{prop.dominio.model.ItemC@{prop.dominio.model.ItemC}!ItemC@{ItemC}}
+\index{ItemC@{ItemC}!prop.dominio.model.ItemC@{prop.dominio.model.ItemC}}
+\doxysubsubsection{\texorpdfstring{ItemC()}{ItemC()}}
+{\footnotesize\ttfamily prop.\+dominio.\+model.\+Item\+C.\+ItemC (\begin{DoxyParamCaption}\item[{String}]{path }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{20                             \{}
+\DoxyCodeLine{21     this.\mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1_item_c_a2af8b6bcd58a923db5a67fc9e893d04a}{path}} = \mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1_item_c_a2af8b6bcd58a923db5a67fc9e893d04a}{path}};}
+\DoxyCodeLine{22   \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classprop_1_1dominio_1_1model_1_1_item_c_a9ffdfa9bdbd3e717f6ee2e18d0b2f22a}\label{classprop_1_1dominio_1_1model_1_1_item_c_a9ffdfa9bdbd3e717f6ee2e18d0b2f22a}} 
+\index{prop.dominio.model.ItemC@{prop.dominio.model.ItemC}!getMethod@{getMethod}}
+\index{getMethod@{getMethod}!prop.dominio.model.ItemC@{prop.dominio.model.ItemC}}
+\doxysubsubsection{\texorpdfstring{getMethod()}{getMethod()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{enumprop_1_1algorithms_1_1_algorithm}{Algorithm}} prop.\+dominio.\+model.\+Item\+C.\+get\+Method (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{24                                \{}
+\DoxyCodeLine{25     \textcolor{keywordflow}{return} \mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1_item_c_a94989aecd3ceb38240dfc589432a7c35}{method}};}
+\DoxyCodeLine{26   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1dominio_1_1model_1_1_item_c_adaec34b8b9e5be8702b63d97e83bfaad}\label{classprop_1_1dominio_1_1model_1_1_item_c_adaec34b8b9e5be8702b63d97e83bfaad}} 
+\index{prop.dominio.model.ItemC@{prop.dominio.model.ItemC}!getPath@{getPath}}
+\index{getPath@{getPath}!prop.dominio.model.ItemC@{prop.dominio.model.ItemC}}
+\doxysubsubsection{\texorpdfstring{getPath()}{getPath()}}
+{\footnotesize\ttfamily String prop.\+dominio.\+model.\+Item\+C.\+get\+Path (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{32                           \{}
+\DoxyCodeLine{33     \textcolor{keywordflow}{return} \mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1_item_c_a2af8b6bcd58a923db5a67fc9e893d04a}{path}};}
+\DoxyCodeLine{34   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1dominio_1_1model_1_1_item_c_aaae2a705d6f3d1a646e649f2dbf8d4d4}\label{classprop_1_1dominio_1_1model_1_1_item_c_aaae2a705d6f3d1a646e649f2dbf8d4d4}} 
+\index{prop.dominio.model.ItemC@{prop.dominio.model.ItemC}!getSize@{getSize}}
+\index{getSize@{getSize}!prop.dominio.model.ItemC@{prop.dominio.model.ItemC}}
+\doxysubsubsection{\texorpdfstring{getSize()}{getSize()}}
+{\footnotesize\ttfamily long prop.\+dominio.\+model.\+Item\+C.\+get\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{40                         \{}
+\DoxyCodeLine{41     \textcolor{keywordflow}{return} \mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1_item_c_adabc8d4022a9a538b3a082783d1fa06b}{size}};}
+\DoxyCodeLine{42   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1dominio_1_1model_1_1_item_c_aadb18d8f2d46ec0cff5ff6fe64b1550d}\label{classprop_1_1dominio_1_1model_1_1_item_c_aadb18d8f2d46ec0cff5ff6fe64b1550d}} 
+\index{prop.dominio.model.ItemC@{prop.dominio.model.ItemC}!setMethod@{setMethod}}
+\index{setMethod@{setMethod}!prop.dominio.model.ItemC@{prop.dominio.model.ItemC}}
+\doxysubsubsection{\texorpdfstring{setMethod()}{setMethod()}}
+{\footnotesize\ttfamily void prop.\+dominio.\+model.\+Item\+C.\+set\+Method (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{enumprop_1_1algorithms_1_1_algorithm}{Algorithm}}}]{method }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{28                                           \{}
+\DoxyCodeLine{29     this.\mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1_item_c_a94989aecd3ceb38240dfc589432a7c35}{method}} = \mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1_item_c_a94989aecd3ceb38240dfc589432a7c35}{method}};}
+\DoxyCodeLine{30   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1dominio_1_1model_1_1_item_c_a276783aaf962a0441d6e7050ae7caa2c}\label{classprop_1_1dominio_1_1model_1_1_item_c_a276783aaf962a0441d6e7050ae7caa2c}} 
+\index{prop.dominio.model.ItemC@{prop.dominio.model.ItemC}!setPath@{setPath}}
+\index{setPath@{setPath}!prop.dominio.model.ItemC@{prop.dominio.model.ItemC}}
+\doxysubsubsection{\texorpdfstring{setPath()}{setPath()}}
+{\footnotesize\ttfamily void prop.\+dominio.\+model.\+Item\+C.\+set\+Path (\begin{DoxyParamCaption}\item[{String}]{path }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{36                                    \{}
+\DoxyCodeLine{37     this.\mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1_item_c_a2af8b6bcd58a923db5a67fc9e893d04a}{path}} = \mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1_item_c_a2af8b6bcd58a923db5a67fc9e893d04a}{path}};}
+\DoxyCodeLine{38   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1dominio_1_1model_1_1_item_c_abcaf4a33afcb5e747e5aad6827703362}\label{classprop_1_1dominio_1_1model_1_1_item_c_abcaf4a33afcb5e747e5aad6827703362}} 
+\index{prop.dominio.model.ItemC@{prop.dominio.model.ItemC}!setSize@{setSize}}
+\index{setSize@{setSize}!prop.dominio.model.ItemC@{prop.dominio.model.ItemC}}
+\doxysubsubsection{\texorpdfstring{setSize()}{setSize()}}
+{\footnotesize\ttfamily void prop.\+dominio.\+model.\+Item\+C.\+set\+Size (\begin{DoxyParamCaption}\item[{long}]{size }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{44                                  \{}
+\DoxyCodeLine{45     this.\mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1_item_c_adabc8d4022a9a538b3a082783d1fa06b}{size}} = \mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1_item_c_adabc8d4022a9a538b3a082783d1fa06b}{size}};}
+\DoxyCodeLine{46   \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classprop_1_1dominio_1_1model_1_1_item_c_a94989aecd3ceb38240dfc589432a7c35}\label{classprop_1_1dominio_1_1model_1_1_item_c_a94989aecd3ceb38240dfc589432a7c35}} 
+\index{prop.dominio.model.ItemC@{prop.dominio.model.ItemC}!method@{method}}
+\index{method@{method}!prop.dominio.model.ItemC@{prop.dominio.model.ItemC}}
+\doxysubsubsection{\texorpdfstring{method}{method}}
+{\footnotesize\ttfamily \mbox{\hyperlink{enumprop_1_1algorithms_1_1_algorithm}{Algorithm}} prop.\+dominio.\+model.\+Item\+C.\+method\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classprop_1_1dominio_1_1model_1_1_item_c_a2af8b6bcd58a923db5a67fc9e893d04a}\label{classprop_1_1dominio_1_1model_1_1_item_c_a2af8b6bcd58a923db5a67fc9e893d04a}} 
+\index{prop.dominio.model.ItemC@{prop.dominio.model.ItemC}!path@{path}}
+\index{path@{path}!prop.dominio.model.ItemC@{prop.dominio.model.ItemC}}
+\doxysubsubsection{\texorpdfstring{path}{path}}
+{\footnotesize\ttfamily String prop.\+dominio.\+model.\+Item\+C.\+path\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classprop_1_1dominio_1_1model_1_1_item_c_adabc8d4022a9a538b3a082783d1fa06b}\label{classprop_1_1dominio_1_1model_1_1_item_c_adabc8d4022a9a538b3a082783d1fa06b}} 
+\index{prop.dominio.model.ItemC@{prop.dominio.model.ItemC}!size@{size}}
+\index{size@{size}!prop.dominio.model.ItemC@{prop.dominio.model.ItemC}}
+\doxysubsubsection{\texorpdfstring{size}{size}}
+{\footnotesize\ttfamily long prop.\+dominio.\+model.\+Item\+C.\+size\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Victor/\+Desktop/sippy2/src/main/java/prop/dominio/model/\mbox{\hyperlink{_item_c_8java}{Item\+C.\+java}}\end{DoxyCompactItemize}

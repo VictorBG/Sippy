@@ -11,7 +11,6 @@ import java.io.IOException;
  *
  * @class UnzipTransaction
  * @brief Unzip transaction.
- *
  */
 public class UnzipTransaction extends Transaction<Statistics> {
 
@@ -20,8 +19,8 @@ public class UnzipTransaction extends Transaction<Statistics> {
 
   /**
    * @brief Constructora
-   *     \pre item existeix
-   *     \post Es crea una instancia de Unzip
+   * \pre item existeix
+   *  \post Es crea una instancia de Unzip
    */
   public UnzipTransaction(String path, String outputPath) {
     this.path = path;
@@ -30,8 +29,8 @@ public class UnzipTransaction extends Transaction<Statistics> {
 
   /**
    * @brief Executa la transaccio
-   *     \pre cert
-   *     \post Es creen les estadístiques i el UnzipStream, al acabar s'atura el timer i es setejen
+   * \pre cert
+   *  \post Es creen les estadístiques i el UnzipStream, al acabar s'atura el timer i es setejen
    *     els resultats
    */
   @Override
