@@ -54,8 +54,11 @@ Prova 5:
 Descripció: Comprovació que l'aplicació funciona correctament per a arxius txt amb LZSS.
 Objectius: Comprovar que l'aplicació llegueix un arxiu, ho codifica amb LZSS y ho escriu a un arxiu d'extensió sippy
             al sistema.
-Entrada: /docs/proves/quijote.txt
-Sortida:  Estadístiques:
+Entrada: /docs/proves/md.txt
+Sortida:  Estadístiques: Elapsed time: 15,12 s
+                         Initial size: 628,1 kB
+                         Compressed size: 341,7 kB
+                         Compression ratio: 45,606%
 
 Efectes secundaris: Creació del fitxer sippy de sortida
 
@@ -64,8 +67,11 @@ Prova 6:
 Descripció: Comprovació que l'aplicació funciona correctament per a carpetes txt amb LZSS.
 Objectius: Comprovar que l'aplicació llegueix una carpeta amb arxius, ho codifica amb LZSS y ho escriu a un arxiu
             d'extensió sippy al sistema.
-Entrada: /docs/proves/carpeta
-Sortida:  Estadístiques:
+Entrada: /docs/proves/carpetamd
+Sortida:  Estadístiques: Elapsed time: 47,57 s
+                         Initial size: 2,5 MB
+                         Compressed size: 1,3 MB
+                         Compression ratio: 45,603%
 
 Efectes secundaris: Creació del fitxer sippy de sortida
 
@@ -132,3 +138,4 @@ Entrada: /docs/proves/comprimits/carpeta_lzw.sippy
 Sortida:  Estadístiques: Elapsed time: 6 s
 
 Efectes secundaris: Creació de la carpeta de la descompressió i obertura de la carpeta que conté la carpeta resultant
+
