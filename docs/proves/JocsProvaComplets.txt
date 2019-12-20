@@ -80,7 +80,7 @@ Prova 7:
 Descripció: Comprovació que l'aplicació funciona correctament per a arxius ppm amb JPEG.
 Objectius: Comprovar que l'aplicació llegueix un arxiu, ho codifica amb JPEG y ho escriu a un arxiu d'extensió sippy
             al sistema.
-Entrada: /docs/proves/gos.ppm
+Entrada: /docs/proves/yacht.ppm
 Sortida:  Estadístiques:
 
 Efectes secundaris: Creació del fitxer sippy de sortida
@@ -90,7 +90,7 @@ Prova 8:
 Descripció: Comprovació que l'aplicació funciona correctament per a carpetes amb arxius ppm amb JPEG.
 Objectius: Comprovar que l'aplicació llegueix una carpeta amb arxius, ho codifica amb JPEG y ho escriu a un arxiu
             d'extensió sippy al sistema.
-Entrada: /docs/proves/gossos
+Entrada: /docs/proves/yachts
 Sortida:  Estadístiques:
 
 Efectes secundaris: Creació del fitxer sippy de sortida
