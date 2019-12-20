@@ -21,6 +21,17 @@ int\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_k_m
 \end{DoxyCompactItemize}
 
 
+\doxysubsection{Detailed Description}
+The
+\begin{DoxyCode}{0}
+\DoxyCodeLine{KMP }
+\end{DoxyCode}
+ class finds the first occurrence of a pattern string in a text string. 
+
+This implementation uses a version of the Knuth-\/\+Morris-\/\+Pratt substring search algorithm. The version takes time proportional to {\itshape n} + {\itshape m R} in the worst case, where {\itshape n} is the length of the text string, {\itshape m} is the length of the pattern, and {\itshape R} is the alphabet size. It uses extra space proportional to {\itshape m R}. 
+
+For additional documentation, see \href{https://algs4.cs.princeton.edu/53substring}{\texttt{ Section 5.\+3}} of {\itshape Algorithms, 4th Edition} by Robert Sedgewick and Kevin Wayne. 
+
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus_a611675b89c659098e65f371ade8bea6d}\label{classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus_a611675b89c659098e65f371ade8bea6d}} 
 \index{prop.algorithms.lzss.KMPplus@{prop.algorithms.lzss.KMPplus}!KMPplus@{KMPplus}}
@@ -28,22 +39,30 @@ int\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_k_m
 \doxysubsubsection{\texorpdfstring{KMPplus()}{KMPplus()}}
 {\footnotesize\ttfamily prop.\+algorithms.\+lzss.\+K\+M\+Pplus.\+K\+M\+Pplus (\begin{DoxyParamCaption}\item[{String}]{pattern }\end{DoxyParamCaption})}
 
+Preprocesses the pattern string.
+
+
+\begin{DoxyParams}{Parameters}
+{\em pattern} & the pattern string \\
+\hline
+\end{DoxyParams}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{52                                    \{}
-\DoxyCodeLine{53         \textcolor{keywordtype}{int} m = \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus_a5e7f91831b3cafaceaaf0f6704191177}{pattern}}.length();}
-\DoxyCodeLine{54         \textcolor{keywordtype}{int} n = text.length();}
-\DoxyCodeLine{55         \textcolor{keywordtype}{int} i, j;}
-\DoxyCodeLine{56         \textcolor{keywordflow}{for} (i = 0, j = 0; i < n \&\& j < m; i++) \{}
-\DoxyCodeLine{57             \textcolor{keywordflow}{while} (j >= 0 \&\& text.charAt(i) != \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus_a5e7f91831b3cafaceaaf0f6704191177}{pattern}}.charAt(j))}
-\DoxyCodeLine{58                 j = \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus_aa21af3dac7a9820dc8a795fbf1f11766}{next}}[j];}
-\DoxyCodeLine{59             j++;}
-\DoxyCodeLine{60         \}}
-\DoxyCodeLine{61         \textcolor{keywordflow}{if} (j == m) \textcolor{keywordflow}{return} i -\/ m;}
-\DoxyCodeLine{62         \textcolor{keywordflow}{return} n;}
-\DoxyCodeLine{63     \}}
-\DoxyCodeLine{64 }
-\DoxyCodeLine{65 }
+\DoxyCodeLine{26                                    \{}
+\DoxyCodeLine{27         this.\mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus_a5e7f91831b3cafaceaaf0f6704191177}{pattern}} = \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus_a5e7f91831b3cafaceaaf0f6704191177}{pattern}};}
+\DoxyCodeLine{28         \textcolor{keywordtype}{int} m = \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus_a5e7f91831b3cafaceaaf0f6704191177}{pattern}}.length();}
+\DoxyCodeLine{29         \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus_aa21af3dac7a9820dc8a795fbf1f11766}{next}} = \textcolor{keyword}{new} \textcolor{keywordtype}{int}[m];}
+\DoxyCodeLine{30         \textcolor{keywordtype}{int} j = -\/1;}
+\DoxyCodeLine{31         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < m; i++) \{}
+\DoxyCodeLine{32             \textcolor{keywordflow}{if} (i == 0)                                      \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus_aa21af3dac7a9820dc8a795fbf1f11766}{next}}[i] = -\/1;}
+\DoxyCodeLine{33             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus_a5e7f91831b3cafaceaaf0f6704191177}{pattern}}.charAt(i) != \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus_a5e7f91831b3cafaceaaf0f6704191177}{pattern}}.charAt(j)) \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus_aa21af3dac7a9820dc8a795fbf1f11766}{next}}[i] = j;}
+\DoxyCodeLine{34             \textcolor{keywordflow}{else}                                             \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus_aa21af3dac7a9820dc8a795fbf1f11766}{next}}[i] = \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus_aa21af3dac7a9820dc8a795fbf1f11766}{next}}[j];}
+\DoxyCodeLine{35             \textcolor{keywordflow}{while} (j >= 0 \&\& \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus_a5e7f91831b3cafaceaaf0f6704191177}{pattern}}.charAt(i) != \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus_a5e7f91831b3cafaceaaf0f6704191177}{pattern}}.charAt(j)) \{}
+\DoxyCodeLine{36                 j = \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus_aa21af3dac7a9820dc8a795fbf1f11766}{next}}[j];}
+\DoxyCodeLine{37             \}}
+\DoxyCodeLine{38             j++;}
+\DoxyCodeLine{39         \}}
+\DoxyCodeLine{40     \}}
 
 \end{DoxyCode}
 
@@ -55,9 +74,30 @@ int\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_k_m
 \doxysubsubsection{\texorpdfstring{search()}{search()}}
 {\footnotesize\ttfamily int prop.\+algorithms.\+lzss.\+K\+M\+Pplus.\+search (\begin{DoxyParamCaption}\item[{String}]{text }\end{DoxyParamCaption})}
 
+Returns the index of the first occurrrence of the pattern string in the text string.
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & the text string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the index of the first occurrence of the pattern string in the text string; N if no such match 
+\end{DoxyReturn}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{81            \{}
+\DoxyCodeLine{50                                    \{}
+\DoxyCodeLine{51         \textcolor{keywordtype}{int} m = \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus_a5e7f91831b3cafaceaaf0f6704191177}{pattern}}.length();}
+\DoxyCodeLine{52         \textcolor{keywordtype}{int} n = text.length();}
+\DoxyCodeLine{53         \textcolor{keywordtype}{int} i, j;}
+\DoxyCodeLine{54         \textcolor{keywordflow}{for} (i = 0, j = 0; i < n \&\& j < m; i++) \{}
+\DoxyCodeLine{55             \textcolor{keywordflow}{while} (j >= 0 \&\& text.charAt(i) != \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus_a5e7f91831b3cafaceaaf0f6704191177}{pattern}}.charAt(j))}
+\DoxyCodeLine{56                 j = \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus_aa21af3dac7a9820dc8a795fbf1f11766}{next}}[j];}
+\DoxyCodeLine{57             j++;}
+\DoxyCodeLine{58         \}}
+\DoxyCodeLine{59         \textcolor{keywordflow}{if} (j == m) \textcolor{keywordflow}{return} i -\/ m;}
+\DoxyCodeLine{60         \textcolor{keywordflow}{return} n;}
+\DoxyCodeLine{61     \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus_a057f947380a43cee30d66566e8b7bfea}\label{classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus_a057f947380a43cee30d66566e8b7bfea}} 
@@ -66,6 +106,39 @@ int\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_k_m
 \doxysubsubsection{\texorpdfstring{searchKMPplus()}{searchKMPplus()}}
 {\footnotesize\ttfamily static \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_encoded_string}{Encoded\+String}} prop.\+algorithms.\+lzss.\+K\+M\+Pplus.\+search\+K\+M\+Pplus (\begin{DoxyParamCaption}\item[{String}]{pattern,  }\item[{String}]{text }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
+Takes a pattern string and an input string as command-\/line arguments; searches for the pattern string in the text string; and prints the first occurrence of the pattern string in the text string. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{70                                                                            \{}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72         \textcolor{keywordtype}{int} m = \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus_a5e7f91831b3cafaceaaf0f6704191177}{pattern}}.length();}
+\DoxyCodeLine{73         \textcolor{keywordtype}{int} n = text.length();}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75         \textcolor{comment}{// substring search}}
+\DoxyCodeLine{76         \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus_a611675b89c659098e65f371ade8bea6d}{KMPplus}} kmp = \textcolor{keyword}{new} \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus_a611675b89c659098e65f371ade8bea6d}{KMPplus}}(\mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus_a5e7f91831b3cafaceaaf0f6704191177}{pattern}});}
+\DoxyCodeLine{77         \textcolor{keywordtype}{int} offset = kmp.search(text);}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79         \textcolor{keywordtype}{int} indexMatch = 0;}
+\DoxyCodeLine{80         \textcolor{keywordtype}{int} indexMatchAnt = 0;}
+\DoxyCodeLine{81         \textcolor{keywordtype}{int} i = 1;}
+\DoxyCodeLine{82         String patSub = \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus_a5e7f91831b3cafaceaaf0f6704191177}{pattern}}.substring(0,i);}
+\DoxyCodeLine{83         \textcolor{keywordtype}{boolean} match = \textcolor{keyword}{false};}
+\DoxyCodeLine{84         \textcolor{keywordflow}{do} \{}
+\DoxyCodeLine{85             indexMatchAnt = indexMatch;}
+\DoxyCodeLine{86             patSub = \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus_a5e7f91831b3cafaceaaf0f6704191177}{pattern}}.substring(0,i);}
+\DoxyCodeLine{87             kmp = \textcolor{keyword}{new} \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus_a611675b89c659098e65f371ade8bea6d}{KMPplus}}(patSub);}
+\DoxyCodeLine{88             indexMatch = kmp.search(text);}
+\DoxyCodeLine{89             i++;}
+\DoxyCodeLine{90         \}}
+\DoxyCodeLine{91         \textcolor{keywordflow}{while} (indexMatch >= indexMatchAnt \&\& i<=\mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus_a5e7f91831b3cafaceaaf0f6704191177}{pattern}}.length() \&\& indexMatch != text.length());}
+\DoxyCodeLine{92         i = i-\/2;}
+\DoxyCodeLine{93         EncodedString es = \textcolor{keyword}{new} EncodedString();}
+\DoxyCodeLine{94         es.setLength( (\textcolor{keywordtype}{short})i);}
+\DoxyCodeLine{95         es.setOffset( (\textcolor{keywordtype}{short})indexMatchAnt);}
+\DoxyCodeLine{96         \textcolor{keywordflow}{return} es;}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{98     \}}
+
+\end{DoxyCode}
 
 
 \doxysubsection{Member Data Documentation}

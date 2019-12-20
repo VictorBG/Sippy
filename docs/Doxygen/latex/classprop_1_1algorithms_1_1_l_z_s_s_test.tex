@@ -17,9 +17,7 @@ List$<$ byte\mbox{[}$\,$\mbox{]}$>$ \mbox{\hyperlink{classprop_1_1algorithms_1_1
 
 
 \doxysubsection{Detailed Description}
-Author\+: Sergio Vazquez 
-
-DO N\+OT M\+O\+D\+I\+FY, they work on linux but not on Windows! 
+Author\+: Miguel Angel Cabrera 
 
 \doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{classprop_1_1algorithms_1_1_l_z_s_s_test_ab1bdb25d65465b7fd69a11ce734b0a1e}\label{classprop_1_1algorithms_1_1_l_z_s_s_test_ab1bdb25d65465b7fd69a11ce734b0a1e}} 
@@ -34,16 +32,13 @@ Reimplemented from \mbox{\hyperlink{classprop_1_1algorithms_1_1base_1_1_base_alg
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{25                                   \{}
-\DoxyCodeLine{26     \textcolor{keywordflow}{return} \textcolor{keyword}{new} ArrayList<byte[]>() \{}
-\DoxyCodeLine{27       \{}
-\DoxyCodeLine{28         add(\textcolor{stringliteral}{"D0N QuijoT3 DE LA MaNCh4"}.getBytes());}
-\DoxyCodeLine{29         add(\textcolor{stringliteral}{"abcdefghijklmnopqrstuvwxyz"}}
-\DoxyCodeLine{30             .getBytes(StandardCharsets.US\_ASCII));}
-\DoxyCodeLine{31         add(\textcolor{stringliteral}{"áéíóúàèìòùäëïöü"}.getBytes());}
-\DoxyCodeLine{32       \}}
-\DoxyCodeLine{33     \};}
-\DoxyCodeLine{34   \}}
+\DoxyCodeLine{20                                   \{}
+\DoxyCodeLine{21     \textcolor{keywordflow}{return} \textcolor{keyword}{new} ArrayList<byte[]>() \{}
+\DoxyCodeLine{22       \{}
+\DoxyCodeLine{23         add(\textcolor{stringliteral}{"Lorem ipsum dolor sit amet."}.getBytes());}
+\DoxyCodeLine{24       \}}
+\DoxyCodeLine{25     \};}
+\DoxyCodeLine{26   \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{classprop_1_1algorithms_1_1_l_z_s_s_test_ab321abbdc8a890965bbde32b4e5cdcf5}\label{classprop_1_1algorithms_1_1_l_z_s_s_test_ab321abbdc8a890965bbde32b4e5cdcf5}} 
@@ -58,36 +53,21 @@ Reimplemented from \mbox{\hyperlink{classprop_1_1algorithms_1_1base_1_1_base_alg
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{37                                    \{}
-\DoxyCodeLine{38     \textcolor{keywordflow}{return} \textcolor{keyword}{new} ArrayList<byte[]>() \{}
-\DoxyCodeLine{39       \{}
-\DoxyCodeLine{40         add(\textcolor{keyword}{new} \textcolor{keywordtype}{byte}[]\{(byte) 0x00, (\textcolor{keywordtype}{byte}) 0x00, (byte) 0x00, (\textcolor{keywordtype}{byte}) 0x17, (byte) 0x00, (\textcolor{keywordtype}{byte}) 0x00,}
-\DoxyCodeLine{41             (byte) 0x80, (\textcolor{keywordtype}{byte}) 0x44, (byte) 0x30, (\textcolor{keywordtype}{byte}) 0x4e, (byte) 0x20, (\textcolor{keywordtype}{byte}) 0x51,}
-\DoxyCodeLine{42             (byte) 0x75, (\textcolor{keywordtype}{byte}) 0x69, (byte) 0x6a, (\textcolor{keywordtype}{byte}) 0x6f, (byte) 0x54, (\textcolor{keywordtype}{byte}) 0x33,}
-\DoxyCodeLine{43             (byte) 0x20, (\textcolor{keywordtype}{byte}) 0x44, (byte) 0x45, (\textcolor{keywordtype}{byte}) 0x20, (byte) 0x4c, (\textcolor{keywordtype}{byte}) 0x41,}
-\DoxyCodeLine{44             (byte) 0x20, (\textcolor{keywordtype}{byte}) 0x4d, (byte) 0x61, (\textcolor{keywordtype}{byte}) 0x4e, (byte) 0x43, (\textcolor{keywordtype}{byte}) 0x68\}}
-\DoxyCodeLine{45 }
-\DoxyCodeLine{46         );}
-\DoxyCodeLine{47         add(\textcolor{keyword}{new} \textcolor{keywordtype}{byte}[]\{(byte) 0x00, (\textcolor{keywordtype}{byte}) 0x00, (byte) 0x00, (\textcolor{keywordtype}{byte}) 0x48, (byte) 0x00, (\textcolor{keywordtype}{byte}) 0x00,}
-\DoxyCodeLine{48             (byte) 0x00, (\textcolor{keywordtype}{byte}) 0x00, (byte) 0x00, (\textcolor{keywordtype}{byte}) 0x00, (byte) 0x02, (\textcolor{keywordtype}{byte}) 0x61,}
-\DoxyCodeLine{49             (byte) 0x62, (\textcolor{keywordtype}{byte}) 0x63, (byte) 0x64, (\textcolor{keywordtype}{byte}) 0x65, (byte) 0x66, (\textcolor{keywordtype}{byte}) 0x67,}
-\DoxyCodeLine{50             (byte) 0x68, (\textcolor{keywordtype}{byte}) 0x69, (byte) 0x6a, (\textcolor{keywordtype}{byte}) 0x6b, (byte) 0x6c, (\textcolor{keywordtype}{byte}) 0x6d,}
-\DoxyCodeLine{51             (byte) 0x6e, (\textcolor{keywordtype}{byte}) 0x6f, (byte) 0x70, (\textcolor{keywordtype}{byte}) 0x71, (byte) 0x72, (\textcolor{keywordtype}{byte}) 0x73,}
-\DoxyCodeLine{52             (byte) 0x74, (\textcolor{keywordtype}{byte}) 0x75, (byte) 0x76, (\textcolor{keywordtype}{byte}) 0x77, (byte) 0x78, (\textcolor{keywordtype}{byte}) 0x79,}
-\DoxyCodeLine{53             (byte) 0x7a, (\textcolor{keywordtype}{byte}) 0x21, (byte) 0x5f, (\textcolor{keywordtype}{byte}) 0x24, (byte) 0x25, (\textcolor{keywordtype}{byte}) 0x26,}
-\DoxyCodeLine{54             (byte) 0x2f, (\textcolor{keywordtype}{byte}) 0x28, (byte) 0x29, (\textcolor{keywordtype}{byte}) 0x3d, (byte) 0x3f, (\textcolor{keywordtype}{byte}) 0x5e,}
-\DoxyCodeLine{55             (byte) 0x7c, (\textcolor{keywordtype}{byte}) 0x40, (byte) 0x23, (\textcolor{keywordtype}{byte}) 0x7e, (byte) 0x5d, (\textcolor{keywordtype}{byte}) 0x5b,}
-\DoxyCodeLine{56             (byte) 0x7b, (\textcolor{keywordtype}{byte}) 0x7d, (byte) 0x2d, (\textcolor{keywordtype}{byte}) 0x2c, (byte) 0x3a, (\textcolor{keywordtype}{byte}) 0x3b\}}
-\DoxyCodeLine{57 }
-\DoxyCodeLine{58         );}
-\DoxyCodeLine{59         add(\textcolor{keyword}{new} \textcolor{keywordtype}{byte}[]\{(byte) 0x00, (\textcolor{keywordtype}{byte}) 0x00, (byte) 0x00, (\textcolor{keywordtype}{byte}) 0x50, (byte) 0x18, (\textcolor{keywordtype}{byte}) 0x01,}
-\DoxyCodeLine{60             (byte) 0x3f, (\textcolor{keywordtype}{byte}) 0x3f, (byte) 0x3f, (\textcolor{keywordtype}{byte}) 0x00, (byte) 0x03, (\textcolor{keywordtype}{byte}) 0x00,}
-\DoxyCodeLine{61             (byte) 0x06, (\textcolor{keywordtype}{byte}) 0x3f, (byte) 0x3f, (\textcolor{keywordtype}{byte}) 0x3f\}}
-\DoxyCodeLine{62 }
-\DoxyCodeLine{63         );}
-\DoxyCodeLine{64       \}}
-\DoxyCodeLine{65     \};}
-\DoxyCodeLine{66   \}}
+\DoxyCodeLine{29                                    \{}
+\DoxyCodeLine{30     \textcolor{keywordflow}{return} \textcolor{keyword}{new} ArrayList<byte[]>() \{}
+\DoxyCodeLine{31       \{}
+\DoxyCodeLine{32         add(\textcolor{keyword}{new} \textcolor{keywordtype}{byte}[]\{}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34                         (byte) 0x00, (\textcolor{keywordtype}{byte}) 0x00, (byte) 0x00, (\textcolor{keywordtype}{byte}) 0x1B, (byte) 0x00, (\textcolor{keywordtype}{byte}) 0x00, (byte) 0x00, (\textcolor{keywordtype}{byte}) 0x08,}
+\DoxyCodeLine{35                         (byte) 0x4c, (\textcolor{keywordtype}{byte}) 0x6f, (byte) 0x72, (\textcolor{keywordtype}{byte}) 0x65, (byte) 0x6d, (\textcolor{keywordtype}{byte}) 0x20, (byte) 0x69, (\textcolor{keywordtype}{byte}) 0x70,}
+\DoxyCodeLine{36                         (byte) 0x73, (\textcolor{keywordtype}{byte}) 0x75, (byte) 0x6d, (\textcolor{keywordtype}{byte}) 0x20, (byte) 0x64, (\textcolor{keywordtype}{byte}) 0x6f, (byte) 0x6c, (\textcolor{keywordtype}{byte}) 0x6f,}
+\DoxyCodeLine{37                         (byte) 0x72, (\textcolor{keywordtype}{byte}) 0x20, (byte) 0x73, (\textcolor{keywordtype}{byte}) 0x69, (byte) 0x74, (\textcolor{keywordtype}{byte}) 0x20, (byte) 0x61, (\textcolor{keywordtype}{byte}) 0x6d,}
+\DoxyCodeLine{38                         (byte) 0x65, (\textcolor{keywordtype}{byte}) 0x74, (byte) 0x2e}
+\DoxyCodeLine{39                 \}}
+\DoxyCodeLine{40         );}
+\DoxyCodeLine{41       \}}
+\DoxyCodeLine{42     \};}
+\DoxyCodeLine{43   \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{classprop_1_1algorithms_1_1_l_z_s_s_test_a2edcf09177964c3f369344075a51a4cd}\label{classprop_1_1algorithms_1_1_l_z_s_s_test_a2edcf09177964c3f369344075a51a4cd}} 
@@ -98,9 +78,10 @@ Reimplemented from \mbox{\hyperlink{classprop_1_1algorithms_1_1base_1_1_base_alg
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{20                          \{}
-\DoxyCodeLine{21     \mbox{\hyperlink{classprop_1_1algorithms_1_1base_1_1_base_algorithm_test_ad094da463e3ff06c471086fe8fa38d95}{test}}(Algorithm.LZSS.getAlgorithm());}
-\DoxyCodeLine{22   \}}
+\DoxyCodeLine{14                          \{}
+\DoxyCodeLine{15     \mbox{\hyperlink{classprop_1_1algorithms_1_1base_1_1_base_algorithm_test_ab4d05eecca67ac792f92ec0da550c3dc}{testEncode}}(Algorithm.LZSS.getAlgorithm());}
+\DoxyCodeLine{16     \mbox{\hyperlink{classprop_1_1algorithms_1_1base_1_1_base_algorithm_test_ab994fb4e101fef50feb92ca3bc95a2f4}{testDecode}}(Algorithm.LZSS.getAlgorithm());}
+\DoxyCodeLine{17   \}}
 
 \end{DoxyCode}
 

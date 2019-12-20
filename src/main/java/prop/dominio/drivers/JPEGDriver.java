@@ -48,7 +48,7 @@ public class JPEGDriver {
     byte[] fileEncoded = algorithm.encode(algorithm.readFile(inputFile));
     byte[] fileDecoded = algorithm.decode(fileEncoded);
 
-    String outputPath =inputFile.getPath().replace(".ppm",  "_decoded.ppm");
+    String outputPath = inputFile.getPath().replace(".ppm", "_decoded.ppm");
     File outputFile = new File(outputPath);
 
     DataOutputStream dataOutputStream = new DataOutputStream(new FileOutputStream(outputFile));

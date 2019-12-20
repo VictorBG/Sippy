@@ -139,9 +139,6 @@ public class LZSS implements BaseAlgorithm {
           flags.addFlag(false); //flag 0 indicates literal
           //only ASCII
           String symbol = w.getFirstCharLookAheadBuffer() + "";
-          if (symbol == "Í") {
-            int a = 42;
-          }
           byte[] symb = symbol.getBytes("UTF-8");
           //byte[] symb =symbol.getBytes();
           baos.write(symb);

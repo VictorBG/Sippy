@@ -96,7 +96,12 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:aa21af3dac7a9820dc8a795fbf1f11766"><td class="memItemLeft" align="right" valign="top">int[]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus.html#aa21af3dac7a9820dc8a795fbf1f11766">next</a></td></tr>
 <tr class="separator:aa21af3dac7a9820dc8a795fbf1f11766"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>The</p><div class="fragment"><div class="line">KMP </div>
+</div><!-- fragment --><p> class finds the first occurrence of a pattern string in a text string. </p>
+<p>This implementation uses a version of the Knuth-Morris-Pratt substring search algorithm. The version takes time proportional to <em>n</em> + <em>m R</em> in the worst case, where <em>n</em> is the length of the text string, <em>m</em> is the length of the pattern, and <em>R</em> is the alphabet size. It uses extra space proportional to <em>m R</em>. </p>
+<p>For additional documentation, see <a href="https://algs4.cs.princeton.edu/53substring">Section 5.3</a> of <em>Algorithms, 4th Edition</em> by Robert Sedgewick and Kevin Wayne. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a611675b89c659098e65f371ade8bea6d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a611675b89c659098e65f371ade8bea6d">&#9670;&nbsp;</a></span>KMPplus()</h2>
 
@@ -112,20 +117,28 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                                   {</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordtype">int</span> m = <a class="code" href="classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus.html#a5e7f91831b3cafaceaaf0f6704191177">pattern</a>.length();</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordtype">int</span> n = text.length();</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keywordtype">int</span> i, j;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keywordflow">for</span> (i = 0, j = 0; i &lt; n &amp;&amp; j &lt; m; i++) {</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            <span class="keywordflow">while</span> (j &gt;= 0 &amp;&amp; text.charAt(i) != <a class="code" href="classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus.html#a5e7f91831b3cafaceaaf0f6704191177">pattern</a>.charAt(j))</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                j = <a class="code" href="classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus.html#aa21af3dac7a9820dc8a795fbf1f11766">next</a>[j];</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            j++;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        }</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keywordflow">if</span> (j == m) <span class="keywordflow">return</span> i - m;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordflow">return</span> n;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    }</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<p>Preprocesses the pattern string.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pattern</td><td>the pattern string </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;                                   {</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        this.<a class="code" href="classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus.html#a5e7f91831b3cafaceaaf0f6704191177">pattern</a> = <a class="code" href="classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus.html#a5e7f91831b3cafaceaaf0f6704191177">pattern</a>;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keywordtype">int</span> m = <a class="code" href="classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus.html#a5e7f91831b3cafaceaaf0f6704191177">pattern</a>.length();</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <a class="code" href="classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus.html#aa21af3dac7a9820dc8a795fbf1f11766">next</a> = <span class="keyword">new</span> <span class="keywordtype">int</span>[m];</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordtype">int</span> j = -1;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; m; i++) {</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            <span class="keywordflow">if</span> (i == 0)                                      <a class="code" href="classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus.html#aa21af3dac7a9820dc8a795fbf1f11766">next</a>[i] = -1;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code" href="classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus.html#a5e7f91831b3cafaceaaf0f6704191177">pattern</a>.charAt(i) != <a class="code" href="classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus.html#a5e7f91831b3cafaceaaf0f6704191177">pattern</a>.charAt(j)) <a class="code" href="classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus.html#aa21af3dac7a9820dc8a795fbf1f11766">next</a>[i] = j;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            <span class="keywordflow">else</span>                                             <a class="code" href="classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus.html#aa21af3dac7a9820dc8a795fbf1f11766">next</a>[i] = <a class="code" href="classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus.html#aa21af3dac7a9820dc8a795fbf1f11766">next</a>[j];</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            <span class="keywordflow">while</span> (j &gt;= 0 &amp;&amp; <a class="code" href="classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus.html#a5e7f91831b3cafaceaaf0f6704191177">pattern</a>.charAt(i) != <a class="code" href="classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus.html#a5e7f91831b3cafaceaaf0f6704191177">pattern</a>.charAt(j)) {</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                j = <a class="code" href="classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus.html#aa21af3dac7a9820dc8a795fbf1f11766">next</a>[j];</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            }</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            j++;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        }</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -145,7 +158,26 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;           {</div>
+<p>Returns the index of the first occurrrence of the pattern string in the text string.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">text</td><td>the text string </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the index of the first occurrence of the pattern string in the text string; N if no such match </dd></dl>
+<div class="fragment"><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                                   {</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordtype">int</span> m = <a class="code" href="classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus.html#a5e7f91831b3cafaceaaf0f6704191177">pattern</a>.length();</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keywordtype">int</span> n = text.length();</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordtype">int</span> i, j;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordflow">for</span> (i = 0, j = 0; i &lt; n &amp;&amp; j &lt; m; i++) {</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            <span class="keywordflow">while</span> (j &gt;= 0 &amp;&amp; text.charAt(i) != <a class="code" href="classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus.html#a5e7f91831b3cafaceaaf0f6704191177">pattern</a>.charAt(j))</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                j = <a class="code" href="classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus.html#aa21af3dac7a9820dc8a795fbf1f11766">next</a>[j];</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            j++;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        }</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keywordflow">if</span> (j == m) <span class="keywordflow">return</span> i - m;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordflow">return</span> n;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -182,7 +214,37 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-
+<p>Takes a pattern string and an input string as command-line arguments; searches for the pattern string in the text string; and prints the first occurrence of the pattern string in the text string. </p>
+<div class="fragment"><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                                                                           {</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordtype">int</span> m = <a class="code" href="classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus.html#a5e7f91831b3cafaceaaf0f6704191177">pattern</a>.length();</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="keywordtype">int</span> n = text.length();</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="comment">// substring search</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <a class="code" href="classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus.html#a611675b89c659098e65f371ade8bea6d">KMPplus</a> kmp = <span class="keyword">new</span> <a class="code" href="classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus.html#a611675b89c659098e65f371ade8bea6d">KMPplus</a>(<a class="code" href="classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus.html#a5e7f91831b3cafaceaaf0f6704191177">pattern</a>);</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="keywordtype">int</span> offset = kmp.search(text);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keywordtype">int</span> indexMatch = 0;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keywordtype">int</span> indexMatchAnt = 0;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keywordtype">int</span> i = 1;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        String patSub = <a class="code" href="classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus.html#a5e7f91831b3cafaceaaf0f6704191177">pattern</a>.substring(0,i);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="keywordtype">boolean</span> match = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="keywordflow">do</span> {</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            indexMatchAnt = indexMatch;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            patSub = <a class="code" href="classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus.html#a5e7f91831b3cafaceaaf0f6704191177">pattern</a>.substring(0,i);</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            kmp = <span class="keyword">new</span> <a class="code" href="classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus.html#a611675b89c659098e65f371ade8bea6d">KMPplus</a>(patSub);</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            indexMatch = kmp.search(text);</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            i++;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        }</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="keywordflow">while</span> (indexMatch &gt;= indexMatchAnt &amp;&amp; i&lt;=<a class="code" href="classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus.html#a5e7f91831b3cafaceaaf0f6704191177">pattern</a>.length() &amp;&amp; indexMatch != text.length());</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        i = i-2;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        EncodedString es = <span class="keyword">new</span> EncodedString();</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        es.setLength( (<span class="keywordtype">short</span>)i);</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        es.setOffset( (<span class="keywordtype">short</span>)indexMatchAnt);</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <span class="keywordflow">return</span> es;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -234,8 +296,9 @@ Private Attributes</h2></td></tr>
 <li>C:/Users/Victor/Desktop/sippy2/src/main/java/prop/algorithms/lzss/<a class="el" href="_k_m_pplus_8java.html">KMPplus.java</a></li>
 </ul>
 </div><!-- contents -->
-<div class="ttc" id="aclassprop_1_1algorithms_1_1lzss_1_1_k_m_pplus_html_aa21af3dac7a9820dc8a795fbf1f11766"><div class="ttname"><a href="classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus.html#aa21af3dac7a9820dc8a795fbf1f11766">prop.algorithms.lzss.KMPplus.next</a></div><div class="ttdeci">int[] next</div><div class="ttdef"><b>Definition:</b> KMPplus.java:43</div></div>
-<div class="ttc" id="aclassprop_1_1algorithms_1_1lzss_1_1_k_m_pplus_html_a5e7f91831b3cafaceaaf0f6704191177"><div class="ttname"><a href="classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus.html#a5e7f91831b3cafaceaaf0f6704191177">prop.algorithms.lzss.KMPplus.pattern</a></div><div class="ttdeci">String pattern</div><div class="ttdef"><b>Definition:</b> KMPplus.java:42</div></div>
+<div class="ttc" id="aclassprop_1_1algorithms_1_1lzss_1_1_k_m_pplus_html_a611675b89c659098e65f371ade8bea6d"><div class="ttname"><a href="classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus.html#a611675b89c659098e65f371ade8bea6d">prop.algorithms.lzss.KMPplus.KMPplus</a></div><div class="ttdeci">KMPplus(String pattern)</div><div class="ttdef"><b>Definition:</b> KMPplus.java:26</div></div>
+<div class="ttc" id="aclassprop_1_1algorithms_1_1lzss_1_1_k_m_pplus_html_aa21af3dac7a9820dc8a795fbf1f11766"><div class="ttname"><a href="classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus.html#aa21af3dac7a9820dc8a795fbf1f11766">prop.algorithms.lzss.KMPplus.next</a></div><div class="ttdeci">int[] next</div><div class="ttdef"><b>Definition:</b> KMPplus.java:19</div></div>
+<div class="ttc" id="aclassprop_1_1algorithms_1_1lzss_1_1_k_m_pplus_html_a5e7f91831b3cafaceaaf0f6704191177"><div class="ttname"><a href="classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus.html#a5e7f91831b3cafaceaaf0f6704191177">prop.algorithms.lzss.KMPplus.pattern</a></div><div class="ttdeci">String pattern</div><div class="ttdef"><b>Definition:</b> KMPplus.java:18</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

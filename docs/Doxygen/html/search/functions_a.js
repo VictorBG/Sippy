@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['log_724',['log',['../classprop_1_1utils_1_1_log.html#a2866ddccbf70a4248b9b653969655e22',1,'prop.utils.Log.log(String tag, Exception exc)'],['../classprop_1_1utils_1_1_log.html#a4baa064f940f90d87685f5b5bcf47761',1,'prop.utils.Log.log(String tag, String message)']]],
-  ['loginternal_725',['logInternal',['../classprop_1_1utils_1_1_log.html#a2671927e90d90c716104e30f4fb4b01c',1,'prop::utils::Log']]],
-  ['lookaheadisempty_726',['lookAheadIsEmpty',['../classprop_1_1algorithms_1_1lzss_1_1_window_buffer.html#ae4084e6d306986c8181784c9da124db5',1,'prop::algorithms::lzss::WindowBuffer']]]
+  ['kmp_727',['KMP',['../classprop_1_1algorithms_1_1lzss_1_1_k_m_p.html#ac8bd98eae6a339cdd35f9998b803f08d',1,'prop.algorithms.lzss.KMP.KMP(String pat)'],['../classprop_1_1algorithms_1_1lzss_1_1_k_m_p.html#a81ff3c00d5415665c642bc46d6f2e2e2',1,'prop.algorithms.lzss.KMP.KMP(char[] pattern, int R)']]],
+  ['kmpplus_728',['KMPplus',['../classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus.html#a611675b89c659098e65f371ade8bea6d',1,'prop::algorithms::lzss::KMPplus']]]
 ];

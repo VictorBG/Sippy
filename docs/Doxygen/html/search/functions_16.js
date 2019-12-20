@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['zigzag_793',['zigzag',['../classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g.html#a4558fb9b2c28269149b73ef1e1a54636',1,'prop::algorithms::jpeg::JPEG']]],
-  ['zipdriver_794',['ZipDriver',['../classprop_1_1dominio_1_1drivers_1_1_zip_driver.html#ab4a935ca3c642e853501cf919c98f65a',1,'prop::dominio::drivers::ZipDriver']]],
-  ['zipstreamimpl_795',['ZipStreamImpl',['../classprop_1_1datos_1_1streams_1_1impl_1_1_zip_stream_impl.html#a24e8e36f2519d0ef488ac84e3a2df6f2',1,'prop::datos::streams::impl::ZipStreamImpl']]],
-  ['ziptransaction_796',['ZipTransaction',['../classprop_1_1dominio_1_1_zip_transaction.html#a79080d72d403460df7a757e02ba05a83',1,'prop::dominio::ZipTransaction']]]
+  ['windowbuffer_795',['WindowBuffer',['../classprop_1_1algorithms_1_1lzss_1_1_window_buffer.html#a7406b22106b1e9f88b53c98b61abad9b',1,'prop::algorithms::lzss::WindowBuffer']]],
+  ['write_796',['write',['../classprop_1_1algorithms_1_1jpeg_1_1_binary_tree.html#a23ec51aaa0915d91020804e3657bba84',1,'prop.algorithms.jpeg.BinaryTree.write()'],['../classprop_1_1algorithms_1_1lz78_1_1_l_z78.html#ab5747586d8042dad8025b49c2e47c147',1,'prop.algorithms.lz78.LZ78.write()']]],
+  ['writeppm_797',['writePPM',['../classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g.html#aff01bccf59265c117031b62af0b73cf0',1,'prop::algorithms::jpeg::JPEG']]]
 ];
