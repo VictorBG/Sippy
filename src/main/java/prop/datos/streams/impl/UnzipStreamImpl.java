@@ -37,8 +37,8 @@ public class UnzipStreamImpl implements UnzipStream {
   /**
    * @brief Constructora
    *
-   *     \pre item no nul
-   *     \post Nova instancia de UnzipStreamImpl
+   * \pre item no nul
+   * \post Nova instancia de UnzipStreamImpl
    */
   public UnzipStreamImpl(String inputPath, String outputDirectoryPath)
       throws IOException {
@@ -57,8 +57,8 @@ public class UnzipStreamImpl implements UnzipStream {
   /**
    * @brief Comprova que el path sigui un arxiu d'extensió sippy
    *
-   *     \pre cert
-   *     \post Llança una excepció si el path no es un arxiu sippy
+   * \pre cert
+   * \post Llança una excepció si el path no es un arxiu sippy
    */
   private void checkCorrectFormat(String path) throws UnsupportedEncodingException {
     if (!Constants.DEFAULT_ENCODING_EXTENSION.equals(FileUtils.getFileExtension(path))) {
@@ -69,8 +69,8 @@ public class UnzipStreamImpl implements UnzipStream {
   /**
    * @brief Comprova que el path sigui un directori
    *
-   *     \pre cert
-   *     \post Llança una excepció si el path no es un directori
+   * \pre cert
+   * \post Llança una excepció si el path no es un directori
    */
   private void checkOutputDirectory(String path) throws UnsupportedOutputDirectoryPathname {
     File outputDirectory = new File(path);
@@ -85,8 +85,8 @@ public class UnzipStreamImpl implements UnzipStream {
    * @brief Afegeix un separador al final del {@link #basePath}
    *     si no hi és.
    *
-   *     \pre cert
-   *     \post basePath amb el separador del sistema
+   * \pre cert
+   * \post basePath amb el separador del sistema
    */
   private void normalizeBasePath() {
     if (!basePath.endsWith(File.separator)) {
@@ -133,8 +133,8 @@ public class UnzipStreamImpl implements UnzipStream {
   /**
    * @brief Llegueix un byte del stream d'entrada
    *
-   *     \pre cert
-   *     \post algorisme identificat pel byte llegit
+   * \pre cert
+   * \post algorisme identificat pel byte llegit
    */
   private Algorithm getAlgorithm() throws IOException {
     return Algorithm.valueOf(dis.readByte());
@@ -143,8 +143,8 @@ public class UnzipStreamImpl implements UnzipStream {
   /**
    * @brief Llegueix un enter del stream d'entrada
    *
-   *     \pre cert
-   *     \post enter
+   * \pre cert
+   *  \post enter
    */
   private int getDataSize() throws IOException {
     return dis.readInt();
@@ -154,8 +154,8 @@ public class UnzipStreamImpl implements UnzipStream {
    * @brief Llegueix un enter del stream d'entrada i despres llegueix tants bytes com aquest
    *     enter indica. Retorna un string que te per data aquests bytes
    *
-   *     \pre cert
-   *     \post string llegit del stream d'entrada
+   * \pre cert
+   *  \post string llegit del stream d'entrada
    */
   private String getName() throws IOException {
     int nameSize = dis.readInt();

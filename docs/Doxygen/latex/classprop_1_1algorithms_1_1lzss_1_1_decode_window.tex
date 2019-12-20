@@ -1,0 +1,107 @@
+\hypertarget{classprop_1_1algorithms_1_1lzss_1_1_decode_window}{}\doxysection{prop.\+algorithms.\+lzss.\+Decode\+Window Class Reference}
+\label{classprop_1_1algorithms_1_1lzss_1_1_decode_window}\index{prop.algorithms.lzss.DecodeWindow@{prop.algorithms.lzss.DecodeWindow}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_decode_window_a9334491b862b77d8585cf75ecd00fe60}{Decode\+Window}} (int search\+Buffer\+Length)
+\item 
+void \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_decode_window_a5ca5389fa43ce4ae8ddc99289b31b9a9}{add\+Char}} (char c)
+\item 
+void \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_decode_window_a56b1736c509071c0f23e0a14f5dc93da}{print}} ()
+\item 
+String\+Builder \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_decode_window_a4f12a82c088c9fa6cefbccc7844c5c59}{get\+Buffer}} ()
+\item 
+void \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_decode_window_a8f7377c59655729ea453e4c3c144ec1f}{copy\+Chars\+Since}} (int len, int offset)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Author\+: Miguel Angel Cabrera
+
+This class represents an Decode window buffer. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1lzss_1_1_decode_window_a9334491b862b77d8585cf75ecd00fe60}\label{classprop_1_1algorithms_1_1lzss_1_1_decode_window_a9334491b862b77d8585cf75ecd00fe60}} 
+\index{prop.algorithms.lzss.DecodeWindow@{prop.algorithms.lzss.DecodeWindow}!DecodeWindow@{DecodeWindow}}
+\index{DecodeWindow@{DecodeWindow}!prop.algorithms.lzss.DecodeWindow@{prop.algorithms.lzss.DecodeWindow}}
+\doxysubsubsection{\texorpdfstring{DecodeWindow()}{DecodeWindow()}}
+{\footnotesize\ttfamily prop.\+algorithms.\+lzss.\+Decode\+Window.\+Decode\+Window (\begin{DoxyParamCaption}\item[{int}]{search\+Buffer\+Length }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{15                                               \{}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17     buffer = \textcolor{keyword}{new} CircularBuffer(searchBufferLength);}
+\DoxyCodeLine{18     result = \textcolor{keyword}{new} StringBuilder();}
+\DoxyCodeLine{19   \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1lzss_1_1_decode_window_a5ca5389fa43ce4ae8ddc99289b31b9a9}\label{classprop_1_1algorithms_1_1lzss_1_1_decode_window_a5ca5389fa43ce4ae8ddc99289b31b9a9}} 
+\index{prop.algorithms.lzss.DecodeWindow@{prop.algorithms.lzss.DecodeWindow}!addChar@{addChar}}
+\index{addChar@{addChar}!prop.algorithms.lzss.DecodeWindow@{prop.algorithms.lzss.DecodeWindow}}
+\doxysubsubsection{\texorpdfstring{addChar()}{addChar()}}
+{\footnotesize\ttfamily void prop.\+algorithms.\+lzss.\+Decode\+Window.\+add\+Char (\begin{DoxyParamCaption}\item[{char}]{c }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{21                               \{}
+\DoxyCodeLine{22     result.append(c);}
+\DoxyCodeLine{23     buffer.\mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_circular_buffer_a03c6f647f2637e97528fcd9c08d89303}{enqueue}}(c);}
+\DoxyCodeLine{24   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1lzss_1_1_decode_window_a8f7377c59655729ea453e4c3c144ec1f}\label{classprop_1_1algorithms_1_1lzss_1_1_decode_window_a8f7377c59655729ea453e4c3c144ec1f}} 
+\index{prop.algorithms.lzss.DecodeWindow@{prop.algorithms.lzss.DecodeWindow}!copyCharsSince@{copyCharsSince}}
+\index{copyCharsSince@{copyCharsSince}!prop.algorithms.lzss.DecodeWindow@{prop.algorithms.lzss.DecodeWindow}}
+\doxysubsubsection{\texorpdfstring{copyCharsSince()}{copyCharsSince()}}
+{\footnotesize\ttfamily void prop.\+algorithms.\+lzss.\+Decode\+Window.\+copy\+Chars\+Since (\begin{DoxyParamCaption}\item[{int}]{len,  }\item[{int}]{offset }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{34                                                   \{}
+\DoxyCodeLine{35     \textcolor{keywordtype}{int} positions = len;}
+\DoxyCodeLine{36     \textcolor{keywordtype}{int} off = offset;}
+\DoxyCodeLine{37     String repetition = buffer.\mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_circular_buffer_ab2baec5ac3b5bf672b305cfd4fd16898}{toString}}(offset, len);}
+\DoxyCodeLine{38     \textcolor{comment}{//fill decode buffer too}}
+\DoxyCodeLine{39     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < len; i++) \{}
+\DoxyCodeLine{40       buffer.\mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_circular_buffer_a03c6f647f2637e97528fcd9c08d89303}{enqueue}}(repetition.charAt(i));}
+\DoxyCodeLine{41     \}}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43     result.append(repetition);}
+\DoxyCodeLine{44   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1lzss_1_1_decode_window_a4f12a82c088c9fa6cefbccc7844c5c59}\label{classprop_1_1algorithms_1_1lzss_1_1_decode_window_a4f12a82c088c9fa6cefbccc7844c5c59}} 
+\index{prop.algorithms.lzss.DecodeWindow@{prop.algorithms.lzss.DecodeWindow}!getBuffer@{getBuffer}}
+\index{getBuffer@{getBuffer}!prop.algorithms.lzss.DecodeWindow@{prop.algorithms.lzss.DecodeWindow}}
+\doxysubsubsection{\texorpdfstring{getBuffer()}{getBuffer()}}
+{\footnotesize\ttfamily String\+Builder prop.\+algorithms.\+lzss.\+Decode\+Window.\+get\+Buffer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{30                                    \{}
+\DoxyCodeLine{31     \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{32   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1lzss_1_1_decode_window_a56b1736c509071c0f23e0a14f5dc93da}\label{classprop_1_1algorithms_1_1lzss_1_1_decode_window_a56b1736c509071c0f23e0a14f5dc93da}} 
+\index{prop.algorithms.lzss.DecodeWindow@{prop.algorithms.lzss.DecodeWindow}!print@{print}}
+\index{print@{print}!prop.algorithms.lzss.DecodeWindow@{prop.algorithms.lzss.DecodeWindow}}
+\doxysubsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily void prop.\+algorithms.\+lzss.\+Decode\+Window.\+print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{26                       \{}
+\DoxyCodeLine{27     System.out.println(result);}
+\DoxyCodeLine{28   \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Victor/\+Desktop/sippy2/src/main/java/prop/algorithms/lzss/\mbox{\hyperlink{_decode_window_8java}{Decode\+Window.\+java}}\end{DoxyCompactItemize}

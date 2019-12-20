@@ -25,8 +25,8 @@ public class ConsoleApp implements InterfacePanelContract {
 
   /**
    * @brief Constructora
-   *     \pre cert
-   *     \post S'executa la part visual del programa.
+   * \pre cert
+   *  \post S'executa la part visual del programa.
    */
   private ConsoleApp() {
 

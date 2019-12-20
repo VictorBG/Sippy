@@ -1,0 +1,57 @@
+\hypertarget{classprop_1_1utils_1_1_statistics_utils_test}{}\doxysection{prop.\+utils.\+Statistics\+Utils\+Test Class Reference}
+\label{classprop_1_1utils_1_1_statistics_utils_test}\index{prop.utils.StatisticsUtilsTest@{prop.utils.StatisticsUtilsTest}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classprop_1_1utils_1_1_statistics_utils_test_aead57b3584ddd75539551f7c93425b5c}{get\+Time}} ()
+\item 
+void \mbox{\hyperlink{classprop_1_1utils_1_1_statistics_utils_test_ae46085ae484dae0893763c531c2d30fb}{get\+Size}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classprop_1_1utils_1_1_statistics_utils_test_ae46085ae484dae0893763c531c2d30fb}\label{classprop_1_1utils_1_1_statistics_utils_test_ae46085ae484dae0893763c531c2d30fb}} 
+\index{prop.utils.StatisticsUtilsTest@{prop.utils.StatisticsUtilsTest}!getSize@{getSize}}
+\index{getSize@{getSize}!prop.utils.StatisticsUtilsTest@{prop.utils.StatisticsUtilsTest}}
+\doxysubsubsection{\texorpdfstring{getSize()}{getSize()}}
+{\footnotesize\ttfamily void prop.\+utils.\+Statistics\+Utils\+Test.\+get\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{22                         \{}
+\DoxyCodeLine{23     assertEquals(\textcolor{stringliteral}{"100 B"}, StatisticsUtils.getSize(100));}
+\DoxyCodeLine{24     assertEquals(\textcolor{stringliteral}{"0 B"}, StatisticsUtils.getSize(0));}
+\DoxyCodeLine{25     assertEquals(\textcolor{stringliteral}{"0 B"}, StatisticsUtils.getSize(-\/8000000));}
+\DoxyCodeLine{26     assertEquals(\textcolor{stringliteral}{"1 kB"}, StatisticsUtils.getSize(1025));}
+\DoxyCodeLine{27     assertEquals(\textcolor{stringliteral}{"1 MB"}, StatisticsUtils.getSize(Math.pow(2, 20) + 1));}
+\DoxyCodeLine{28     assertEquals(\textcolor{stringliteral}{"8 MB"}, StatisticsUtils.getSize(8 * Math.pow(2, 20)));}
+\DoxyCodeLine{29     assertEquals(\textcolor{stringliteral}{"17,6 MB"}, StatisticsUtils.getSize(17.57 * Math.pow(2, 20)));}
+\DoxyCodeLine{30     assertEquals(\textcolor{stringliteral}{"1 GB"}, StatisticsUtils.getSize(Math.pow(2, 30) + 1));}
+\DoxyCodeLine{31   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1utils_1_1_statistics_utils_test_aead57b3584ddd75539551f7c93425b5c}\label{classprop_1_1utils_1_1_statistics_utils_test_aead57b3584ddd75539551f7c93425b5c}} 
+\index{prop.utils.StatisticsUtilsTest@{prop.utils.StatisticsUtilsTest}!getTime@{getTime}}
+\index{getTime@{getTime}!prop.utils.StatisticsUtilsTest@{prop.utils.StatisticsUtilsTest}}
+\doxysubsubsection{\texorpdfstring{getTime()}{getTime()}}
+{\footnotesize\ttfamily void prop.\+utils.\+Statistics\+Utils\+Test.\+get\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{10                         \{}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12     assertEquals(\textcolor{stringliteral}{"131 ms"}, StatisticsUtils.getTime(0.131D));}
+\DoxyCodeLine{13     assertEquals(\textcolor{stringliteral}{"131 us"}, StatisticsUtils.getTime(0.000131D));}
+\DoxyCodeLine{14     assertEquals(\textcolor{stringliteral}{"1,31 ms"}, StatisticsUtils.getTime(0.00131D));}
+\DoxyCodeLine{15     assertEquals(\textcolor{stringliteral}{"1,31 ms"}, StatisticsUtils.getTime(0.001312D));}
+\DoxyCodeLine{16     assertEquals(\textcolor{stringliteral}{"131 s"}, StatisticsUtils.getTime(131D));}
+\DoxyCodeLine{17     assertEquals(\textcolor{stringliteral}{"131000000 s"}, StatisticsUtils.getTime(131000000D));}
+\DoxyCodeLine{18     assertEquals(\textcolor{stringliteral}{"13,1 ns"}, StatisticsUtils.getTime(0.0000000131D));}
+\DoxyCodeLine{19   \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Victor/\+Desktop/sippy2/src/test/java/prop/utils/\mbox{\hyperlink{_statistics_utils_test_8java}{Statistics\+Utils\+Test.\+java}}\end{DoxyCompactItemize}

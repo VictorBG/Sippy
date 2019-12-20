@@ -1,0 +1,58 @@
+\hypertarget{classprop_1_1utils_1_1_bytes}{}\doxysection{prop.\+utils.\+Bytes Class Reference}
+\label{classprop_1_1utils_1_1_bytes}\index{prop.utils.Bytes@{prop.utils.Bytes}}
+
+
+Utils class, used for concat byte arrays.  
+
+
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static byte\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classprop_1_1utils_1_1_bytes_a21c1ec11d1832f0d5f1df6f16e488b0c}{concat}} (byte\mbox{[}$\,$\mbox{]}... arrays)
+\begin{DoxyCompactList}\small\item\em Concatena arrays de bytes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Utils class, used for concat byte arrays. 
+
+Author\+: Sergio Vazquez 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classprop_1_1utils_1_1_bytes_a21c1ec11d1832f0d5f1df6f16e488b0c}\label{classprop_1_1utils_1_1_bytes_a21c1ec11d1832f0d5f1df6f16e488b0c}} 
+\index{prop.utils.Bytes@{prop.utils.Bytes}!concat@{concat}}
+\index{concat@{concat}!prop.utils.Bytes@{prop.utils.Bytes}}
+\doxysubsubsection{\texorpdfstring{concat()}{concat()}}
+{\footnotesize\ttfamily static byte \mbox{[}$\,$\mbox{]} prop.\+utils.\+Bytes.\+concat (\begin{DoxyParamCaption}\item[{byte...\mbox{[}$\,$\mbox{]}}]{arrays }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Concatena arrays de bytes. 
+
+\begin{DoxyPrecond}{Precondition}
+array existent 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Concatena els arrays de bytes i retorna la concatenació 
+\end{DoxyPostcond}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{16                                                 \{}
+\DoxyCodeLine{17     \textcolor{keywordtype}{int} length = 0;}
+\DoxyCodeLine{18     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{byte}[] array : arrays) \{}
+\DoxyCodeLine{19       length += array.length;}
+\DoxyCodeLine{20     \}}
+\DoxyCodeLine{21     \textcolor{keywordtype}{byte}[] result = \textcolor{keyword}{new} \textcolor{keywordtype}{byte}[length];}
+\DoxyCodeLine{22     \textcolor{keywordtype}{int} pos = 0;}
+\DoxyCodeLine{23     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{byte}[] array : arrays) \{}
+\DoxyCodeLine{24       System.arraycopy(array, 0, result, pos, array.length);}
+\DoxyCodeLine{25       pos += array.length;}
+\DoxyCodeLine{26     \}}
+\DoxyCodeLine{27     \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{28   \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Victor/\+Desktop/sippy2/src/main/java/prop/utils/\mbox{\hyperlink{_bytes_8java}{Bytes.\+java}}\end{DoxyCompactItemize}

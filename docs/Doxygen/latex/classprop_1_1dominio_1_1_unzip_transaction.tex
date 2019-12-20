@@ -1,0 +1,111 @@
+\hypertarget{classprop_1_1dominio_1_1_unzip_transaction}{}\doxysection{prop.\+dominio.\+Unzip\+Transaction Class Reference}
+\label{classprop_1_1dominio_1_1_unzip_transaction}\index{prop.dominio.UnzipTransaction@{prop.dominio.UnzipTransaction}}
+
+
+Unzip transaction.  
+
+
+
+
+Inherits \mbox{\hyperlink{classprop_1_1dominio_1_1_transaction}{prop.\+dominio.\+Transaction$<$ Statistics $>$}}.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classprop_1_1dominio_1_1_unzip_transaction_a78c59aaa668fa63fdabeda3bedb95d02}{Unzip\+Transaction}} (String \mbox{\hyperlink{classprop_1_1dominio_1_1_unzip_transaction_af1185881284ba7f4bd5d759df3df8ef6}{path}}, String \mbox{\hyperlink{classprop_1_1dominio_1_1_unzip_transaction_ae0d4f9f7b5d5b3e20f6ce0a4ef37debb}{output\+Path}})
+\begin{DoxyCompactList}\small\item\em Constructora. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classprop_1_1dominio_1_1_unzip_transaction_a969d761af7bc1938207ffd792252dad5}{execute}} ()  throws I\+O\+Exception 
+\begin{DoxyCompactList}\small\item\em Executa la transaccio. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+String \mbox{\hyperlink{classprop_1_1dominio_1_1_unzip_transaction_af1185881284ba7f4bd5d759df3df8ef6}{path}}
+\item 
+String \mbox{\hyperlink{classprop_1_1dominio_1_1_unzip_transaction_ae0d4f9f7b5d5b3e20f6ce0a4ef37debb}{output\+Path}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Unzip transaction. 
+
+Author\+: Sergio Vazquez. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classprop_1_1dominio_1_1_unzip_transaction_a78c59aaa668fa63fdabeda3bedb95d02}\label{classprop_1_1dominio_1_1_unzip_transaction_a78c59aaa668fa63fdabeda3bedb95d02}} 
+\index{prop.dominio.UnzipTransaction@{prop.dominio.UnzipTransaction}!UnzipTransaction@{UnzipTransaction}}
+\index{UnzipTransaction@{UnzipTransaction}!prop.dominio.UnzipTransaction@{prop.dominio.UnzipTransaction}}
+\doxysubsubsection{\texorpdfstring{UnzipTransaction()}{UnzipTransaction()}}
+{\footnotesize\ttfamily prop.\+dominio.\+Unzip\+Transaction.\+Unzip\+Transaction (\begin{DoxyParamCaption}\item[{String}]{path,  }\item[{String}]{output\+Path }\end{DoxyParamCaption})}
+
+
+
+Constructora. 
+
+\begin{DoxyPrecond}{Precondition}
+item existeix 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Es crea una instancia de Unzip 
+\end{DoxyPostcond}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{25                                                           \{}
+\DoxyCodeLine{26     this.\mbox{\hyperlink{classprop_1_1dominio_1_1_unzip_transaction_af1185881284ba7f4bd5d759df3df8ef6}{path}} = \mbox{\hyperlink{classprop_1_1dominio_1_1_unzip_transaction_af1185881284ba7f4bd5d759df3df8ef6}{path}};}
+\DoxyCodeLine{27     this.\mbox{\hyperlink{classprop_1_1dominio_1_1_unzip_transaction_ae0d4f9f7b5d5b3e20f6ce0a4ef37debb}{outputPath}} = \mbox{\hyperlink{classprop_1_1dominio_1_1_unzip_transaction_ae0d4f9f7b5d5b3e20f6ce0a4ef37debb}{outputPath}};}
+\DoxyCodeLine{28   \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classprop_1_1dominio_1_1_unzip_transaction_a969d761af7bc1938207ffd792252dad5}\label{classprop_1_1dominio_1_1_unzip_transaction_a969d761af7bc1938207ffd792252dad5}} 
+\index{prop.dominio.UnzipTransaction@{prop.dominio.UnzipTransaction}!execute@{execute}}
+\index{execute@{execute}!prop.dominio.UnzipTransaction@{prop.dominio.UnzipTransaction}}
+\doxysubsubsection{\texorpdfstring{execute()}{execute()}}
+{\footnotesize\ttfamily void prop.\+dominio.\+Unzip\+Transaction.\+execute (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws I\+O\+Exception}
+
+
+
+Executa la transaccio. 
+
+\begin{DoxyPrecond}{Precondition}
+cert 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Es creen les estadístiques i el Unzip\+Stream, al acabar s\textquotesingle{}atura el timer i es setejen els resultats 
+\end{DoxyPostcond}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{37                                            \{}
+\DoxyCodeLine{38     DataFactory factory = DataFactory.getInstance();}
+\DoxyCodeLine{39     ItemC item = ItemMapper.mapCompressedItem(factory.getFilesController().getFile(\mbox{\hyperlink{classprop_1_1dominio_1_1_unzip_transaction_af1185881284ba7f4bd5d759df3df8ef6}{path}}));}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41     Statistics stats = \textcolor{keyword}{new} Statistics(item.getSize());}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43     factory.getStreamController().getUnzipStream(\mbox{\hyperlink{classprop_1_1dominio_1_1_unzip_transaction_af1185881284ba7f4bd5d759df3df8ef6}{path}}, \mbox{\hyperlink{classprop_1_1dominio_1_1_unzip_transaction_ae0d4f9f7b5d5b3e20f6ce0a4ef37debb}{outputPath}}).unzip();}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45     stats.stopTimer();}
+\DoxyCodeLine{46     setResult(stats);}
+\DoxyCodeLine{47   \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classprop_1_1dominio_1_1_unzip_transaction_ae0d4f9f7b5d5b3e20f6ce0a4ef37debb}\label{classprop_1_1dominio_1_1_unzip_transaction_ae0d4f9f7b5d5b3e20f6ce0a4ef37debb}} 
+\index{prop.dominio.UnzipTransaction@{prop.dominio.UnzipTransaction}!outputPath@{outputPath}}
+\index{outputPath@{outputPath}!prop.dominio.UnzipTransaction@{prop.dominio.UnzipTransaction}}
+\doxysubsubsection{\texorpdfstring{outputPath}{outputPath}}
+{\footnotesize\ttfamily String prop.\+dominio.\+Unzip\+Transaction.\+output\+Path\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classprop_1_1dominio_1_1_unzip_transaction_af1185881284ba7f4bd5d759df3df8ef6}\label{classprop_1_1dominio_1_1_unzip_transaction_af1185881284ba7f4bd5d759df3df8ef6}} 
+\index{prop.dominio.UnzipTransaction@{prop.dominio.UnzipTransaction}!path@{path}}
+\index{path@{path}!prop.dominio.UnzipTransaction@{prop.dominio.UnzipTransaction}}
+\doxysubsubsection{\texorpdfstring{path}{path}}
+{\footnotesize\ttfamily String prop.\+dominio.\+Unzip\+Transaction.\+path\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Victor/\+Desktop/sippy2/src/main/java/prop/dominio/\mbox{\hyperlink{_unzip_transaction_8java}{Unzip\+Transaction.\+java}}\end{DoxyCompactItemize}

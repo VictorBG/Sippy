@@ -40,8 +40,8 @@ public enum Algorithm {
   /**
    * @brief Retorna l’algorisme que s’identifica per el parametre d’entrada
    *
-   *     \pre id es d'un algorisme existent
-   *     \post Algorisme identificat pel parametre d'entrada
+   * \pre id es d'un algorisme existent
+   * \post Algorisme identificat pel parametre d'entrada
    */
   public static Algorithm valueOf(byte id) {
     switch (id) {

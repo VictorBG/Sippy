@@ -1,0 +1,115 @@
+\hypertarget{classprop_1_1utils_1_1_statistics_utils}{}\doxysection{prop.\+utils.\+Statistics\+Utils Class Reference}
+\label{classprop_1_1utils_1_1_statistics_utils}\index{prop.utils.StatisticsUtils@{prop.utils.StatisticsUtils}}
+
+
+Metodes utils per formatejar certes dades usades a les estadistiques.  
+
+
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static String \mbox{\hyperlink{classprop_1_1utils_1_1_statistics_utils_ac763cfdd6009aa4146373a0356d10be0}{get\+Time}} (double time)
+\item 
+static String \mbox{\hyperlink{classprop_1_1utils_1_1_statistics_utils_ae172cddbfb9c5ccf734fb7755b03cd74}{get\+Size}} (double size)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static String \mbox{\hyperlink{classprop_1_1utils_1_1_statistics_utils_af7a2e315e482755df4efbdec8a257671}{internal\+Get\+Time}} (double time, Time\+Unit time\+Unit)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static final Hash\+Map$<$ Time\+Unit, String $>$ \mbox{\hyperlink{classprop_1_1utils_1_1_statistics_utils_ad0f721a64eb7df54d2f941e4a1b28810}{T\+I\+M\+E\+\_\+\+U\+N\+I\+TS}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Metodes utils per formatejar certes dades usades a les estadistiques. 
+
+Author\+: Sergio Vazquez 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classprop_1_1utils_1_1_statistics_utils_ae172cddbfb9c5ccf734fb7755b03cd74}\label{classprop_1_1utils_1_1_statistics_utils_ae172cddbfb9c5ccf734fb7755b03cd74}} 
+\index{prop.utils.StatisticsUtils@{prop.utils.StatisticsUtils}!getSize@{getSize}}
+\index{getSize@{getSize}!prop.utils.StatisticsUtils@{prop.utils.StatisticsUtils}}
+\doxysubsubsection{\texorpdfstring{getSize()}{getSize()}}
+{\footnotesize\ttfamily static String prop.\+utils.\+Statistics\+Utils.\+get\+Size (\begin{DoxyParamCaption}\item[{double}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{45                                             \{}
+\DoxyCodeLine{46     \textcolor{keywordflow}{if} (size <= 0) \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{"0 B"}; \}}
+\DoxyCodeLine{47     \textcolor{keyword}{final} String[] units = \textcolor{keyword}{new} String[]\{\textcolor{stringliteral}{"B"}, \textcolor{stringliteral}{"kB"}, \textcolor{stringliteral}{"MB"}, \textcolor{stringliteral}{"GB"}, \textcolor{stringliteral}{"TB"}\};}
+\DoxyCodeLine{48     \textcolor{keywordtype}{int} digitGroups = (int) (Math.log10(size) / Math.log10(1024));}
+\DoxyCodeLine{49     \textcolor{keywordflow}{return} \textcolor{keyword}{new} DecimalFormat(\textcolor{stringliteral}{"\#,\#\#0.\#"}).format(size / Math.pow(1024, digitGroups))}
+\DoxyCodeLine{50         + \textcolor{stringliteral}{" "}}
+\DoxyCodeLine{51         + units[digitGroups];}
+\DoxyCodeLine{52   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1utils_1_1_statistics_utils_ac763cfdd6009aa4146373a0356d10be0}\label{classprop_1_1utils_1_1_statistics_utils_ac763cfdd6009aa4146373a0356d10be0}} 
+\index{prop.utils.StatisticsUtils@{prop.utils.StatisticsUtils}!getTime@{getTime}}
+\index{getTime@{getTime}!prop.utils.StatisticsUtils@{prop.utils.StatisticsUtils}}
+\doxysubsubsection{\texorpdfstring{getTime()}{getTime()}}
+{\footnotesize\ttfamily static String prop.\+utils.\+Statistics\+Utils.\+get\+Time (\begin{DoxyParamCaption}\item[{double}]{time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{22                                             \{}
+\DoxyCodeLine{23     \textcolor{keywordflow}{if} (time >= 1) \{}
+\DoxyCodeLine{24       \textcolor{keywordflow}{return} \mbox{\hyperlink{classprop_1_1utils_1_1_statistics_utils_af7a2e315e482755df4efbdec8a257671}{internalGetTime}}(time, TimeUnit.SECONDS);}
+\DoxyCodeLine{25     \}}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27     \textcolor{keywordflow}{if} (time * 1000.0 >= 1) \{}
+\DoxyCodeLine{28       \textcolor{keywordflow}{return} \mbox{\hyperlink{classprop_1_1utils_1_1_statistics_utils_af7a2e315e482755df4efbdec8a257671}{internalGetTime}}(time, TimeUnit.MILLISECONDS);}
+\DoxyCodeLine{29     \}}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31     \textcolor{keywordflow}{if} (time * 1000000.0 >= 1) \{}
+\DoxyCodeLine{32       \textcolor{keywordflow}{return} \mbox{\hyperlink{classprop_1_1utils_1_1_statistics_utils_af7a2e315e482755df4efbdec8a257671}{internalGetTime}}(time, TimeUnit.MICROSECONDS);}
+\DoxyCodeLine{33     \}}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35     \textcolor{keywordflow}{return} \mbox{\hyperlink{classprop_1_1utils_1_1_statistics_utils_af7a2e315e482755df4efbdec8a257671}{internalGetTime}}(time, TimeUnit.NANOSECONDS);}
+\DoxyCodeLine{36   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1utils_1_1_statistics_utils_af7a2e315e482755df4efbdec8a257671}\label{classprop_1_1utils_1_1_statistics_utils_af7a2e315e482755df4efbdec8a257671}} 
+\index{prop.utils.StatisticsUtils@{prop.utils.StatisticsUtils}!internalGetTime@{internalGetTime}}
+\index{internalGetTime@{internalGetTime}!prop.utils.StatisticsUtils@{prop.utils.StatisticsUtils}}
+\doxysubsubsection{\texorpdfstring{internalGetTime()}{internalGetTime()}}
+{\footnotesize\ttfamily static String prop.\+utils.\+Statistics\+Utils.\+internal\+Get\+Time (\begin{DoxyParamCaption}\item[{double}]{time,  }\item[{Time\+Unit}]{time\+Unit }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{38                                                                         \{}
+\DoxyCodeLine{39     \textcolor{keywordflow}{return} \textcolor{keyword}{new} DecimalFormat(\textcolor{stringliteral}{"\#.\#\#"})}
+\DoxyCodeLine{40         .format(timeUnit.convert(1, TimeUnit.SECONDS) * time)}
+\DoxyCodeLine{41         + \textcolor{stringliteral}{" "}}
+\DoxyCodeLine{42         + \mbox{\hyperlink{classprop_1_1utils_1_1_statistics_utils_ad0f721a64eb7df54d2f941e4a1b28810}{TIME\_UNITS}}.get(timeUnit);}
+\DoxyCodeLine{43   \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classprop_1_1utils_1_1_statistics_utils_ad0f721a64eb7df54d2f941e4a1b28810}\label{classprop_1_1utils_1_1_statistics_utils_ad0f721a64eb7df54d2f941e4a1b28810}} 
+\index{prop.utils.StatisticsUtils@{prop.utils.StatisticsUtils}!TIME\_UNITS@{TIME\_UNITS}}
+\index{TIME\_UNITS@{TIME\_UNITS}!prop.utils.StatisticsUtils@{prop.utils.StatisticsUtils}}
+\doxysubsubsection{\texorpdfstring{TIME\_UNITS}{TIME\_UNITS}}
+{\footnotesize\ttfamily final Hash\+Map$<$Time\+Unit, String$>$ prop.\+utils.\+Statistics\+Utils.\+T\+I\+M\+E\+\_\+\+U\+N\+I\+TS\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \textcolor{keyword}{new} HashMap<TimeUnit, String>() \{\{}
+\DoxyCodeLine{    put(TimeUnit.SECONDS, \textcolor{stringliteral}{"s"});}
+\DoxyCodeLine{    put(TimeUnit.MILLISECONDS, \textcolor{stringliteral}{"ms"});}
+\DoxyCodeLine{    put(TimeUnit.MICROSECONDS, \textcolor{stringliteral}{"us"});}
+\DoxyCodeLine{    put(TimeUnit.NANOSECONDS, \textcolor{stringliteral}{"ns"});}
+\DoxyCodeLine{  \}\}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Victor/\+Desktop/sippy2/src/main/java/prop/utils/\mbox{\hyperlink{_statistics_utils_8java}{Statistics\+Utils.\+java}}\end{DoxyCompactItemize}

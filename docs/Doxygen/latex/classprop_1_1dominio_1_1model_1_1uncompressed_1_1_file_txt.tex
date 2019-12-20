@@ -1,0 +1,126 @@
+\hypertarget{classprop_1_1dominio_1_1model_1_1uncompressed_1_1_file_txt}{}\doxysection{prop.\+dominio.\+model.\+uncompressed.\+File\+Txt Class Reference}
+\label{classprop_1_1dominio_1_1model_1_1uncompressed_1_1_file_txt}\index{prop.dominio.model.uncompressed.FileTxt@{prop.dominio.model.uncompressed.FileTxt}}
+
+
+Classe del model per a mantener la información dels File de tipus txt.  
+
+
+
+
+Inherits \mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1uncompressed_1_1_file}{prop.\+dominio.\+model.\+uncompressed.\+File}}.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1uncompressed_1_1_file_txt_ab009d3e25deb18aefe72cefcb00fd979}{File\+Txt}} (String \mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1_item_n_c_a500fa985a2c7d25bed4661bcaa93ea8e}{path}})
+\begin{DoxyCompactList}\small\item\em Constructora. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{enumprop_1_1algorithms_1_1_algorithm}{Algorithm}} \mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1uncompressed_1_1_file_txt_a5a3bef4a455332ff14c17466e1698edd}{get\+Default\+Algorithm}} ()
+\begin{DoxyCompactList}\small\item\em Mètode que retorna l’algorisme per defecte a l’hora de comprimir arxius ppm. \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1uncompressed_1_1_file_txt_a707bea634576583618527dcd208c7dcc}{is\+Algorithm\+Supported}} (\mbox{\hyperlink{enumprop_1_1algorithms_1_1_algorithm}{Algorithm}} algorithm)
+\begin{DoxyCompactList}\small\item\em Retorna true nomès si l’algorisme indicat per parametre és el L\+Z78, L\+Z\+SS o L\+ZW. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe del model per a mantener la información dels File de tipus txt. 
+
+Author\+: Victor Blanco 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classprop_1_1dominio_1_1model_1_1uncompressed_1_1_file_txt_ab009d3e25deb18aefe72cefcb00fd979}\label{classprop_1_1dominio_1_1model_1_1uncompressed_1_1_file_txt_ab009d3e25deb18aefe72cefcb00fd979}} 
+\index{prop.dominio.model.uncompressed.FileTxt@{prop.dominio.model.uncompressed.FileTxt}!FileTxt@{FileTxt}}
+\index{FileTxt@{FileTxt}!prop.dominio.model.uncompressed.FileTxt@{prop.dominio.model.uncompressed.FileTxt}}
+\doxysubsubsection{\texorpdfstring{FileTxt()}{FileTxt()}}
+{\footnotesize\ttfamily prop.\+dominio.\+model.\+uncompressed.\+File\+Txt.\+File\+Txt (\begin{DoxyParamCaption}\item[{String}]{path }\end{DoxyParamCaption})}
+
+
+
+Constructora. 
+
+\begin{DoxyPrecond}{Precondition}
+path valid 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Es crea una nova instancia de File\+Txt amb el path indicat 
+\end{DoxyPostcond}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{22                               \{}
+\DoxyCodeLine{23     super(\mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1_item_n_c_a500fa985a2c7d25bed4661bcaa93ea8e}{path}});}
+\DoxyCodeLine{24   \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classprop_1_1dominio_1_1model_1_1uncompressed_1_1_file_txt_a5a3bef4a455332ff14c17466e1698edd}\label{classprop_1_1dominio_1_1model_1_1uncompressed_1_1_file_txt_a5a3bef4a455332ff14c17466e1698edd}} 
+\index{prop.dominio.model.uncompressed.FileTxt@{prop.dominio.model.uncompressed.FileTxt}!getDefaultAlgorithm@{getDefaultAlgorithm}}
+\index{getDefaultAlgorithm@{getDefaultAlgorithm}!prop.dominio.model.uncompressed.FileTxt@{prop.dominio.model.uncompressed.FileTxt}}
+\doxysubsubsection{\texorpdfstring{getDefaultAlgorithm()}{getDefaultAlgorithm()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{enumprop_1_1algorithms_1_1_algorithm}{Algorithm}} prop.\+dominio.\+model.\+uncompressed.\+File\+Txt.\+get\+Default\+Algorithm (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Mètode que retorna l’algorisme per defecte a l’hora de comprimir arxius ppm. 
+
+\begin{DoxyPrecond}{Precondition}
+Cert 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Algorisme L\+ZW 
+\end{DoxyPostcond}
+
+
+Reimplemented from \mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1uncompressed_1_1_file_a8f9432c411e724af89469acf66457da5}{prop.\+dominio.\+model.\+uncompressed.\+File}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{33                                          \{}
+\DoxyCodeLine{34     Algorithm algorithm = Algorithm.AUTOMATIC;}
+\DoxyCodeLine{35     ((Automatic) algorithm.getAlgorithm()).setAllowedAlgorithms(\textcolor{keyword}{new} ArrayList<Algorithm>() \{\{}
+\DoxyCodeLine{36       add(Algorithm.LZ78);}
+\DoxyCodeLine{37       add(Algorithm.LZSS);}
+\DoxyCodeLine{38       add(Algorithm.LZW);}
+\DoxyCodeLine{39     \}\});}
+\DoxyCodeLine{40     \textcolor{keywordflow}{return} algorithm;}
+\DoxyCodeLine{41   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1dominio_1_1model_1_1uncompressed_1_1_file_txt_a707bea634576583618527dcd208c7dcc}\label{classprop_1_1dominio_1_1model_1_1uncompressed_1_1_file_txt_a707bea634576583618527dcd208c7dcc}} 
+\index{prop.dominio.model.uncompressed.FileTxt@{prop.dominio.model.uncompressed.FileTxt}!isAlgorithmSupported@{isAlgorithmSupported}}
+\index{isAlgorithmSupported@{isAlgorithmSupported}!prop.dominio.model.uncompressed.FileTxt@{prop.dominio.model.uncompressed.FileTxt}}
+\doxysubsubsection{\texorpdfstring{isAlgorithmSupported()}{isAlgorithmSupported()}}
+{\footnotesize\ttfamily boolean prop.\+dominio.\+model.\+uncompressed.\+File\+Txt.\+is\+Algorithm\+Supported (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{enumprop_1_1algorithms_1_1_algorithm}{Algorithm}}}]{algorithm }\end{DoxyParamCaption})}
+
+
+
+Retorna true nomès si l’algorisme indicat per parametre és el L\+Z78, L\+Z\+SS o L\+ZW. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em algorithm} & Algorithm to check.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+Algorisme a comprovar 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Retorna si l\textquotesingle{}algorisme està suportat 
+\end{DoxyPostcond}
+
+
+Reimplemented from \mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1uncompressed_1_1_file_a21b87dd64de73e9128c96517e1cafb10}{prop.\+dominio.\+model.\+uncompressed.\+File}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{52                                                            \{}
+\DoxyCodeLine{53     \textcolor{keywordflow}{return} algorithm == Algorithm.LZ78}
+\DoxyCodeLine{54         || algorithm == Algorithm.LZSS}
+\DoxyCodeLine{55         || algorithm == Algorithm.LZW;}
+\DoxyCodeLine{56   \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Victor/\+Desktop/sippy2/src/main/java/prop/dominio/model/uncompressed/\mbox{\hyperlink{_file_txt_8java}{File\+Txt.\+java}}\end{DoxyCompactItemize}

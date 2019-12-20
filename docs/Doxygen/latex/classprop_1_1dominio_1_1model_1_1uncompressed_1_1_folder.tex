@@ -1,0 +1,120 @@
+\hypertarget{classprop_1_1dominio_1_1model_1_1uncompressed_1_1_folder}{}\doxysection{prop.\+dominio.\+model.\+uncompressed.\+Folder Class Reference}
+\label{classprop_1_1dominio_1_1model_1_1uncompressed_1_1_folder}\index{prop.dominio.model.uncompressed.Folder@{prop.dominio.model.uncompressed.Folder}}
+
+
+Classe del model per a mantener la información dels Folder.  
+
+
+
+
+Inherits \mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1_item_n_c}{prop.\+dominio.\+model.\+Item\+NC}}.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1uncompressed_1_1_folder_a36b5e76369bb02a125f43cebff8edf78}{Folder}} (String \mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1_item_n_c_a500fa985a2c7d25bed4661bcaa93ea8e}{path}})
+\begin{DoxyCompactList}\small\item\em Constructora. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1uncompressed_1_1_folder_a976a51ff92eeb1a7b81937a92e728e31}{set\+Items}} (List$<$ \mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1_item_n_c}{Item\+NC}} $>$ \mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1uncompressed_1_1_folder_a1bff565e95d9751fa0c1051db431b286}{items}})
+\item 
+List$<$ \mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1uncompressed_1_1_file}{File}} $>$ \mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1uncompressed_1_1_folder_aea31261c5b731e246671fb1567f64d91}{get\+Items}} ()
+\begin{DoxyCompactList}\small\item\em Retorna la llista de items que hi ha al folder (si hi han mes folders, repeteix aquesta accio) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+List$<$ \mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1_item_n_c}{Item\+NC}} $>$ \mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1uncompressed_1_1_folder_a1bff565e95d9751fa0c1051db431b286}{items}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe del model per a mantener la información dels Folder. 
+
+Author\+: Victor Blanco 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classprop_1_1dominio_1_1model_1_1uncompressed_1_1_folder_a36b5e76369bb02a125f43cebff8edf78}\label{classprop_1_1dominio_1_1model_1_1uncompressed_1_1_folder_a36b5e76369bb02a125f43cebff8edf78}} 
+\index{prop.dominio.model.uncompressed.Folder@{prop.dominio.model.uncompressed.Folder}!Folder@{Folder}}
+\index{Folder@{Folder}!prop.dominio.model.uncompressed.Folder@{prop.dominio.model.uncompressed.Folder}}
+\doxysubsubsection{\texorpdfstring{Folder()}{Folder()}}
+{\footnotesize\ttfamily prop.\+dominio.\+model.\+uncompressed.\+Folder.\+Folder (\begin{DoxyParamCaption}\item[{String}]{path }\end{DoxyParamCaption})}
+
+
+
+Constructora. 
+
+\begin{DoxyPrecond}{Precondition}
+path valid 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Nova instancia de Folder amb el path indicat i la llista dels items generada
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em path} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{27                              \{}
+\DoxyCodeLine{28     super(\mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1_item_n_c_a500fa985a2c7d25bed4661bcaa93ea8e}{path}});}
+\DoxyCodeLine{29   \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classprop_1_1dominio_1_1model_1_1uncompressed_1_1_folder_aea31261c5b731e246671fb1567f64d91}\label{classprop_1_1dominio_1_1model_1_1uncompressed_1_1_folder_aea31261c5b731e246671fb1567f64d91}} 
+\index{prop.dominio.model.uncompressed.Folder@{prop.dominio.model.uncompressed.Folder}!getItems@{getItems}}
+\index{getItems@{getItems}!prop.dominio.model.uncompressed.Folder@{prop.dominio.model.uncompressed.Folder}}
+\doxysubsubsection{\texorpdfstring{getItems()}{getItems()}}
+{\footnotesize\ttfamily List$<$\mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1uncompressed_1_1_file}{File}}$>$ prop.\+dominio.\+model.\+uncompressed.\+Folder.\+get\+Items (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Retorna la llista de items que hi ha al folder (si hi han mes folders, repeteix aquesta accio) 
+
+\begin{DoxyPrecond}{Precondition}
+cert 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+llista d\textquotesingle{}items 
+\end{DoxyPostcond}
+
+
+Reimplemented from \mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1_item_n_c_a2e05680703994d0b5ab8ce5daa85641b}{prop.\+dominio.\+model.\+Item\+NC}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{43                                \{}
+\DoxyCodeLine{44     List<File> result = \textcolor{keyword}{new} ArrayList<>();}
+\DoxyCodeLine{45     \mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1uncompressed_1_1_folder_a1bff565e95d9751fa0c1051db431b286}{items}}.forEach(item -\/> result.addAll(item.getItems()));}
+\DoxyCodeLine{46     \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{47   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1dominio_1_1model_1_1uncompressed_1_1_folder_a976a51ff92eeb1a7b81937a92e728e31}\label{classprop_1_1dominio_1_1model_1_1uncompressed_1_1_folder_a976a51ff92eeb1a7b81937a92e728e31}} 
+\index{prop.dominio.model.uncompressed.Folder@{prop.dominio.model.uncompressed.Folder}!setItems@{setItems}}
+\index{setItems@{setItems}!prop.dominio.model.uncompressed.Folder@{prop.dominio.model.uncompressed.Folder}}
+\doxysubsubsection{\texorpdfstring{setItems()}{setItems()}}
+{\footnotesize\ttfamily void prop.\+dominio.\+model.\+uncompressed.\+Folder.\+set\+Items (\begin{DoxyParamCaption}\item[{List$<$ \mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1_item_n_c}{Item\+NC}} $>$}]{items }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{32                                            \{}
+\DoxyCodeLine{33     this.\mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1uncompressed_1_1_folder_a1bff565e95d9751fa0c1051db431b286}{items}} = \mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1uncompressed_1_1_folder_a1bff565e95d9751fa0c1051db431b286}{items}};}
+\DoxyCodeLine{34   \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classprop_1_1dominio_1_1model_1_1uncompressed_1_1_folder_a1bff565e95d9751fa0c1051db431b286}\label{classprop_1_1dominio_1_1model_1_1uncompressed_1_1_folder_a1bff565e95d9751fa0c1051db431b286}} 
+\index{prop.dominio.model.uncompressed.Folder@{prop.dominio.model.uncompressed.Folder}!items@{items}}
+\index{items@{items}!prop.dominio.model.uncompressed.Folder@{prop.dominio.model.uncompressed.Folder}}
+\doxysubsubsection{\texorpdfstring{items}{items}}
+{\footnotesize\ttfamily List$<$\mbox{\hyperlink{classprop_1_1dominio_1_1model_1_1_item_n_c}{Item\+NC}}$>$ prop.\+dominio.\+model.\+uncompressed.\+Folder.\+items\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Victor/\+Desktop/sippy2/src/main/java/prop/dominio/model/uncompressed/\mbox{\hyperlink{_folder_8java}{Folder.\+java}}\end{DoxyCompactItemize}

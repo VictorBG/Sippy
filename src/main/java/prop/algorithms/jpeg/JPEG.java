@@ -236,8 +236,8 @@ public class JPEG implements BaseAlgorithm {
   /**
    * Primera transformació.
    *
-   *  \pre la matriu matrix, el booleà i la matriu dct existeixen.
-   *  \post s'ha aplicat la transformació del cosinus a la matriu matrix.
+   * \pre la matriu matrix, el booleà i la matriu dct existeixen.
+   * \post s'ha aplicat la transformació del cosinus a la matriu matrix.
    *
    * @param matrix Bloc de 8x8 píxels.
    * @param y      Booleà distintiu entre les matrius de Luminance (Y) i Chrominance (CbCr).

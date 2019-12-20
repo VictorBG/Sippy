@@ -1,0 +1,213 @@
+\hypertarget{classprop_1_1algorithms_1_1lzss_1_1_circular_buffer}{}\doxysection{prop.\+algorithms.\+lzss.\+Circular\+Buffer Class Reference}
+\label{classprop_1_1algorithms_1_1lzss_1_1_circular_buffer}\index{prop.algorithms.lzss.CircularBuffer@{prop.algorithms.lzss.CircularBuffer}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_circular_buffer_a5666334929ff9feb65f5dd7b34b2a5a6}{Circular\+Buffer}} ()
+\item 
+\mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_circular_buffer_a2de19b735d9ac5da80da79cfabcd65b1}{Circular\+Buffer}} (int initial\+Capacity)
+\item 
+void \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_circular_buffer_a03c6f647f2637e97528fcd9c08d89303}{enqueue}} (char element)
+\item 
+int \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_circular_buffer_ae90a600d53cb796a01f26ddee0cd2fcc}{nexti}} (int i)
+\item 
+char \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_circular_buffer_ae494928f8d154c43c81cb43d9b8c563c}{first}} ()
+\item 
+int \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_circular_buffer_afb000e5170e8a8bb33c2ae0b9cd308b4}{size}} ()
+\item 
+String \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_circular_buffer_ab2baec5ac3b5bf672b305cfd4fd16898}{to\+String}} ()
+\item 
+String \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_circular_buffer_afe9993c0634ac5cf0d5da9c912b5e3fe}{to\+String}} (int start, int len)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_circular_buffer_a58a62431e8040d03d3de134ea39aeb49}{front}}
+\item 
+char\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_circular_buffer_a18b0ceb519745ef701c75db5766b2812}{queue}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+final int \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_circular_buffer_af107f3a7150404f71fad4739a5dd0488}{D\+E\+F\+A\+U\+L\+T\+\_\+\+C\+A\+P\+A\+C\+I\+TY}} = 4096
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Representa un array implementat coma a buffer circular 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1lzss_1_1_circular_buffer_a5666334929ff9feb65f5dd7b34b2a5a6}\label{classprop_1_1algorithms_1_1lzss_1_1_circular_buffer_a5666334929ff9feb65f5dd7b34b2a5a6}} 
+\index{prop.algorithms.lzss.CircularBuffer@{prop.algorithms.lzss.CircularBuffer}!CircularBuffer@{CircularBuffer}}
+\index{CircularBuffer@{CircularBuffer}!prop.algorithms.lzss.CircularBuffer@{prop.algorithms.lzss.CircularBuffer}}
+\doxysubsubsection{\texorpdfstring{CircularBuffer()}{CircularBuffer()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily prop.\+algorithms.\+lzss.\+Circular\+Buffer.\+Circular\+Buffer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Creates an empty queue using the default capacity. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{18                           \{}
+\DoxyCodeLine{19     \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_circular_buffer_a58a62431e8040d03d3de134ea39aeb49}{front}} = rear = -\/1;}
+\DoxyCodeLine{20     \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_circular_buffer_afb000e5170e8a8bb33c2ae0b9cd308b4}{size}} = \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_circular_buffer_af107f3a7150404f71fad4739a5dd0488}{DEFAULT\_CAPACITY}};}
+\DoxyCodeLine{21     \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_circular_buffer_a18b0ceb519745ef701c75db5766b2812}{queue}} = (\textcolor{keyword}{new} \textcolor{keywordtype}{char}[\mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_circular_buffer_af107f3a7150404f71fad4739a5dd0488}{DEFAULT\_CAPACITY}}]);}
+\DoxyCodeLine{22   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1lzss_1_1_circular_buffer_a2de19b735d9ac5da80da79cfabcd65b1}\label{classprop_1_1algorithms_1_1lzss_1_1_circular_buffer_a2de19b735d9ac5da80da79cfabcd65b1}} 
+\index{prop.algorithms.lzss.CircularBuffer@{prop.algorithms.lzss.CircularBuffer}!CircularBuffer@{CircularBuffer}}
+\index{CircularBuffer@{CircularBuffer}!prop.algorithms.lzss.CircularBuffer@{prop.algorithms.lzss.CircularBuffer}}
+\doxysubsubsection{\texorpdfstring{CircularBuffer()}{CircularBuffer()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily prop.\+algorithms.\+lzss.\+Circular\+Buffer.\+Circular\+Buffer (\begin{DoxyParamCaption}\item[{int}]{initial\+Capacity }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{27                                              \{}
+\DoxyCodeLine{28     \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_circular_buffer_a58a62431e8040d03d3de134ea39aeb49}{front}} = rear = -\/1;}
+\DoxyCodeLine{29     \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_circular_buffer_afb000e5170e8a8bb33c2ae0b9cd308b4}{size}} = initialCapacity;}
+\DoxyCodeLine{30     \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_circular_buffer_a18b0ceb519745ef701c75db5766b2812}{queue}} = (\textcolor{keyword}{new} \textcolor{keywordtype}{char}[initialCapacity]);}
+\DoxyCodeLine{31   \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1lzss_1_1_circular_buffer_a03c6f647f2637e97528fcd9c08d89303}\label{classprop_1_1algorithms_1_1lzss_1_1_circular_buffer_a03c6f647f2637e97528fcd9c08d89303}} 
+\index{prop.algorithms.lzss.CircularBuffer@{prop.algorithms.lzss.CircularBuffer}!enqueue@{enqueue}}
+\index{enqueue@{enqueue}!prop.algorithms.lzss.CircularBuffer@{prop.algorithms.lzss.CircularBuffer}}
+\doxysubsubsection{\texorpdfstring{enqueue()}{enqueue()}}
+{\footnotesize\ttfamily void prop.\+algorithms.\+lzss.\+Circular\+Buffer.\+enqueue (\begin{DoxyParamCaption}\item[{char}]{element }\end{DoxyParamCaption})}
+
+Adds the specified element to the rear of the queue. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{36                                     \{}
+\DoxyCodeLine{37     \textcolor{comment}{//first case}}
+\DoxyCodeLine{38     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_circular_buffer_a58a62431e8040d03d3de134ea39aeb49}{front}} == -\/1 \&\& rear == -\/1) \{}
+\DoxyCodeLine{39       \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_circular_buffer_a58a62431e8040d03d3de134ea39aeb49}{front}} = rear = 0;}
+\DoxyCodeLine{40       \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_circular_buffer_a18b0ceb519745ef701c75db5766b2812}{queue}}[\mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_circular_buffer_a58a62431e8040d03d3de134ea39aeb49}{front}}] = element;}
+\DoxyCodeLine{41     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{42       rear = (rear + 1) \% \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_circular_buffer_afb000e5170e8a8bb33c2ae0b9cd308b4}{size}};}
+\DoxyCodeLine{43       \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_circular_buffer_a18b0ceb519745ef701c75db5766b2812}{queue}}[rear] = element;}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45         \textcolor{keywordflow}{if} (\mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_circular_buffer_a58a62431e8040d03d3de134ea39aeb49}{front}} == rear) \{ \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_circular_buffer_a58a62431e8040d03d3de134ea39aeb49}{front}} = (\mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_circular_buffer_a58a62431e8040d03d3de134ea39aeb49}{front}} + 1) \% \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_circular_buffer_afb000e5170e8a8bb33c2ae0b9cd308b4}{size}}; \}}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47     \}}
+\DoxyCodeLine{48     \textcolor{comment}{//System.out.println("");}}
+\DoxyCodeLine{49     \textcolor{comment}{//System.out.println(front);}}
+\DoxyCodeLine{50     \textcolor{comment}{//System.out.println(rear);}}
+\DoxyCodeLine{51   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1lzss_1_1_circular_buffer_ae494928f8d154c43c81cb43d9b8c563c}\label{classprop_1_1algorithms_1_1lzss_1_1_circular_buffer_ae494928f8d154c43c81cb43d9b8c563c}} 
+\index{prop.algorithms.lzss.CircularBuffer@{prop.algorithms.lzss.CircularBuffer}!first@{first}}
+\index{first@{first}!prop.algorithms.lzss.CircularBuffer@{prop.algorithms.lzss.CircularBuffer}}
+\doxysubsubsection{\texorpdfstring{first()}{first()}}
+{\footnotesize\ttfamily char prop.\+algorithms.\+lzss.\+Circular\+Buffer.\+first (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns a reference to the element at the front of the queue. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{66                       \{}
+\DoxyCodeLine{67     \textcolor{keywordflow}{return} \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_circular_buffer_a18b0ceb519745ef701c75db5766b2812}{queue}}[\mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_circular_buffer_a58a62431e8040d03d3de134ea39aeb49}{front}}];}
+\DoxyCodeLine{68   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1lzss_1_1_circular_buffer_ae90a600d53cb796a01f26ddee0cd2fcc}\label{classprop_1_1algorithms_1_1lzss_1_1_circular_buffer_ae90a600d53cb796a01f26ddee0cd2fcc}} 
+\index{prop.algorithms.lzss.CircularBuffer@{prop.algorithms.lzss.CircularBuffer}!nexti@{nexti}}
+\index{nexti@{nexti}!prop.algorithms.lzss.CircularBuffer@{prop.algorithms.lzss.CircularBuffer}}
+\doxysubsubsection{\texorpdfstring{nexti()}{nexti()}}
+{\footnotesize\ttfamily int prop.\+algorithms.\+lzss.\+Circular\+Buffer.\+nexti (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption})}
+
+Next i index for circular buffer 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{56                           \{}
+\DoxyCodeLine{57     ++i;}
+\DoxyCodeLine{58       \textcolor{keywordflow}{if} (i >= \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_circular_buffer_afb000e5170e8a8bb33c2ae0b9cd308b4}{size}}) \{ i = 0; \}}
+\DoxyCodeLine{59     \textcolor{keywordflow}{return} i;}
+\DoxyCodeLine{60   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1lzss_1_1_circular_buffer_afb000e5170e8a8bb33c2ae0b9cd308b4}\label{classprop_1_1algorithms_1_1lzss_1_1_circular_buffer_afb000e5170e8a8bb33c2ae0b9cd308b4}} 
+\index{prop.algorithms.lzss.CircularBuffer@{prop.algorithms.lzss.CircularBuffer}!size@{size}}
+\index{size@{size}!prop.algorithms.lzss.CircularBuffer@{prop.algorithms.lzss.CircularBuffer}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily int prop.\+algorithms.\+lzss.\+Circular\+Buffer.\+size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the number of elements currently in this queue. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{73                     \{}
+\DoxyCodeLine{74     \textcolor{keywordflow}{return} \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_circular_buffer_afb000e5170e8a8bb33c2ae0b9cd308b4}{size}};}
+\DoxyCodeLine{75   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1lzss_1_1_circular_buffer_ab2baec5ac3b5bf672b305cfd4fd16898}\label{classprop_1_1algorithms_1_1lzss_1_1_circular_buffer_ab2baec5ac3b5bf672b305cfd4fd16898}} 
+\index{prop.algorithms.lzss.CircularBuffer@{prop.algorithms.lzss.CircularBuffer}!toString@{toString}}
+\index{toString@{toString}!prop.algorithms.lzss.CircularBuffer@{prop.algorithms.lzss.CircularBuffer}}
+\doxysubsubsection{\texorpdfstring{toString()}{toString()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily String prop.\+algorithms.\+lzss.\+Circular\+Buffer.\+to\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns a string representation of this queue. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{81                            \{}
+\DoxyCodeLine{82       \textcolor{keywordflow}{if} (\mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_circular_buffer_a58a62431e8040d03d3de134ea39aeb49}{front}} == -\/1) \{ \textcolor{keywordflow}{return} \textcolor{stringliteral}{""}; \}}
+\DoxyCodeLine{83     StringBuilder result = \textcolor{keyword}{new} StringBuilder();}
+\DoxyCodeLine{84     \textcolor{keywordtype}{int} i = \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_circular_buffer_a58a62431e8040d03d3de134ea39aeb49}{front}};}
+\DoxyCodeLine{85     \textcolor{keywordflow}{do} \{}
+\DoxyCodeLine{86       result.append(\mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_circular_buffer_a18b0ceb519745ef701c75db5766b2812}{queue}}[i]);}
+\DoxyCodeLine{87       i = (i + 1) \% \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_circular_buffer_a18b0ceb519745ef701c75db5766b2812}{queue}}.length;}
+\DoxyCodeLine{88     \}}
+\DoxyCodeLine{89     \textcolor{keywordflow}{while} (i != (\mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_circular_buffer_a58a62431e8040d03d3de134ea39aeb49}{front}}) \% \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_circular_buffer_afb000e5170e8a8bb33c2ae0b9cd308b4}{size}});}
+\DoxyCodeLine{90     \textcolor{keywordflow}{return} result.toString();}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{92   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1lzss_1_1_circular_buffer_afe9993c0634ac5cf0d5da9c912b5e3fe}\label{classprop_1_1algorithms_1_1lzss_1_1_circular_buffer_afe9993c0634ac5cf0d5da9c912b5e3fe}} 
+\index{prop.algorithms.lzss.CircularBuffer@{prop.algorithms.lzss.CircularBuffer}!toString@{toString}}
+\index{toString@{toString}!prop.algorithms.lzss.CircularBuffer@{prop.algorithms.lzss.CircularBuffer}}
+\doxysubsubsection{\texorpdfstring{toString()}{toString()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily String prop.\+algorithms.\+lzss.\+Circular\+Buffer.\+to\+String (\begin{DoxyParamCaption}\item[{int}]{start,  }\item[{int}]{len }\end{DoxyParamCaption})}
+
+Returns a string representation of this queue.
+
+\begin{DoxyReturn}{Returns}
+String 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{99                                              \{}
+\DoxyCodeLine{100     StringBuilder result = \textcolor{keyword}{new} StringBuilder();}
+\DoxyCodeLine{101     \textcolor{keywordtype}{int} i = start;}
+\DoxyCodeLine{102     \textcolor{keywordtype}{int} stop = (start + len) \% \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_circular_buffer_a18b0ceb519745ef701c75db5766b2812}{queue}}.length;}
+\DoxyCodeLine{103     while (i != stop) \{}
+\DoxyCodeLine{104       result.append(\mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_circular_buffer_a18b0ceb519745ef701c75db5766b2812}{queue}}[i]);}
+\DoxyCodeLine{105       i = (i + 1) \% \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_circular_buffer_a18b0ceb519745ef701c75db5766b2812}{queue}}.length;}
+\DoxyCodeLine{106     \}}
+\DoxyCodeLine{107     \textcolor{keywordflow}{return} result.toString();}
+\DoxyCodeLine{108 }
+\DoxyCodeLine{109   \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1lzss_1_1_circular_buffer_af107f3a7150404f71fad4739a5dd0488}\label{classprop_1_1algorithms_1_1lzss_1_1_circular_buffer_af107f3a7150404f71fad4739a5dd0488}} 
+\index{prop.algorithms.lzss.CircularBuffer@{prop.algorithms.lzss.CircularBuffer}!DEFAULT\_CAPACITY@{DEFAULT\_CAPACITY}}
+\index{DEFAULT\_CAPACITY@{DEFAULT\_CAPACITY}!prop.algorithms.lzss.CircularBuffer@{prop.algorithms.lzss.CircularBuffer}}
+\doxysubsubsection{\texorpdfstring{DEFAULT\_CAPACITY}{DEFAULT\_CAPACITY}}
+{\footnotesize\ttfamily final int prop.\+algorithms.\+lzss.\+Circular\+Buffer.\+D\+E\+F\+A\+U\+L\+T\+\_\+\+C\+A\+P\+A\+C\+I\+TY = 4096\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1lzss_1_1_circular_buffer_a58a62431e8040d03d3de134ea39aeb49}\label{classprop_1_1algorithms_1_1lzss_1_1_circular_buffer_a58a62431e8040d03d3de134ea39aeb49}} 
+\index{prop.algorithms.lzss.CircularBuffer@{prop.algorithms.lzss.CircularBuffer}!front@{front}}
+\index{front@{front}!prop.algorithms.lzss.CircularBuffer@{prop.algorithms.lzss.CircularBuffer}}
+\doxysubsubsection{\texorpdfstring{front}{front}}
+{\footnotesize\ttfamily int prop.\+algorithms.\+lzss.\+Circular\+Buffer.\+front}
+
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1lzss_1_1_circular_buffer_a18b0ceb519745ef701c75db5766b2812}\label{classprop_1_1algorithms_1_1lzss_1_1_circular_buffer_a18b0ceb519745ef701c75db5766b2812}} 
+\index{prop.algorithms.lzss.CircularBuffer@{prop.algorithms.lzss.CircularBuffer}!queue@{queue}}
+\index{queue@{queue}!prop.algorithms.lzss.CircularBuffer@{prop.algorithms.lzss.CircularBuffer}}
+\doxysubsubsection{\texorpdfstring{queue}{queue}}
+{\footnotesize\ttfamily char \mbox{[}$\,$\mbox{]} prop.\+algorithms.\+lzss.\+Circular\+Buffer.\+queue}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Victor/\+Desktop/sippy2/src/main/java/prop/algorithms/lzss/\mbox{\hyperlink{_circular_buffer_8java}{Circular\+Buffer.\+java}}\end{DoxyCompactItemize}

@@ -1,0 +1,1218 @@
+\hypertarget{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g}{}\doxysection{prop.\+algorithms.\+jpeg.\+J\+P\+EG Class Reference}
+\label{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g}\index{prop.algorithms.jpeg.JPEG@{prop.algorithms.jpeg.JPEG}}
+
+
+Implementació de l\textquotesingle{}algorisme J\+P\+EG.  
+
+
+
+
+Inherits \mbox{\hyperlink{interfaceprop_1_1algorithms_1_1base_1_1_base_algorithm}{prop.\+algorithms.\+base.\+Base\+Algorithm}}.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+byte\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_aec000356db39990835003eb922abd161}{encode}} (byte\mbox{[}$\,$\mbox{]} input)
+\item 
+byte\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a7b74e9f66e3ee60f644fa6ae417a4091}{decode}} (byte\mbox{[}$\,$\mbox{]} input)
+\item 
+\mbox{\hyperlink{enumprop_1_1algorithms_1_1_algorithm}{Algorithm}} \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a17e9ea81750e5ce0a40ce6a4957d2a82}{get\+Algorithm\+Used}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a518da93de921034b868fad529d165d16}{huffman\+Tables}} ()
+\item 
+void \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a5e84b8b2b763c66d5544eb180f2d108a}{fill\+Huffman\+Trees}} (\mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_binary_tree}{Binary\+Tree}} tree, String key, String bits)
+\item 
+void \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a1d0eea0c938cf6a37e2502659447d3cf}{march\+Through\+Image}} (byte\mbox{[}$\,$\mbox{]} image)  throws I\+O\+Exception 
+\item 
+void \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a52b596d689f35303d4206b5322002a66}{dct\+Transform}} (double\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} matrix, boolean y)  throws I\+O\+Exception 
+\item 
+void \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a86e558d6763761997f0838a8faeb2b91}{quantization}} (double\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} m, boolean y)  throws I\+O\+Exception 
+\item 
+void \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a4558fb9b2c28269149b73ef1e1a54636}{zigzag}} (double\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} m, boolean y)  throws I\+O\+Exception 
+\item 
+void \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a85aa71eb90b7ec263123350fd062fcfd}{encode\+Lum}} (Array\+List$<$ Integer $>$ \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a4558fb9b2c28269149b73ef1e1a54636}{zigzag}})  throws I\+O\+Exception 
+\item 
+void \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_af3a42fd4eafa50e738376365b22df287}{encode\+Chro}} (Array\+List$<$ Integer $>$ \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a4558fb9b2c28269149b73ef1e1a54636}{zigzag}})  throws I\+O\+Exception 
+\item 
+void \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a287a90d2a6d9640a4d8a178f9731d76f}{march\+Through\+Sippy}} (String input)  throws I\+O\+Exception 
+\item 
+int \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a173645a37411581acfe767e74023ec7c}{get\+Positive\+Value}} (String bits, int value)
+\item 
+double\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a1513ddca849a7f7f52c1dd7ddeac1508}{inverse\+Zigzag}} (Queue$<$ Integer $>$ queue, int id)
+\item 
+double\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_aa69a7c3d452f8f5325292914fb029ff1}{reverse\+Quantization}} (double\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} m, int id)
+\item 
+double\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a353af8bbfd43aadbf1409bdaaeaa1955}{reverse\+D\+CT}} (double\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} matrix, int id)
+\item 
+void \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_aff01bccf59265c117031b62af0b73cf0}{write\+P\+PM}} (double\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} y, double\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} cb, double\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} cr)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_binary_tree}{Binary\+Tree}} \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a1c5799be53fd5735dd93bdcef3e94b4c}{dc0\+Tree}} = new \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_binary_tree}{Binary\+Tree}}()
+\item 
+\mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_binary_tree}{Binary\+Tree}} \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a9e3def096ccb4ae96d0dc4d347f8ba94}{ac0\+Tree}} = new \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_binary_tree}{Binary\+Tree}}()
+\item 
+\mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_binary_tree}{Binary\+Tree}} \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a9f77ee5ffbc0e87ef25a6539141dcc93}{dc1\+Tree}} = new \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_binary_tree}{Binary\+Tree}}()
+\item 
+\mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_binary_tree}{Binary\+Tree}} \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a9ee556805aad4f6eb42b61ffdd837008}{ac1\+Tree}} = new \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_binary_tree}{Binary\+Tree}}()
+\item 
+String \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_ac61e4e404adc1d86970503556f15a93f}{output}} = \char`\"{}\char`\"{}
+\item 
+Byte\+Array\+Output\+Stream \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a413590c9dbfed60bae449abf9471f488}{out}}
+\item 
+String \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a15af369e9248cf303f2b7ea977ba9fc9}{version}}
+\item 
+int \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_aed30423d26f68ce38d2b5992c1b3d564}{w}}
+\item 
+int \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a3d85791b542d743b0f965f5d2c1c8349}{h}}
+\item 
+int\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_af5eb23ea6af84f485f57bab92671b239}{qtY}}
+\item 
+int\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a1ab7703e1785829ca16d1230a8f69d00}{qtC}}
+\item 
+float\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_aa66977fd46b14f4d5c26daee47e38c67}{dct}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementació de l\textquotesingle{}algorisme J\+P\+EG. 
+
+Author\+: Yaiza Cano 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a52b596d689f35303d4206b5322002a66}\label{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a52b596d689f35303d4206b5322002a66}} 
+\index{prop.algorithms.jpeg.JPEG@{prop.algorithms.jpeg.JPEG}!dctTransform@{dctTransform}}
+\index{dctTransform@{dctTransform}!prop.algorithms.jpeg.JPEG@{prop.algorithms.jpeg.JPEG}}
+\doxysubsubsection{\texorpdfstring{dctTransform()}{dctTransform()}}
+{\footnotesize\ttfamily void prop.\+algorithms.\+jpeg.\+J\+P\+E\+G.\+dct\+Transform (\begin{DoxyParamCaption}\item[{double}]{matrix\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]},  }\item[{boolean}]{y }\end{DoxyParamCaption}) throws I\+O\+Exception\hspace{0.3cm}{\ttfamily [private]}}
+
+Primera transformació.
+
+\begin{DoxyPrecond}{Precondition}
+la matriu matrix, el booleà i la matriu dct existeixen. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+s\textquotesingle{}ha aplicat la transformació del cosinus a la matriu matrix.
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em matrix} & Bloc de 8x8 píxels. \\
+\hline
+{\em y} & Booleà distintiu entre les matrius de Luminance (Y) i Chrominance (Cb\+Cr). \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em I\+O\+Exception} & \\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{246                                                                              \{}
+\DoxyCodeLine{247         \textcolor{comment}{/*matrix = new double[][] \{\{-\/76,-\/73,-\/67,-\/62,-\/58,-\/67,-\/64,-\/55\},\{-\/65,-\/69,-\/73,-\/38,-\/19,-\/43,-\/59,-\/56\},\{-\/66,-\/69,-\/60,-\/15,16,-\/24,-\/62,-\/55\},\{-\/65,-\/70,-\/57,-\/6,26,-\/22,-\/58,-\/59\},}}
+\DoxyCodeLine{248 \textcolor{comment}{                \{-\/61,-\/67,-\/60,-\/24,-\/2,-\/40,-\/60,-\/58\},\{-\/49,-\/63,-\/68,-\/58,-\/51,-\/60,-\/70,-\/53\},\{-\/43,-\/57,-\/64,-\/69,-\/73,-\/67,-\/63,-\/45\},\{-\/41,-\/49,-\/59,-\/60,-\/63,-\/52,-\/50,-\/34\}\};}}
+\DoxyCodeLine{249 \textcolor{comment}{        */}}
+\DoxyCodeLine{250     \textcolor{keywordtype}{double}[][] aux = \textcolor{keyword}{new} \textcolor{keywordtype}{double}[8][8];}
+\DoxyCodeLine{251 }
+\DoxyCodeLine{252     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < 8; ++i) \{}
+\DoxyCodeLine{253       \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < 8; ++j) \{}
+\DoxyCodeLine{254         aux[i][j] = 0;}
+\DoxyCodeLine{255         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} k = 0; k < 8; ++k) \{}
+\DoxyCodeLine{256           aux[i][j] += \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_aa66977fd46b14f4d5c26daee47e38c67}{dct}}[i][k] * matrix[k][j];}
+\DoxyCodeLine{257         \}}
+\DoxyCodeLine{258       \}}
+\DoxyCodeLine{259     \}}
+\DoxyCodeLine{260 }
+\DoxyCodeLine{261     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < 8; ++i) \{}
+\DoxyCodeLine{262       \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < 8; ++j) \{}
+\DoxyCodeLine{263         matrix[i][j] = 0;}
+\DoxyCodeLine{264         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} k = 0; k < 8; ++k) \{}
+\DoxyCodeLine{265           matrix[i][j] += aux[i][k] * \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_aa66977fd46b14f4d5c26daee47e38c67}{dct}}[j][k];}
+\DoxyCodeLine{266         \}}
+\DoxyCodeLine{267       \}}
+\DoxyCodeLine{268     \}}
+\DoxyCodeLine{269 }
+\DoxyCodeLine{270     \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a86e558d6763761997f0838a8faeb2b91}{quantization}}(matrix, y);}
+\DoxyCodeLine{271   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a7b74e9f66e3ee60f644fa6ae417a4091}\label{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a7b74e9f66e3ee60f644fa6ae417a4091}} 
+\index{prop.algorithms.jpeg.JPEG@{prop.algorithms.jpeg.JPEG}!decode@{decode}}
+\index{decode@{decode}!prop.algorithms.jpeg.JPEG@{prop.algorithms.jpeg.JPEG}}
+\doxysubsubsection{\texorpdfstring{decode()}{decode()}}
+{\footnotesize\ttfamily byte \mbox{[}$\,$\mbox{]} prop.\+algorithms.\+jpeg.\+J\+P\+E\+G.\+decode (\begin{DoxyParamCaption}\item[{byte\mbox{[}$\,$\mbox{]}}]{input }\end{DoxyParamCaption})}
+
+
+
+Reimplemented from \mbox{\hyperlink{interfaceprop_1_1algorithms_1_1base_1_1_base_algorithm_a4b78a5d0b4071b52dfec14f1243edb3a}{prop.\+algorithms.\+base.\+Base\+Algorithm}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{792                                      \{}
+\DoxyCodeLine{793     \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a413590c9dbfed60bae449abf9471f488}{out}} = \textcolor{keyword}{new} ByteArrayOutputStream();}
+\DoxyCodeLine{794     String data = \textcolor{keyword}{new} String(input);}
+\DoxyCodeLine{795     \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{796       \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a518da93de921034b868fad529d165d16}{huffmanTables}}();}
+\DoxyCodeLine{797       \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a287a90d2a6d9640a4d8a178f9731d76f}{marchThroughSippy}}(data);}
+\DoxyCodeLine{798     \} \textcolor{keywordflow}{catch} (IOException e) \{}
+\DoxyCodeLine{799       e.printStackTrace();}
+\DoxyCodeLine{800     \}}
+\DoxyCodeLine{801     \textcolor{keywordflow}{return} \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a413590c9dbfed60bae449abf9471f488}{out}}.toByteArray();}
+\DoxyCodeLine{802   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_aec000356db39990835003eb922abd161}\label{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_aec000356db39990835003eb922abd161}} 
+\index{prop.algorithms.jpeg.JPEG@{prop.algorithms.jpeg.JPEG}!encode@{encode}}
+\index{encode@{encode}!prop.algorithms.jpeg.JPEG@{prop.algorithms.jpeg.JPEG}}
+\doxysubsubsection{\texorpdfstring{encode()}{encode()}}
+{\footnotesize\ttfamily byte \mbox{[}$\,$\mbox{]} prop.\+algorithms.\+jpeg.\+J\+P\+E\+G.\+encode (\begin{DoxyParamCaption}\item[{byte\mbox{[}$\,$\mbox{]}}]{input }\end{DoxyParamCaption})}
+
+
+
+Reimplemented from \mbox{\hyperlink{interfaceprop_1_1algorithms_1_1base_1_1_base_algorithm_a6de2a6d1d1a020b915162f8ba11e9b58}{prop.\+algorithms.\+base.\+Base\+Algorithm}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{780                                      \{}
+\DoxyCodeLine{781     \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a413590c9dbfed60bae449abf9471f488}{out}} = \textcolor{keyword}{new} ByteArrayOutputStream();}
+\DoxyCodeLine{782     \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{783       \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a518da93de921034b868fad529d165d16}{huffmanTables}}();}
+\DoxyCodeLine{784       \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a1d0eea0c938cf6a37e2502659447d3cf}{marchThroughImage}}(input);}
+\DoxyCodeLine{785     \} \textcolor{keywordflow}{catch} (IOException e) \{}
+\DoxyCodeLine{786       e.printStackTrace();}
+\DoxyCodeLine{787     \}}
+\DoxyCodeLine{788     \textcolor{keywordflow}{return} \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a413590c9dbfed60bae449abf9471f488}{out}}.toByteArray();}
+\DoxyCodeLine{789   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_af3a42fd4eafa50e738376365b22df287}\label{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_af3a42fd4eafa50e738376365b22df287}} 
+\index{prop.algorithms.jpeg.JPEG@{prop.algorithms.jpeg.JPEG}!encodeChro@{encodeChro}}
+\index{encodeChro@{encodeChro}!prop.algorithms.jpeg.JPEG@{prop.algorithms.jpeg.JPEG}}
+\doxysubsubsection{\texorpdfstring{encodeChro()}{encodeChro()}}
+{\footnotesize\ttfamily void prop.\+algorithms.\+jpeg.\+J\+P\+E\+G.\+encode\+Chro (\begin{DoxyParamCaption}\item[{Array\+List$<$ Integer $>$}]{zigzag }\end{DoxyParamCaption}) throws I\+O\+Exception\hspace{0.3cm}{\ttfamily [private]}}
+
+Codificació de les submatrius de Chrominance (Cb\+Cr) segons Huffman.
+
+\begin{DoxyPrecond}{Precondition}
+l\textquotesingle{}arraylist i les taules de Huffman existeixen. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+valors de l\textquotesingle{}arraylist codificats segons Huffman.
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em zigzag} & Llista de valors a codificar. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em I\+O\+Exception} & \\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{426                                                                         \{}
+\DoxyCodeLine{427     \textcolor{keywordtype}{boolean} dc = \textcolor{keyword}{false};}
+\DoxyCodeLine{428     \textcolor{keywordtype}{int} count = 0;}
+\DoxyCodeLine{429     \textcolor{keywordtype}{int} aux;}
+\DoxyCodeLine{430     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} x : \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a4558fb9b2c28269149b73ef1e1a54636}{zigzag}}) \{}
+\DoxyCodeLine{431       \textcolor{keywordflow}{if} (!dc) \{}
+\DoxyCodeLine{432         dc = \textcolor{keyword}{true};}
+\DoxyCodeLine{433         aux = x;}
+\DoxyCodeLine{434         \textcolor{keywordtype}{int} length = Integer.toBinaryString(abs(aux)).length();}
+\DoxyCodeLine{435         String key = \textcolor{stringliteral}{"0"} + Integer.toHexString(length).toUpperCase();}
+\DoxyCodeLine{436         \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_ac61e4e404adc1d86970503556f15a93f}{output}} += DC1MAP.get(key);}
+\DoxyCodeLine{437         \textcolor{keywordflow}{if} (aux < 0) \{}
+\DoxyCodeLine{438           aux = (int) (aux + Math.pow(2, length) -\/ 1);}
+\DoxyCodeLine{439           \textcolor{keywordtype}{int} l = Integer.toBinaryString(aux).length();}
+\DoxyCodeLine{440           \textcolor{keywordflow}{while} (length-\/-\/ -\/ l != 0) \{}
+\DoxyCodeLine{441             \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_ac61e4e404adc1d86970503556f15a93f}{output}} += \textcolor{stringliteral}{"0"};}
+\DoxyCodeLine{442           \}}
+\DoxyCodeLine{443         \}}
+\DoxyCodeLine{444         \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_ac61e4e404adc1d86970503556f15a93f}{output}} += Integer.toBinaryString(aux);}
+\DoxyCodeLine{445       \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{446         \textcolor{keywordflow}{if} (x == 0) \{}
+\DoxyCodeLine{447           count++;}
+\DoxyCodeLine{448         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{449           \textcolor{keywordflow}{while} (count > 15) \{}
+\DoxyCodeLine{450             count -\/= 15;}
+\DoxyCodeLine{451             \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_ac61e4e404adc1d86970503556f15a93f}{output}} += AC1MAP.get(\textcolor{stringliteral}{"F0"});}
+\DoxyCodeLine{452           \}}
+\DoxyCodeLine{453           String key = Integer.toHexString(count).toUpperCase();}
+\DoxyCodeLine{454           aux = x;}
+\DoxyCodeLine{455           \textcolor{keywordtype}{int} length = Integer.toBinaryString(abs(x)).length();}
+\DoxyCodeLine{456           key += Integer.toHexString(length).toUpperCase();}
+\DoxyCodeLine{457           \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_ac61e4e404adc1d86970503556f15a93f}{output}} += AC1MAP.get(key);}
+\DoxyCodeLine{458           \textcolor{keywordflow}{if} (x < 0) \{}
+\DoxyCodeLine{459             aux = (int) (x + Math.pow(2, length) -\/ 1);}
+\DoxyCodeLine{460             \textcolor{keywordtype}{int} l = Integer.toBinaryString(aux).length();}
+\DoxyCodeLine{461             \textcolor{keywordflow}{while} (length-\/-\/ -\/ l != 0) \{}
+\DoxyCodeLine{462               \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_ac61e4e404adc1d86970503556f15a93f}{output}} += \textcolor{stringliteral}{"0"};}
+\DoxyCodeLine{463             \}}
+\DoxyCodeLine{464           \}}
+\DoxyCodeLine{465           \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_ac61e4e404adc1d86970503556f15a93f}{output}} += Integer.toBinaryString(aux);}
+\DoxyCodeLine{466           count = 0;}
+\DoxyCodeLine{467         \}}
+\DoxyCodeLine{468       \}}
+\DoxyCodeLine{469     \}}
+\DoxyCodeLine{470     \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_ac61e4e404adc1d86970503556f15a93f}{output}} += AC1MAP.get(\textcolor{stringliteral}{"00"});}
+\DoxyCodeLine{471     \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a413590c9dbfed60bae449abf9471f488}{out}}.write(\mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_ac61e4e404adc1d86970503556f15a93f}{output}}.getBytes());}
+\DoxyCodeLine{472     \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_ac61e4e404adc1d86970503556f15a93f}{output}} = \textcolor{stringliteral}{""};}
+\DoxyCodeLine{473   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a85aa71eb90b7ec263123350fd062fcfd}\label{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a85aa71eb90b7ec263123350fd062fcfd}} 
+\index{prop.algorithms.jpeg.JPEG@{prop.algorithms.jpeg.JPEG}!encodeLum@{encodeLum}}
+\index{encodeLum@{encodeLum}!prop.algorithms.jpeg.JPEG@{prop.algorithms.jpeg.JPEG}}
+\doxysubsubsection{\texorpdfstring{encodeLum()}{encodeLum()}}
+{\footnotesize\ttfamily void prop.\+algorithms.\+jpeg.\+J\+P\+E\+G.\+encode\+Lum (\begin{DoxyParamCaption}\item[{Array\+List$<$ Integer $>$}]{zigzag }\end{DoxyParamCaption}) throws I\+O\+Exception\hspace{0.3cm}{\ttfamily [private]}}
+
+Codificació de les submatrius de Luminance (Y) segons Huffman.
+
+\begin{DoxyPrecond}{Precondition}
+l\textquotesingle{}arraylist i les taules de Huffman existeixen. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+valors de l\textquotesingle{}arraylist codificats segons Huffman.
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em zigzag} & Llista de valors a codificar. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em I\+O\+Exception} & \\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{367                                                                        \{}
+\DoxyCodeLine{368     \textcolor{keywordtype}{boolean} dc = \textcolor{keyword}{false};}
+\DoxyCodeLine{369     \textcolor{keywordtype}{int} count = 0;}
+\DoxyCodeLine{370     \textcolor{keywordtype}{int} aux;}
+\DoxyCodeLine{371     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} x : \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a4558fb9b2c28269149b73ef1e1a54636}{zigzag}}) \{}
+\DoxyCodeLine{372       \textcolor{keywordflow}{if} (!dc) \{}
+\DoxyCodeLine{373         dc = \textcolor{keyword}{true};}
+\DoxyCodeLine{374         aux = x;}
+\DoxyCodeLine{375         \textcolor{keywordtype}{int} length = Integer.toBinaryString(abs(aux)).length();}
+\DoxyCodeLine{376         String key = \textcolor{stringliteral}{"0"} + Integer.toHexString(length).toUpperCase();}
+\DoxyCodeLine{377         \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_ac61e4e404adc1d86970503556f15a93f}{output}} += DC0MAP.get(key);}
+\DoxyCodeLine{378         \textcolor{keywordflow}{if} (aux < 0) \{}
+\DoxyCodeLine{379           aux = (int) (aux + Math.pow(2, length) -\/ 1);}
+\DoxyCodeLine{380           \textcolor{keywordtype}{int} l = Integer.toBinaryString(aux).length();}
+\DoxyCodeLine{381           \textcolor{keywordflow}{while} (length-\/-\/ -\/ l != 0) \{}
+\DoxyCodeLine{382             \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_ac61e4e404adc1d86970503556f15a93f}{output}} += \textcolor{stringliteral}{"0"};}
+\DoxyCodeLine{383           \}}
+\DoxyCodeLine{384         \}}
+\DoxyCodeLine{385         \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_ac61e4e404adc1d86970503556f15a93f}{output}} += Integer.toBinaryString(aux);}
+\DoxyCodeLine{386       \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{387         \textcolor{keywordflow}{if} (x == 0) \{}
+\DoxyCodeLine{388           count++;}
+\DoxyCodeLine{389         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{390           \textcolor{keywordflow}{while} (count > 15) \{}
+\DoxyCodeLine{391             count -\/= 15;}
+\DoxyCodeLine{392             \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_ac61e4e404adc1d86970503556f15a93f}{output}} += AC0MAP.get(\textcolor{stringliteral}{"F0"});}
+\DoxyCodeLine{393           \}}
+\DoxyCodeLine{394           String key = Integer.toHexString(count).toUpperCase();}
+\DoxyCodeLine{395           aux = x;}
+\DoxyCodeLine{396           \textcolor{keywordtype}{int} length = Integer.toBinaryString(abs(x)).length();}
+\DoxyCodeLine{397           key += Integer.toHexString(length).toUpperCase();}
+\DoxyCodeLine{398           \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_ac61e4e404adc1d86970503556f15a93f}{output}} += AC0MAP.get(key);}
+\DoxyCodeLine{399           \textcolor{keywordflow}{if} (x < 0) \{}
+\DoxyCodeLine{400             aux = (int) (x + Math.pow(2, length) -\/ 1);}
+\DoxyCodeLine{401             \textcolor{keywordtype}{int} l = Integer.toBinaryString(aux).length();}
+\DoxyCodeLine{402             \textcolor{keywordflow}{while} (length-\/-\/ -\/ l != 0) \{}
+\DoxyCodeLine{403               \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_ac61e4e404adc1d86970503556f15a93f}{output}} += \textcolor{stringliteral}{"0"};}
+\DoxyCodeLine{404             \}}
+\DoxyCodeLine{405           \}}
+\DoxyCodeLine{406           \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_ac61e4e404adc1d86970503556f15a93f}{output}} += Integer.toBinaryString(aux);}
+\DoxyCodeLine{407           count = 0;}
+\DoxyCodeLine{408         \}}
+\DoxyCodeLine{409       \}}
+\DoxyCodeLine{410     \}}
+\DoxyCodeLine{411     \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_ac61e4e404adc1d86970503556f15a93f}{output}} += AC0MAP.get(\textcolor{stringliteral}{"00"});}
+\DoxyCodeLine{412 }
+\DoxyCodeLine{413     \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a413590c9dbfed60bae449abf9471f488}{out}}.write(\mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_ac61e4e404adc1d86970503556f15a93f}{output}}.getBytes());}
+\DoxyCodeLine{414     \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_ac61e4e404adc1d86970503556f15a93f}{output}} = \textcolor{stringliteral}{""};}
+\DoxyCodeLine{415   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a5e84b8b2b763c66d5544eb180f2d108a}\label{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a5e84b8b2b763c66d5544eb180f2d108a}} 
+\index{prop.algorithms.jpeg.JPEG@{prop.algorithms.jpeg.JPEG}!fillHuffmanTrees@{fillHuffmanTrees}}
+\index{fillHuffmanTrees@{fillHuffmanTrees}!prop.algorithms.jpeg.JPEG@{prop.algorithms.jpeg.JPEG}}
+\doxysubsubsection{\texorpdfstring{fillHuffmanTrees()}{fillHuffmanTrees()}}
+{\footnotesize\ttfamily void prop.\+algorithms.\+jpeg.\+J\+P\+E\+G.\+fill\+Huffman\+Trees (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_binary_tree}{Binary\+Tree}}}]{tree,  }\item[{String}]{key,  }\item[{String}]{bits }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Es recorrer l\textquotesingle{}arbre seguint un ordre en format de bits per depositar un valor a un node fulla.
+
+\begin{DoxyPrecond}{Precondition}
+tree, key i bits existeixen. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+un nou node fulla s\textquotesingle{}ha inserit a l\textquotesingle{}arbre.
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em tree} & Arbre al qual afegir un valor. \\
+\hline
+{\em key} & Valor que volem afegir. \\
+\hline
+{\em bits} & Recorregut de l\textquotesingle{}arbre a seguir per col·locar el valor. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{78                                                                           \{}
+\DoxyCodeLine{79     Node current = tree.getRoot();}
+\DoxyCodeLine{80     Node aux;}
+\DoxyCodeLine{81     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < bits.length(); ++i) \{}
+\DoxyCodeLine{82       \textcolor{keywordflow}{if} (i != bits.length() -\/ 1) \{}
+\DoxyCodeLine{83         \textcolor{keywordflow}{if} (bits.charAt(i) == \textcolor{charliteral}{'0'}) \{}
+\DoxyCodeLine{84           aux = tree.getNodeLeft(current);}
+\DoxyCodeLine{85           \textcolor{keywordflow}{if} (aux == \textcolor{keyword}{null}) \{}
+\DoxyCodeLine{86             tree.createNodeLeft(current);}
+\DoxyCodeLine{87             aux = tree.getNodeLeft(current);}
+\DoxyCodeLine{88           \}}
+\DoxyCodeLine{89           current = aux;}
+\DoxyCodeLine{90         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{91           aux = tree.getNodeRight(current);}
+\DoxyCodeLine{92           \textcolor{keywordflow}{if} (aux == \textcolor{keyword}{null}) \{}
+\DoxyCodeLine{93             tree.createNodeRight(current);}
+\DoxyCodeLine{94             aux = tree.getNodeRight(current);}
+\DoxyCodeLine{95           \}}
+\DoxyCodeLine{96           current = aux;}
+\DoxyCodeLine{97         \}}
+\DoxyCodeLine{98       \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{99         \textcolor{keywordflow}{if} (bits.charAt(i) == \textcolor{charliteral}{'0'}) \{}
+\DoxyCodeLine{100           tree.createNodeLeft(current, key);}
+\DoxyCodeLine{101         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{102           tree.createNodeRight(current, key);}
+\DoxyCodeLine{103         \}}
+\DoxyCodeLine{104       \}}
+\DoxyCodeLine{105     \}}
+\DoxyCodeLine{106   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a17e9ea81750e5ce0a40ce6a4957d2a82}\label{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a17e9ea81750e5ce0a40ce6a4957d2a82}} 
+\index{prop.algorithms.jpeg.JPEG@{prop.algorithms.jpeg.JPEG}!getAlgorithmUsed@{getAlgorithmUsed}}
+\index{getAlgorithmUsed@{getAlgorithmUsed}!prop.algorithms.jpeg.JPEG@{prop.algorithms.jpeg.JPEG}}
+\doxysubsubsection{\texorpdfstring{getAlgorithmUsed()}{getAlgorithmUsed()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{enumprop_1_1algorithms_1_1_algorithm}{Algorithm}} prop.\+algorithms.\+jpeg.\+J\+P\+E\+G.\+get\+Algorithm\+Used (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Retorna l\textquotesingle{}agorisme utilitzat; és útil per algorismes variables (aquells que poden ser escollits envers altres), per algorismes simples, només els retorna.
+
+\begin{DoxyReturn}{Returns}
+Algorisme utilitzat. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{interfaceprop_1_1algorithms_1_1base_1_1_base_algorithm_a0a806b0337fbf6c1c2c2d9da22f9729d}{prop.\+algorithms.\+base.\+Base\+Algorithm}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{805                                       \{}
+\DoxyCodeLine{806     \textcolor{keywordflow}{return} Algorithm.JPEG;}
+\DoxyCodeLine{807   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a173645a37411581acfe767e74023ec7c}\label{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a173645a37411581acfe767e74023ec7c}} 
+\index{prop.algorithms.jpeg.JPEG@{prop.algorithms.jpeg.JPEG}!getPositiveValue@{getPositiveValue}}
+\index{getPositiveValue@{getPositiveValue}!prop.algorithms.jpeg.JPEG@{prop.algorithms.jpeg.JPEG}}
+\doxysubsubsection{\texorpdfstring{getPositiveValue()}{getPositiveValue()}}
+{\footnotesize\ttfamily int prop.\+algorithms.\+jpeg.\+J\+P\+E\+G.\+get\+Positive\+Value (\begin{DoxyParamCaption}\item[{String}]{bits,  }\item[{int}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+En cas que el valor original de la imatge per alguna de les Y\+Cb\+Cr fos negatiu (ca2), es va codificar el seu complementari i ara, s\textquotesingle{}ha de tornar a obtenir el valor correcte.
+
+\begin{DoxyPrecond}{Precondition}
+cert. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+retorna el valor original abans de la codificació.
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em bits} & Valor en format binari. \\
+\hline
+{\em value} & Llargada en bits del valor. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+valor. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{622                                                        \{}
+\DoxyCodeLine{623     \textcolor{keywordtype}{int} num = Integer.parseInt(bits, 2);}
+\DoxyCodeLine{624     \textcolor{keywordflow}{if} (bits.charAt(0) == \textcolor{charliteral}{'0'}) \{}
+\DoxyCodeLine{625       num -\/= (int) Math.pow(2, value) -\/ 1;}
+\DoxyCodeLine{626     \}}
+\DoxyCodeLine{627     \textcolor{keywordflow}{return} num;}
+\DoxyCodeLine{628   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a518da93de921034b868fad529d165d16}\label{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a518da93de921034b868fad529d165d16}} 
+\index{prop.algorithms.jpeg.JPEG@{prop.algorithms.jpeg.JPEG}!huffmanTables@{huffmanTables}}
+\index{huffmanTables@{huffmanTables}!prop.algorithms.jpeg.JPEG@{prop.algorithms.jpeg.JPEG}}
+\doxysubsubsection{\texorpdfstring{huffmanTables()}{huffmanTables()}}
+{\footnotesize\ttfamily void prop.\+algorithms.\+jpeg.\+J\+P\+E\+G.\+huffman\+Tables (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Passa els valors de les taules de Huffman a una altra funció que crea els arbres. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{60                                \{}
+\DoxyCodeLine{61     DC0MAP.keySet().forEach(key -\/> \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a5e84b8b2b763c66d5544eb180f2d108a}{fillHuffmanTrees}}(\mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a1c5799be53fd5735dd93bdcef3e94b4c}{dc0Tree}}, key, DC0MAP.get(key)));}
+\DoxyCodeLine{62     DC1MAP.keySet().forEach(key -\/> \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a5e84b8b2b763c66d5544eb180f2d108a}{fillHuffmanTrees}}(\mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a9f77ee5ffbc0e87ef25a6539141dcc93}{dc1Tree}}, key, DC1MAP.get(key)));}
+\DoxyCodeLine{63     AC0MAP.keySet().forEach(key -\/> \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a5e84b8b2b763c66d5544eb180f2d108a}{fillHuffmanTrees}}(\mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a9e3def096ccb4ae96d0dc4d347f8ba94}{ac0Tree}}, key, AC0MAP.get(key)));}
+\DoxyCodeLine{64     AC1MAP.keySet().forEach(key -\/> \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a5e84b8b2b763c66d5544eb180f2d108a}{fillHuffmanTrees}}(\mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a9ee556805aad4f6eb42b61ffdd837008}{ac1Tree}}, key, AC1MAP.get(key)));}
+\DoxyCodeLine{65   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a1513ddca849a7f7f52c1dd7ddeac1508}\label{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a1513ddca849a7f7f52c1dd7ddeac1508}} 
+\index{prop.algorithms.jpeg.JPEG@{prop.algorithms.jpeg.JPEG}!inverseZigzag@{inverseZigzag}}
+\index{inverseZigzag@{inverseZigzag}!prop.algorithms.jpeg.JPEG@{prop.algorithms.jpeg.JPEG}}
+\doxysubsubsection{\texorpdfstring{inverseZigzag()}{inverseZigzag()}}
+{\footnotesize\ttfamily double \mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} prop.\+algorithms.\+jpeg.\+J\+P\+E\+G.\+inverse\+Zigzag (\begin{DoxyParamCaption}\item[{Queue$<$ Integer $>$}]{queue,  }\item[{int}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Col·locació segons zigzag.
+
+\begin{DoxyPrecond}{Precondition}
+la qua amb valors i l\textquotesingle{}identificador existeixen. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+matriu amb els valors col·locats seguint un zigzag.
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em queue} & Llista amb els valors ordenats segons estaven codificats. \\
+\hline
+{\em id} & Identificador distintiu entre les matrius de Luminance i Chrominance. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+transformació de quantització inversa per la matriu. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{640                                                                  \{}
+\DoxyCodeLine{641     \textcolor{keywordtype}{double}[][] matrix = \textcolor{keyword}{new} \textcolor{keywordtype}{double}[8][8];}
+\DoxyCodeLine{642 }
+\DoxyCodeLine{643     \textcolor{keywordtype}{int} i = 0;}
+\DoxyCodeLine{644     \textcolor{keywordtype}{int} j = 0;}
+\DoxyCodeLine{645 }
+\DoxyCodeLine{646     \textcolor{keywordflow}{while} (i < 8 \&\& j < 8 \&\& !queue.isEmpty()) \{}
+\DoxyCodeLine{647       \textcolor{keywordflow}{if} ((i + j) \% 2 == 0) \{}
+\DoxyCodeLine{648         \textcolor{keywordflow}{if} (i == 0) \{}
+\DoxyCodeLine{649           matrix[i][j] = queue.poll();}
+\DoxyCodeLine{650           \textcolor{keywordflow}{if} (j == 7) \{}
+\DoxyCodeLine{651             ++i;}
+\DoxyCodeLine{652           \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{653             ++j;}
+\DoxyCodeLine{654           \}}
+\DoxyCodeLine{655         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} ((j == 7)) \{}
+\DoxyCodeLine{656           matrix[i][j] = queue.poll();}
+\DoxyCodeLine{657           ++i;}
+\DoxyCodeLine{658         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (i > 0) \{}
+\DoxyCodeLine{659           matrix[i][j] = queue.poll();}
+\DoxyCodeLine{660           -\/-\/i;}
+\DoxyCodeLine{661           ++j;}
+\DoxyCodeLine{662         \}}
+\DoxyCodeLine{663       \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{664         \textcolor{keywordflow}{if} (i == 7) \{}
+\DoxyCodeLine{665           matrix[i][j] = queue.poll();}
+\DoxyCodeLine{666           ++j;}
+\DoxyCodeLine{667         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (j == 0) \{}
+\DoxyCodeLine{668           matrix[i][j] = queue.poll();}
+\DoxyCodeLine{669           ++i;}
+\DoxyCodeLine{670         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (j > 0) \{}
+\DoxyCodeLine{671           matrix[i][j] = queue.poll();}
+\DoxyCodeLine{672           ++i;}
+\DoxyCodeLine{673           -\/-\/j;}
+\DoxyCodeLine{674         \}}
+\DoxyCodeLine{675       \}}
+\DoxyCodeLine{676       \textcolor{keywordflow}{if} ((i == 7) \&\& (j == 7) \&\& !queue.isEmpty()) \{}
+\DoxyCodeLine{677         matrix[i][j] = queue.poll();}
+\DoxyCodeLine{678         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{679       \}}
+\DoxyCodeLine{680     \}}
+\DoxyCodeLine{681 }
+\DoxyCodeLine{682     \textcolor{keywordflow}{return} \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_aa69a7c3d452f8f5325292914fb029ff1}{reverseQuantization}}(matrix, \textcolor{keywordtype}{id});}
+\DoxyCodeLine{683   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a1d0eea0c938cf6a37e2502659447d3cf}\label{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a1d0eea0c938cf6a37e2502659447d3cf}} 
+\index{prop.algorithms.jpeg.JPEG@{prop.algorithms.jpeg.JPEG}!marchThroughImage@{marchThroughImage}}
+\index{marchThroughImage@{marchThroughImage}!prop.algorithms.jpeg.JPEG@{prop.algorithms.jpeg.JPEG}}
+\doxysubsubsection{\texorpdfstring{marchThroughImage()}{marchThroughImage()}}
+{\footnotesize\ttfamily void prop.\+algorithms.\+jpeg.\+J\+P\+E\+G.\+march\+Through\+Image (\begin{DoxyParamCaption}\item[{byte\mbox{[}$\,$\mbox{]}}]{image }\end{DoxyParamCaption}) throws I\+O\+Exception\hspace{0.3cm}{\ttfamily [private]}}
+
+Es recorren els R\+GB\textquotesingle{}s de la imatge, es transformen a Y\+Cb\+Cr i s\textquotesingle{}envien en blocs de 8x8 píxels al recorregut de transformacions necessàries per dur a terme la compressió.
+
+\begin{DoxyPrecond}{Precondition}
+la imatge existeix. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+imatge comprimida.
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em image} & Imatge a comprimir. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em I\+O\+Exception} & \\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{119                                                                   \{}
+\DoxyCodeLine{120     \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a15af369e9248cf303f2b7ea977ba9fc9}{version}} = String.valueOf((\textcolor{keywordtype}{char}) image[0]) + String.valueOf((\textcolor{keywordtype}{char}) image[1]);}
+\DoxyCodeLine{121     \textcolor{keywordtype}{boolean} width = \textcolor{keyword}{false};}
+\DoxyCodeLine{122     \textcolor{keywordtype}{boolean} comment = \textcolor{keyword}{false};}
+\DoxyCodeLine{123     \textcolor{keywordtype}{boolean} height = \textcolor{keyword}{false};}
+\DoxyCodeLine{124     \textcolor{keywordtype}{char} c;}
+\DoxyCodeLine{125     \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_aed30423d26f68ce38d2b5992c1b3d564}{w}} = 0;}
+\DoxyCodeLine{126     \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a3d85791b542d743b0f965f5d2c1c8349}{h}} = 0;}
+\DoxyCodeLine{127     \textcolor{keywordtype}{int} i;}
+\DoxyCodeLine{128 }
+\DoxyCodeLine{129     \textcolor{keywordflow}{for} (i = 3; !height; ++i) \{}
+\DoxyCodeLine{130       c = (char) image[i];}
+\DoxyCodeLine{131       \textcolor{keywordflow}{if} (comment) \{}
+\DoxyCodeLine{132         \textcolor{keywordflow}{if} (c == \textcolor{charliteral}{'\(\backslash\)n'}) \{}
+\DoxyCodeLine{133           comment = \textcolor{keyword}{false};}
+\DoxyCodeLine{134         \}}
+\DoxyCodeLine{135       \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (!width) \{}
+\DoxyCodeLine{136         \textcolor{keywordflow}{if} (c == \textcolor{charliteral}{'\#'}) \{}
+\DoxyCodeLine{137           comment = \textcolor{keyword}{true};}
+\DoxyCodeLine{138         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{139           \textcolor{keywordflow}{if} (\mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_aed30423d26f68ce38d2b5992c1b3d564}{w}} != 0 \&\& (c == \textcolor{charliteral}{' '} || c == \textcolor{charliteral}{'\(\backslash\)n'})) \{}
+\DoxyCodeLine{140             width = \textcolor{keyword}{true};}
+\DoxyCodeLine{141           \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{142             \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_aed30423d26f68ce38d2b5992c1b3d564}{w}} = \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_aed30423d26f68ce38d2b5992c1b3d564}{w}} * 10 + (c -\/ \textcolor{charliteral}{'0'});}
+\DoxyCodeLine{143           \}}
+\DoxyCodeLine{144         \}}
+\DoxyCodeLine{145       \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{146         \textcolor{keywordflow}{if} (c == \textcolor{charliteral}{'\#'}) \{}
+\DoxyCodeLine{147           comment = \textcolor{keyword}{true};}
+\DoxyCodeLine{148         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{149           \textcolor{keywordflow}{if} (c == \textcolor{charliteral}{'\(\backslash\)n'} || c == \textcolor{charliteral}{' '}) \{}
+\DoxyCodeLine{150             height = \textcolor{keyword}{true};}
+\DoxyCodeLine{151           \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{152             \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a3d85791b542d743b0f965f5d2c1c8349}{h}} = \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a3d85791b542d743b0f965f5d2c1c8349}{h}} * 10 + (c -\/ \textcolor{charliteral}{'0'});}
+\DoxyCodeLine{153           \}}
+\DoxyCodeLine{154         \}}
+\DoxyCodeLine{155       \}}
+\DoxyCodeLine{156     \}}
+\DoxyCodeLine{157     \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_ac61e4e404adc1d86970503556f15a93f}{output}} += \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a15af369e9248cf303f2b7ea977ba9fc9}{version}} + \textcolor{stringliteral}{" "} + \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_aed30423d26f68ce38d2b5992c1b3d564}{w}} + \textcolor{stringliteral}{" "} + \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a3d85791b542d743b0f965f5d2c1c8349}{h}} + \textcolor{stringliteral}{" "};}
+\DoxyCodeLine{158     \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a413590c9dbfed60bae449abf9471f488}{out}}.write(\mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_ac61e4e404adc1d86970503556f15a93f}{output}}.getBytes());}
+\DoxyCodeLine{159     \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_ac61e4e404adc1d86970503556f15a93f}{output}} = \textcolor{stringliteral}{""};}
+\DoxyCodeLine{160 }
+\DoxyCodeLine{161     \textcolor{keywordtype}{int} header = image.length -\/ \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_aed30423d26f68ce38d2b5992c1b3d564}{w}} * \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a3d85791b542d743b0f965f5d2c1c8349}{h}} * 3;}
+\DoxyCodeLine{162     \textcolor{keywordtype}{byte}[] rgb = Arrays.copyOfRange(image, header, image.length);}
+\DoxyCodeLine{163 }
+\DoxyCodeLine{164     \textcolor{keywordtype}{int} ample = \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_aed30423d26f68ce38d2b5992c1b3d564}{w}};}
+\DoxyCodeLine{165     \textcolor{keywordtype}{int} llarg = \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a3d85791b542d743b0f965f5d2c1c8349}{h}};}
+\DoxyCodeLine{166 }
+\DoxyCodeLine{167       \textcolor{keywordflow}{while} (llarg \% 8 != 0) \{ llarg++; \}}
+\DoxyCodeLine{168       \textcolor{keywordflow}{while} (ample \% 8 != 0) \{ ample++; \}}
+\DoxyCodeLine{169 }
+\DoxyCodeLine{170     \textcolor{keywordtype}{int}[][] matrixR = \textcolor{keyword}{new} \textcolor{keywordtype}{int}[llarg][ample];}
+\DoxyCodeLine{171     \textcolor{keywordtype}{int}[][] matrixG = \textcolor{keyword}{new} \textcolor{keywordtype}{int}[llarg][ample];}
+\DoxyCodeLine{172     \textcolor{keywordtype}{int}[][] matrixB = \textcolor{keyword}{new} \textcolor{keywordtype}{int}[llarg][ample];}
+\DoxyCodeLine{173 }
+\DoxyCodeLine{174     \textcolor{keywordtype}{int} k = 0;}
+\DoxyCodeLine{175     \textcolor{keywordflow}{for} (i = 0; i < \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a3d85791b542d743b0f965f5d2c1c8349}{h}}; ++i) \{}
+\DoxyCodeLine{176       \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_aed30423d26f68ce38d2b5992c1b3d564}{w}}; ++j) \{}
+\DoxyCodeLine{177         \textcolor{keywordflow}{if} (k < rgb.length) \{}
+\DoxyCodeLine{178           matrixR[i][j] = rgb[k] \& 0xFF;}
+\DoxyCodeLine{179           matrixG[i][j] = rgb[k + 1] \& 0xFF;}
+\DoxyCodeLine{180           matrixB[i][j] = rgb[k + 2] \& 0xFF;}
+\DoxyCodeLine{181           k += 3;}
+\DoxyCodeLine{182         \}}
+\DoxyCodeLine{183       \}}
+\DoxyCodeLine{184     \}}
+\DoxyCodeLine{185 }
+\DoxyCodeLine{186     \textcolor{keywordtype}{double}[][] matrixY = \textcolor{keyword}{new} \textcolor{keywordtype}{double}[llarg][ample];}
+\DoxyCodeLine{187     \textcolor{keywordtype}{double}[][] matrixCb = \textcolor{keyword}{new} \textcolor{keywordtype}{double}[llarg][ample];}
+\DoxyCodeLine{188     \textcolor{keywordtype}{double}[][] matrixCr = \textcolor{keyword}{new} \textcolor{keywordtype}{double}[llarg][ample];}
+\DoxyCodeLine{189 }
+\DoxyCodeLine{190     \textcolor{comment}{//RGB to YCbCr}}
+\DoxyCodeLine{191     \textcolor{keywordflow}{for} (i = 0; i < \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a3d85791b542d743b0f965f5d2c1c8349}{h}}; ++i) \{}
+\DoxyCodeLine{192       \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_aed30423d26f68ce38d2b5992c1b3d564}{w}}; ++j) \{}
+\DoxyCodeLine{193         matrixY[i][j] = Math.max(0, Math.min(255,}
+\DoxyCodeLine{194             (0 + (0.299 * matrixR[i][j]) + (0.587 * matrixG[i][j]) + (0.114 * matrixB[i][j]))))}
+\DoxyCodeLine{195             -\/ 128;}
+\DoxyCodeLine{196         matrixCb[i][j] = Math.max(0, Math.min(255,}
+\DoxyCodeLine{197             (128 -\/ (0.168736 * matrixR[i][j]) -\/ (0.331264 * matrixG[i][j]) + (0.5}
+\DoxyCodeLine{198                 * matrixB[i][j])))) -\/ 128;}
+\DoxyCodeLine{199         matrixCr[i][j] = Math.max(0, Math.min(255,}
+\DoxyCodeLine{200             (128 + (0.5 * matrixR[i][j]) -\/ (0.418688 * matrixG[i][j]) -\/ (0.081312}
+\DoxyCodeLine{201                 * matrixB[i][j])))) -\/ 128;}
+\DoxyCodeLine{202       \}}
+\DoxyCodeLine{203     \}}
+\DoxyCodeLine{204 }
+\DoxyCodeLine{205     \textcolor{keywordtype}{double}[][] auxy = \textcolor{keyword}{new} \textcolor{keywordtype}{double}[8][8];}
+\DoxyCodeLine{206     \textcolor{keywordtype}{double}[][] auxcb = \textcolor{keyword}{new} \textcolor{keywordtype}{double}[8][8];}
+\DoxyCodeLine{207     \textcolor{keywordtype}{double}[][] auxcr = \textcolor{keyword}{new} \textcolor{keywordtype}{double}[8][8];}
+\DoxyCodeLine{208     \textcolor{keywordtype}{boolean} end = \textcolor{keyword}{false};}
+\DoxyCodeLine{209     \textcolor{keywordtype}{int} jj = 0;}
+\DoxyCodeLine{210     \textcolor{keywordtype}{int} ii = 0;}
+\DoxyCodeLine{211 }
+\DoxyCodeLine{212     \textcolor{keywordflow}{while} (!end) \{}
+\DoxyCodeLine{213       \textcolor{keywordflow}{for} (i = 0; i < 8; ++i) \{ \textcolor{comment}{//subarrays de 8*8}}
+\DoxyCodeLine{214         System.arraycopy(matrixY[ii + i], jj, auxy[i], 0, 8);}
+\DoxyCodeLine{215         System.arraycopy(matrixCb[ii + i], jj, auxcb[i], 0, 8);}
+\DoxyCodeLine{216         System.arraycopy(matrixCr[ii + i], jj, auxcr[i], 0, 8);}
+\DoxyCodeLine{217       \}}
+\DoxyCodeLine{218       \textcolor{comment}{//dct transform + quantization}}
+\DoxyCodeLine{219       \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a52b596d689f35303d4206b5322002a66}{dctTransform}}(auxy, \textcolor{keyword}{true});}
+\DoxyCodeLine{220       \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a52b596d689f35303d4206b5322002a66}{dctTransform}}(auxcb, \textcolor{keyword}{false});}
+\DoxyCodeLine{221       \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a52b596d689f35303d4206b5322002a66}{dctTransform}}(auxcr, \textcolor{keyword}{false});}
+\DoxyCodeLine{222 }
+\DoxyCodeLine{223       \textcolor{keywordflow}{if} (jj == \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_aed30423d26f68ce38d2b5992c1b3d564}{w}} -\/ 8 \&\& ii != \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a3d85791b542d743b0f965f5d2c1c8349}{h}}) \{}
+\DoxyCodeLine{224         ii += 8;}
+\DoxyCodeLine{225         jj = 0;}
+\DoxyCodeLine{226       \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{227         jj += 8;}
+\DoxyCodeLine{228       \}}
+\DoxyCodeLine{229       \textcolor{keywordflow}{if} (ii == \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a3d85791b542d743b0f965f5d2c1c8349}{h}}) \{}
+\DoxyCodeLine{230         end = \textcolor{keyword}{true};}
+\DoxyCodeLine{231       \}}
+\DoxyCodeLine{232     \}}
+\DoxyCodeLine{233     \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a413590c9dbfed60bae449abf9471f488}{out}}.close();}
+\DoxyCodeLine{234   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a287a90d2a6d9640a4d8a178f9731d76f}\label{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a287a90d2a6d9640a4d8a178f9731d76f}} 
+\index{prop.algorithms.jpeg.JPEG@{prop.algorithms.jpeg.JPEG}!marchThroughSippy@{marchThroughSippy}}
+\index{marchThroughSippy@{marchThroughSippy}!prop.algorithms.jpeg.JPEG@{prop.algorithms.jpeg.JPEG}}
+\doxysubsubsection{\texorpdfstring{marchThroughSippy()}{marchThroughSippy()}}
+{\footnotesize\ttfamily void prop.\+algorithms.\+jpeg.\+J\+P\+E\+G.\+march\+Through\+Sippy (\begin{DoxyParamCaption}\item[{String}]{input }\end{DoxyParamCaption}) throws I\+O\+Exception\hspace{0.3cm}{\ttfamily [private]}}
+
+Es decodifican els bytes d\textquotesingle{}entrada amb els arbres de Huffman i els valors es van depositant en una cua per a, seguidament, passar per les transformacions inverses.
+
+\begin{DoxyPrecond}{Precondition}
+l\textquotesingle{}imatge comprimida i els arbres de Huffman existeixen. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+imatge descomprimida.
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em input} & Imatge comprimida. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em I\+O\+Exception} & \\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{487                                                                   \{}
+\DoxyCodeLine{488     \textcolor{keywordtype}{int} i = 0;}
+\DoxyCodeLine{489     \textcolor{keywordtype}{int} value = 0;}
+\DoxyCodeLine{490     \textcolor{keywordtype}{int} \textcolor{keywordtype}{id} = 0;}
+\DoxyCodeLine{491     String bits = \textcolor{stringliteral}{""};}
+\DoxyCodeLine{492     Node current;}
+\DoxyCodeLine{493     BinaryTree bt = \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a1c5799be53fd5735dd93bdcef3e94b4c}{dc0Tree}};}
+\DoxyCodeLine{494     \textcolor{keywordtype}{int} num;}
+\DoxyCodeLine{495     \textcolor{keywordtype}{int} espais = 0;}
+\DoxyCodeLine{496     \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a15af369e9248cf303f2b7ea977ba9fc9}{version}} = input.substring(0, input.indexOf(\textcolor{stringliteral}{" "}));}
+\DoxyCodeLine{497     input = input.substring(input.indexOf(\textcolor{stringliteral}{" "}) + 1);}
+\DoxyCodeLine{498     \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_aed30423d26f68ce38d2b5992c1b3d564}{w}} = Integer.parseInt(input.substring(0, input.indexOf(\textcolor{stringliteral}{" "})));}
+\DoxyCodeLine{499     input = input.substring(input.indexOf(\textcolor{stringliteral}{" "}) + 1);}
+\DoxyCodeLine{500     \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a3d85791b542d743b0f965f5d2c1c8349}{h}} = Integer.parseInt(input.substring(0, input.indexOf(\textcolor{stringliteral}{" "})));}
+\DoxyCodeLine{501     input = input.substring(input.indexOf(\textcolor{stringliteral}{" "}) + 1);}
+\DoxyCodeLine{502 }
+\DoxyCodeLine{503     \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_ac61e4e404adc1d86970503556f15a93f}{output}} += \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a15af369e9248cf303f2b7ea977ba9fc9}{version}} + \textcolor{stringliteral}{"\(\backslash\)n"} + \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_aed30423d26f68ce38d2b5992c1b3d564}{w}} + \textcolor{stringliteral}{" "} + \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a3d85791b542d743b0f965f5d2c1c8349}{h}} + \textcolor{stringliteral}{"\(\backslash\)n"} + \textcolor{stringliteral}{"255"} + \textcolor{stringliteral}{"\(\backslash\)n"};}
+\DoxyCodeLine{504     \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a413590c9dbfed60bae449abf9471f488}{out}}.write(\mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_ac61e4e404adc1d86970503556f15a93f}{output}}.getBytes());}
+\DoxyCodeLine{505     \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_ac61e4e404adc1d86970503556f15a93f}{output}} = \textcolor{stringliteral}{""};}
+\DoxyCodeLine{506 }
+\DoxyCodeLine{507     \textcolor{keywordtype}{double}[][] matrixR = \textcolor{keyword}{new} \textcolor{keywordtype}{double}[\mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a3d85791b542d743b0f965f5d2c1c8349}{h}}][\mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_aed30423d26f68ce38d2b5992c1b3d564}{w}}];}
+\DoxyCodeLine{508     \textcolor{keywordtype}{double}[][] matrixG = \textcolor{keyword}{new} \textcolor{keywordtype}{double}[\mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a3d85791b542d743b0f965f5d2c1c8349}{h}}][\mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_aed30423d26f68ce38d2b5992c1b3d564}{w}}];}
+\DoxyCodeLine{509     \textcolor{keywordtype}{double}[][] matrixB = \textcolor{keyword}{new} \textcolor{keywordtype}{double}[\mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a3d85791b542d743b0f965f5d2c1c8349}{h}}][\mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_aed30423d26f68ce38d2b5992c1b3d564}{w}}];}
+\DoxyCodeLine{510     \textcolor{keywordtype}{int} jj = 0;}
+\DoxyCodeLine{511     \textcolor{keywordtype}{int} ii = 0;}
+\DoxyCodeLine{512 }
+\DoxyCodeLine{513     \textcolor{keywordflow}{while} (i < input.length()) \{}
+\DoxyCodeLine{514 }
+\DoxyCodeLine{515       current = bt.getRoot();}
+\DoxyCodeLine{516       Queue<Integer> queue = \textcolor{keyword}{new} LinkedList<>();}
+\DoxyCodeLine{517 }
+\DoxyCodeLine{518       \textcolor{keywordflow}{for} (; i < input.length(); ++i) \{}
+\DoxyCodeLine{519         \textcolor{keywordflow}{if} (!bt.isLeaf(current)) \{}
+\DoxyCodeLine{520           \textcolor{keywordflow}{if} (input.charAt(i) == \textcolor{charliteral}{'0'}) \{}
+\DoxyCodeLine{521             current = bt.getNodeLeft(current);}
+\DoxyCodeLine{522           \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{523             current = bt.getNodeRight(current);}
+\DoxyCodeLine{524           \}}
+\DoxyCodeLine{525         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{526           value = Integer.parseInt(current.getValue(), 16);}
+\DoxyCodeLine{527           bits = input.substring(i, i + value);}
+\DoxyCodeLine{528           i += value;}
+\DoxyCodeLine{529           \textcolor{keywordflow}{break};}
+\DoxyCodeLine{530         \}}
+\DoxyCodeLine{531       \}}
+\DoxyCodeLine{532       num = Integer.parseInt(bits, 2);}
+\DoxyCodeLine{533       \textcolor{keywordflow}{if} (bits.charAt(0) == \textcolor{charliteral}{'0'}) \{}
+\DoxyCodeLine{534         num -\/= (int) Math.pow(2, value) -\/ 1;}
+\DoxyCodeLine{535       \}}
+\DoxyCodeLine{536 }
+\DoxyCodeLine{537       queue.add(num);}
+\DoxyCodeLine{538 }
+\DoxyCodeLine{539       \textcolor{keywordflow}{if} (\textcolor{keywordtype}{id} == 0) \{}
+\DoxyCodeLine{540         bt = \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a9e3def096ccb4ae96d0dc4d347f8ba94}{ac0Tree}};}
+\DoxyCodeLine{541       \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{542         bt = \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a9ee556805aad4f6eb42b61ffdd837008}{ac1Tree}};}
+\DoxyCodeLine{543       \}}
+\DoxyCodeLine{544 }
+\DoxyCodeLine{545       current = bt.\mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_binary_tree_a5c843dde137405b13791e31e8f597950}{getRoot}}();}
+\DoxyCodeLine{546       \textcolor{keywordtype}{int} zeros;}
+\DoxyCodeLine{547       \textcolor{keywordtype}{int} size;}
+\DoxyCodeLine{548       \textcolor{keywordtype}{boolean} eob = \textcolor{keyword}{false};}
+\DoxyCodeLine{549 }
+\DoxyCodeLine{550       \textcolor{keywordflow}{while} (!eob) \{}
+\DoxyCodeLine{551         \textcolor{keywordflow}{if} (!bt.isLeaf(current)) \{}
+\DoxyCodeLine{552           \textcolor{keywordflow}{if} (input.charAt(i) == \textcolor{charliteral}{'0'}) \{}
+\DoxyCodeLine{553             current = bt.getNodeLeft(current);}
+\DoxyCodeLine{554           \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{555             current = bt.getNodeRight(current);}
+\DoxyCodeLine{556           \}}
+\DoxyCodeLine{557           i++;}
+\DoxyCodeLine{558         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{559           zeros = Integer.parseInt(String.valueOf(current.getValue().charAt(0)), 16);}
+\DoxyCodeLine{560           size = Integer.parseInt(String.valueOf(current.getValue().charAt(1)), 16);}
+\DoxyCodeLine{561           \textcolor{keywordflow}{if} (zeros == 0 \&\& size == 0) \{}
+\DoxyCodeLine{562             eob = \textcolor{keyword}{true};}
+\DoxyCodeLine{563           \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{564             \textcolor{keywordflow}{while} (zeros-\/-\/ > 0) \{}
+\DoxyCodeLine{565               queue.add(0);}
+\DoxyCodeLine{566             \}}
+\DoxyCodeLine{567             \textcolor{keywordflow}{if} (size != 0) \{}
+\DoxyCodeLine{568               bits = input.substring(i, i + size);}
+\DoxyCodeLine{569               num = \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a173645a37411581acfe767e74023ec7c}{getPositiveValue}}(bits, size);}
+\DoxyCodeLine{570               queue.add(\mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a173645a37411581acfe767e74023ec7c}{getPositiveValue}}(bits, size));}
+\DoxyCodeLine{571             \}}
+\DoxyCodeLine{572             i += size;}
+\DoxyCodeLine{573             current = bt.getRoot();}
+\DoxyCodeLine{574           \}}
+\DoxyCodeLine{575         \}}
+\DoxyCodeLine{576       \}}
+\DoxyCodeLine{577 }
+\DoxyCodeLine{578       \textcolor{keywordtype}{double}[][] submatrix = \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a1513ddca849a7f7f52c1dd7ddeac1508}{inverseZigzag}}(queue, \textcolor{keywordtype}{id});}
+\DoxyCodeLine{579 }
+\DoxyCodeLine{580       \textcolor{keywordflow}{if} (\textcolor{keywordtype}{id} == 0) \{}
+\DoxyCodeLine{581         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} k = 0; k < 8; ++k) \{}
+\DoxyCodeLine{582           System.arraycopy(submatrix[k], 0, matrixR[k + ii], jj, 8);}
+\DoxyCodeLine{583         \}}
+\DoxyCodeLine{584         bt = \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a9f77ee5ffbc0e87ef25a6539141dcc93}{dc1Tree}};}
+\DoxyCodeLine{585         ++id;}
+\DoxyCodeLine{586       \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\textcolor{keywordtype}{id} == 1) \{}
+\DoxyCodeLine{587         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} k = 0; k < 8; ++k) \{}
+\DoxyCodeLine{588           System.arraycopy(submatrix[k], 0, matrixG[k + ii], jj, 8);}
+\DoxyCodeLine{589         \}}
+\DoxyCodeLine{590         bt = \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a9f77ee5ffbc0e87ef25a6539141dcc93}{dc1Tree}};}
+\DoxyCodeLine{591         ++id;}
+\DoxyCodeLine{592       \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{593         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} k = 0; k < 8; ++k) \{}
+\DoxyCodeLine{594           System.arraycopy(submatrix[k], 0, matrixB[k + ii], jj, 8);}
+\DoxyCodeLine{595         \}}
+\DoxyCodeLine{596         bt = \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a1c5799be53fd5735dd93bdcef3e94b4c}{dc0Tree}};}
+\DoxyCodeLine{597         \textcolor{keywordtype}{id} = 0;}
+\DoxyCodeLine{598         \textcolor{keywordflow}{if} (jj == \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_aed30423d26f68ce38d2b5992c1b3d564}{w}} -\/ 8) \{}
+\DoxyCodeLine{599           ii += 8;}
+\DoxyCodeLine{600           jj = 0;}
+\DoxyCodeLine{601         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{602           jj += 8;}
+\DoxyCodeLine{603         \}}
+\DoxyCodeLine{604       \}}
+\DoxyCodeLine{605     \}}
+\DoxyCodeLine{606     \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_aff01bccf59265c117031b62af0b73cf0}{writePPM}}(matrixR, matrixG, matrixB);}
+\DoxyCodeLine{607     \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a413590c9dbfed60bae449abf9471f488}{out}}.close();}
+\DoxyCodeLine{608   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a86e558d6763761997f0838a8faeb2b91}\label{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a86e558d6763761997f0838a8faeb2b91}} 
+\index{prop.algorithms.jpeg.JPEG@{prop.algorithms.jpeg.JPEG}!quantization@{quantization}}
+\index{quantization@{quantization}!prop.algorithms.jpeg.JPEG@{prop.algorithms.jpeg.JPEG}}
+\doxysubsubsection{\texorpdfstring{quantization()}{quantization()}}
+{\footnotesize\ttfamily void prop.\+algorithms.\+jpeg.\+J\+P\+E\+G.\+quantization (\begin{DoxyParamCaption}\item[{double}]{m\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]},  }\item[{boolean}]{y }\end{DoxyParamCaption}) throws I\+O\+Exception\hspace{0.3cm}{\ttfamily [private]}}
+
+Segona transformació.
+
+\begin{DoxyPrecond}{Precondition}
+la matriu m, el booleà i les matrius de quantització existeixen. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+s\textquotesingle{}ha aplicat la matriu corresponent de quantització a la matriu matrix.
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em m} & Matriu de doubles que prové de la dct\+Transform. \\
+\hline
+{\em y} & Booleà distintiu entre les matrius de Luminance (Y) i Chrominance (Cb\+Cr). \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em I\+O\+Exception} & \\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{283                                                                         \{}
+\DoxyCodeLine{284     \textcolor{keywordtype}{int}[][] qt;}
+\DoxyCodeLine{285     \textcolor{keywordflow}{if} (y) \{}
+\DoxyCodeLine{286       qt = \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_af5eb23ea6af84f485f57bab92671b239}{qtY}};}
+\DoxyCodeLine{287     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{288       qt = \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a1ab7703e1785829ca16d1230a8f69d00}{qtC}};}
+\DoxyCodeLine{289     \}}
+\DoxyCodeLine{290 }
+\DoxyCodeLine{291     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < 8; i++) \{}
+\DoxyCodeLine{292       \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < 8; j++) \{}
+\DoxyCodeLine{293         m[i][j] = m[i][j] / qt[i][j];}
+\DoxyCodeLine{294         m[i][j] = Math.round(m[i][j]);}
+\DoxyCodeLine{295       \}}
+\DoxyCodeLine{296     \}}
+\DoxyCodeLine{297     \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a4558fb9b2c28269149b73ef1e1a54636}{zigzag}}(m, y);}
+\DoxyCodeLine{298   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a353af8bbfd43aadbf1409bdaaeaa1955}\label{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a353af8bbfd43aadbf1409bdaaeaa1955}} 
+\index{prop.algorithms.jpeg.JPEG@{prop.algorithms.jpeg.JPEG}!reverseDCT@{reverseDCT}}
+\index{reverseDCT@{reverseDCT}!prop.algorithms.jpeg.JPEG@{prop.algorithms.jpeg.JPEG}}
+\doxysubsubsection{\texorpdfstring{reverseDCT()}{reverseDCT()}}
+{\footnotesize\ttfamily double \mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} prop.\+algorithms.\+jpeg.\+J\+P\+E\+G.\+reverse\+D\+CT (\begin{DoxyParamCaption}\item[{double}]{matrix\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]},  }\item[{int}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Segona transformació inversa.
+
+\begin{DoxyPrecond}{Precondition}
+la matriu, l\textquotesingle{}identificador i la matriu dct existeixen. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+s\textquotesingle{}ha aplicat la transformació del cosinus inversa a la matriu matrix.
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em matrix} & Matriu provinent de la quantització inversa. \\
+\hline
+{\em id} & Identificador distintiu entre les matrius de Luminance i Chrominance. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+matriu matrix. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{726                                                            \{}
+\DoxyCodeLine{727 }
+\DoxyCodeLine{728     \textcolor{keywordtype}{double}[][] aux = \textcolor{keyword}{new} \textcolor{keywordtype}{double}[8][8];}
+\DoxyCodeLine{729 }
+\DoxyCodeLine{730     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < 8; ++i) \{}
+\DoxyCodeLine{731       \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < 8; ++j) \{}
+\DoxyCodeLine{732         aux[i][j] = 0;}
+\DoxyCodeLine{733         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} k = 0; k < 8; ++k) \{}
+\DoxyCodeLine{734           aux[i][j] += \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_aa66977fd46b14f4d5c26daee47e38c67}{dct}}[k][i] * matrix[k][j];}
+\DoxyCodeLine{735         \}}
+\DoxyCodeLine{736       \}}
+\DoxyCodeLine{737     \}}
+\DoxyCodeLine{738 }
+\DoxyCodeLine{739     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < 8; ++i) \{}
+\DoxyCodeLine{740       \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < 8; ++j) \{}
+\DoxyCodeLine{741         matrix[i][j] = 0;}
+\DoxyCodeLine{742         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} k = 0; k < 8; ++k) \{}
+\DoxyCodeLine{743           matrix[i][j] += aux[i][k] * \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_aa66977fd46b14f4d5c26daee47e38c67}{dct}}[k][j];}
+\DoxyCodeLine{744         \}}
+\DoxyCodeLine{745         matrix[i][j] = Math.round(matrix[i][j]) + 128;}
+\DoxyCodeLine{746       \}}
+\DoxyCodeLine{747     \}}
+\DoxyCodeLine{748     \textcolor{keywordflow}{return} matrix;}
+\DoxyCodeLine{749   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_aa69a7c3d452f8f5325292914fb029ff1}\label{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_aa69a7c3d452f8f5325292914fb029ff1}} 
+\index{prop.algorithms.jpeg.JPEG@{prop.algorithms.jpeg.JPEG}!reverseQuantization@{reverseQuantization}}
+\index{reverseQuantization@{reverseQuantization}!prop.algorithms.jpeg.JPEG@{prop.algorithms.jpeg.JPEG}}
+\doxysubsubsection{\texorpdfstring{reverseQuantization()}{reverseQuantization()}}
+{\footnotesize\ttfamily double \mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} prop.\+algorithms.\+jpeg.\+J\+P\+E\+G.\+reverse\+Quantization (\begin{DoxyParamCaption}\item[{double}]{m\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]},  }\item[{int}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Primera transformació inversa.
+
+\begin{DoxyPrecond}{Precondition}
+la matriu m de doubles, l\textquotesingle{}identificador i les matrius de quantització existeixen. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+s\textquotesingle{}ha aplicat la corresponent quantització inversa a la matriu m.
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em m} & Matriu provinent del zigzag invers. \\
+\hline
+{\em id} & Identificador distintiu entre les matrius de Luminance i Chrominance. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+transformació del cosinus invers per la matriu m. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{695                                                                \{}
+\DoxyCodeLine{696         \textcolor{comment}{/*m = new double[][]\{\{-\/26,-\/3,-\/6,2,2,-\/1,0,0\},\{0,-\/2,-\/4,1,1,0,0,0\},}}
+\DoxyCodeLine{697 \textcolor{comment}{                \{-\/3,1,5,-\/1,-\/1,0,0,0\},\{-\/3,1,2,-\/1,0,0,0,0\},}}
+\DoxyCodeLine{698 \textcolor{comment}{                \{1,0,0,0,0,0,0,0\},\{0,0,0,0,0,0,0,0\},\{0,0,0,0,0,0,0,0\},}}
+\DoxyCodeLine{699 \textcolor{comment}{                \{0,0,0,0,0,0,0,0\}\};*/}}
+\DoxyCodeLine{700     \textcolor{keywordtype}{int}[][] qt;}
+\DoxyCodeLine{701     \textcolor{keywordflow}{if} (\textcolor{keywordtype}{id} == 0) \{}
+\DoxyCodeLine{702       qt = \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_af5eb23ea6af84f485f57bab92671b239}{qtY}};}
+\DoxyCodeLine{703     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{704       qt = \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a1ab7703e1785829ca16d1230a8f69d00}{qtC}};}
+\DoxyCodeLine{705     \}}
+\DoxyCodeLine{706 }
+\DoxyCodeLine{707     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < 8; i++) \{}
+\DoxyCodeLine{708       \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < 8; j++) \{}
+\DoxyCodeLine{709         m[i][j] = m[i][j] * qt[i][j];}
+\DoxyCodeLine{710         m[i][j] = Math.round(m[i][j]);}
+\DoxyCodeLine{711       \}}
+\DoxyCodeLine{712     \}}
+\DoxyCodeLine{713     \textcolor{keywordflow}{return} \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a353af8bbfd43aadbf1409bdaaeaa1955}{reverseDCT}}(m, \textcolor{keywordtype}{id});}
+\DoxyCodeLine{714   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_aff01bccf59265c117031b62af0b73cf0}\label{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_aff01bccf59265c117031b62af0b73cf0}} 
+\index{prop.algorithms.jpeg.JPEG@{prop.algorithms.jpeg.JPEG}!writePPM@{writePPM}}
+\index{writePPM@{writePPM}!prop.algorithms.jpeg.JPEG@{prop.algorithms.jpeg.JPEG}}
+\doxysubsubsection{\texorpdfstring{writePPM()}{writePPM()}}
+{\footnotesize\ttfamily void prop.\+algorithms.\+jpeg.\+J\+P\+E\+G.\+write\+P\+PM (\begin{DoxyParamCaption}\item[{double}]{y\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]},  }\item[{double}]{cb\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]},  }\item[{double}]{cr\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Es transformen els valors Y\+Cb\+Cr a R\+GB i es guarden per tornar a formar la imatge.
+
+\begin{DoxyPrecond}{Precondition}
+les matrius y,cb i cr existeixen. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+colors transformats i escrits.
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em y} & Matriu de Luminance (Y). \\
+\hline
+{\em cb} & Matriu de Chrominance (Cb). \\
+\hline
+{\em cr} & Matriu de Chrominance (Cr). \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{762                                                                     \{}
+\DoxyCodeLine{763     \textcolor{keywordtype}{int} r;}
+\DoxyCodeLine{764     \textcolor{keywordtype}{int} g;}
+\DoxyCodeLine{765     \textcolor{keywordtype}{int} b;}
+\DoxyCodeLine{766     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a3d85791b542d743b0f965f5d2c1c8349}{h}}; ++i) \{}
+\DoxyCodeLine{767       \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_aed30423d26f68ce38d2b5992c1b3d564}{w}}; ++j) \{}
+\DoxyCodeLine{768         r = (int) Math.max(0, Math.min(255, (y[i][j] + 1.402 * (cr[i][j] -\/ 128))));}
+\DoxyCodeLine{769         g = (int) Math.max(0,}
+\DoxyCodeLine{770             Math.min(255, (y[i][j] -\/ 0.344136 * (cb[i][j] -\/ 128) -\/ 0.714136 * (cr[i][j] -\/ 128))));}
+\DoxyCodeLine{771         b = (int) Math.max(0, Math.min(255, (y[i][j] + 1.772 * (cb[i][j] -\/ 128))));}
+\DoxyCodeLine{772         \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a413590c9dbfed60bae449abf9471f488}{out}}.write(r);}
+\DoxyCodeLine{773         \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a413590c9dbfed60bae449abf9471f488}{out}}.write(g);}
+\DoxyCodeLine{774         \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a413590c9dbfed60bae449abf9471f488}{out}}.write(b);}
+\DoxyCodeLine{775       \}}
+\DoxyCodeLine{776     \}}
+\DoxyCodeLine{777   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a4558fb9b2c28269149b73ef1e1a54636}\label{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a4558fb9b2c28269149b73ef1e1a54636}} 
+\index{prop.algorithms.jpeg.JPEG@{prop.algorithms.jpeg.JPEG}!zigzag@{zigzag}}
+\index{zigzag@{zigzag}!prop.algorithms.jpeg.JPEG@{prop.algorithms.jpeg.JPEG}}
+\doxysubsubsection{\texorpdfstring{zigzag()}{zigzag()}}
+{\footnotesize\ttfamily void prop.\+algorithms.\+jpeg.\+J\+P\+E\+G.\+zigzag (\begin{DoxyParamCaption}\item[{double}]{m\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]},  }\item[{boolean}]{y }\end{DoxyParamCaption}) throws I\+O\+Exception\hspace{0.3cm}{\ttfamily [private]}}
+
+Ordenació dels valors de la matriu m seguint un zigzag.
+
+\begin{DoxyPrecond}{Precondition}
+la matriu m i el booleà y existeixen. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+s\textquotesingle{}han guardat els valors de la matriu m a una arraylist seguint l\textquotesingle{}ordre indicat.
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em m} & Matriu de doubles provinent de la quantització. \\
+\hline
+{\em y} & Booleà distintiu entre les matrius de Luminance (Y) i Chrominance (Cb\+Cr). \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em I\+O\+Exception} & \\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{310                                                                   \{}
+\DoxyCodeLine{311     ArrayList<Integer> \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a4558fb9b2c28269149b73ef1e1a54636}{zigzag}} = \textcolor{keyword}{new} ArrayList<>();}
+\DoxyCodeLine{312 }
+\DoxyCodeLine{313     \textcolor{keywordtype}{int} i = 0;}
+\DoxyCodeLine{314     \textcolor{keywordtype}{int} j = 0;}
+\DoxyCodeLine{315 }
+\DoxyCodeLine{316     \textcolor{keywordflow}{while} (i < 8 \&\& j < 8) \{}
+\DoxyCodeLine{317       \textcolor{keywordflow}{if} ((i + j) \% 2 == 0) \{}
+\DoxyCodeLine{318         \textcolor{keywordflow}{if} (i == 0) \{}
+\DoxyCodeLine{319           \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a4558fb9b2c28269149b73ef1e1a54636}{zigzag}}.add((\textcolor{keywordtype}{int}) m[i][j]);}
+\DoxyCodeLine{320           \textcolor{keywordflow}{if} (j == 7) \{}
+\DoxyCodeLine{321             ++i;}
+\DoxyCodeLine{322           \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{323             ++j;}
+\DoxyCodeLine{324           \}}
+\DoxyCodeLine{325         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} ((j == 7)) \{}
+\DoxyCodeLine{326           \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a4558fb9b2c28269149b73ef1e1a54636}{zigzag}}.add((\textcolor{keywordtype}{int}) m[i][j]);}
+\DoxyCodeLine{327           ++i;}
+\DoxyCodeLine{328         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (i > 0) \{}
+\DoxyCodeLine{329           \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a4558fb9b2c28269149b73ef1e1a54636}{zigzag}}.add((\textcolor{keywordtype}{int}) m[i][j]);}
+\DoxyCodeLine{330           -\/-\/i;}
+\DoxyCodeLine{331           ++j;}
+\DoxyCodeLine{332         \}}
+\DoxyCodeLine{333       \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{334         \textcolor{keywordflow}{if} (i == 7) \{}
+\DoxyCodeLine{335           \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a4558fb9b2c28269149b73ef1e1a54636}{zigzag}}.add((\textcolor{keywordtype}{int}) m[i][j]);}
+\DoxyCodeLine{336           ++j;}
+\DoxyCodeLine{337         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (j == 0) \{}
+\DoxyCodeLine{338           \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a4558fb9b2c28269149b73ef1e1a54636}{zigzag}}.add((\textcolor{keywordtype}{int}) m[i][j]);}
+\DoxyCodeLine{339           ++i;}
+\DoxyCodeLine{340         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (j > 0) \{}
+\DoxyCodeLine{341           \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a4558fb9b2c28269149b73ef1e1a54636}{zigzag}}.add((\textcolor{keywordtype}{int}) m[i][j]);}
+\DoxyCodeLine{342           ++i;}
+\DoxyCodeLine{343           -\/-\/j;}
+\DoxyCodeLine{344         \}}
+\DoxyCodeLine{345       \}}
+\DoxyCodeLine{346       \textcolor{keywordflow}{if} ((i == 7) \&\& (j == 7)) \{}
+\DoxyCodeLine{347         \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a4558fb9b2c28269149b73ef1e1a54636}{zigzag}}.add((\textcolor{keywordtype}{int}) m[i][j]);}
+\DoxyCodeLine{348         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{349       \}}
+\DoxyCodeLine{350     \}}
+\DoxyCodeLine{351     \textcolor{keywordflow}{if} (y) \{}
+\DoxyCodeLine{352       \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a85aa71eb90b7ec263123350fd062fcfd}{encodeLum}}(\mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a4558fb9b2c28269149b73ef1e1a54636}{zigzag}});}
+\DoxyCodeLine{353     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{354       \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_af3a42fd4eafa50e738376365b22df287}{encodeChro}}(\mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a4558fb9b2c28269149b73ef1e1a54636}{zigzag}});}
+\DoxyCodeLine{355     \}}
+\DoxyCodeLine{356   \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a9e3def096ccb4ae96d0dc4d347f8ba94}\label{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a9e3def096ccb4ae96d0dc4d347f8ba94}} 
+\index{prop.algorithms.jpeg.JPEG@{prop.algorithms.jpeg.JPEG}!ac0Tree@{ac0Tree}}
+\index{ac0Tree@{ac0Tree}!prop.algorithms.jpeg.JPEG@{prop.algorithms.jpeg.JPEG}}
+\doxysubsubsection{\texorpdfstring{ac0Tree}{ac0Tree}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_binary_tree}{Binary\+Tree}} prop.\+algorithms.\+jpeg.\+J\+P\+E\+G.\+ac0\+Tree = new \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_binary_tree}{Binary\+Tree}}()\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a9ee556805aad4f6eb42b61ffdd837008}\label{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a9ee556805aad4f6eb42b61ffdd837008}} 
+\index{prop.algorithms.jpeg.JPEG@{prop.algorithms.jpeg.JPEG}!ac1Tree@{ac1Tree}}
+\index{ac1Tree@{ac1Tree}!prop.algorithms.jpeg.JPEG@{prop.algorithms.jpeg.JPEG}}
+\doxysubsubsection{\texorpdfstring{ac1Tree}{ac1Tree}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_binary_tree}{Binary\+Tree}} prop.\+algorithms.\+jpeg.\+J\+P\+E\+G.\+ac1\+Tree = new \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_binary_tree}{Binary\+Tree}}()\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a1c5799be53fd5735dd93bdcef3e94b4c}\label{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a1c5799be53fd5735dd93bdcef3e94b4c}} 
+\index{prop.algorithms.jpeg.JPEG@{prop.algorithms.jpeg.JPEG}!dc0Tree@{dc0Tree}}
+\index{dc0Tree@{dc0Tree}!prop.algorithms.jpeg.JPEG@{prop.algorithms.jpeg.JPEG}}
+\doxysubsubsection{\texorpdfstring{dc0Tree}{dc0Tree}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_binary_tree}{Binary\+Tree}} prop.\+algorithms.\+jpeg.\+J\+P\+E\+G.\+dc0\+Tree = new \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_binary_tree}{Binary\+Tree}}()\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a9f77ee5ffbc0e87ef25a6539141dcc93}\label{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a9f77ee5ffbc0e87ef25a6539141dcc93}} 
+\index{prop.algorithms.jpeg.JPEG@{prop.algorithms.jpeg.JPEG}!dc1Tree@{dc1Tree}}
+\index{dc1Tree@{dc1Tree}!prop.algorithms.jpeg.JPEG@{prop.algorithms.jpeg.JPEG}}
+\doxysubsubsection{\texorpdfstring{dc1Tree}{dc1Tree}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_binary_tree}{Binary\+Tree}} prop.\+algorithms.\+jpeg.\+J\+P\+E\+G.\+dc1\+Tree = new \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_binary_tree}{Binary\+Tree}}()\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_aa66977fd46b14f4d5c26daee47e38c67}\label{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_aa66977fd46b14f4d5c26daee47e38c67}} 
+\index{prop.algorithms.jpeg.JPEG@{prop.algorithms.jpeg.JPEG}!dct@{dct}}
+\index{dct@{dct}!prop.algorithms.jpeg.JPEG@{prop.algorithms.jpeg.JPEG}}
+\doxysubsubsection{\texorpdfstring{dct}{dct}}
+{\footnotesize\ttfamily float \mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} prop.\+algorithms.\+jpeg.\+J\+P\+E\+G.\+dct\hspace{0.3cm}{\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \textcolor{keyword}{new} \textcolor{keywordtype}{float}[][]\{}
+\DoxyCodeLine{      \{0.3536f, 0.3536f, 0.3536f, 0.3536f, 0.3536f, 0.3536f, 0.3536f, 0.3536f\},}
+\DoxyCodeLine{      \{0.4904f, 0.4157f, 0.2778f, 0.0975f, -\/0.0975f, -\/0.2778f, -\/0.4157f, -\/0.4904f\},}
+\DoxyCodeLine{      \{0.4619f, 0.1913f, -\/0.1913f, -\/0.4619f, -\/0.4619f, -\/0.1913f, 0.1913f, 0.4619f\},}
+\DoxyCodeLine{      \{0.4157f, -\/0.0975f, -\/0.4904f, -\/0.2778f, 0.2778f, 0.4904f, 0.0975f, -\/0.4157f\},}
+\DoxyCodeLine{      \{0.3536f, -\/0.3536f, -\/0.3536f, 0.3536f, 0.3536f, -\/0.3536f, -\/0.3536f, 0.3536f\},}
+\DoxyCodeLine{      \{0.2778f, -\/0.4904f, 0.0975f, 0.4157f, -\/0.4157f, -\/0.0975f, 0.4904f, -\/0.2778f\},}
+\DoxyCodeLine{      \{0.1913f, -\/0.4619f, 0.4619f, -\/0.1913f, -\/0.1913f, 0.4619f, -\/0.4619f, 0.1913f\},}
+\DoxyCodeLine{      \{0.0975f, -\/0.2778f, 0.4157f, -\/0.4904f, 0.4904f, -\/0.4157f, 0.2778f, -\/0.0975f\}\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a3d85791b542d743b0f965f5d2c1c8349}\label{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a3d85791b542d743b0f965f5d2c1c8349}} 
+\index{prop.algorithms.jpeg.JPEG@{prop.algorithms.jpeg.JPEG}!h@{h}}
+\index{h@{h}!prop.algorithms.jpeg.JPEG@{prop.algorithms.jpeg.JPEG}}
+\doxysubsubsection{\texorpdfstring{h}{h}}
+{\footnotesize\ttfamily int prop.\+algorithms.\+jpeg.\+J\+P\+E\+G.\+h\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a413590c9dbfed60bae449abf9471f488}\label{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a413590c9dbfed60bae449abf9471f488}} 
+\index{prop.algorithms.jpeg.JPEG@{prop.algorithms.jpeg.JPEG}!out@{out}}
+\index{out@{out}!prop.algorithms.jpeg.JPEG@{prop.algorithms.jpeg.JPEG}}
+\doxysubsubsection{\texorpdfstring{out}{out}}
+{\footnotesize\ttfamily Byte\+Array\+Output\+Stream prop.\+algorithms.\+jpeg.\+J\+P\+E\+G.\+out\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_ac61e4e404adc1d86970503556f15a93f}\label{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_ac61e4e404adc1d86970503556f15a93f}} 
+\index{prop.algorithms.jpeg.JPEG@{prop.algorithms.jpeg.JPEG}!output@{output}}
+\index{output@{output}!prop.algorithms.jpeg.JPEG@{prop.algorithms.jpeg.JPEG}}
+\doxysubsubsection{\texorpdfstring{output}{output}}
+{\footnotesize\ttfamily String prop.\+algorithms.\+jpeg.\+J\+P\+E\+G.\+output = \char`\"{}\char`\"{}\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a1ab7703e1785829ca16d1230a8f69d00}\label{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a1ab7703e1785829ca16d1230a8f69d00}} 
+\index{prop.algorithms.jpeg.JPEG@{prop.algorithms.jpeg.JPEG}!qtC@{qtC}}
+\index{qtC@{qtC}!prop.algorithms.jpeg.JPEG@{prop.algorithms.jpeg.JPEG}}
+\doxysubsubsection{\texorpdfstring{qtC}{qtC}}
+{\footnotesize\ttfamily int \mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} prop.\+algorithms.\+jpeg.\+J\+P\+E\+G.\+qtC\hspace{0.3cm}{\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \textcolor{keyword}{new} \textcolor{keywordtype}{int}[][]\{\{17, 18, 24, 47, 99, 99, 99, 99\},}
+\DoxyCodeLine{      \{18, 21, 26, 66, 99, 99, 99, 99\},}
+\DoxyCodeLine{      \{24, 26, 56, 99, 99, 99, 99, 99\}, \{47, 66, 99, 99, 99, 99, 99, 99\},}
+\DoxyCodeLine{      \{99, 99, 99, 99, 99, 99, 99, 99\},}
+\DoxyCodeLine{      \{99, 99, 99, 99, 99, 99, 99, 99\}, \{99, 99, 99, 99, 99, 99, 99, 99\},}
+\DoxyCodeLine{      \{99, 99, 99, 99, 99, 99, 99, 99\}\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_af5eb23ea6af84f485f57bab92671b239}\label{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_af5eb23ea6af84f485f57bab92671b239}} 
+\index{prop.algorithms.jpeg.JPEG@{prop.algorithms.jpeg.JPEG}!qtY@{qtY}}
+\index{qtY@{qtY}!prop.algorithms.jpeg.JPEG@{prop.algorithms.jpeg.JPEG}}
+\doxysubsubsection{\texorpdfstring{qtY}{qtY}}
+{\footnotesize\ttfamily int \mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} prop.\+algorithms.\+jpeg.\+J\+P\+E\+G.\+qtY\hspace{0.3cm}{\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \textcolor{keyword}{new} \textcolor{keywordtype}{int}[][]\{\{16, 11, 10, 16, 24, 40, 51, 61\},}
+\DoxyCodeLine{      \{12, 12, 14, 19, 26, 58, 60, 55\},}
+\DoxyCodeLine{      \{14, 13, 16, 24, 40, 57, 69, 56\}, \{14, 17, 22, 29, 51, 87, 80, 62\},}
+\DoxyCodeLine{      \{18, 22, 37, 56, 68, 109, 103, 77\},}
+\DoxyCodeLine{      \{24, 35, 55, 64, 81, 104, 113, 92\}, \{49, 64, 78, 87, 103, 121, 120, 101\},}
+\DoxyCodeLine{      \{72, 92, 95, 98, 112, 110, 103, 99\}\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a15af369e9248cf303f2b7ea977ba9fc9}\label{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_a15af369e9248cf303f2b7ea977ba9fc9}} 
+\index{prop.algorithms.jpeg.JPEG@{prop.algorithms.jpeg.JPEG}!version@{version}}
+\index{version@{version}!prop.algorithms.jpeg.JPEG@{prop.algorithms.jpeg.JPEG}}
+\doxysubsubsection{\texorpdfstring{version}{version}}
+{\footnotesize\ttfamily String prop.\+algorithms.\+jpeg.\+J\+P\+E\+G.\+version\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_aed30423d26f68ce38d2b5992c1b3d564}\label{classprop_1_1algorithms_1_1jpeg_1_1_j_p_e_g_aed30423d26f68ce38d2b5992c1b3d564}} 
+\index{prop.algorithms.jpeg.JPEG@{prop.algorithms.jpeg.JPEG}!w@{w}}
+\index{w@{w}!prop.algorithms.jpeg.JPEG@{prop.algorithms.jpeg.JPEG}}
+\doxysubsubsection{\texorpdfstring{w}{w}}
+{\footnotesize\ttfamily int prop.\+algorithms.\+jpeg.\+J\+P\+E\+G.\+w\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Victor/\+Desktop/sippy2/src/main/java/prop/algorithms/jpeg/\mbox{\hyperlink{_j_p_e_g_8java}{J\+P\+E\+G.\+java}}\end{DoxyCompactItemize}

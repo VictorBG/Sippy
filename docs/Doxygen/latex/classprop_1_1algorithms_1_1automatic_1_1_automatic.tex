@@ -1,0 +1,150 @@
+\hypertarget{classprop_1_1algorithms_1_1automatic_1_1_automatic}{}\doxysection{prop.\+algorithms.\+automatic.\+Automatic Class Reference}
+\label{classprop_1_1algorithms_1_1automatic_1_1_automatic}\index{prop.algorithms.automatic.Automatic@{prop.algorithms.automatic.Automatic}}
+
+
+La clase no es usada ja que l\textquotesingle{}algorisme automatic esta \char`\"{}hardcodejat\char`\"{} al L\+ZW per a txt per peticio del professor.  
+
+
+
+
+Inherits \mbox{\hyperlink{interfaceprop_1_1algorithms_1_1base_1_1_base_algorithm}{prop.\+algorithms.\+base.\+Base\+Algorithm}}.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classprop_1_1algorithms_1_1automatic_1_1_automatic_ac6cde4ec08a3d744831db2e32873aa2e}{set\+Allowed\+Algorithms}} (List$<$ \mbox{\hyperlink{enumprop_1_1algorithms_1_1_algorithm}{Algorithm}} $>$ algorithms)
+\item 
+byte\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classprop_1_1algorithms_1_1automatic_1_1_automatic_af4269c443d6ce5d165ce55ec9ccb4748}{encode}} (byte\mbox{[}$\,$\mbox{]} input)
+\item 
+byte\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classprop_1_1algorithms_1_1automatic_1_1_automatic_a3cf6cfaf595405cc9a170e587e2e7466}{decode}} (byte\mbox{[}$\,$\mbox{]} input)
+\item 
+\mbox{\hyperlink{enumprop_1_1algorithms_1_1_algorithm}{Algorithm}} \mbox{\hyperlink{classprop_1_1algorithms_1_1automatic_1_1_automatic_af6cb88976b23ddd4e9e03b0fc679733f}{get\+Algorithm\+Used}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+List$<$ \mbox{\hyperlink{enumprop_1_1algorithms_1_1_algorithm}{Algorithm}} $>$ \mbox{\hyperlink{classprop_1_1algorithms_1_1automatic_1_1_automatic_a02d1fef657392243edd17da27988d662}{allowed\+Algorithms}}
+\item 
+\mbox{\hyperlink{enumprop_1_1algorithms_1_1_algorithm}{Algorithm}} \mbox{\hyperlink{classprop_1_1algorithms_1_1automatic_1_1_automatic_aa245bb14828b9904e82ad114bbadba2d}{algorithm\+Used}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+La clase no es usada ja que l\textquotesingle{}algorisme automatic esta \char`\"{}hardcodejat\char`\"{} al L\+ZW per a txt per peticio del professor. 
+
+Author\+: Victor Blanco
+
+Automatic algorithm chooser that chooses the algorithm based on the best algorithm for the given input.
+
+It iterates for all of the \mbox{\hyperlink{classprop_1_1algorithms_1_1automatic_1_1_automatic_a02d1fef657392243edd17da27988d662}{allowed\+Algorithms}} and encodes a small fragment of the data, which is 1KB if the file is larger than that or the whole file otherwise, then it returns the input encoded with the best algorithm based on the major percentage of encoding. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1automatic_1_1_automatic_a3cf6cfaf595405cc9a170e587e2e7466}\label{classprop_1_1algorithms_1_1automatic_1_1_automatic_a3cf6cfaf595405cc9a170e587e2e7466}} 
+\index{prop.algorithms.automatic.Automatic@{prop.algorithms.automatic.Automatic}!decode@{decode}}
+\index{decode@{decode}!prop.algorithms.automatic.Automatic@{prop.algorithms.automatic.Automatic}}
+\doxysubsubsection{\texorpdfstring{decode()}{decode()}}
+{\footnotesize\ttfamily byte \mbox{[}$\,$\mbox{]} prop.\+algorithms.\+automatic.\+Automatic.\+decode (\begin{DoxyParamCaption}\item[{byte\mbox{[}$\,$\mbox{]}}]{input }\end{DoxyParamCaption})}
+
+
+
+Reimplemented from \mbox{\hyperlink{interfaceprop_1_1algorithms_1_1base_1_1_base_algorithm_a4b78a5d0b4071b52dfec14f1243edb3a}{prop.\+algorithms.\+base.\+Base\+Algorithm}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{58                                      \{}
+\DoxyCodeLine{59     \textcolor{keywordflow}{return} \textcolor{keyword}{new} \textcolor{keywordtype}{byte}[0];}
+\DoxyCodeLine{60   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1automatic_1_1_automatic_af4269c443d6ce5d165ce55ec9ccb4748}\label{classprop_1_1algorithms_1_1automatic_1_1_automatic_af4269c443d6ce5d165ce55ec9ccb4748}} 
+\index{prop.algorithms.automatic.Automatic@{prop.algorithms.automatic.Automatic}!encode@{encode}}
+\index{encode@{encode}!prop.algorithms.automatic.Automatic@{prop.algorithms.automatic.Automatic}}
+\doxysubsubsection{\texorpdfstring{encode()}{encode()}}
+{\footnotesize\ttfamily byte \mbox{[}$\,$\mbox{]} prop.\+algorithms.\+automatic.\+Automatic.\+encode (\begin{DoxyParamCaption}\item[{byte\mbox{[}$\,$\mbox{]}}]{input }\end{DoxyParamCaption})}
+
+
+
+Reimplemented from \mbox{\hyperlink{interfaceprop_1_1algorithms_1_1base_1_1_base_algorithm_a6de2a6d1d1a020b915162f8ba11e9b58}{prop.\+algorithms.\+base.\+Base\+Algorithm}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{33                                      \{}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classprop_1_1algorithms_1_1automatic_1_1_automatic_a02d1fef657392243edd17da27988d662}{allowedAlgorithms}} == \textcolor{keyword}{null}) \{}
+\DoxyCodeLine{36       \textcolor{keywordflow}{return} \textcolor{keyword}{new} \textcolor{keywordtype}{byte}[0];}
+\DoxyCodeLine{37     \}}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39     Algorithm bestAlgorithm = \mbox{\hyperlink{classprop_1_1algorithms_1_1automatic_1_1_automatic_a02d1fef657392243edd17da27988d662}{allowedAlgorithms}}.get(0);}
+\DoxyCodeLine{40     \textcolor{keywordtype}{int} minimumSize = input.length;}
+\DoxyCodeLine{41     \textcolor{keywordtype}{int} initialSize = input.length;}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43     \textcolor{keywordtype}{byte}[] dataTest = Arrays.copyOf(input, Math.min(1024, initialSize));}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45     \textcolor{keywordflow}{for} (Algorithm algorithm : \mbox{\hyperlink{classprop_1_1algorithms_1_1automatic_1_1_automatic_a02d1fef657392243edd17da27988d662}{allowedAlgorithms}}) \{}
+\DoxyCodeLine{46       \textcolor{keywordtype}{int} size;}
+\DoxyCodeLine{47       \textcolor{keywordflow}{if} ((size = algorithm.getAlgorithm().encode(dataTest).length) < minimumSize) \{}
+\DoxyCodeLine{48         minimumSize = size;}
+\DoxyCodeLine{49         bestAlgorithm = algorithm;}
+\DoxyCodeLine{50       \}}
+\DoxyCodeLine{51     \}}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53     this.\mbox{\hyperlink{classprop_1_1algorithms_1_1automatic_1_1_automatic_aa245bb14828b9904e82ad114bbadba2d}{algorithmUsed}} = bestAlgorithm;}
+\DoxyCodeLine{54     \textcolor{keywordflow}{return} bestAlgorithm.\mbox{\hyperlink{enumprop_1_1algorithms_1_1_algorithm_a6d9633eecf20bca8f27094fa1cbfd63c}{getAlgorithm}}().\mbox{\hyperlink{interfaceprop_1_1algorithms_1_1base_1_1_base_algorithm_a6de2a6d1d1a020b915162f8ba11e9b58}{encode}}(input);}
+\DoxyCodeLine{55   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1automatic_1_1_automatic_af6cb88976b23ddd4e9e03b0fc679733f}\label{classprop_1_1algorithms_1_1automatic_1_1_automatic_af6cb88976b23ddd4e9e03b0fc679733f}} 
+\index{prop.algorithms.automatic.Automatic@{prop.algorithms.automatic.Automatic}!getAlgorithmUsed@{getAlgorithmUsed}}
+\index{getAlgorithmUsed@{getAlgorithmUsed}!prop.algorithms.automatic.Automatic@{prop.algorithms.automatic.Automatic}}
+\doxysubsubsection{\texorpdfstring{getAlgorithmUsed()}{getAlgorithmUsed()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{enumprop_1_1algorithms_1_1_algorithm}{Algorithm}} prop.\+algorithms.\+automatic.\+Automatic.\+get\+Algorithm\+Used (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Retorna l\textquotesingle{}agorisme utilitzat; és útil per algorismes variables (aquells que poden ser escollits envers altres), per algorismes simples, només els retorna.
+
+\begin{DoxyReturn}{Returns}
+Algorisme utilitzat. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{interfaceprop_1_1algorithms_1_1base_1_1_base_algorithm_a0a806b0337fbf6c1c2c2d9da22f9729d}{prop.\+algorithms.\+base.\+Base\+Algorithm}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{63                                       \{}
+\DoxyCodeLine{64     \textcolor{keywordflow}{return} \mbox{\hyperlink{classprop_1_1algorithms_1_1automatic_1_1_automatic_aa245bb14828b9904e82ad114bbadba2d}{algorithmUsed}};}
+\DoxyCodeLine{65   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1automatic_1_1_automatic_ac6cde4ec08a3d744831db2e32873aa2e}\label{classprop_1_1algorithms_1_1automatic_1_1_automatic_ac6cde4ec08a3d744831db2e32873aa2e}} 
+\index{prop.algorithms.automatic.Automatic@{prop.algorithms.automatic.Automatic}!setAllowedAlgorithms@{setAllowedAlgorithms}}
+\index{setAllowedAlgorithms@{setAllowedAlgorithms}!prop.algorithms.automatic.Automatic@{prop.algorithms.automatic.Automatic}}
+\doxysubsubsection{\texorpdfstring{setAllowedAlgorithms()}{setAllowedAlgorithms()}}
+{\footnotesize\ttfamily void prop.\+algorithms.\+automatic.\+Automatic.\+set\+Allowed\+Algorithms (\begin{DoxyParamCaption}\item[{List$<$ \mbox{\hyperlink{enumprop_1_1algorithms_1_1_algorithm}{Algorithm}} $>$}]{algorithms }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{28                                                                \{}
+\DoxyCodeLine{29     this.\mbox{\hyperlink{classprop_1_1algorithms_1_1automatic_1_1_automatic_a02d1fef657392243edd17da27988d662}{allowedAlgorithms}} = algorithms;}
+\DoxyCodeLine{30   \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1automatic_1_1_automatic_aa245bb14828b9904e82ad114bbadba2d}\label{classprop_1_1algorithms_1_1automatic_1_1_automatic_aa245bb14828b9904e82ad114bbadba2d}} 
+\index{prop.algorithms.automatic.Automatic@{prop.algorithms.automatic.Automatic}!algorithmUsed@{algorithmUsed}}
+\index{algorithmUsed@{algorithmUsed}!prop.algorithms.automatic.Automatic@{prop.algorithms.automatic.Automatic}}
+\doxysubsubsection{\texorpdfstring{algorithmUsed}{algorithmUsed}}
+{\footnotesize\ttfamily \mbox{\hyperlink{enumprop_1_1algorithms_1_1_algorithm}{Algorithm}} prop.\+algorithms.\+automatic.\+Automatic.\+algorithm\+Used\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1automatic_1_1_automatic_a02d1fef657392243edd17da27988d662}\label{classprop_1_1algorithms_1_1automatic_1_1_automatic_a02d1fef657392243edd17da27988d662}} 
+\index{prop.algorithms.automatic.Automatic@{prop.algorithms.automatic.Automatic}!allowedAlgorithms@{allowedAlgorithms}}
+\index{allowedAlgorithms@{allowedAlgorithms}!prop.algorithms.automatic.Automatic@{prop.algorithms.automatic.Automatic}}
+\doxysubsubsection{\texorpdfstring{allowedAlgorithms}{allowedAlgorithms}}
+{\footnotesize\ttfamily List$<$\mbox{\hyperlink{enumprop_1_1algorithms_1_1_algorithm}{Algorithm}}$>$ prop.\+algorithms.\+automatic.\+Automatic.\+allowed\+Algorithms\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Victor/\+Desktop/sippy2/src/main/java/prop/algorithms/automatic/\mbox{\hyperlink{_automatic_8java}{Automatic.\+java}}\end{DoxyCompactItemize}

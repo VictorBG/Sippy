@@ -1,0 +1,124 @@
+\hypertarget{classprop_1_1datos_1_1streams_1_1_zip_transaction_stream_test}{}\doxysection{prop.\+datos.\+streams.\+Zip\+Transaction\+Stream\+Test Class Reference}
+\label{classprop_1_1datos_1_1streams_1_1_zip_transaction_stream_test}\index{prop.datos.streams.ZipTransactionStreamTest@{prop.datos.streams.ZipTransactionStreamTest}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1_zip_transaction_stream_test_a5d756f7a872f462d46e7d3e1c96f1468}{set\+Up}} ()  throws Exception 
+\item 
+void \mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1_zip_transaction_stream_test_af4582ab5483a984f52dac46ab6dd0087}{tear\+Down}} ()  throws Exception 
+\item 
+void \mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1_zip_transaction_stream_test_ae5fd99f016f595f02e1c7e174cfa171c}{create}} ()  throws I\+O\+Exception 
+\item 
+void \mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1_zip_transaction_stream_test_ada4ffd4123a6e216a322e23ded74075a}{compress\+File}} ()  throws I\+O\+Exception 
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Temporary\+Folder \mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1_zip_transaction_stream_test_ab89f0f910cab980ee5ccecd1f1c083c7}{test\+Folder}} = new Temporary\+Folder()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+File \mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1_zip_transaction_stream_test_a06f52a552613790a7c2b081f010ace7f}{file1}}
+\item 
+File \mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1_zip_transaction_stream_test_aee9196e7367266ec2c44bcd836bc74d3}{file2}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classprop_1_1datos_1_1streams_1_1_zip_transaction_stream_test_ada4ffd4123a6e216a322e23ded74075a}\label{classprop_1_1datos_1_1streams_1_1_zip_transaction_stream_test_ada4ffd4123a6e216a322e23ded74075a}} 
+\index{prop.datos.streams.ZipTransactionStreamTest@{prop.datos.streams.ZipTransactionStreamTest}!compressFile@{compressFile}}
+\index{compressFile@{compressFile}!prop.datos.streams.ZipTransactionStreamTest@{prop.datos.streams.ZipTransactionStreamTest}}
+\doxysubsubsection{\texorpdfstring{compressFile()}{compressFile()}}
+{\footnotesize\ttfamily void prop.\+datos.\+streams.\+Zip\+Transaction\+Stream\+Test.\+compress\+File (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws I\+O\+Exception}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{55                                                 \{}
+\DoxyCodeLine{56     ZipStream zipStream = \textcolor{keyword}{new} ZipStreamImpl(\mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1_zip_transaction_stream_test_a06f52a552613790a7c2b081f010ace7f}{file1}}.getAbsolutePath(), \mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1_zip_transaction_stream_test_a06f52a552613790a7c2b081f010ace7f}{file1}}.getCanonicalPath());}
+\DoxyCodeLine{57     zipStream.compressFile(\mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1_zip_transaction_stream_test_aee9196e7367266ec2c44bcd836bc74d3}{file2}}.getAbsolutePath(), Algorithm.LZW);}
+\DoxyCodeLine{58     File encodedFile = \textcolor{keyword}{new} File(}
+\DoxyCodeLine{59         FileUtils.changeExtension(\mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1_zip_transaction_stream_test_a06f52a552613790a7c2b081f010ace7f}{file1}}.getAbsolutePath(), Constants.DEFAULT\_ENCODING\_EXTENSION));}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61     assertEquals(encodedFile.length(), 21);}
+\DoxyCodeLine{62   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1datos_1_1streams_1_1_zip_transaction_stream_test_ae5fd99f016f595f02e1c7e174cfa171c}\label{classprop_1_1datos_1_1streams_1_1_zip_transaction_stream_test_ae5fd99f016f595f02e1c7e174cfa171c}} 
+\index{prop.datos.streams.ZipTransactionStreamTest@{prop.datos.streams.ZipTransactionStreamTest}!create@{create}}
+\index{create@{create}!prop.datos.streams.ZipTransactionStreamTest@{prop.datos.streams.ZipTransactionStreamTest}}
+\doxysubsubsection{\texorpdfstring{create()}{create()}}
+{\footnotesize\ttfamily void prop.\+datos.\+streams.\+Zip\+Transaction\+Stream\+Test.\+create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws I\+O\+Exception}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{44                                           \{}
+\DoxyCodeLine{45     ZipStream zipStream = \textcolor{keyword}{new} ZipStreamImpl(\mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1_zip_transaction_stream_test_a06f52a552613790a7c2b081f010ace7f}{file1}}.getAbsolutePath(), \mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1_zip_transaction_stream_test_a06f52a552613790a7c2b081f010ace7f}{file1}}.getCanonicalPath());}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47     File encodedFile = \textcolor{keyword}{new} File(}
+\DoxyCodeLine{48         FileUtils.changeExtension(\mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1_zip_transaction_stream_test_a06f52a552613790a7c2b081f010ace7f}{file1}}.getAbsolutePath(), Constants.DEFAULT\_ENCODING\_EXTENSION));}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50     assertTrue(encodedFile.exists());}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1datos_1_1streams_1_1_zip_transaction_stream_test_a5d756f7a872f462d46e7d3e1c96f1468}\label{classprop_1_1datos_1_1streams_1_1_zip_transaction_stream_test_a5d756f7a872f462d46e7d3e1c96f1468}} 
+\index{prop.datos.streams.ZipTransactionStreamTest@{prop.datos.streams.ZipTransactionStreamTest}!setUp@{setUp}}
+\index{setUp@{setUp}!prop.datos.streams.ZipTransactionStreamTest@{prop.datos.streams.ZipTransactionStreamTest}}
+\doxysubsubsection{\texorpdfstring{setUp()}{setUp()}}
+{\footnotesize\ttfamily void prop.\+datos.\+streams.\+Zip\+Transaction\+Stream\+Test.\+set\+Up (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws Exception}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{27                                        \{}
+\DoxyCodeLine{28     \mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1_zip_transaction_stream_test_ab89f0f910cab980ee5ccecd1f1c083c7}{testFolder}}.create();}
+\DoxyCodeLine{29     \mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1_zip_transaction_stream_test_a06f52a552613790a7c2b081f010ace7f}{file1}} = \mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1_zip_transaction_stream_test_ab89f0f910cab980ee5ccecd1f1c083c7}{testFolder}}.newFile(\textcolor{stringliteral}{"a.txt"});}
+\DoxyCodeLine{30     \mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1_zip_transaction_stream_test_aee9196e7367266ec2c44bcd836bc74d3}{file2}} = \mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1_zip_transaction_stream_test_ab89f0f910cab980ee5ccecd1f1c083c7}{testFolder}}.newFile(\textcolor{stringliteral}{"b.txt"});}
+\DoxyCodeLine{31     \mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1_zip_transaction_stream_test_aee9196e7367266ec2c44bcd836bc74d3}{file2}}.setWritable(\textcolor{keyword}{true});}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33     FileOutputStream fileOutputStream = \textcolor{keyword}{new} FileOutputStream(\mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1_zip_transaction_stream_test_aee9196e7367266ec2c44bcd836bc74d3}{file2}});}
+\DoxyCodeLine{34     fileOutputStream.write(\textcolor{stringliteral}{"test"}.getBytes());}
+\DoxyCodeLine{35     fileOutputStream.close();}
+\DoxyCodeLine{36   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1datos_1_1streams_1_1_zip_transaction_stream_test_af4582ab5483a984f52dac46ab6dd0087}\label{classprop_1_1datos_1_1streams_1_1_zip_transaction_stream_test_af4582ab5483a984f52dac46ab6dd0087}} 
+\index{prop.datos.streams.ZipTransactionStreamTest@{prop.datos.streams.ZipTransactionStreamTest}!tearDown@{tearDown}}
+\index{tearDown@{tearDown}!prop.datos.streams.ZipTransactionStreamTest@{prop.datos.streams.ZipTransactionStreamTest}}
+\doxysubsubsection{\texorpdfstring{tearDown()}{tearDown()}}
+{\footnotesize\ttfamily void prop.\+datos.\+streams.\+Zip\+Transaction\+Stream\+Test.\+tear\+Down (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws Exception}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{39                                           \{}
+\DoxyCodeLine{40     \mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1_zip_transaction_stream_test_ab89f0f910cab980ee5ccecd1f1c083c7}{testFolder}}.delete();}
+\DoxyCodeLine{41   \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classprop_1_1datos_1_1streams_1_1_zip_transaction_stream_test_a06f52a552613790a7c2b081f010ace7f}\label{classprop_1_1datos_1_1streams_1_1_zip_transaction_stream_test_a06f52a552613790a7c2b081f010ace7f}} 
+\index{prop.datos.streams.ZipTransactionStreamTest@{prop.datos.streams.ZipTransactionStreamTest}!file1@{file1}}
+\index{file1@{file1}!prop.datos.streams.ZipTransactionStreamTest@{prop.datos.streams.ZipTransactionStreamTest}}
+\doxysubsubsection{\texorpdfstring{file1}{file1}}
+{\footnotesize\ttfamily File prop.\+datos.\+streams.\+Zip\+Transaction\+Stream\+Test.\+file1\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classprop_1_1datos_1_1streams_1_1_zip_transaction_stream_test_aee9196e7367266ec2c44bcd836bc74d3}\label{classprop_1_1datos_1_1streams_1_1_zip_transaction_stream_test_aee9196e7367266ec2c44bcd836bc74d3}} 
+\index{prop.datos.streams.ZipTransactionStreamTest@{prop.datos.streams.ZipTransactionStreamTest}!file2@{file2}}
+\index{file2@{file2}!prop.datos.streams.ZipTransactionStreamTest@{prop.datos.streams.ZipTransactionStreamTest}}
+\doxysubsubsection{\texorpdfstring{file2}{file2}}
+{\footnotesize\ttfamily File prop.\+datos.\+streams.\+Zip\+Transaction\+Stream\+Test.\+file2\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classprop_1_1datos_1_1streams_1_1_zip_transaction_stream_test_ab89f0f910cab980ee5ccecd1f1c083c7}\label{classprop_1_1datos_1_1streams_1_1_zip_transaction_stream_test_ab89f0f910cab980ee5ccecd1f1c083c7}} 
+\index{prop.datos.streams.ZipTransactionStreamTest@{prop.datos.streams.ZipTransactionStreamTest}!testFolder@{testFolder}}
+\index{testFolder@{testFolder}!prop.datos.streams.ZipTransactionStreamTest@{prop.datos.streams.ZipTransactionStreamTest}}
+\doxysubsubsection{\texorpdfstring{testFolder}{testFolder}}
+{\footnotesize\ttfamily Temporary\+Folder prop.\+datos.\+streams.\+Zip\+Transaction\+Stream\+Test.\+test\+Folder = new Temporary\+Folder()}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Victor/\+Desktop/sippy2/src/test/java/prop/datos/streams/\mbox{\hyperlink{_zip_transaction_stream_test_8java}{Zip\+Transaction\+Stream\+Test.\+java}}\end{DoxyCompactItemize}

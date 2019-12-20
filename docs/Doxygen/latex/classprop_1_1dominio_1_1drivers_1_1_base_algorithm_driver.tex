@@ -1,0 +1,189 @@
+\hypertarget{classprop_1_1dominio_1_1drivers_1_1_base_algorithm_driver}{}\doxysection{prop.\+dominio.\+drivers.\+Base\+Algorithm\+Driver Class Reference}
+\label{classprop_1_1dominio_1_1drivers_1_1_base_algorithm_driver}\index{prop.dominio.drivers.BaseAlgorithmDriver@{prop.dominio.drivers.BaseAlgorithmDriver}}
+
+
+Inherited by \mbox{\hyperlink{classprop_1_1dominio_1_1drivers_1_1_l_z78_driver}{prop.\+dominio.\+drivers.\+L\+Z78\+Driver}}, \mbox{\hyperlink{classprop_1_1dominio_1_1drivers_1_1_l_z_s_s_driver}{prop.\+dominio.\+drivers.\+L\+Z\+S\+S\+Driver}}, and \mbox{\hyperlink{classprop_1_1dominio_1_1drivers_1_1_l_z_w_driver}{prop.\+dominio.\+drivers.\+L\+Z\+W\+Driver}}.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classprop_1_1dominio_1_1drivers_1_1_base_algorithm_driver_a68e9b74cb05c23b0329eac84a92bcaca}{Base\+Algorithm\+Driver}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+abstract \mbox{\hyperlink{enumprop_1_1algorithms_1_1_algorithm}{Algorithm}} \mbox{\hyperlink{classprop_1_1dominio_1_1drivers_1_1_base_algorithm_driver_a5508d3bc46dbaf8f1ab7f865837347b0}{get\+Algorithm}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classprop_1_1dominio_1_1drivers_1_1_base_algorithm_driver_a8e5a174839312989b9d86a72b277286b}{start}} ()
+\item 
+void \mbox{\hyperlink{classprop_1_1dominio_1_1drivers_1_1_base_algorithm_driver_aff9c9b6e4d894ae9d6a29ec8e54aba3a}{encode\+String}} ()
+\item 
+void \mbox{\hyperlink{classprop_1_1dominio_1_1drivers_1_1_base_algorithm_driver_a7d1c822f881cfb13fb3bf0ecfa88c906}{encode\+File}} ()  throws I\+O\+Exception 
+\item 
+void \mbox{\hyperlink{classprop_1_1dominio_1_1drivers_1_1_base_algorithm_driver_a2162f00167e7399de35ea96a4147ac3c}{end}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interfaceprop_1_1algorithms_1_1base_1_1_base_algorithm}{Base\+Algorithm}} \mbox{\hyperlink{classprop_1_1dominio_1_1drivers_1_1_base_algorithm_driver_a7fb2049aa1a5eba1a1480b7f2b2b1dbc}{algorithm}} = \mbox{\hyperlink{classprop_1_1dominio_1_1drivers_1_1_base_algorithm_driver_a5508d3bc46dbaf8f1ab7f865837347b0}{get\+Algorithm}}().\mbox{\hyperlink{classprop_1_1dominio_1_1drivers_1_1_base_algorithm_driver_a5508d3bc46dbaf8f1ab7f865837347b0}{get\+Algorithm}}()
+\item 
+String \mbox{\hyperlink{classprop_1_1dominio_1_1drivers_1_1_base_algorithm_driver_ab1d1b82a41464ebab280abaaa34061e5}{name}} = \mbox{\hyperlink{classprop_1_1dominio_1_1drivers_1_1_base_algorithm_driver_a5508d3bc46dbaf8f1ab7f865837347b0}{get\+Algorithm}}().name()
+\item 
+Scanner \mbox{\hyperlink{classprop_1_1dominio_1_1drivers_1_1_base_algorithm_driver_a536aefe4762385adc264b71a2166374c}{scanner}}
+\item 
+Scanner \mbox{\hyperlink{classprop_1_1dominio_1_1drivers_1_1_base_algorithm_driver_ab2e08a7d1bf3b57b0981848b16999d49}{scanner\+String}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Author\+: Victor Blanco
+
+Driver de la classe Base\+Algorithm. Gestiona totes les operacions del driver que corresponen a un determinat algorisme. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classprop_1_1dominio_1_1drivers_1_1_base_algorithm_driver_a68e9b74cb05c23b0329eac84a92bcaca}\label{classprop_1_1dominio_1_1drivers_1_1_base_algorithm_driver_a68e9b74cb05c23b0329eac84a92bcaca}} 
+\index{prop.dominio.drivers.BaseAlgorithmDriver@{prop.dominio.drivers.BaseAlgorithmDriver}!BaseAlgorithmDriver@{BaseAlgorithmDriver}}
+\index{BaseAlgorithmDriver@{BaseAlgorithmDriver}!prop.dominio.drivers.BaseAlgorithmDriver@{prop.dominio.drivers.BaseAlgorithmDriver}}
+\doxysubsubsection{\texorpdfstring{BaseAlgorithmDriver()}{BaseAlgorithmDriver()}}
+{\footnotesize\ttfamily prop.\+dominio.\+drivers.\+Base\+Algorithm\+Driver.\+Base\+Algorithm\+Driver (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{33                                \{}
+\DoxyCodeLine{34     \mbox{\hyperlink{classprop_1_1dominio_1_1drivers_1_1_base_algorithm_driver_a536aefe4762385adc264b71a2166374c}{scanner}} = \textcolor{keyword}{new} Scanner(System.in);}
+\DoxyCodeLine{35     \mbox{\hyperlink{classprop_1_1dominio_1_1drivers_1_1_base_algorithm_driver_ab2e08a7d1bf3b57b0981848b16999d49}{scannerString}} = \textcolor{keyword}{new} Scanner(System.in);}
+\DoxyCodeLine{36     \mbox{\hyperlink{classprop_1_1dominio_1_1drivers_1_1_base_algorithm_driver_a8e5a174839312989b9d86a72b277286b}{start}}();}
+\DoxyCodeLine{37   \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classprop_1_1dominio_1_1drivers_1_1_base_algorithm_driver_a7d1c822f881cfb13fb3bf0ecfa88c906}\label{classprop_1_1dominio_1_1drivers_1_1_base_algorithm_driver_a7d1c822f881cfb13fb3bf0ecfa88c906}} 
+\index{prop.dominio.drivers.BaseAlgorithmDriver@{prop.dominio.drivers.BaseAlgorithmDriver}!encodeFile@{encodeFile}}
+\index{encodeFile@{encodeFile}!prop.dominio.drivers.BaseAlgorithmDriver@{prop.dominio.drivers.BaseAlgorithmDriver}}
+\doxysubsubsection{\texorpdfstring{encodeFile()}{encodeFile()}}
+{\footnotesize\ttfamily void prop.\+dominio.\+drivers.\+Base\+Algorithm\+Driver.\+encode\+File (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws I\+O\+Exception\hspace{0.3cm}{\ttfamily [private]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{64                                                \{}
+\DoxyCodeLine{65     System.out}
+\DoxyCodeLine{66         .println(\textcolor{stringliteral}{"\(\backslash\)nProvide the file path you want to test (only txt extension is supported):  "});}
+\DoxyCodeLine{67     String path = \mbox{\hyperlink{classprop_1_1dominio_1_1drivers_1_1_base_algorithm_driver_a536aefe4762385adc264b71a2166374c}{scanner}}.next();}
+\DoxyCodeLine{68     \textcolor{keywordflow}{if} (!\textcolor{stringliteral}{"txt"}.equals(FileUtils.getFileExtension(path))) \{}
+\DoxyCodeLine{69       System.out.println(\textcolor{stringliteral}{"\(\backslash\)nOther extensions that are not txt are not supported\(\backslash\)n"});}
+\DoxyCodeLine{70       \mbox{\hyperlink{classprop_1_1dominio_1_1drivers_1_1_base_algorithm_driver_a7d1c822f881cfb13fb3bf0ecfa88c906}{encodeFile}}();}
+\DoxyCodeLine{71     \}}
+\DoxyCodeLine{72     \textcolor{keywordtype}{byte}[] output = \mbox{\hyperlink{classprop_1_1dominio_1_1drivers_1_1_base_algorithm_driver_a7fb2049aa1a5eba1a1480b7f2b2b1dbc}{algorithm}}.\mbox{\hyperlink{interfaceprop_1_1algorithms_1_1base_1_1_base_algorithm_a6de2a6d1d1a020b915162f8ba11e9b58}{encode}}(\mbox{\hyperlink{classprop_1_1dominio_1_1drivers_1_1_base_algorithm_driver_a7fb2049aa1a5eba1a1480b7f2b2b1dbc}{algorithm}}.\mbox{\hyperlink{interfaceprop_1_1algorithms_1_1base_1_1_base_algorithm_a0ed61b2a301d8d98a5220a0ff3b517d4}{readFile}}(\textcolor{keyword}{new} File(path)));}
+\DoxyCodeLine{73     System.out.println(\textcolor{stringliteral}{"Encoded: "} + \textcolor{keyword}{new} String(output));}
+\DoxyCodeLine{74     System.out.println(\textcolor{stringliteral}{"Decoded: "} + \textcolor{keyword}{new} String(\mbox{\hyperlink{classprop_1_1dominio_1_1drivers_1_1_base_algorithm_driver_a7fb2049aa1a5eba1a1480b7f2b2b1dbc}{algorithm}}.\mbox{\hyperlink{interfaceprop_1_1algorithms_1_1base_1_1_base_algorithm_a4b78a5d0b4071b52dfec14f1243edb3a}{decode}}(output)));}
+\DoxyCodeLine{75     \mbox{\hyperlink{classprop_1_1dominio_1_1drivers_1_1_base_algorithm_driver_a2162f00167e7399de35ea96a4147ac3c}{end}}();}
+\DoxyCodeLine{76   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1dominio_1_1drivers_1_1_base_algorithm_driver_aff9c9b6e4d894ae9d6a29ec8e54aba3a}\label{classprop_1_1dominio_1_1drivers_1_1_base_algorithm_driver_aff9c9b6e4d894ae9d6a29ec8e54aba3a}} 
+\index{prop.dominio.drivers.BaseAlgorithmDriver@{prop.dominio.drivers.BaseAlgorithmDriver}!encodeString@{encodeString}}
+\index{encodeString@{encodeString}!prop.dominio.drivers.BaseAlgorithmDriver@{prop.dominio.drivers.BaseAlgorithmDriver}}
+\doxysubsubsection{\texorpdfstring{encodeString()}{encodeString()}}
+{\footnotesize\ttfamily void prop.\+dominio.\+drivers.\+Base\+Algorithm\+Driver.\+encode\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{54                               \{}
+\DoxyCodeLine{55     System.out.println(\textcolor{stringliteral}{"\(\backslash\)nProvide the text you want to test:  "});}
+\DoxyCodeLine{56     String test = \mbox{\hyperlink{classprop_1_1dominio_1_1drivers_1_1_base_algorithm_driver_ab2e08a7d1bf3b57b0981848b16999d49}{scannerString}}.nextLine();}
+\DoxyCodeLine{57     \textcolor{keywordtype}{byte}[] output = \mbox{\hyperlink{classprop_1_1dominio_1_1drivers_1_1_base_algorithm_driver_a7fb2049aa1a5eba1a1480b7f2b2b1dbc}{algorithm}}.\mbox{\hyperlink{interfaceprop_1_1algorithms_1_1base_1_1_base_algorithm_a6de2a6d1d1a020b915162f8ba11e9b58}{encode}}(test.getBytes());}
+\DoxyCodeLine{58     System.out.println(\textcolor{stringliteral}{"Encoded: "} + \textcolor{keyword}{new} String(output));}
+\DoxyCodeLine{59     \textcolor{keywordtype}{byte}[] a = \mbox{\hyperlink{classprop_1_1dominio_1_1drivers_1_1_base_algorithm_driver_a7fb2049aa1a5eba1a1480b7f2b2b1dbc}{algorithm}}.\mbox{\hyperlink{interfaceprop_1_1algorithms_1_1base_1_1_base_algorithm_a4b78a5d0b4071b52dfec14f1243edb3a}{decode}}(output);}
+\DoxyCodeLine{60     System.out.println(\textcolor{stringliteral}{"Decoded: "} + \textcolor{keyword}{new} String(a));}
+\DoxyCodeLine{61     \mbox{\hyperlink{classprop_1_1dominio_1_1drivers_1_1_base_algorithm_driver_a2162f00167e7399de35ea96a4147ac3c}{end}}();}
+\DoxyCodeLine{62   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1dominio_1_1drivers_1_1_base_algorithm_driver_a2162f00167e7399de35ea96a4147ac3c}\label{classprop_1_1dominio_1_1drivers_1_1_base_algorithm_driver_a2162f00167e7399de35ea96a4147ac3c}} 
+\index{prop.dominio.drivers.BaseAlgorithmDriver@{prop.dominio.drivers.BaseAlgorithmDriver}!end@{end}}
+\index{end@{end}!prop.dominio.drivers.BaseAlgorithmDriver@{prop.dominio.drivers.BaseAlgorithmDriver}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}}
+{\footnotesize\ttfamily void prop.\+dominio.\+drivers.\+Base\+Algorithm\+Driver.\+end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{78                      \{}
+\DoxyCodeLine{79     System.out.println(\textcolor{stringliteral}{"\(\backslash\)n\(\backslash\)n"});}
+\DoxyCodeLine{80     System.out.println(\textcolor{stringliteral}{"Select option:\(\backslash\)n\(\backslash\)t1. Start over\(\backslash\)n\(\backslash\)t2. Exit"});}
+\DoxyCodeLine{81     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classprop_1_1dominio_1_1drivers_1_1_base_algorithm_driver_a536aefe4762385adc264b71a2166374c}{scanner}}.nextInt() == 1) \{}
+\DoxyCodeLine{82       \mbox{\hyperlink{classprop_1_1dominio_1_1drivers_1_1_base_algorithm_driver_a8e5a174839312989b9d86a72b277286b}{start}}();}
+\DoxyCodeLine{83     \}}
+\DoxyCodeLine{84   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1dominio_1_1drivers_1_1_base_algorithm_driver_a5508d3bc46dbaf8f1ab7f865837347b0}\label{classprop_1_1dominio_1_1drivers_1_1_base_algorithm_driver_a5508d3bc46dbaf8f1ab7f865837347b0}} 
+\index{prop.dominio.drivers.BaseAlgorithmDriver@{prop.dominio.drivers.BaseAlgorithmDriver}!getAlgorithm@{getAlgorithm}}
+\index{getAlgorithm@{getAlgorithm}!prop.dominio.drivers.BaseAlgorithmDriver@{prop.dominio.drivers.BaseAlgorithmDriver}}
+\doxysubsubsection{\texorpdfstring{getAlgorithm()}{getAlgorithm()}}
+{\footnotesize\ttfamily abstract \mbox{\hyperlink{enumprop_1_1algorithms_1_1_algorithm}{Algorithm}} prop.\+dominio.\+drivers.\+Base\+Algorithm\+Driver.\+get\+Algorithm (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [abstract]}, {\ttfamily [protected]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{classprop_1_1dominio_1_1drivers_1_1_l_z_w_driver_ac5337d32e46ee8804f0ac920f023607e}{prop.\+dominio.\+drivers.\+L\+Z\+W\+Driver}}, \mbox{\hyperlink{classprop_1_1dominio_1_1drivers_1_1_l_z78_driver_a41986232509aabcaa033950a0f3a6e86}{prop.\+dominio.\+drivers.\+L\+Z78\+Driver}}, and \mbox{\hyperlink{classprop_1_1dominio_1_1drivers_1_1_l_z_s_s_driver_a40d803ecb4cb3db374b96cd4039f55e4}{prop.\+dominio.\+drivers.\+L\+Z\+S\+S\+Driver}}.
+
+\mbox{\Hypertarget{classprop_1_1dominio_1_1drivers_1_1_base_algorithm_driver_a8e5a174839312989b9d86a72b277286b}\label{classprop_1_1dominio_1_1drivers_1_1_base_algorithm_driver_a8e5a174839312989b9d86a72b277286b}} 
+\index{prop.dominio.drivers.BaseAlgorithmDriver@{prop.dominio.drivers.BaseAlgorithmDriver}!start@{start}}
+\index{start@{start}!prop.dominio.drivers.BaseAlgorithmDriver@{prop.dominio.drivers.BaseAlgorithmDriver}}
+\doxysubsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily void prop.\+dominio.\+drivers.\+Base\+Algorithm\+Driver.\+start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{39                        \{}
+\DoxyCodeLine{40     System.out.println(\textcolor{stringliteral}{"Welcome to the driver of the algorithm "} + \mbox{\hyperlink{classprop_1_1dominio_1_1drivers_1_1_base_algorithm_driver_ab1d1b82a41464ebab280abaaa34061e5}{name}});}
+\DoxyCodeLine{41     System.out.println(\textcolor{stringliteral}{"\(\backslash\)nWhat do you want to encode: \(\backslash\)n\(\backslash\)t1. String\(\backslash\)n\(\backslash\)t2. File\(\backslash\)n"});}
+\DoxyCodeLine{42     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classprop_1_1dominio_1_1drivers_1_1_base_algorithm_driver_a536aefe4762385adc264b71a2166374c}{scanner}}.nextInt() == 1) \{}
+\DoxyCodeLine{43       \mbox{\hyperlink{classprop_1_1dominio_1_1drivers_1_1_base_algorithm_driver_aff9c9b6e4d894ae9d6a29ec8e54aba3a}{encodeString}}();}
+\DoxyCodeLine{44     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{45       \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{46         \mbox{\hyperlink{classprop_1_1dominio_1_1drivers_1_1_base_algorithm_driver_a7d1c822f881cfb13fb3bf0ecfa88c906}{encodeFile}}();}
+\DoxyCodeLine{47       \} \textcolor{keywordflow}{catch} (IOException e) \{}
+\DoxyCodeLine{48         System.out.println(}
+\DoxyCodeLine{49             \textcolor{stringliteral}{"An exception has been occurred, please check that the file path provided is correct"});}
+\DoxyCodeLine{50       \}}
+\DoxyCodeLine{51     \}}
+\DoxyCodeLine{52   \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classprop_1_1dominio_1_1drivers_1_1_base_algorithm_driver_a7fb2049aa1a5eba1a1480b7f2b2b1dbc}\label{classprop_1_1dominio_1_1drivers_1_1_base_algorithm_driver_a7fb2049aa1a5eba1a1480b7f2b2b1dbc}} 
+\index{prop.dominio.drivers.BaseAlgorithmDriver@{prop.dominio.drivers.BaseAlgorithmDriver}!algorithm@{algorithm}}
+\index{algorithm@{algorithm}!prop.dominio.drivers.BaseAlgorithmDriver@{prop.dominio.drivers.BaseAlgorithmDriver}}
+\doxysubsubsection{\texorpdfstring{algorithm}{algorithm}}
+{\footnotesize\ttfamily \mbox{\hyperlink{interfaceprop_1_1algorithms_1_1base_1_1_base_algorithm}{Base\+Algorithm}} prop.\+dominio.\+drivers.\+Base\+Algorithm\+Driver.\+algorithm = \mbox{\hyperlink{classprop_1_1dominio_1_1drivers_1_1_base_algorithm_driver_a5508d3bc46dbaf8f1ab7f865837347b0}{get\+Algorithm}}().\mbox{\hyperlink{classprop_1_1dominio_1_1drivers_1_1_base_algorithm_driver_a5508d3bc46dbaf8f1ab7f865837347b0}{get\+Algorithm}}()\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classprop_1_1dominio_1_1drivers_1_1_base_algorithm_driver_ab1d1b82a41464ebab280abaaa34061e5}\label{classprop_1_1dominio_1_1drivers_1_1_base_algorithm_driver_ab1d1b82a41464ebab280abaaa34061e5}} 
+\index{prop.dominio.drivers.BaseAlgorithmDriver@{prop.dominio.drivers.BaseAlgorithmDriver}!name@{name}}
+\index{name@{name}!prop.dominio.drivers.BaseAlgorithmDriver@{prop.dominio.drivers.BaseAlgorithmDriver}}
+\doxysubsubsection{\texorpdfstring{name}{name}}
+{\footnotesize\ttfamily String prop.\+dominio.\+drivers.\+Base\+Algorithm\+Driver.\+name = \mbox{\hyperlink{classprop_1_1dominio_1_1drivers_1_1_base_algorithm_driver_a5508d3bc46dbaf8f1ab7f865837347b0}{get\+Algorithm}}().name()\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classprop_1_1dominio_1_1drivers_1_1_base_algorithm_driver_a536aefe4762385adc264b71a2166374c}\label{classprop_1_1dominio_1_1drivers_1_1_base_algorithm_driver_a536aefe4762385adc264b71a2166374c}} 
+\index{prop.dominio.drivers.BaseAlgorithmDriver@{prop.dominio.drivers.BaseAlgorithmDriver}!scanner@{scanner}}
+\index{scanner@{scanner}!prop.dominio.drivers.BaseAlgorithmDriver@{prop.dominio.drivers.BaseAlgorithmDriver}}
+\doxysubsubsection{\texorpdfstring{scanner}{scanner}}
+{\footnotesize\ttfamily Scanner prop.\+dominio.\+drivers.\+Base\+Algorithm\+Driver.\+scanner\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classprop_1_1dominio_1_1drivers_1_1_base_algorithm_driver_ab2e08a7d1bf3b57b0981848b16999d49}\label{classprop_1_1dominio_1_1drivers_1_1_base_algorithm_driver_ab2e08a7d1bf3b57b0981848b16999d49}} 
+\index{prop.dominio.drivers.BaseAlgorithmDriver@{prop.dominio.drivers.BaseAlgorithmDriver}!scannerString@{scannerString}}
+\index{scannerString@{scannerString}!prop.dominio.drivers.BaseAlgorithmDriver@{prop.dominio.drivers.BaseAlgorithmDriver}}
+\doxysubsubsection{\texorpdfstring{scannerString}{scannerString}}
+{\footnotesize\ttfamily Scanner prop.\+dominio.\+drivers.\+Base\+Algorithm\+Driver.\+scanner\+String\hspace{0.3cm}{\ttfamily [private]}}
+
+Escàner que només s’utilitza per obtenir l’entrada en cas que l’usuari seleccioni l’opció d\textquotesingle{}String. Si l\textquotesingle{}utilitzat és \mbox{\hyperlink{classprop_1_1dominio_1_1drivers_1_1_base_algorithm_driver_a536aefe4762385adc264b71a2166374c}{scanner}}, no es llegirà tot correctament degut a que s\textquotesingle{}ha escrit anteriorment (per seleccionar l\textquotesingle{}opció). 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Victor/\+Desktop/sippy2/src/main/java/prop/dominio/drivers/\mbox{\hyperlink{_base_algorithm_driver_8java}{Base\+Algorithm\+Driver.\+java}}\end{DoxyCompactItemize}

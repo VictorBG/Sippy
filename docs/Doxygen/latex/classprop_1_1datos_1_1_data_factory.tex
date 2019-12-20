@@ -1,0 +1,119 @@
+\hypertarget{classprop_1_1datos_1_1_data_factory}{}\doxysection{prop.\+datos.\+Data\+Factory Class Reference}
+\label{classprop_1_1datos_1_1_data_factory}\index{prop.datos.DataFactory@{prop.datos.DataFactory}}
+
+
+Singleton per obtenir els controladors de capa de dades.  
+
+
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classprop_1_1datos_1_1_data_factory_1_1_singleton_helper}{Singleton\+Helper}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interfaceprop_1_1datos_1_1controllers_1_1_files_controller}{Files\+Controller}} \mbox{\hyperlink{classprop_1_1datos_1_1_data_factory_a9662822195d1a7ecc903da20906b5fc6}{get\+Files\+Controller}} ()
+\item 
+\mbox{\hyperlink{interfaceprop_1_1datos_1_1controllers_1_1_stream_controller}{Stream\+Controller}} \mbox{\hyperlink{classprop_1_1datos_1_1_data_factory_aab6c6e3e378c86d74283403b97310ade}{get\+Stream\+Controller}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classprop_1_1datos_1_1_data_factory}{Data\+Factory}} \mbox{\hyperlink{classprop_1_1datos_1_1_data_factory_a887dbfdca7c39adc97ed22f92722f314}{get\+Instance}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classprop_1_1datos_1_1_data_factory_a74193aa7099bed9dfa7195353aa81937}{Data\+Factory}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interfaceprop_1_1datos_1_1controllers_1_1_files_controller}{Files\+Controller}} \mbox{\hyperlink{classprop_1_1datos_1_1_data_factory_a82c11119e6abddb911152a824c10ff69}{files\+Controller}} = new \mbox{\hyperlink{classprop_1_1datos_1_1controllers_1_1impl_1_1_files_controller_impl}{Files\+Controller\+Impl}}()
+\item 
+\mbox{\hyperlink{interfaceprop_1_1datos_1_1controllers_1_1_stream_controller}{Stream\+Controller}} \mbox{\hyperlink{classprop_1_1datos_1_1_data_factory_af384d19e015dee8da4379b0c23413f39}{stream\+Controller}} = new \mbox{\hyperlink{classprop_1_1datos_1_1controllers_1_1impl_1_1_stream_controller_impl}{Stream\+Controller\+Impl}}()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Singleton per obtenir els controladors de capa de dades. 
+
+Author\+: Sergio Vázquez 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classprop_1_1datos_1_1_data_factory_a74193aa7099bed9dfa7195353aa81937}\label{classprop_1_1datos_1_1_data_factory_a74193aa7099bed9dfa7195353aa81937}} 
+\index{prop.datos.DataFactory@{prop.datos.DataFactory}!DataFactory@{DataFactory}}
+\index{DataFactory@{DataFactory}!prop.datos.DataFactory@{prop.datos.DataFactory}}
+\doxysubsubsection{\texorpdfstring{DataFactory()}{DataFactory()}}
+{\footnotesize\ttfamily prop.\+datos.\+Data\+Factory.\+Data\+Factory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{28                         \{}
+\DoxyCodeLine{29     \textcolor{comment}{// Prevent instantiation from outside}}
+\DoxyCodeLine{30   \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classprop_1_1datos_1_1_data_factory_a9662822195d1a7ecc903da20906b5fc6}\label{classprop_1_1datos_1_1_data_factory_a9662822195d1a7ecc903da20906b5fc6}} 
+\index{prop.datos.DataFactory@{prop.datos.DataFactory}!getFilesController@{getFilesController}}
+\index{getFilesController@{getFilesController}!prop.datos.DataFactory@{prop.datos.DataFactory}}
+\doxysubsubsection{\texorpdfstring{getFilesController()}{getFilesController()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{interfaceprop_1_1datos_1_1controllers_1_1_files_controller}{Files\+Controller}} prop.\+datos.\+Data\+Factory.\+get\+Files\+Controller (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{36                                               \{}
+\DoxyCodeLine{37     \textcolor{keywordflow}{return} \mbox{\hyperlink{classprop_1_1datos_1_1_data_factory_a82c11119e6abddb911152a824c10ff69}{filesController}};}
+\DoxyCodeLine{38   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1datos_1_1_data_factory_a887dbfdca7c39adc97ed22f92722f314}\label{classprop_1_1datos_1_1_data_factory_a887dbfdca7c39adc97ed22f92722f314}} 
+\index{prop.datos.DataFactory@{prop.datos.DataFactory}!getInstance@{getInstance}}
+\index{getInstance@{getInstance}!prop.datos.DataFactory@{prop.datos.DataFactory}}
+\doxysubsubsection{\texorpdfstring{getInstance()}{getInstance()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{classprop_1_1datos_1_1_data_factory}{Data\+Factory}} prop.\+datos.\+Data\+Factory.\+get\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{24                                           \{}
+\DoxyCodeLine{25     \textcolor{keywordflow}{return} SingletonHelper.INSTANCE;}
+\DoxyCodeLine{26   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1datos_1_1_data_factory_aab6c6e3e378c86d74283403b97310ade}\label{classprop_1_1datos_1_1_data_factory_aab6c6e3e378c86d74283403b97310ade}} 
+\index{prop.datos.DataFactory@{prop.datos.DataFactory}!getStreamController@{getStreamController}}
+\index{getStreamController@{getStreamController}!prop.datos.DataFactory@{prop.datos.DataFactory}}
+\doxysubsubsection{\texorpdfstring{getStreamController()}{getStreamController()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{interfaceprop_1_1datos_1_1controllers_1_1_stream_controller}{Stream\+Controller}} prop.\+datos.\+Data\+Factory.\+get\+Stream\+Controller (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{40                                                 \{}
+\DoxyCodeLine{41     \textcolor{keywordflow}{return} \mbox{\hyperlink{classprop_1_1datos_1_1_data_factory_af384d19e015dee8da4379b0c23413f39}{streamController}};}
+\DoxyCodeLine{42   \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classprop_1_1datos_1_1_data_factory_a82c11119e6abddb911152a824c10ff69}\label{classprop_1_1datos_1_1_data_factory_a82c11119e6abddb911152a824c10ff69}} 
+\index{prop.datos.DataFactory@{prop.datos.DataFactory}!filesController@{filesController}}
+\index{filesController@{filesController}!prop.datos.DataFactory@{prop.datos.DataFactory}}
+\doxysubsubsection{\texorpdfstring{filesController}{filesController}}
+{\footnotesize\ttfamily \mbox{\hyperlink{interfaceprop_1_1datos_1_1controllers_1_1_files_controller}{Files\+Controller}} prop.\+datos.\+Data\+Factory.\+files\+Controller = new \mbox{\hyperlink{classprop_1_1datos_1_1controllers_1_1impl_1_1_files_controller_impl}{Files\+Controller\+Impl}}()\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classprop_1_1datos_1_1_data_factory_af384d19e015dee8da4379b0c23413f39}\label{classprop_1_1datos_1_1_data_factory_af384d19e015dee8da4379b0c23413f39}} 
+\index{prop.datos.DataFactory@{prop.datos.DataFactory}!streamController@{streamController}}
+\index{streamController@{streamController}!prop.datos.DataFactory@{prop.datos.DataFactory}}
+\doxysubsubsection{\texorpdfstring{streamController}{streamController}}
+{\footnotesize\ttfamily \mbox{\hyperlink{interfaceprop_1_1datos_1_1controllers_1_1_stream_controller}{Stream\+Controller}} prop.\+datos.\+Data\+Factory.\+stream\+Controller = new \mbox{\hyperlink{classprop_1_1datos_1_1controllers_1_1impl_1_1_stream_controller_impl}{Stream\+Controller\+Impl}}()\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Victor/\+Desktop/sippy2/src/main/java/prop/datos/\mbox{\hyperlink{_data_factory_8java}{Data\+Factory.\+java}}\end{DoxyCompactItemize}

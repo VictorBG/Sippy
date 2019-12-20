@@ -1,0 +1,111 @@
+\hypertarget{classprop_1_1datos_1_1model_1_1_folder_b_o}{}\doxysection{prop.\+datos.\+model.\+Folder\+BO Class Reference}
+\label{classprop_1_1datos_1_1model_1_1_folder_b_o}\index{prop.datos.model.FolderBO@{prop.datos.model.FolderBO}}
+
+
+Objecte used to store the structure of a folder.  
+
+
+
+
+Inherits \mbox{\hyperlink{classprop_1_1datos_1_1model_1_1_item_b_o}{prop.\+datos.\+model.\+Item\+BO}}.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classprop_1_1datos_1_1model_1_1_folder_b_o_ad42999621fe0cfa8c54374ce78c1f60d}{Folder\+BO}} (File \mbox{\hyperlink{classprop_1_1datos_1_1model_1_1_item_b_o_a1e76066d3470add6e3466be80ab7d83b}{file}})
+\item 
+Array\+List$<$ \mbox{\hyperlink{classprop_1_1datos_1_1model_1_1_item_b_o}{Item\+BO}} $>$ \mbox{\hyperlink{classprop_1_1datos_1_1model_1_1_folder_b_o_a5fa9ac2888afd5aaea9ce88c5e30b00b}{get\+Items}} ()
+\item 
+void \mbox{\hyperlink{classprop_1_1datos_1_1model_1_1_folder_b_o_a69f151c1f112beb079f5b46c00e3997e}{add\+Item}} (\mbox{\hyperlink{classprop_1_1datos_1_1model_1_1_item_b_o}{Item\+BO}} item\+BO)
+\item 
+long \mbox{\hyperlink{classprop_1_1datos_1_1model_1_1_folder_b_o_a277a0fcf1774d8286171b2a3d6ad2780}{get\+Size}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Array\+List$<$ \mbox{\hyperlink{classprop_1_1datos_1_1model_1_1_item_b_o}{Item\+BO}} $>$ \mbox{\hyperlink{classprop_1_1datos_1_1model_1_1_folder_b_o_a2535414cd07ff00b744642a39c412920}{items}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Objecte used to store the structure of a folder. 
+
+Author\+: Sergio Vázquez 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classprop_1_1datos_1_1model_1_1_folder_b_o_ad42999621fe0cfa8c54374ce78c1f60d}\label{classprop_1_1datos_1_1model_1_1_folder_b_o_ad42999621fe0cfa8c54374ce78c1f60d}} 
+\index{prop.datos.model.FolderBO@{prop.datos.model.FolderBO}!FolderBO@{FolderBO}}
+\index{FolderBO@{FolderBO}!prop.datos.model.FolderBO@{prop.datos.model.FolderBO}}
+\doxysubsubsection{\texorpdfstring{FolderBO()}{FolderBO()}}
+{\footnotesize\ttfamily prop.\+datos.\+model.\+Folder\+B\+O.\+Folder\+BO (\begin{DoxyParamCaption}\item[{File}]{file }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{16                              \{}
+\DoxyCodeLine{17     super(\mbox{\hyperlink{classprop_1_1datos_1_1model_1_1_item_b_o_a1e76066d3470add6e3466be80ab7d83b}{file}});}
+\DoxyCodeLine{18   \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classprop_1_1datos_1_1model_1_1_folder_b_o_a69f151c1f112beb079f5b46c00e3997e}\label{classprop_1_1datos_1_1model_1_1_folder_b_o_a69f151c1f112beb079f5b46c00e3997e}} 
+\index{prop.datos.model.FolderBO@{prop.datos.model.FolderBO}!addItem@{addItem}}
+\index{addItem@{addItem}!prop.datos.model.FolderBO@{prop.datos.model.FolderBO}}
+\doxysubsubsection{\texorpdfstring{addItem()}{addItem()}}
+{\footnotesize\ttfamily void prop.\+datos.\+model.\+Folder\+B\+O.\+add\+Item (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classprop_1_1datos_1_1model_1_1_item_b_o}{Item\+BO}}}]{item\+BO }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{24                                      \{}
+\DoxyCodeLine{25     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classprop_1_1datos_1_1model_1_1_folder_b_o_a2535414cd07ff00b744642a39c412920}{items}} == \textcolor{keyword}{null}) \{}
+\DoxyCodeLine{26       \mbox{\hyperlink{classprop_1_1datos_1_1model_1_1_folder_b_o_a2535414cd07ff00b744642a39c412920}{items}} = \textcolor{keyword}{new} ArrayList<>();}
+\DoxyCodeLine{27     \}}
+\DoxyCodeLine{28     \mbox{\hyperlink{classprop_1_1datos_1_1model_1_1_folder_b_o_a2535414cd07ff00b744642a39c412920}{items}}.add(itemBO);}
+\DoxyCodeLine{29   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1datos_1_1model_1_1_folder_b_o_a5fa9ac2888afd5aaea9ce88c5e30b00b}\label{classprop_1_1datos_1_1model_1_1_folder_b_o_a5fa9ac2888afd5aaea9ce88c5e30b00b}} 
+\index{prop.datos.model.FolderBO@{prop.datos.model.FolderBO}!getItems@{getItems}}
+\index{getItems@{getItems}!prop.datos.model.FolderBO@{prop.datos.model.FolderBO}}
+\doxysubsubsection{\texorpdfstring{getItems()}{getItems()}}
+{\footnotesize\ttfamily Array\+List$<$\mbox{\hyperlink{classprop_1_1datos_1_1model_1_1_item_b_o}{Item\+BO}}$>$ prop.\+datos.\+model.\+Folder\+B\+O.\+get\+Items (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{20                                       \{}
+\DoxyCodeLine{21     \textcolor{keywordflow}{return} \mbox{\hyperlink{classprop_1_1datos_1_1model_1_1_folder_b_o_a2535414cd07ff00b744642a39c412920}{items}};}
+\DoxyCodeLine{22   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1datos_1_1model_1_1_folder_b_o_a277a0fcf1774d8286171b2a3d6ad2780}\label{classprop_1_1datos_1_1model_1_1_folder_b_o_a277a0fcf1774d8286171b2a3d6ad2780}} 
+\index{prop.datos.model.FolderBO@{prop.datos.model.FolderBO}!getSize@{getSize}}
+\index{getSize@{getSize}!prop.datos.model.FolderBO@{prop.datos.model.FolderBO}}
+\doxysubsubsection{\texorpdfstring{getSize()}{getSize()}}
+{\footnotesize\ttfamily long prop.\+datos.\+model.\+Folder\+B\+O.\+get\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Reimplemented from \mbox{\hyperlink{classprop_1_1datos_1_1model_1_1_item_b_o_a1d8d54923f77f9c0b452f767af14e064}{prop.\+datos.\+model.\+Item\+BO}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{32                         \{}
+\DoxyCodeLine{33     \textcolor{keywordflow}{return} \mbox{\hyperlink{classprop_1_1datos_1_1model_1_1_folder_b_o_a2535414cd07ff00b744642a39c412920}{items}}.stream().map(\mbox{\hyperlink{classprop_1_1datos_1_1model_1_1_item_b_o_a1d8d54923f77f9c0b452f767af14e064}{ItemBO::getSize}}).reduce(Long::sum).orElse(0L);}
+\DoxyCodeLine{34   \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classprop_1_1datos_1_1model_1_1_folder_b_o_a2535414cd07ff00b744642a39c412920}\label{classprop_1_1datos_1_1model_1_1_folder_b_o_a2535414cd07ff00b744642a39c412920}} 
+\index{prop.datos.model.FolderBO@{prop.datos.model.FolderBO}!items@{items}}
+\index{items@{items}!prop.datos.model.FolderBO@{prop.datos.model.FolderBO}}
+\doxysubsubsection{\texorpdfstring{items}{items}}
+{\footnotesize\ttfamily Array\+List$<$\mbox{\hyperlink{classprop_1_1datos_1_1model_1_1_item_b_o}{Item\+BO}}$>$ prop.\+datos.\+model.\+Folder\+B\+O.\+items\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Victor/\+Desktop/sippy2/src/main/java/prop/datos/model/\mbox{\hyperlink{_folder_b_o_8java}{Folder\+B\+O.\+java}}\end{DoxyCompactItemize}

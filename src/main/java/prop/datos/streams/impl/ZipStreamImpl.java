@@ -62,9 +62,9 @@ public class ZipStreamImpl implements ZipStream {
    *
    * @brief Constructora
    *
-   *     \pre cert
-   *     \post Crea una instancia de ZipStreamImpl i crea un arxiu d'extensió sippy on
-   *     escriure els arxius comprimits
+   * \pre cert
+   * \post Crea una instancia de ZipStreamImpl i crea un arxiu d'extensió sippy on
+   * escriure els arxius comprimits
    */
   public ZipStreamImpl(String inputFilePath, String outputPath) throws IOException {
     File outputFile = createSippyFile(outputPath);

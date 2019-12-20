@@ -1,0 +1,205 @@
+\hypertarget{classprop_1_1algorithms_1_1jpeg_1_1_binary_tree}{}\doxysection{prop.\+algorithms.\+jpeg.\+Binary\+Tree Class Reference}
+\label{classprop_1_1algorithms_1_1jpeg_1_1_binary_tree}\index{prop.algorithms.jpeg.BinaryTree@{prop.algorithms.jpeg.BinaryTree}}
+
+
+Classe que implementa un arbre binari. Útil per la decodificació de la imatge utilitzant Huffman.  
+
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_binary_tree_a239c7d626d6f574685cab1e60f4db69c}{Binary\+Tree}} ()
+\item 
+\mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_node}{Node}} \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_binary_tree_a5c843dde137405b13791e31e8f597950}{get\+Root}} ()
+\item 
+void \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_binary_tree_a45df8a71d6094490e784c6061920bcb5}{create\+Node\+Left}} (\mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_node}{Node}} current, String value)
+\item 
+void \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_binary_tree_aaa17cea7f6e46993478e4920fa346cf7}{create\+Node\+Left}} (\mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_node}{Node}} current)
+\item 
+\mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_node}{Node}} \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_binary_tree_afb82a6855057bef14f48c7f7a2d8872e}{get\+Node\+Left}} (\mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_node}{Node}} node)
+\item 
+void \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_binary_tree_a88e5ac0fe25e504b6054fe69c3823c9e}{create\+Node\+Right}} (\mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_node}{Node}} current, String value)
+\item 
+void \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_binary_tree_ad92c61864a4681a90ce1b739dfd2821d}{create\+Node\+Right}} (\mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_node}{Node}} current)
+\item 
+\mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_node}{Node}} \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_binary_tree_ad7d71c8458d6ef299626815165a95fed}{get\+Node\+Right}} (\mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_node}{Node}} node)
+\item 
+boolean \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_binary_tree_ae6a529fc6cd51911d4bcc76a083b0a5f}{is\+Leaf}} (\mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_node}{Node}} n)
+\item 
+void \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_binary_tree_a23ec51aaa0915d91020804e3657bba84}{write}} (\mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_node}{Node}} current)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_node}{Node}} \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_binary_tree_a524bb54aa9e92c044cdc6cc99adb4017}{root}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe que implementa un arbre binari. Útil per la decodificació de la imatge utilitzant Huffman. 
+
+Author\+: Yaiza Cano 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1jpeg_1_1_binary_tree_a239c7d626d6f574685cab1e60f4db69c}\label{classprop_1_1algorithms_1_1jpeg_1_1_binary_tree_a239c7d626d6f574685cab1e60f4db69c}} 
+\index{prop.algorithms.jpeg.BinaryTree@{prop.algorithms.jpeg.BinaryTree}!BinaryTree@{BinaryTree}}
+\index{BinaryTree@{BinaryTree}!prop.algorithms.jpeg.BinaryTree@{prop.algorithms.jpeg.BinaryTree}}
+\doxysubsubsection{\texorpdfstring{BinaryTree()}{BinaryTree()}}
+{\footnotesize\ttfamily prop.\+algorithms.\+jpeg.\+Binary\+Tree.\+Binary\+Tree (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{16                       \{}
+\DoxyCodeLine{17     \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_binary_tree_a524bb54aa9e92c044cdc6cc99adb4017}{root}} = \textcolor{keyword}{new} Node();}
+\DoxyCodeLine{18   \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1jpeg_1_1_binary_tree_aaa17cea7f6e46993478e4920fa346cf7}\label{classprop_1_1algorithms_1_1jpeg_1_1_binary_tree_aaa17cea7f6e46993478e4920fa346cf7}} 
+\index{prop.algorithms.jpeg.BinaryTree@{prop.algorithms.jpeg.BinaryTree}!createNodeLeft@{createNodeLeft}}
+\index{createNodeLeft@{createNodeLeft}!prop.algorithms.jpeg.BinaryTree@{prop.algorithms.jpeg.BinaryTree}}
+\doxysubsubsection{\texorpdfstring{createNodeLeft()}{createNodeLeft()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void prop.\+algorithms.\+jpeg.\+Binary\+Tree.\+create\+Node\+Left (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_node}{Node}}}]{current }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{29                                            \{}
+\DoxyCodeLine{30     Node n = \textcolor{keyword}{new} Node();}
+\DoxyCodeLine{31     current.setLeft(n);}
+\DoxyCodeLine{32   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1jpeg_1_1_binary_tree_a45df8a71d6094490e784c6061920bcb5}\label{classprop_1_1algorithms_1_1jpeg_1_1_binary_tree_a45df8a71d6094490e784c6061920bcb5}} 
+\index{prop.algorithms.jpeg.BinaryTree@{prop.algorithms.jpeg.BinaryTree}!createNodeLeft@{createNodeLeft}}
+\index{createNodeLeft@{createNodeLeft}!prop.algorithms.jpeg.BinaryTree@{prop.algorithms.jpeg.BinaryTree}}
+\doxysubsubsection{\texorpdfstring{createNodeLeft()}{createNodeLeft()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void prop.\+algorithms.\+jpeg.\+Binary\+Tree.\+create\+Node\+Left (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_node}{Node}}}]{current,  }\item[{String}]{value }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{24                                                          \{}
+\DoxyCodeLine{25     Node n = \textcolor{keyword}{new} Node(value);}
+\DoxyCodeLine{26     current.setLeft(n);}
+\DoxyCodeLine{27   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1jpeg_1_1_binary_tree_ad92c61864a4681a90ce1b739dfd2821d}\label{classprop_1_1algorithms_1_1jpeg_1_1_binary_tree_ad92c61864a4681a90ce1b739dfd2821d}} 
+\index{prop.algorithms.jpeg.BinaryTree@{prop.algorithms.jpeg.BinaryTree}!createNodeRight@{createNodeRight}}
+\index{createNodeRight@{createNodeRight}!prop.algorithms.jpeg.BinaryTree@{prop.algorithms.jpeg.BinaryTree}}
+\doxysubsubsection{\texorpdfstring{createNodeRight()}{createNodeRight()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void prop.\+algorithms.\+jpeg.\+Binary\+Tree.\+create\+Node\+Right (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_node}{Node}}}]{current }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{43                                             \{}
+\DoxyCodeLine{44     Node n = \textcolor{keyword}{new} Node();}
+\DoxyCodeLine{45     current.setRight(n);}
+\DoxyCodeLine{46   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1jpeg_1_1_binary_tree_a88e5ac0fe25e504b6054fe69c3823c9e}\label{classprop_1_1algorithms_1_1jpeg_1_1_binary_tree_a88e5ac0fe25e504b6054fe69c3823c9e}} 
+\index{prop.algorithms.jpeg.BinaryTree@{prop.algorithms.jpeg.BinaryTree}!createNodeRight@{createNodeRight}}
+\index{createNodeRight@{createNodeRight}!prop.algorithms.jpeg.BinaryTree@{prop.algorithms.jpeg.BinaryTree}}
+\doxysubsubsection{\texorpdfstring{createNodeRight()}{createNodeRight()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void prop.\+algorithms.\+jpeg.\+Binary\+Tree.\+create\+Node\+Right (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_node}{Node}}}]{current,  }\item[{String}]{value }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{38                                                           \{}
+\DoxyCodeLine{39     Node n = \textcolor{keyword}{new} Node(value);}
+\DoxyCodeLine{40     current.setRight(n);}
+\DoxyCodeLine{41   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1jpeg_1_1_binary_tree_afb82a6855057bef14f48c7f7a2d8872e}\label{classprop_1_1algorithms_1_1jpeg_1_1_binary_tree_afb82a6855057bef14f48c7f7a2d8872e}} 
+\index{prop.algorithms.jpeg.BinaryTree@{prop.algorithms.jpeg.BinaryTree}!getNodeLeft@{getNodeLeft}}
+\index{getNodeLeft@{getNodeLeft}!prop.algorithms.jpeg.BinaryTree@{prop.algorithms.jpeg.BinaryTree}}
+\doxysubsubsection{\texorpdfstring{getNodeLeft()}{getNodeLeft()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_node}{Node}} prop.\+algorithms.\+jpeg.\+Binary\+Tree.\+get\+Node\+Left (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_node}{Node}}}]{node }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{34                                      \{}
+\DoxyCodeLine{35     \textcolor{keywordflow}{return} node.getLeft();}
+\DoxyCodeLine{36   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1jpeg_1_1_binary_tree_ad7d71c8458d6ef299626815165a95fed}\label{classprop_1_1algorithms_1_1jpeg_1_1_binary_tree_ad7d71c8458d6ef299626815165a95fed}} 
+\index{prop.algorithms.jpeg.BinaryTree@{prop.algorithms.jpeg.BinaryTree}!getNodeRight@{getNodeRight}}
+\index{getNodeRight@{getNodeRight}!prop.algorithms.jpeg.BinaryTree@{prop.algorithms.jpeg.BinaryTree}}
+\doxysubsubsection{\texorpdfstring{getNodeRight()}{getNodeRight()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_node}{Node}} prop.\+algorithms.\+jpeg.\+Binary\+Tree.\+get\+Node\+Right (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_node}{Node}}}]{node }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{48                                       \{}
+\DoxyCodeLine{49     \textcolor{keywordflow}{return} node.getRight();}
+\DoxyCodeLine{50   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1jpeg_1_1_binary_tree_a5c843dde137405b13791e31e8f597950}\label{classprop_1_1algorithms_1_1jpeg_1_1_binary_tree_a5c843dde137405b13791e31e8f597950}} 
+\index{prop.algorithms.jpeg.BinaryTree@{prop.algorithms.jpeg.BinaryTree}!getRoot@{getRoot}}
+\index{getRoot@{getRoot}!prop.algorithms.jpeg.BinaryTree@{prop.algorithms.jpeg.BinaryTree}}
+\doxysubsubsection{\texorpdfstring{getRoot()}{getRoot()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_node}{Node}} prop.\+algorithms.\+jpeg.\+Binary\+Tree.\+get\+Root (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{20                         \{}
+\DoxyCodeLine{21     \textcolor{keywordflow}{return} \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_binary_tree_a524bb54aa9e92c044cdc6cc99adb4017}{root}};}
+\DoxyCodeLine{22   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1jpeg_1_1_binary_tree_ae6a529fc6cd51911d4bcc76a083b0a5f}\label{classprop_1_1algorithms_1_1jpeg_1_1_binary_tree_ae6a529fc6cd51911d4bcc76a083b0a5f}} 
+\index{prop.algorithms.jpeg.BinaryTree@{prop.algorithms.jpeg.BinaryTree}!isLeaf@{isLeaf}}
+\index{isLeaf@{isLeaf}!prop.algorithms.jpeg.BinaryTree@{prop.algorithms.jpeg.BinaryTree}}
+\doxysubsubsection{\texorpdfstring{isLeaf()}{isLeaf()}}
+{\footnotesize\ttfamily boolean prop.\+algorithms.\+jpeg.\+Binary\+Tree.\+is\+Leaf (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_node}{Node}}}]{n }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{52                                 \{}
+\DoxyCodeLine{53     \textcolor{keywordflow}{if} (n.getValue() == \textcolor{keyword}{null}) \{}
+\DoxyCodeLine{54       \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{55     \}}
+\DoxyCodeLine{56     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{57   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1jpeg_1_1_binary_tree_a23ec51aaa0915d91020804e3657bba84}\label{classprop_1_1algorithms_1_1jpeg_1_1_binary_tree_a23ec51aaa0915d91020804e3657bba84}} 
+\index{prop.algorithms.jpeg.BinaryTree@{prop.algorithms.jpeg.BinaryTree}!write@{write}}
+\index{write@{write}!prop.algorithms.jpeg.BinaryTree@{prop.algorithms.jpeg.BinaryTree}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}}
+{\footnotesize\ttfamily void prop.\+algorithms.\+jpeg.\+Binary\+Tree.\+write (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_node}{Node}}}]{current }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{59                                   \{}
+\DoxyCodeLine{60     System.out.print(current.getValue() + \textcolor{stringliteral}{" "});}
+\DoxyCodeLine{61     \textcolor{keywordflow}{if} (current.getLeft() != \textcolor{keyword}{null}) \{}
+\DoxyCodeLine{62       System.out.print(\textcolor{stringliteral}{" Fill ESquerre "});}
+\DoxyCodeLine{63       \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_binary_tree_a23ec51aaa0915d91020804e3657bba84}{write}}(current.getLeft());}
+\DoxyCodeLine{64     \}}
+\DoxyCodeLine{65     \textcolor{keywordflow}{if} (current.getRight() != \textcolor{keyword}{null}) \{}
+\DoxyCodeLine{66       System.out.print(\textcolor{stringliteral}{" Fill dret "});}
+\DoxyCodeLine{67       \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_binary_tree_a23ec51aaa0915d91020804e3657bba84}{write}}(current.getRight());}
+\DoxyCodeLine{68     \}}
+\DoxyCodeLine{69   \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1jpeg_1_1_binary_tree_a524bb54aa9e92c044cdc6cc99adb4017}\label{classprop_1_1algorithms_1_1jpeg_1_1_binary_tree_a524bb54aa9e92c044cdc6cc99adb4017}} 
+\index{prop.algorithms.jpeg.BinaryTree@{prop.algorithms.jpeg.BinaryTree}!root@{root}}
+\index{root@{root}!prop.algorithms.jpeg.BinaryTree@{prop.algorithms.jpeg.BinaryTree}}
+\doxysubsubsection{\texorpdfstring{root}{root}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classprop_1_1algorithms_1_1jpeg_1_1_node}{Node}} prop.\+algorithms.\+jpeg.\+Binary\+Tree.\+root\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Victor/\+Desktop/sippy2/src/main/java/prop/algorithms/jpeg/\mbox{\hyperlink{_binary_tree_8java}{Binary\+Tree.\+java}}\end{DoxyCompactItemize}

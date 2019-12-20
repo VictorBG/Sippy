@@ -21,8 +21,8 @@ public class Statistics {
 
   /**
    * @brief Atura el contador de temps al acabar la compressio/descompressio
-   *     \pre cert
-   *     \post atura el contador de temps
+   * \pre cert
+   *  \post atura el contador de temps
    */
   public void stopTimer() {
     elapsedTime = System.currentTimeMillis() - initialTime;

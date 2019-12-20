@@ -1,0 +1,206 @@
+\hypertarget{classprop_1_1presentacion_1_1_console_app}{}\doxysection{prop.\+presentacion.\+Console\+App Class Reference}
+\label{classprop_1_1presentacion_1_1_console_app}\index{prop.presentacion.ConsoleApp@{prop.presentacion.ConsoleApp}}
+
+
+\+: Presentation layer for first deliverable  
+
+
+
+
+Inherits \mbox{\hyperlink{interfaceprop_1_1presentacion_1_1_interface_panel_contract}{prop.\+presentacion.\+Interface\+Panel\+Contract}}.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classprop_1_1presentacion_1_1_console_app_a32a656897b8cb7cfd28bf1eae8383e07}{show\+Statistics}} (String statistics)
+\item 
+void \mbox{\hyperlink{classprop_1_1presentacion_1_1_console_app_a301a2f4db20cbcf55b237f1e698d8193}{show\+Alert}} (String message, String title)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classprop_1_1presentacion_1_1_console_app_a9ca092c29cb72e57bc4f95a88a73cfbd}{start}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classprop_1_1presentacion_1_1_console_app_ae8f846b26b3e649001dcb4bef5e4f51c}{Console\+App}} ()
+\begin{DoxyCompactList}\small\item\em Constructora. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classprop_1_1presentacion_1_1_interface_controller}{Interface\+Controller}} \mbox{\hyperlink{classprop_1_1presentacion_1_1_console_app_a0f8ae60ecfd5f467a2708b690e5ffa81}{interface\+Controller}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\+: Presentation layer for first deliverable 
+
+Author\+: Sergio Vazquez 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classprop_1_1presentacion_1_1_console_app_ae8f846b26b3e649001dcb4bef5e4f51c}\label{classprop_1_1presentacion_1_1_console_app_ae8f846b26b3e649001dcb4bef5e4f51c}} 
+\index{prop.presentacion.ConsoleApp@{prop.presentacion.ConsoleApp}!ConsoleApp@{ConsoleApp}}
+\index{ConsoleApp@{ConsoleApp}!prop.presentacion.ConsoleApp@{prop.presentacion.ConsoleApp}}
+\doxysubsubsection{\texorpdfstring{ConsoleApp()}{ConsoleApp()}}
+{\footnotesize\ttfamily prop.\+presentacion.\+Console\+App.\+Console\+App (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Constructora. 
+
+\begin{DoxyPrecond}{Precondition}
+cert 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+S\textquotesingle{}executa la part visual del programa. 
+\end{DoxyPostcond}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{31                        \{}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33     \mbox{\hyperlink{classprop_1_1presentacion_1_1_console_app_a0f8ae60ecfd5f467a2708b690e5ffa81}{interfaceController}} = \textcolor{keyword}{new} InterfaceController(\textcolor{keyword}{this});}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35     Scanner keyBoard = \textcolor{keyword}{new} Scanner(System.in);}
+\DoxyCodeLine{36     \textcolor{keywordtype}{int} compressDecscompress = -\/1;}
+\DoxyCodeLine{37     \textcolor{keywordtype}{int} automaticManual = -\/1;}
+\DoxyCodeLine{38     \textcolor{keywordtype}{int} algorithm = -\/1;}
+\DoxyCodeLine{39     String path = \textcolor{stringliteral}{""};}
+\DoxyCodeLine{40     \textcolor{keywordtype}{boolean} canContinue;}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42     \textcolor{keywordflow}{while} (\textcolor{keyword}{true}) \{}
+\DoxyCodeLine{43       canContinue = \textcolor{keyword}{false};}
+\DoxyCodeLine{44       System.out.println(}
+\DoxyCodeLine{45           \textcolor{stringliteral}{"\(\backslash\)n\(\backslash\)nWelcome to Sippy, your favorite compressor \(\backslash\)n What do you wish? \(\backslash\)n 1.Compress    2.Decompress   3.Exit\(\backslash\)n"});}
+\DoxyCodeLine{46       \textcolor{keywordflow}{do} \{}
+\DoxyCodeLine{47         \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{48           System.out.print(\textcolor{stringliteral}{"Enter 1 or 2 : "});}
+\DoxyCodeLine{49           compressDecscompress = keyBoard.nextInt();}
+\DoxyCodeLine{50           \textcolor{keywordflow}{if} (compressDecscompress == 2 || compressDecscompress == 1 || compressDecscompress == 3) \{}
+\DoxyCodeLine{51             canContinue = \textcolor{keyword}{true};}
+\DoxyCodeLine{52           \}}
+\DoxyCodeLine{53         \} \textcolor{keywordflow}{catch} (InputMismatchException ex) \{}
+\DoxyCodeLine{54           keyBoard.next();}
+\DoxyCodeLine{55         \}}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57       \}}
+\DoxyCodeLine{58       \textcolor{keywordflow}{while} (!canContinue);}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60       \textcolor{keywordflow}{if} (compressDecscompress == 3) \{ \textcolor{keywordflow}{break}; \}}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62       canContinue = \textcolor{keyword}{false};}
+\DoxyCodeLine{63       \textcolor{comment}{// We are going to compress}}
+\DoxyCodeLine{64       \textcolor{keywordflow}{if} (compressDecscompress == 1) \{}
+\DoxyCodeLine{65         System.out.print(\textcolor{stringliteral}{"You've selected compress, now we need your file path: "});}
+\DoxyCodeLine{66         path = keyBoard.next();}
+\DoxyCodeLine{67         System.out.print(}
+\DoxyCodeLine{68             \textcolor{stringliteral}{"\(\backslash\)nThanks, as you can see, this is a very complete program \(\backslash\)n so please indicate if you want automatic or manual compression: \(\backslash\)n \(\backslash\)n 1.Automatic    2.Manual   3.Insert Path again   4.Exit\(\backslash\)n "});}
+\DoxyCodeLine{69         \textcolor{keywordflow}{do} \{}
+\DoxyCodeLine{70           \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{71             System.out.print(\textcolor{stringliteral}{"Enter 1, 2 or 3 for reentering the path : "});}
+\DoxyCodeLine{72             automaticManual = keyBoard.nextInt();}
+\DoxyCodeLine{73             \textcolor{keywordflow}{if} (automaticManual == 2 || automaticManual == 1 || automaticManual == 4) \{}
+\DoxyCodeLine{74               canContinue = \textcolor{keyword}{true};}
+\DoxyCodeLine{75             \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (automaticManual == 3) \{}
+\DoxyCodeLine{76               path = keyBoard.next();}
+\DoxyCodeLine{77             \}}
+\DoxyCodeLine{78           \} \textcolor{keywordflow}{catch} (InputMismatchException ex) \{}
+\DoxyCodeLine{79             keyBoard.next();}
+\DoxyCodeLine{80           \}}
+\DoxyCodeLine{81         \}}
+\DoxyCodeLine{82         \textcolor{keywordflow}{while} (!canContinue);}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84         \textcolor{keywordflow}{if} (automaticManual == 4) \{ \textcolor{keywordflow}{break}; \}}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86         \textcolor{keywordflow}{if} (automaticManual == 1) \{}
+\DoxyCodeLine{87           \mbox{\hyperlink{classprop_1_1presentacion_1_1_console_app_a0f8ae60ecfd5f467a2708b690e5ffa81}{interfaceController}}.\mbox{\hyperlink{classprop_1_1presentacion_1_1_interface_controller_a75b4401668d0cf57ccb34157c66e385b}{onCompressClick}}(path, path, 1);}
+\DoxyCodeLine{88         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{89           System.out.print(}
+\DoxyCodeLine{90               \textcolor{stringliteral}{"\(\backslash\)nAl right, choose now the algorithm:\(\backslash\)n 1.LZ78    2.LZW    3.JPEG    4.LZSS    5.Exit\(\backslash\)n"});}
+\DoxyCodeLine{91           \textcolor{keywordflow}{do} \{}
+\DoxyCodeLine{92             System.out.print(\textcolor{stringliteral}{"Enter the number : "});}
+\DoxyCodeLine{93             algorithm = keyBoard.nextInt();}
+\DoxyCodeLine{94           \}}
+\DoxyCodeLine{95           \textcolor{keywordflow}{while} (algorithm < 1 || algorithm > 5);}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{97           \textcolor{keywordflow}{if} (algorithm == 5) \{ \textcolor{keywordflow}{break}; \}}
+\DoxyCodeLine{98 }
+\DoxyCodeLine{99           Algorithm a = Algorithm.valueOf((\textcolor{keywordtype}{byte}) (algorithm -\/ 1));}
+\DoxyCodeLine{100           System.out.println(\textcolor{stringliteral}{"\(\backslash\)nCompressing using "} + Objects.requireNonNull(a).name());}
+\DoxyCodeLine{101           \mbox{\hyperlink{classprop_1_1presentacion_1_1_console_app_a0f8ae60ecfd5f467a2708b690e5ffa81}{interfaceController}}.\mbox{\hyperlink{classprop_1_1presentacion_1_1_interface_controller_a75b4401668d0cf57ccb34157c66e385b}{onCompressClick}}(path, path, algorithm -\/ 1);}
+\DoxyCodeLine{102         \}}
+\DoxyCodeLine{103 }
+\DoxyCodeLine{104       \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{105         System.out.print(\textcolor{stringliteral}{"You've selected Decompress, now we need your file path: "});}
+\DoxyCodeLine{106         path = keyBoard.next();}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{108         \mbox{\hyperlink{classprop_1_1presentacion_1_1_console_app_a0f8ae60ecfd5f467a2708b690e5ffa81}{interfaceController}}.\mbox{\hyperlink{classprop_1_1presentacion_1_1_interface_controller_aed2b22aa735575289818b668268a1335}{onDecompressClick}}(path, Paths.get(path).getParent().toString());}
+\DoxyCodeLine{109       \}}
+\DoxyCodeLine{110     \}}
+\DoxyCodeLine{111   \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classprop_1_1presentacion_1_1_console_app_a301a2f4db20cbcf55b237f1e698d8193}\label{classprop_1_1presentacion_1_1_console_app_a301a2f4db20cbcf55b237f1e698d8193}} 
+\index{prop.presentacion.ConsoleApp@{prop.presentacion.ConsoleApp}!showAlert@{showAlert}}
+\index{showAlert@{showAlert}!prop.presentacion.ConsoleApp@{prop.presentacion.ConsoleApp}}
+\doxysubsubsection{\texorpdfstring{showAlert()}{showAlert()}}
+{\footnotesize\ttfamily void prop.\+presentacion.\+Console\+App.\+show\+Alert (\begin{DoxyParamCaption}\item[{String}]{message,  }\item[{String}]{title }\end{DoxyParamCaption})}
+
+
+
+Reimplemented from \mbox{\hyperlink{interfaceprop_1_1presentacion_1_1_interface_panel_contract_aa52586cff1c77480c76feb4a01bc3ff1}{prop.\+presentacion.\+Interface\+Panel\+Contract}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{120                                                       \{}
+\DoxyCodeLine{121     System.out.println(\textcolor{stringliteral}{"\(\backslash\)033[0;31m"} + title + \textcolor{stringliteral}{"\(\backslash\)033[0;37m : "} + message);}
+\DoxyCodeLine{122   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1presentacion_1_1_console_app_a32a656897b8cb7cfd28bf1eae8383e07}\label{classprop_1_1presentacion_1_1_console_app_a32a656897b8cb7cfd28bf1eae8383e07}} 
+\index{prop.presentacion.ConsoleApp@{prop.presentacion.ConsoleApp}!showStatistics@{showStatistics}}
+\index{showStatistics@{showStatistics}!prop.presentacion.ConsoleApp@{prop.presentacion.ConsoleApp}}
+\doxysubsubsection{\texorpdfstring{showStatistics()}{showStatistics()}}
+{\footnotesize\ttfamily void prop.\+presentacion.\+Console\+App.\+show\+Statistics (\begin{DoxyParamCaption}\item[{String}]{statistics }\end{DoxyParamCaption})}
+
+
+
+Reimplemented from \mbox{\hyperlink{interfaceprop_1_1presentacion_1_1_interface_panel_contract_a1916f7d812146e29c1ce181b2728a39f}{prop.\+presentacion.\+Interface\+Panel\+Contract}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{115                                                 \{}
+\DoxyCodeLine{116     System.out.println(statistics);}
+\DoxyCodeLine{117   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1presentacion_1_1_console_app_a9ca092c29cb72e57bc4f95a88a73cfbd}\label{classprop_1_1presentacion_1_1_console_app_a9ca092c29cb72e57bc4f95a88a73cfbd}} 
+\index{prop.presentacion.ConsoleApp@{prop.presentacion.ConsoleApp}!start@{start}}
+\index{start@{start}!prop.presentacion.ConsoleApp@{prop.presentacion.ConsoleApp}}
+\doxysubsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily static void prop.\+presentacion.\+Console\+App.\+start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{22                              \{}
+\DoxyCodeLine{23     \textcolor{keyword}{new} \mbox{\hyperlink{classprop_1_1presentacion_1_1_console_app_ae8f846b26b3e649001dcb4bef5e4f51c}{ConsoleApp}}();}
+\DoxyCodeLine{24   \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classprop_1_1presentacion_1_1_console_app_a0f8ae60ecfd5f467a2708b690e5ffa81}\label{classprop_1_1presentacion_1_1_console_app_a0f8ae60ecfd5f467a2708b690e5ffa81}} 
+\index{prop.presentacion.ConsoleApp@{prop.presentacion.ConsoleApp}!interfaceController@{interfaceController}}
+\index{interfaceController@{interfaceController}!prop.presentacion.ConsoleApp@{prop.presentacion.ConsoleApp}}
+\doxysubsubsection{\texorpdfstring{interfaceController}{interfaceController}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classprop_1_1presentacion_1_1_interface_controller}{Interface\+Controller}} prop.\+presentacion.\+Console\+App.\+interface\+Controller\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Victor/\+Desktop/sippy2/src/main/java/prop/presentacion/\mbox{\hyperlink{_console_app_8java}{Console\+App.\+java}}\end{DoxyCompactItemize}

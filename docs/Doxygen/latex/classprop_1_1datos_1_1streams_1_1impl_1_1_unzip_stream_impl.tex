@@ -1,0 +1,309 @@
+\hypertarget{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl}{}\doxysection{prop.\+datos.\+streams.\+impl.\+Unzip\+Stream\+Impl Class Reference}
+\label{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl}\index{prop.datos.streams.impl.UnzipStreamImpl@{prop.datos.streams.impl.UnzipStreamImpl}}
+
+
+Inherits \mbox{\hyperlink{interfaceprop_1_1datos_1_1streams_1_1_unzip_stream}{prop.\+datos.\+streams.\+Unzip\+Stream}}.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_a8b608f302c042d2fcbad8506e90c556e}{Unzip\+Stream\+Impl}} (String input\+Path, String output\+Directory\+Path)  throws I\+O\+Exception 
+\begin{DoxyCompactList}\small\item\em Constructora. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_aea25ddd55bc75fc44e940ae1fa5cb76a}{unzip}} ()  throws I\+O\+Exception 
+\begin{DoxyCompactList}\small\item\em Inicia la operacio de descompressio de l\textquotesingle{}arxiu indicat a la constructora. Llegueix els headers i va, recursivament, descomprimmint regions de dades indicades als headers a un nou arxiu (tambe indicat al header) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_a265bb1b9207bc520d4616bdc43765ea9}{check\+Correct\+Format}} (String path)  throws Unsupported\+Encoding\+Exception 
+\begin{DoxyCompactList}\small\item\em Comprova que el path sigui un arxiu d\textquotesingle{}extensió sippy. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_ad50f1ca7b4dc4c9947cda230c1b42f12}{check\+Output\+Directory}} (String path)  throws Unsupported\+Output\+Directory\+Pathname 
+\begin{DoxyCompactList}\small\item\em Comprova que el path sigui un directori. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_a1aa121a1aee2e78cc9ed1495d800b66a}{normalize\+Base\+Path}} ()
+\begin{DoxyCompactList}\small\item\em Afegeix un separador al final del \mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_ad41421fd5643f7a654ab2824a29087ed}{base\+Path}} si no hi és. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{enumprop_1_1algorithms_1_1_algorithm}{Algorithm}} \mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_adbe7d9b63e8d27ad2b1822b5438693fe}{get\+Algorithm}} ()  throws I\+O\+Exception 
+\begin{DoxyCompactList}\small\item\em Llegueix un byte del stream d\textquotesingle{}entrada. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_a965440a06c790f61396c449ee1e7d240}{get\+Data\+Size}} ()  throws I\+O\+Exception 
+\begin{DoxyCompactList}\small\item\em Llegueix un enter del stream d\textquotesingle{}entrada. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_a52ba01360102c6be4bce52ec758fdbd9}{get\+Name}} ()  throws I\+O\+Exception 
+\begin{DoxyCompactList}\small\item\em Llegueix un enter del stream d\textquotesingle{}entrada i despres llegueix tants bytes com aquest enter indica. Retorna un string que te per data aquests bytes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+String \mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_ad41421fd5643f7a654ab2824a29087ed}{base\+Path}}
+\item 
+Data\+Input\+Stream \mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_a2beae3dea6cbfbc27cf7316cbff21e65}{dis}}
+\item 
+boolean \mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_a3f2c43c01d0d3d15c43483a15d77dc2e}{is\+Directory}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_a8b608f302c042d2fcbad8506e90c556e}\label{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_a8b608f302c042d2fcbad8506e90c556e}} 
+\index{prop.datos.streams.impl.UnzipStreamImpl@{prop.datos.streams.impl.UnzipStreamImpl}!UnzipStreamImpl@{UnzipStreamImpl}}
+\index{UnzipStreamImpl@{UnzipStreamImpl}!prop.datos.streams.impl.UnzipStreamImpl@{prop.datos.streams.impl.UnzipStreamImpl}}
+\doxysubsubsection{\texorpdfstring{UnzipStreamImpl()}{UnzipStreamImpl()}}
+{\footnotesize\ttfamily prop.\+datos.\+streams.\+impl.\+Unzip\+Stream\+Impl.\+Unzip\+Stream\+Impl (\begin{DoxyParamCaption}\item[{String}]{input\+Path,  }\item[{String}]{output\+Directory\+Path }\end{DoxyParamCaption}) throws I\+O\+Exception}
+
+
+
+Constructora. 
+
+\begin{DoxyPrecond}{Precondition}
+item no nul 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Nova instancia de Unzip\+Stream\+Impl 
+\end{DoxyPostcond}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{44                          \{}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46     \mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_a265bb1b9207bc520d4616bdc43765ea9}{checkCorrectFormat}}(inputPath);}
+\DoxyCodeLine{47     \mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_ad50f1ca7b4dc4c9947cda230c1b42f12}{checkOutputDirectory}}(outputDirectoryPath);}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49     File f = \textcolor{keyword}{new} File(inputPath);}
+\DoxyCodeLine{50     this.\mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_a2beae3dea6cbfbc27cf7316cbff21e65}{dis}} = \textcolor{keyword}{new} DataInputStream(\textcolor{keyword}{new} FileInputStream(f));}
+\DoxyCodeLine{51     this.\mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_ad41421fd5643f7a654ab2824a29087ed}{basePath}} = outputDirectoryPath;}
+\DoxyCodeLine{52     \mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_a1aa121a1aee2e78cc9ed1495d800b66a}{normalizeBasePath}}();}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54     this.\mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_a3f2c43c01d0d3d15c43483a15d77dc2e}{isDirectory}} = this.\mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_a2beae3dea6cbfbc27cf7316cbff21e65}{dis}}.readByte() == 0b0;}
+\DoxyCodeLine{55   \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_a265bb1b9207bc520d4616bdc43765ea9}\label{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_a265bb1b9207bc520d4616bdc43765ea9}} 
+\index{prop.datos.streams.impl.UnzipStreamImpl@{prop.datos.streams.impl.UnzipStreamImpl}!checkCorrectFormat@{checkCorrectFormat}}
+\index{checkCorrectFormat@{checkCorrectFormat}!prop.datos.streams.impl.UnzipStreamImpl@{prop.datos.streams.impl.UnzipStreamImpl}}
+\doxysubsubsection{\texorpdfstring{checkCorrectFormat()}{checkCorrectFormat()}}
+{\footnotesize\ttfamily void prop.\+datos.\+streams.\+impl.\+Unzip\+Stream\+Impl.\+check\+Correct\+Format (\begin{DoxyParamCaption}\item[{String}]{path }\end{DoxyParamCaption}) throws Unsupported\+Encoding\+Exception\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Comprova que el path sigui un arxiu d\textquotesingle{}extensió sippy. 
+
+\begin{DoxyPrecond}{Precondition}
+cert 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Llança una excepció si el path no es un arxiu sippy 
+\end{DoxyPostcond}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{63                                                                                    \{}
+\DoxyCodeLine{64     \textcolor{keywordflow}{if} (!Constants.DEFAULT\_ENCODING\_EXTENSION.equals(FileUtils.getFileExtension(path))) \{}
+\DoxyCodeLine{65       \textcolor{keywordflow}{throw} \textcolor{keyword}{new} UnsupportedEncodingException();}
+\DoxyCodeLine{66     \}}
+\DoxyCodeLine{67   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_ad50f1ca7b4dc4c9947cda230c1b42f12}\label{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_ad50f1ca7b4dc4c9947cda230c1b42f12}} 
+\index{prop.datos.streams.impl.UnzipStreamImpl@{prop.datos.streams.impl.UnzipStreamImpl}!checkOutputDirectory@{checkOutputDirectory}}
+\index{checkOutputDirectory@{checkOutputDirectory}!prop.datos.streams.impl.UnzipStreamImpl@{prop.datos.streams.impl.UnzipStreamImpl}}
+\doxysubsubsection{\texorpdfstring{checkOutputDirectory()}{checkOutputDirectory()}}
+{\footnotesize\ttfamily void prop.\+datos.\+streams.\+impl.\+Unzip\+Stream\+Impl.\+check\+Output\+Directory (\begin{DoxyParamCaption}\item[{String}]{path }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classprop_1_1datos_1_1exception_1_1_unsupported_output_directory_pathname}{Unsupported\+Output\+Directory\+Pathname}}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Comprova que el path sigui un directori. 
+
+\begin{DoxyPrecond}{Precondition}
+cert 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Llança una excepció si el path no es un directori 
+\end{DoxyPostcond}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{75                                                                                            \{}
+\DoxyCodeLine{76     File outputDirectory = \textcolor{keyword}{new} File(path);}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78     \textcolor{keywordflow}{if} (!outputDirectory.isDirectory()) \{}
+\DoxyCodeLine{79       \textcolor{keywordflow}{throw} \textcolor{keyword}{new} UnsupportedOutputDirectoryPathname();}
+\DoxyCodeLine{80     \}}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_adbe7d9b63e8d27ad2b1822b5438693fe}\label{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_adbe7d9b63e8d27ad2b1822b5438693fe}} 
+\index{prop.datos.streams.impl.UnzipStreamImpl@{prop.datos.streams.impl.UnzipStreamImpl}!getAlgorithm@{getAlgorithm}}
+\index{getAlgorithm@{getAlgorithm}!prop.datos.streams.impl.UnzipStreamImpl@{prop.datos.streams.impl.UnzipStreamImpl}}
+\doxysubsubsection{\texorpdfstring{getAlgorithm()}{getAlgorithm()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{enumprop_1_1algorithms_1_1_algorithm}{Algorithm}} prop.\+datos.\+streams.\+impl.\+Unzip\+Stream\+Impl.\+get\+Algorithm (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws I\+O\+Exception\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Llegueix un byte del stream d\textquotesingle{}entrada. 
+
+\begin{DoxyPrecond}{Precondition}
+cert 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+algorisme identificat pel byte llegit 
+\end{DoxyPostcond}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{139                                                       \{}
+\DoxyCodeLine{140     \textcolor{keywordflow}{return} Algorithm.valueOf(\mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_a2beae3dea6cbfbc27cf7316cbff21e65}{dis}}.readByte());}
+\DoxyCodeLine{141   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_a965440a06c790f61396c449ee1e7d240}\label{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_a965440a06c790f61396c449ee1e7d240}} 
+\index{prop.datos.streams.impl.UnzipStreamImpl@{prop.datos.streams.impl.UnzipStreamImpl}!getDataSize@{getDataSize}}
+\index{getDataSize@{getDataSize}!prop.datos.streams.impl.UnzipStreamImpl@{prop.datos.streams.impl.UnzipStreamImpl}}
+\doxysubsubsection{\texorpdfstring{getDataSize()}{getDataSize()}}
+{\footnotesize\ttfamily int prop.\+datos.\+streams.\+impl.\+Unzip\+Stream\+Impl.\+get\+Data\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws I\+O\+Exception\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Llegueix un enter del stream d\textquotesingle{}entrada. 
+
+\begin{DoxyPrecond}{Precondition}
+cert 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+enter 
+\end{DoxyPostcond}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{149                                                \{}
+\DoxyCodeLine{150     \textcolor{keywordflow}{return} \mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_a2beae3dea6cbfbc27cf7316cbff21e65}{dis}}.readInt();}
+\DoxyCodeLine{151   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_a52ba01360102c6be4bce52ec758fdbd9}\label{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_a52ba01360102c6be4bce52ec758fdbd9}} 
+\index{prop.datos.streams.impl.UnzipStreamImpl@{prop.datos.streams.impl.UnzipStreamImpl}!getName@{getName}}
+\index{getName@{getName}!prop.datos.streams.impl.UnzipStreamImpl@{prop.datos.streams.impl.UnzipStreamImpl}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily String prop.\+datos.\+streams.\+impl.\+Unzip\+Stream\+Impl.\+get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws I\+O\+Exception\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Llegueix un enter del stream d\textquotesingle{}entrada i despres llegueix tants bytes com aquest enter indica. Retorna un string que te per data aquests bytes. 
+
+\begin{DoxyPrecond}{Precondition}
+cert 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+string llegit del stream d\textquotesingle{}entrada 
+\end{DoxyPostcond}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{160                                               \{}
+\DoxyCodeLine{161     \textcolor{keywordtype}{int} nameSize = \mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_a2beae3dea6cbfbc27cf7316cbff21e65}{dis}}.readInt();}
+\DoxyCodeLine{162     \textcolor{keywordtype}{byte}[] name = \textcolor{keyword}{new} \textcolor{keywordtype}{byte}[nameSize];}
+\DoxyCodeLine{163     \mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_a2beae3dea6cbfbc27cf7316cbff21e65}{dis}}.read(name, 0, nameSize);}
+\DoxyCodeLine{164     \textcolor{keywordflow}{return} \textcolor{keyword}{new} String(name);}
+\DoxyCodeLine{165   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_a1aa121a1aee2e78cc9ed1495d800b66a}\label{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_a1aa121a1aee2e78cc9ed1495d800b66a}} 
+\index{prop.datos.streams.impl.UnzipStreamImpl@{prop.datos.streams.impl.UnzipStreamImpl}!normalizeBasePath@{normalizeBasePath}}
+\index{normalizeBasePath@{normalizeBasePath}!prop.datos.streams.impl.UnzipStreamImpl@{prop.datos.streams.impl.UnzipStreamImpl}}
+\doxysubsubsection{\texorpdfstring{normalizeBasePath()}{normalizeBasePath()}}
+{\footnotesize\ttfamily void prop.\+datos.\+streams.\+impl.\+Unzip\+Stream\+Impl.\+normalize\+Base\+Path (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Afegeix un separador al final del \mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_ad41421fd5643f7a654ab2824a29087ed}{base\+Path}} si no hi és. 
+
+\begin{DoxyPrecond}{Precondition}
+cert 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+base\+Path amb el separador del sistema 
+\end{DoxyPostcond}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{91                                    \{}
+\DoxyCodeLine{92     \textcolor{keywordflow}{if} (!\mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_ad41421fd5643f7a654ab2824a29087ed}{basePath}}.endsWith(File.separator)) \{}
+\DoxyCodeLine{93       \mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_ad41421fd5643f7a654ab2824a29087ed}{basePath}} += File.separator;}
+\DoxyCodeLine{94     \}}
+\DoxyCodeLine{95   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_aea25ddd55bc75fc44e940ae1fa5cb76a}\label{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_aea25ddd55bc75fc44e940ae1fa5cb76a}} 
+\index{prop.datos.streams.impl.UnzipStreamImpl@{prop.datos.streams.impl.UnzipStreamImpl}!unzip@{unzip}}
+\index{unzip@{unzip}!prop.datos.streams.impl.UnzipStreamImpl@{prop.datos.streams.impl.UnzipStreamImpl}}
+\doxysubsubsection{\texorpdfstring{unzip()}{unzip()}}
+{\footnotesize\ttfamily void prop.\+datos.\+streams.\+impl.\+Unzip\+Stream\+Impl.\+unzip (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws I\+O\+Exception}
+
+
+
+Inicia la operacio de descompressio de l\textquotesingle{}arxiu indicat a la constructora. Llegueix els headers i va, recursivament, descomprimmint regions de dades indicades als headers a un nou arxiu (tambe indicat al header) 
+
+\begin{DoxyPrecond}{Precondition}
+cert 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+items descomprimit 
+\end{DoxyPostcond}
+
+
+Reimplemented from \mbox{\hyperlink{interfaceprop_1_1datos_1_1streams_1_1_unzip_stream_a9fc02d5e8ea53ed1911c137db5367d67}{prop.\+datos.\+streams.\+Unzip\+Stream}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{98                                          \{}
+\DoxyCodeLine{99     \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{100       Algorithm algorithm = \mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_adbe7d9b63e8d27ad2b1822b5438693fe}{getAlgorithm}}();}
+\DoxyCodeLine{101       \textcolor{keywordtype}{int} dataSize = \mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_a965440a06c790f61396c449ee1e7d240}{getDataSize}}();}
+\DoxyCodeLine{102       String name = \mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_a52ba01360102c6be4bce52ec758fdbd9}{getName}}();}
+\DoxyCodeLine{103 }
+\DoxyCodeLine{104       File file = \textcolor{keyword}{new} File(\mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_ad41421fd5643f7a654ab2824a29087ed}{basePath}} + name);}
+\DoxyCodeLine{105       \textcolor{keywordflow}{if} (!file.exists()) \{}
+\DoxyCodeLine{106         file.getParentFile().mkdirs();}
+\DoxyCodeLine{107         file.createNewFile();}
+\DoxyCodeLine{108       \}}
+\DoxyCodeLine{109 }
+\DoxyCodeLine{110       \textcolor{keywordtype}{byte}[] data = \textcolor{keyword}{new} \textcolor{keywordtype}{byte}[dataSize];}
+\DoxyCodeLine{111       \mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_a2beae3dea6cbfbc27cf7316cbff21e65}{dis}}.read(data, 0, dataSize);}
+\DoxyCodeLine{112 }
+\DoxyCodeLine{113       DataOutputStream dos = \textcolor{keyword}{new} DataOutputStream(\textcolor{keyword}{new} FileOutputStream(file));}
+\DoxyCodeLine{114       dos.writeBytes(\textcolor{keyword}{new} String(algorithm.getAlgorithm().decode(data)));}
+\DoxyCodeLine{115       dos.close();}
+\DoxyCodeLine{116 }
+\DoxyCodeLine{117       \textcolor{keywordflow}{if} (\mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_a3f2c43c01d0d3d15c43483a15d77dc2e}{isDirectory}}) \{}
+\DoxyCodeLine{118         \mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_aea25ddd55bc75fc44e940ae1fa5cb76a}{unzip}}();}
+\DoxyCodeLine{119       \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{120         FileUtils.openFile(file);}
+\DoxyCodeLine{121       \}}
+\DoxyCodeLine{122     \} \textcolor{keywordflow}{catch} (EOFException ignore) \{}
+\DoxyCodeLine{123       \textcolor{keywordflow}{if} (\mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_a3f2c43c01d0d3d15c43483a15d77dc2e}{isDirectory}}) \{}
+\DoxyCodeLine{124         FileUtils.openFile(\textcolor{keyword}{new} File(\mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_ad41421fd5643f7a654ab2824a29087ed}{basePath}}));}
+\DoxyCodeLine{125       \}}
+\DoxyCodeLine{126       \textcolor{comment}{// do not rethrow EOF exception, it is an exception we expect to get}}
+\DoxyCodeLine{127     \} \textcolor{keywordflow}{finally} \{}
+\DoxyCodeLine{128       \mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_a2beae3dea6cbfbc27cf7316cbff21e65}{dis}}.close();}
+\DoxyCodeLine{129     \}}
+\DoxyCodeLine{130 }
+\DoxyCodeLine{131   \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_ad41421fd5643f7a654ab2824a29087ed}\label{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_ad41421fd5643f7a654ab2824a29087ed}} 
+\index{prop.datos.streams.impl.UnzipStreamImpl@{prop.datos.streams.impl.UnzipStreamImpl}!basePath@{basePath}}
+\index{basePath@{basePath}!prop.datos.streams.impl.UnzipStreamImpl@{prop.datos.streams.impl.UnzipStreamImpl}}
+\doxysubsubsection{\texorpdfstring{basePath}{basePath}}
+{\footnotesize\ttfamily String prop.\+datos.\+streams.\+impl.\+Unzip\+Stream\+Impl.\+base\+Path\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_a2beae3dea6cbfbc27cf7316cbff21e65}\label{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_a2beae3dea6cbfbc27cf7316cbff21e65}} 
+\index{prop.datos.streams.impl.UnzipStreamImpl@{prop.datos.streams.impl.UnzipStreamImpl}!dis@{dis}}
+\index{dis@{dis}!prop.datos.streams.impl.UnzipStreamImpl@{prop.datos.streams.impl.UnzipStreamImpl}}
+\doxysubsubsection{\texorpdfstring{dis}{dis}}
+{\footnotesize\ttfamily Data\+Input\+Stream prop.\+datos.\+streams.\+impl.\+Unzip\+Stream\+Impl.\+dis\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_a3f2c43c01d0d3d15c43483a15d77dc2e}\label{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_a3f2c43c01d0d3d15c43483a15d77dc2e}} 
+\index{prop.datos.streams.impl.UnzipStreamImpl@{prop.datos.streams.impl.UnzipStreamImpl}!isDirectory@{isDirectory}}
+\index{isDirectory@{isDirectory}!prop.datos.streams.impl.UnzipStreamImpl@{prop.datos.streams.impl.UnzipStreamImpl}}
+\doxysubsubsection{\texorpdfstring{isDirectory}{isDirectory}}
+{\footnotesize\ttfamily boolean prop.\+datos.\+streams.\+impl.\+Unzip\+Stream\+Impl.\+is\+Directory\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Victor/\+Desktop/sippy2/src/main/java/prop/datos/streams/impl/\mbox{\hyperlink{_unzip_stream_impl_8java}{Unzip\+Stream\+Impl.\+java}}\end{DoxyCompactItemize}

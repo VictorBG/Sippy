@@ -1,0 +1,305 @@
+\hypertarget{classprop_1_1algorithms_1_1lz78_1_1_l_z78}{}\doxysection{prop.\+algorithms.\+lz78.\+L\+Z78 Class Reference}
+\label{classprop_1_1algorithms_1_1lz78_1_1_l_z78}\index{prop.algorithms.lz78.LZ78@{prop.algorithms.lz78.LZ78}}
+
+
+Implementació de l\textquotesingle{}algorisme L\+Z78.  
+
+
+
+
+Inherits \mbox{\hyperlink{interfaceprop_1_1algorithms_1_1base_1_1_base_algorithm}{prop.\+algorithms.\+base.\+Base\+Algorithm}}.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+byte\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classprop_1_1algorithms_1_1lz78_1_1_l_z78_abb81b23663ea3118e88c9f6108c3efaa}{encode}} (byte\mbox{[}$\,$\mbox{]} data)
+\item 
+byte\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classprop_1_1algorithms_1_1lz78_1_1_l_z78_aa02abc833859d2a8a8a2cf05360e3c31}{decode}} (byte\mbox{[}$\,$\mbox{]} input)
+\item 
+\mbox{\hyperlink{enumprop_1_1algorithms_1_1_algorithm}{Algorithm}} \mbox{\hyperlink{classprop_1_1algorithms_1_1lz78_1_1_l_z78_a23cb1d5d61ab78471b29d71bc46d85f5}{get\+Algorithm\+Used}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classprop_1_1algorithms_1_1lz78_1_1_l_z78_ab5747586d8042dad8025b49c2e47c147}{write}} (byte\mbox{[}$\,$\mbox{]} data)
+\item 
+String \mbox{\hyperlink{classprop_1_1algorithms_1_1lz78_1_1_l_z78_af96fc2a1502c6dc114b82d5adae0e891}{get\+String}} (Hash\+Map$<$ Integer, \mbox{\hyperlink{classprop_1_1algorithms_1_1lz78_1_1_pair}{Pair}} $>$ dic, int value)
+\item 
+String \mbox{\hyperlink{classprop_1_1algorithms_1_1lz78_1_1_l_z78_a73ca742a9ff184ee2d15225e11751d8b}{char\+At}} (Hash\+Map$<$ Integer, \mbox{\hyperlink{classprop_1_1algorithms_1_1lz78_1_1_pair}{Pair}} $>$ dic, int pos)
+\item 
+char \mbox{\hyperlink{classprop_1_1algorithms_1_1lz78_1_1_l_z78_a41bc1e19c06f52755314233e2282a7ae}{get\+Char}} (byte b)
+\item 
+int \mbox{\hyperlink{classprop_1_1algorithms_1_1lz78_1_1_l_z78_accad57960a630c0d2329990fe6072a4b}{byte\+Array\+To\+Int}} (byte\mbox{[}$\,$\mbox{]} b)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Byte\+Array\+Output\+Stream \mbox{\hyperlink{classprop_1_1algorithms_1_1lz78_1_1_l_z78_a033c7d0b9213a178286a188b4d5038d8}{baos}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementació de l\textquotesingle{}algorisme L\+Z78. 
+
+Author\+: Victor Blanco
+
+\begin{DoxyVerb}Millores:
+- Nombre variable de bits a l'índex. Podem suposar que l’índex x no tindrà un
+nombre superior a x-1, per tant, podem definir que el nombre de bits que
+aquesta posició pot prendre com a màxim és log2 (x) en lloc de prendre sempre
+24 bits, cosa que també imposa un límit teòric màxim de 2 ^ 24 valors per l’índex.
+És car per a fitxers de mida petita.
+
+- Utilitza un Trie en comptes d'un HashMap.
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1lz78_1_1_l_z78_accad57960a630c0d2329990fe6072a4b}\label{classprop_1_1algorithms_1_1lz78_1_1_l_z78_accad57960a630c0d2329990fe6072a4b}} 
+\index{prop.algorithms.lz78.LZ78@{prop.algorithms.lz78.LZ78}!byteArrayToInt@{byteArrayToInt}}
+\index{byteArrayToInt@{byteArrayToInt}!prop.algorithms.lz78.LZ78@{prop.algorithms.lz78.LZ78}}
+\doxysubsubsection{\texorpdfstring{byteArrayToInt()}{byteArrayToInt()}}
+{\footnotesize\ttfamily int prop.\+algorithms.\+lz78.\+L\+Z78.\+byte\+Array\+To\+Int (\begin{DoxyParamCaption}\item[{byte\mbox{[}$\,$\mbox{]}}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Converteix l\textquotesingle{}array de bytes de tamany 3 donada en un int
+
+
+\begin{DoxyParams}{Parameters}
+{\em b} & Array de bytes per convertir\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Integer contingut a l\textquotesingle{}array de bytes 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{157                                        \{}
+\DoxyCodeLine{158     \textcolor{keywordflow}{return}}
+\DoxyCodeLine{159         (b[2] \& 0xFF) |}
+\DoxyCodeLine{160             (b[1] \& 0xFF) << 8 |}
+\DoxyCodeLine{161             (b[0] \& 0xFF) << 16;}
+\DoxyCodeLine{162   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1lz78_1_1_l_z78_a73ca742a9ff184ee2d15225e11751d8b}\label{classprop_1_1algorithms_1_1lz78_1_1_l_z78_a73ca742a9ff184ee2d15225e11751d8b}} 
+\index{prop.algorithms.lz78.LZ78@{prop.algorithms.lz78.LZ78}!charAt@{charAt}}
+\index{charAt@{charAt}!prop.algorithms.lz78.LZ78@{prop.algorithms.lz78.LZ78}}
+\doxysubsubsection{\texorpdfstring{charAt()}{charAt()}}
+{\footnotesize\ttfamily String prop.\+algorithms.\+lz78.\+L\+Z78.\+char\+At (\begin{DoxyParamCaption}\item[{Hash\+Map$<$ Integer, \mbox{\hyperlink{classprop_1_1algorithms_1_1lz78_1_1_pair}{Pair}} $>$}]{dic,  }\item[{int}]{pos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Retorna el char contingut a la posició (o valor) del diccionari. Si el char és un \mbox{\hyperlink{}{M\+I\+N\+\_\+\+V\+A\+L\+UE}}, retorna un String buit, altrament retorna el char de la posició esmentada.
+
+
+\begin{DoxyParams}{Parameters}
+{\em dic} & Diccionari del qual es llegeix. \\
+\hline
+{\em pos} & Posició (valor) que es llegeix del diccionari.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+el char que es troba a la posició pos del diccionari. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{124                                                              \{}
+\DoxyCodeLine{125     \textcolor{keywordtype}{char} res;}
+\DoxyCodeLine{126     \textcolor{keywordflow}{if} ((res = dic.get(pos).getSecond()) == Character.MIN\_VALUE) \{}
+\DoxyCodeLine{127       \textcolor{keywordflow}{return} \textcolor{stringliteral}{""};}
+\DoxyCodeLine{128     \}}
+\DoxyCodeLine{129     \textcolor{keywordflow}{return} String.valueOf(res);}
+\DoxyCodeLine{130   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1lz78_1_1_l_z78_aa02abc833859d2a8a8a2cf05360e3c31}\label{classprop_1_1algorithms_1_1lz78_1_1_l_z78_aa02abc833859d2a8a8a2cf05360e3c31}} 
+\index{prop.algorithms.lz78.LZ78@{prop.algorithms.lz78.LZ78}!decode@{decode}}
+\index{decode@{decode}!prop.algorithms.lz78.LZ78@{prop.algorithms.lz78.LZ78}}
+\doxysubsubsection{\texorpdfstring{decode()}{decode()}}
+{\footnotesize\ttfamily byte \mbox{[}$\,$\mbox{]} prop.\+algorithms.\+lz78.\+L\+Z78.\+decode (\begin{DoxyParamCaption}\item[{byte\mbox{[}$\,$\mbox{]}}]{input }\end{DoxyParamCaption})}
+
+
+
+Reimplemented from \mbox{\hyperlink{interfaceprop_1_1algorithms_1_1base_1_1_base_algorithm_a4b78a5d0b4071b52dfec14f1243edb3a}{prop.\+algorithms.\+base.\+Base\+Algorithm}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{58                                      \{}
+\DoxyCodeLine{59     StringBuilder result = \textcolor{keyword}{new} StringBuilder();}
+\DoxyCodeLine{60     HashMap<Integer, Pair> dictionary = \textcolor{keyword}{new} HashMap<>();}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62     \textcolor{keywordtype}{int} k = 1;}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < input.length; i += 4) \{}
+\DoxyCodeLine{65       \textcolor{keywordtype}{int} number = \mbox{\hyperlink{classprop_1_1algorithms_1_1lz78_1_1_l_z78_accad57960a630c0d2329990fe6072a4b}{byteArrayToInt}}(\textcolor{keyword}{new} \textcolor{keywordtype}{byte}[]\{input[i], input[i + 1], input[i + 2]\});}
+\DoxyCodeLine{66       \textcolor{keywordtype}{int} value = input[i + 3];}
+\DoxyCodeLine{67       \textcolor{keywordflow}{if} (value < 0) \{}
+\DoxyCodeLine{68         value += 256;}
+\DoxyCodeLine{69       \}}
+\DoxyCodeLine{70       \textcolor{keywordtype}{char} data = (char) value;}
+\DoxyCodeLine{71       dictionary.put(k, \textcolor{keyword}{new} Pair(number, data));}
+\DoxyCodeLine{72       result.append(\mbox{\hyperlink{classprop_1_1algorithms_1_1lz78_1_1_l_z78_af96fc2a1502c6dc114b82d5adae0e891}{getString}}(dictionary, k++));}
+\DoxyCodeLine{73     \}}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75     \textcolor{keywordflow}{return} result.toString().getBytes(StandardCharsets.UTF\_8);}
+\DoxyCodeLine{76   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1lz78_1_1_l_z78_abb81b23663ea3118e88c9f6108c3efaa}\label{classprop_1_1algorithms_1_1lz78_1_1_l_z78_abb81b23663ea3118e88c9f6108c3efaa}} 
+\index{prop.algorithms.lz78.LZ78@{prop.algorithms.lz78.LZ78}!encode@{encode}}
+\index{encode@{encode}!prop.algorithms.lz78.LZ78@{prop.algorithms.lz78.LZ78}}
+\doxysubsubsection{\texorpdfstring{encode()}{encode()}}
+{\footnotesize\ttfamily byte \mbox{[}$\,$\mbox{]} prop.\+algorithms.\+lz78.\+L\+Z78.\+encode (\begin{DoxyParamCaption}\item[{byte\mbox{[}$\,$\mbox{]}}]{data }\end{DoxyParamCaption})}
+
+
+
+Reimplemented from \mbox{\hyperlink{interfaceprop_1_1algorithms_1_1base_1_1_base_algorithm_a6de2a6d1d1a020b915162f8ba11e9b58}{prop.\+algorithms.\+base.\+Base\+Algorithm}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{30                                     \{}
+\DoxyCodeLine{31     \mbox{\hyperlink{classprop_1_1algorithms_1_1lz78_1_1_l_z78_a033c7d0b9213a178286a188b4d5038d8}{baos}} = \textcolor{keyword}{new} ByteArrayOutputStream();}
+\DoxyCodeLine{32     HashMap<String, Integer> dictionary = \textcolor{keyword}{new} HashMap<>();}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34     String s = \textcolor{stringliteral}{""};}
+\DoxyCodeLine{35     Integer pos = 0;}
+\DoxyCodeLine{36     \textcolor{keywordtype}{int} index = 1;}
+\DoxyCodeLine{37     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{byte} b : data) \{}
+\DoxyCodeLine{38       \textcolor{keywordtype}{char} c = \mbox{\hyperlink{classprop_1_1algorithms_1_1lz78_1_1_l_z78_a41bc1e19c06f52755314233e2282a7ae}{getChar}}(b);}
+\DoxyCodeLine{39       s += c;}
+\DoxyCodeLine{40       \textcolor{keywordflow}{if} (!dictionary.containsKey(s)) \{}
+\DoxyCodeLine{41         dictionary.put(s, index++);}
+\DoxyCodeLine{42         \mbox{\hyperlink{classprop_1_1algorithms_1_1lz78_1_1_l_z78_ab5747586d8042dad8025b49c2e47c147}{write}}(\textcolor{keyword}{new} Pair(pos, c).getBytes());}
+\DoxyCodeLine{43         s = \textcolor{stringliteral}{""};}
+\DoxyCodeLine{44         pos = 0;}
+\DoxyCodeLine{45       \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{46         pos = dictionary.get(s);}
+\DoxyCodeLine{47       \}}
+\DoxyCodeLine{48     \}}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50     \textcolor{keywordflow}{if} (pos != 0) \{}
+\DoxyCodeLine{51       \mbox{\hyperlink{classprop_1_1algorithms_1_1lz78_1_1_l_z78_ab5747586d8042dad8025b49c2e47c147}{write}}(\textcolor{keyword}{new} Pair(pos, Character.MIN\_VALUE).getBytes());}
+\DoxyCodeLine{52     \}}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54     \textcolor{keywordflow}{return} \mbox{\hyperlink{classprop_1_1algorithms_1_1lz78_1_1_l_z78_a033c7d0b9213a178286a188b4d5038d8}{baos}}.toByteArray();}
+\DoxyCodeLine{55   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1lz78_1_1_l_z78_a23cb1d5d61ab78471b29d71bc46d85f5}\label{classprop_1_1algorithms_1_1lz78_1_1_l_z78_a23cb1d5d61ab78471b29d71bc46d85f5}} 
+\index{prop.algorithms.lz78.LZ78@{prop.algorithms.lz78.LZ78}!getAlgorithmUsed@{getAlgorithmUsed}}
+\index{getAlgorithmUsed@{getAlgorithmUsed}!prop.algorithms.lz78.LZ78@{prop.algorithms.lz78.LZ78}}
+\doxysubsubsection{\texorpdfstring{getAlgorithmUsed()}{getAlgorithmUsed()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{enumprop_1_1algorithms_1_1_algorithm}{Algorithm}} prop.\+algorithms.\+lz78.\+L\+Z78.\+get\+Algorithm\+Used (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Retorna l\textquotesingle{}agorisme utilitzat; és útil per algorismes variables (aquells que poden ser escollits envers altres), per algorismes simples, només els retorna.
+
+\begin{DoxyReturn}{Returns}
+Algorisme utilitzat. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{interfaceprop_1_1algorithms_1_1base_1_1_base_algorithm_a0a806b0337fbf6c1c2c2d9da22f9729d}{prop.\+algorithms.\+base.\+Base\+Algorithm}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{165                                       \{}
+\DoxyCodeLine{166     \textcolor{keywordflow}{return} Algorithm.LZ78;}
+\DoxyCodeLine{167   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1lz78_1_1_l_z78_a41bc1e19c06f52755314233e2282a7ae}\label{classprop_1_1algorithms_1_1lz78_1_1_l_z78_a41bc1e19c06f52755314233e2282a7ae}} 
+\index{prop.algorithms.lz78.LZ78@{prop.algorithms.lz78.LZ78}!getChar@{getChar}}
+\index{getChar@{getChar}!prop.algorithms.lz78.LZ78@{prop.algorithms.lz78.LZ78}}
+\doxysubsubsection{\texorpdfstring{getChar()}{getChar()}}
+{\footnotesize\ttfamily char prop.\+algorithms.\+lz78.\+L\+Z78.\+get\+Char (\begin{DoxyParamCaption}\item[{byte}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Retorna un char segons el valor del byte.
+
+Si el valor és negatiu (ca2), aquest és convertit a valor positiu amb motiu de seguir la taula A\+S\+C\+II, altrament retorna el valor original.
+
+
+\begin{DoxyParams}{Parameters}
+{\em b} & Byte a convertir.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+El byte convertit en un char de la taula A\+S\+C\+II. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{142                                \{}
+\DoxyCodeLine{143     \textcolor{keywordtype}{int} i = \textcolor{keyword}{new} Byte(b).intValue();}
+\DoxyCodeLine{144     \textcolor{keywordflow}{if} (i < 0) \{}
+\DoxyCodeLine{145       i += 256;}
+\DoxyCodeLine{146     \}}
+\DoxyCodeLine{147     \textcolor{keywordflow}{return} (\textcolor{keywordtype}{char}) i;}
+\DoxyCodeLine{148   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1lz78_1_1_l_z78_af96fc2a1502c6dc114b82d5adae0e891}\label{classprop_1_1algorithms_1_1lz78_1_1_l_z78_af96fc2a1502c6dc114b82d5adae0e891}} 
+\index{prop.algorithms.lz78.LZ78@{prop.algorithms.lz78.LZ78}!getString@{getString}}
+\index{getString@{getString}!prop.algorithms.lz78.LZ78@{prop.algorithms.lz78.LZ78}}
+\doxysubsubsection{\texorpdfstring{getString()}{getString()}}
+{\footnotesize\ttfamily String prop.\+algorithms.\+lz78.\+L\+Z78.\+get\+String (\begin{DoxyParamCaption}\item[{Hash\+Map$<$ Integer, \mbox{\hyperlink{classprop_1_1algorithms_1_1lz78_1_1_pair}{Pair}} $>$}]{dic,  }\item[{int}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Retorna un String que conté la paraula recuperada del diccionary.
+
+Llegeix l’element de valor i recupera l’objecte \mbox{\hyperlink{classprop_1_1algorithms_1_1lz78_1_1_pair}{Pair}} associat a ell, després retorna el char que el pair conté concatenat amb l\textquotesingle{}string retornat per aquest mètode, pel valor contingut pel pair.
+
+Si el valor contingut pel pair és 0, significa que s\textquotesingle{}ha arribat al final de la recuperació de l\textquotesingle{}string i no iterará més.
+
+
+\begin{DoxyParams}{Parameters}
+{\em dic} & Diccionari del qual es llegeix. \\
+\hline
+{\em value} & Valor que es llegeix del diccionari.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+L\textquotesingle{}string recuperat del map que comença amb l\textquotesingle{}objecte value. 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{106                                                                   \{}
+\DoxyCodeLine{107     \textcolor{keywordflow}{if} (dic.get(value).getFirst() == 0) \{}
+\DoxyCodeLine{108       \textcolor{keywordflow}{return} \mbox{\hyperlink{classprop_1_1algorithms_1_1lz78_1_1_l_z78_a73ca742a9ff184ee2d15225e11751d8b}{charAt}}(dic, value);}
+\DoxyCodeLine{109     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{110       \textcolor{keywordflow}{return} \mbox{\hyperlink{classprop_1_1algorithms_1_1lz78_1_1_l_z78_af96fc2a1502c6dc114b82d5adae0e891}{getString}}(dic, dic.get(value).getFirst()) + \mbox{\hyperlink{classprop_1_1algorithms_1_1lz78_1_1_l_z78_a73ca742a9ff184ee2d15225e11751d8b}{charAt}}(dic, value);}
+\DoxyCodeLine{111     \}}
+\DoxyCodeLine{112   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1lz78_1_1_l_z78_ab5747586d8042dad8025b49c2e47c147}\label{classprop_1_1algorithms_1_1lz78_1_1_l_z78_ab5747586d8042dad8025b49c2e47c147}} 
+\index{prop.algorithms.lz78.LZ78@{prop.algorithms.lz78.LZ78}!write@{write}}
+\index{write@{write}!prop.algorithms.lz78.LZ78@{prop.algorithms.lz78.LZ78}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}}
+{\footnotesize\ttfamily void prop.\+algorithms.\+lz78.\+L\+Z78.\+write (\begin{DoxyParamCaption}\item[{byte\mbox{[}$\,$\mbox{]}}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Escriu un tros de dades al \mbox{\hyperlink{classprop_1_1algorithms_1_1lz78_1_1_l_z78_a033c7d0b9213a178286a188b4d5038d8}{baos}} output stream.
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & dada a escriure. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{83                                   \{}
+\DoxyCodeLine{84     \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{85       \mbox{\hyperlink{classprop_1_1algorithms_1_1lz78_1_1_l_z78_a033c7d0b9213a178286a188b4d5038d8}{baos}}.write(data);}
+\DoxyCodeLine{86     \} \textcolor{keywordflow}{catch} (IOException ignore) \{\}}
+\DoxyCodeLine{87   \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1lz78_1_1_l_z78_a033c7d0b9213a178286a188b4d5038d8}\label{classprop_1_1algorithms_1_1lz78_1_1_l_z78_a033c7d0b9213a178286a188b4d5038d8}} 
+\index{prop.algorithms.lz78.LZ78@{prop.algorithms.lz78.LZ78}!baos@{baos}}
+\index{baos@{baos}!prop.algorithms.lz78.LZ78@{prop.algorithms.lz78.LZ78}}
+\doxysubsubsection{\texorpdfstring{baos}{baos}}
+{\footnotesize\ttfamily Byte\+Array\+Output\+Stream prop.\+algorithms.\+lz78.\+L\+Z78.\+baos\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Victor/\+Desktop/sippy2/src/main/java/prop/algorithms/lz78/\mbox{\hyperlink{_l_z78_8java}{L\+Z78.\+java}}\end{DoxyCompactItemize}

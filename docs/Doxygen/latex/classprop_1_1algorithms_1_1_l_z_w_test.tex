@@ -1,0 +1,110 @@
+\hypertarget{classprop_1_1algorithms_1_1_l_z_w_test}{}\doxysection{prop.\+algorithms.\+L\+Z\+W\+Test Class Reference}
+\label{classprop_1_1algorithms_1_1_l_z_w_test}\index{prop.algorithms.LZWTest@{prop.algorithms.LZWTest}}
+
+
+Inherits \mbox{\hyperlink{classprop_1_1algorithms_1_1base_1_1_base_algorithm_test}{prop.\+algorithms.\+base.\+Base\+Algorithm\+Test}}.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classprop_1_1algorithms_1_1_l_z_w_test_ac50d3839f7e691e23df805425435ef73}{test\+L\+ZW}} ()
+\item 
+List$<$ byte\mbox{[}$\,$\mbox{]}$>$ \mbox{\hyperlink{classprop_1_1algorithms_1_1_l_z_w_test_a5cad6a89f3037715de87df6a64ef598d}{get\+Inputs}} ()
+\item 
+List$<$ byte\mbox{[}$\,$\mbox{]}$>$ \mbox{\hyperlink{classprop_1_1algorithms_1_1_l_z_w_test_a78339b01001d0e0757dbcd139e8e7e38}{get\+Outputs}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Author\+: Sergio Vazquez
+
+DO N\+OT M\+O\+D\+I\+FY, they work on linux but not on Windows! 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1_l_z_w_test_a5cad6a89f3037715de87df6a64ef598d}\label{classprop_1_1algorithms_1_1_l_z_w_test_a5cad6a89f3037715de87df6a64ef598d}} 
+\index{prop.algorithms.LZWTest@{prop.algorithms.LZWTest}!getInputs@{getInputs}}
+\index{getInputs@{getInputs}!prop.algorithms.LZWTest@{prop.algorithms.LZWTest}}
+\doxysubsubsection{\texorpdfstring{getInputs()}{getInputs()}}
+{\footnotesize\ttfamily List$<$byte\mbox{[}$\,$\mbox{]}$>$ prop.\+algorithms.\+L\+Z\+W\+Test.\+get\+Inputs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Reimplemented from \mbox{\hyperlink{classprop_1_1algorithms_1_1base_1_1_base_algorithm_test_a3e5cd49877298ac102709db40c46b0d9}{prop.\+algorithms.\+base.\+Base\+Algorithm\+Test}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{22                                   \{}
+\DoxyCodeLine{23     \textcolor{keywordflow}{return} \textcolor{keyword}{new} ArrayList<byte[]>() \{}
+\DoxyCodeLine{24       \{}
+\DoxyCodeLine{25         add(\textcolor{stringliteral}{"D0N QuijoT3 DE LA MaNCh4"}.getBytes());}
+\DoxyCodeLine{26         add(\textcolor{stringliteral}{"abcdefghijklmnopqrstuvwxyz!\_\$\%\&/()=?\string^|@\#~][\{\}-\/,:;€"}}
+\DoxyCodeLine{27             .getBytes(StandardCharsets.US\_ASCII));}
+\DoxyCodeLine{28         add(\textcolor{stringliteral}{"áéíóúàèìòùäëïöü"}.getBytes(StandardCharsets.US\_ASCII));}
+\DoxyCodeLine{29       \}}
+\DoxyCodeLine{30     \};}
+\DoxyCodeLine{31   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1_l_z_w_test_a78339b01001d0e0757dbcd139e8e7e38}\label{classprop_1_1algorithms_1_1_l_z_w_test_a78339b01001d0e0757dbcd139e8e7e38}} 
+\index{prop.algorithms.LZWTest@{prop.algorithms.LZWTest}!getOutputs@{getOutputs}}
+\index{getOutputs@{getOutputs}!prop.algorithms.LZWTest@{prop.algorithms.LZWTest}}
+\doxysubsubsection{\texorpdfstring{getOutputs()}{getOutputs()}}
+{\footnotesize\ttfamily List$<$byte\mbox{[}$\,$\mbox{]}$>$ prop.\+algorithms.\+L\+Z\+W\+Test.\+get\+Outputs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Reimplemented from \mbox{\hyperlink{classprop_1_1algorithms_1_1base_1_1_base_algorithm_test_a692c559f79ebb855bef4fecb338674d2}{prop.\+algorithms.\+base.\+Base\+Algorithm\+Test}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{34                                    \{}
+\DoxyCodeLine{35     \textcolor{keywordflow}{return} \textcolor{keyword}{new} ArrayList<byte[]>() \{}
+\DoxyCodeLine{36       \{}
+\DoxyCodeLine{37         add(\textcolor{keyword}{new} \textcolor{keywordtype}{byte}[]\{(byte) 0x44, (\textcolor{keywordtype}{byte}) 0x00, (byte) 0x03, (\textcolor{keywordtype}{byte}) 0x4e, (byte) 0x00, (\textcolor{keywordtype}{byte}) 0x02,}
+\DoxyCodeLine{38             (byte) 0x51, (\textcolor{keywordtype}{byte}) 0x05, (byte) 0x07, (\textcolor{keywordtype}{byte}) 0x69, (byte) 0x0a, (\textcolor{keywordtype}{byte}) 0x06,}
+\DoxyCodeLine{39             (byte) 0x6f, (\textcolor{keywordtype}{byte}) 0x04, (byte) 0x05, (\textcolor{keywordtype}{byte}) 0x33, (byte) 0x00, (\textcolor{keywordtype}{byte}) 0x02,}
+\DoxyCodeLine{40             (byte) 0x44, (\textcolor{keywordtype}{byte}) 0x05, (byte) 0x04, (\textcolor{keywordtype}{byte}) 0x20, (byte) 0x0c, (\textcolor{keywordtype}{byte}) 0x04,}
+\DoxyCodeLine{41             (byte) 0x41, (\textcolor{keywordtype}{byte}) 0x00, (byte) 0x02, (\textcolor{keywordtype}{byte}) 0x4d, (byte) 0x01, (\textcolor{keywordtype}{byte}) 0x06,}
+\DoxyCodeLine{42             (byte) 0x4e, (\textcolor{keywordtype}{byte}) 0x03, (byte) 0x04, (\textcolor{keywordtype}{byte}) 0x68, (byte) 0x04, (\textcolor{keywordtype}{byte}) 0x03\}}
+\DoxyCodeLine{43         );}
+\DoxyCodeLine{44         add(\textcolor{keyword}{new} \textcolor{keywordtype}{byte}[]\{(byte) 0x61, (\textcolor{keywordtype}{byte}) 0x02, (byte) 0x06, (\textcolor{keywordtype}{byte}) 0x63, (byte) 0x04, (\textcolor{keywordtype}{byte}) 0x06,}
+\DoxyCodeLine{45             (byte) 0x65, (\textcolor{keywordtype}{byte}) 0x06, (byte) 0x06, (\textcolor{keywordtype}{byte}) 0x67, (byte) 0x08, (\textcolor{keywordtype}{byte}) 0x06,}
+\DoxyCodeLine{46             (byte) 0x69, (\textcolor{keywordtype}{byte}) 0x0a, (byte) 0x06, (\textcolor{keywordtype}{byte}) 0x6b, (byte) 0x0c, (\textcolor{keywordtype}{byte}) 0x06,}
+\DoxyCodeLine{47             (byte) 0x6d, (\textcolor{keywordtype}{byte}) 0x0e, (byte) 0x06, (\textcolor{keywordtype}{byte}) 0x6f, (byte) 0x00, (\textcolor{keywordtype}{byte}) 0x07,}
+\DoxyCodeLine{48             (byte) 0x71, (\textcolor{keywordtype}{byte}) 0x02, (byte) 0x07, (\textcolor{keywordtype}{byte}) 0x73, (byte) 0x04, (\textcolor{keywordtype}{byte}) 0x07,}
+\DoxyCodeLine{49             (byte) 0x75, (\textcolor{keywordtype}{byte}) 0x06, (byte) 0x07, (\textcolor{keywordtype}{byte}) 0x77, (byte) 0x08, (\textcolor{keywordtype}{byte}) 0x07,}
+\DoxyCodeLine{50             (byte) 0x79, (\textcolor{keywordtype}{byte}) 0x0a, (byte) 0x07, (\textcolor{keywordtype}{byte}) 0x21, (byte) 0x0f, (\textcolor{keywordtype}{byte}) 0x05,}
+\DoxyCodeLine{51             (byte) 0x24, (\textcolor{keywordtype}{byte}) 0x05, (byte) 0x02, (\textcolor{keywordtype}{byte}) 0x26, (byte) 0x0f, (\textcolor{keywordtype}{byte}) 0x02,}
+\DoxyCodeLine{52             (byte) 0x28, (\textcolor{keywordtype}{byte}) 0x09, (byte) 0x02, (\textcolor{keywordtype}{byte}) 0x3d, (byte) 0x0f, (\textcolor{keywordtype}{byte}) 0x03,}
+\DoxyCodeLine{53             (byte) 0x5e, (\textcolor{keywordtype}{byte}) 0x0c, (byte) 0x07, (\textcolor{keywordtype}{byte}) 0x40, (byte) 0x03, (\textcolor{keywordtype}{byte}) 0x02,}
+\DoxyCodeLine{54             (byte) 0x7e, (\textcolor{keywordtype}{byte}) 0x0d, (byte) 0x05, (\textcolor{keywordtype}{byte}) 0x5b, (byte) 0x0b, (\textcolor{keywordtype}{byte}) 0x07,}
+\DoxyCodeLine{55             (byte) 0x7d, (\textcolor{keywordtype}{byte}) 0x0d, (byte) 0x02, (\textcolor{keywordtype}{byte}) 0x2c, (byte) 0x0a, (\textcolor{keywordtype}{byte}) 0x03,}
+\DoxyCodeLine{56             (byte) 0x3b, (\textcolor{keywordtype}{byte}) 0x0f, (byte) 0x03\}}
+\DoxyCodeLine{57         );}
+\DoxyCodeLine{58         add(\textcolor{keyword}{new} \textcolor{keywordtype}{byte}[]\{(byte) 0x3f, (\textcolor{keywordtype}{byte}) 0x00, (byte) 0x10, (\textcolor{keywordtype}{byte}) 0x01, (byte) 0x12, (\textcolor{keywordtype}{byte}) 0x10,}
+\DoxyCodeLine{59             (byte) 0x03, (\textcolor{keywordtype}{byte}) 0x10\}}
+\DoxyCodeLine{60         );}
+\DoxyCodeLine{61       \}}
+\DoxyCodeLine{62     \};}
+\DoxyCodeLine{63   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1_l_z_w_test_ac50d3839f7e691e23df805425435ef73}\label{classprop_1_1algorithms_1_1_l_z_w_test_ac50d3839f7e691e23df805425435ef73}} 
+\index{prop.algorithms.LZWTest@{prop.algorithms.LZWTest}!testLZW@{testLZW}}
+\index{testLZW@{testLZW}!prop.algorithms.LZWTest@{prop.algorithms.LZWTest}}
+\doxysubsubsection{\texorpdfstring{testLZW()}{testLZW()}}
+{\footnotesize\ttfamily void prop.\+algorithms.\+L\+Z\+W\+Test.\+test\+L\+ZW (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{17                         \{}
+\DoxyCodeLine{18     \mbox{\hyperlink{classprop_1_1algorithms_1_1base_1_1_base_algorithm_test_ad094da463e3ff06c471086fe8fa38d95}{test}}(Algorithm.LZW.getAlgorithm());}
+\DoxyCodeLine{19   \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Victor/\+Desktop/sippy2/src/test/java/prop/algorithms/\mbox{\hyperlink{_l_z_w_test_8java}{L\+Z\+W\+Test.\+java}}\end{DoxyCompactItemize}

@@ -1,0 +1,152 @@
+\hypertarget{classprop_1_1utils_1_1_file_utils_test}{}\doxysection{prop.\+utils.\+File\+Utils\+Test Class Reference}
+\label{classprop_1_1utils_1_1_file_utils_test}\index{prop.utils.FileUtilsTest@{prop.utils.FileUtilsTest}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classprop_1_1utils_1_1_file_utils_test_a775d3e7f039dc61f57532ecd224c3ed6}{change\+Extension}} ()
+\item 
+void \mbox{\hyperlink{classprop_1_1utils_1_1_file_utils_test_a3748360ceacd01ae027e040f52bbe185}{get\+File\+Extension}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static final String \mbox{\hyperlink{classprop_1_1utils_1_1_file_utils_test_ac9caed3f0030d74f9e4846442b2f4b57}{D\+OT}} = \char`\"{}.\char`\"{}
+\item 
+static final String \mbox{\hyperlink{classprop_1_1utils_1_1_file_utils_test_a073f093037494696b8947b2a8f9b48cc}{E\+X\+T\+E\+N\+S\+I\+O\+N\+\_\+1}} = \char`\"{}txt\char`\"{}
+\item 
+static final String \mbox{\hyperlink{classprop_1_1utils_1_1_file_utils_test_a0091ef1f50c087f2be0a781b6edc6e73}{E\+X\+T\+E\+N\+S\+I\+O\+N\+\_\+2}} = \char`\"{}ppm\char`\"{}
+\item 
+static String \mbox{\hyperlink{classprop_1_1utils_1_1_file_utils_test_abe1f34433c6c51c6cc98e3e870eac0a5}{P\+A\+T\+H\+\_\+1}} = \char`\"{}test/test\char`\"{}
+\item 
+static String \mbox{\hyperlink{classprop_1_1utils_1_1_file_utils_test_a58fd7f134f86e407733b1bbd6fe56c9c}{P\+A\+T\+H\+\_\+1\+\_\+\+S\+I\+P\+PY}} = \char`\"{}test/test\char`\"{}
+\item 
+static String \mbox{\hyperlink{classprop_1_1utils_1_1_file_utils_test_a29a7f214feb6bc73cc106fee3edfa980}{P\+A\+T\+H\+\_\+2}} = \char`\"{}test/test/test/test/test/test\char`\"{}
+\item 
+static String \mbox{\hyperlink{classprop_1_1utils_1_1_file_utils_test_ae409981809aa8bcbdb101130f6c735d1}{P\+A\+T\+H\+\_\+2\+\_\+\+S\+I\+P\+PY}} = \char`\"{}test/test/test/test/test/test\char`\"{}
+\item 
+static String \mbox{\hyperlink{classprop_1_1utils_1_1_file_utils_test_a3d2c56d3c9c9dbead902c744102a6109}{P\+A\+T\+H\+\_\+3}} = \char`\"{}C\+:\textbackslash{}\textbackslash{}\+Users\textbackslash{}\textbackslash{}\+Prop\textbackslash{}\textbackslash{}\+Test\char`\"{}
+\item 
+static String \mbox{\hyperlink{classprop_1_1utils_1_1_file_utils_test_a766c41f502d70a04e413f687cfffcdda}{P\+A\+T\+H\+\_\+3\+\_\+\+S\+I\+P\+PY}} = \char`\"{}C\+:\textbackslash{}\textbackslash{}\+Users\textbackslash{}\textbackslash{}\+Prop\textbackslash{}\textbackslash{}\+Test\char`\"{}
+\item 
+static String \mbox{\hyperlink{classprop_1_1utils_1_1_file_utils_test_ab78052d441c65ac447c3c56f229c4fd9}{P\+A\+T\+H\+\_\+4}} = \char`\"{}C\+:\textbackslash{}\textbackslash{}\+Users\textbackslash{}\textbackslash{}\+Prop\textbackslash{}\textbackslash{}\+Test.\+sippy\char`\"{}
+\item 
+static String \mbox{\hyperlink{classprop_1_1utils_1_1_file_utils_test_acbaeea6a041d45223812df791c504de2}{P\+A\+T\+H\+\_\+4\+\_\+\+S\+I\+P\+PY}} = \char`\"{}C\+:\textbackslash{}\textbackslash{}\+Users\textbackslash{}\textbackslash{}\+Prop\textbackslash{}\textbackslash{}\+Test.\+sippy\char`\"{}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classprop_1_1utils_1_1_file_utils_test_a775d3e7f039dc61f57532ecd224c3ed6}\label{classprop_1_1utils_1_1_file_utils_test_a775d3e7f039dc61f57532ecd224c3ed6}} 
+\index{prop.utils.FileUtilsTest@{prop.utils.FileUtilsTest}!changeExtension@{changeExtension}}
+\index{changeExtension@{changeExtension}!prop.utils.FileUtilsTest@{prop.utils.FileUtilsTest}}
+\doxysubsubsection{\texorpdfstring{changeExtension()}{changeExtension()}}
+{\footnotesize\ttfamily void prop.\+utils.\+File\+Utils\+Test.\+change\+Extension (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{34                                 \{}
+\DoxyCodeLine{35     assertEquals(FileUtils.changeExtension(\mbox{\hyperlink{classprop_1_1utils_1_1_file_utils_test_abe1f34433c6c51c6cc98e3e870eac0a5}{PATH\_1}}, Constants.DEFAULT\_ENCODING\_EXTENSION),}
+\DoxyCodeLine{36         \mbox{\hyperlink{classprop_1_1utils_1_1_file_utils_test_a58fd7f134f86e407733b1bbd6fe56c9c}{PATH\_1\_SIPPY}});}
+\DoxyCodeLine{37     assertEquals(FileUtils.changeExtension(\mbox{\hyperlink{classprop_1_1utils_1_1_file_utils_test_a29a7f214feb6bc73cc106fee3edfa980}{PATH\_2}}, Constants.DEFAULT\_ENCODING\_EXTENSION),}
+\DoxyCodeLine{38         \mbox{\hyperlink{classprop_1_1utils_1_1_file_utils_test_ae409981809aa8bcbdb101130f6c735d1}{PATH\_2\_SIPPY}});}
+\DoxyCodeLine{39     assertEquals(FileUtils.changeExtension(\mbox{\hyperlink{classprop_1_1utils_1_1_file_utils_test_a3d2c56d3c9c9dbead902c744102a6109}{PATH\_3}}, Constants.DEFAULT\_ENCODING\_EXTENSION),}
+\DoxyCodeLine{40         \mbox{\hyperlink{classprop_1_1utils_1_1_file_utils_test_a766c41f502d70a04e413f687cfffcdda}{PATH\_3\_SIPPY}});}
+\DoxyCodeLine{41     assertEquals(FileUtils.changeExtension(\mbox{\hyperlink{classprop_1_1utils_1_1_file_utils_test_ab78052d441c65ac447c3c56f229c4fd9}{PATH\_4}}, Constants.DEFAULT\_ENCODING\_EXTENSION),}
+\DoxyCodeLine{42         \mbox{\hyperlink{classprop_1_1utils_1_1_file_utils_test_acbaeea6a041d45223812df791c504de2}{PATH\_4\_SIPPY}});}
+\DoxyCodeLine{43   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1utils_1_1_file_utils_test_a3748360ceacd01ae027e040f52bbe185}\label{classprop_1_1utils_1_1_file_utils_test_a3748360ceacd01ae027e040f52bbe185}} 
+\index{prop.utils.FileUtilsTest@{prop.utils.FileUtilsTest}!getFileExtension@{getFileExtension}}
+\index{getFileExtension@{getFileExtension}!prop.utils.FileUtilsTest@{prop.utils.FileUtilsTest}}
+\doxysubsubsection{\texorpdfstring{getFileExtension()}{getFileExtension()}}
+{\footnotesize\ttfamily void prop.\+utils.\+File\+Utils\+Test.\+get\+File\+Extension (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{46                                  \{}
+\DoxyCodeLine{47     assertEquals(FileUtils.getFileExtension(\mbox{\hyperlink{classprop_1_1utils_1_1_file_utils_test_abe1f34433c6c51c6cc98e3e870eac0a5}{PATH\_1}}), \mbox{\hyperlink{classprop_1_1utils_1_1_file_utils_test_a073f093037494696b8947b2a8f9b48cc}{EXTENSION\_1}});}
+\DoxyCodeLine{48     assertEquals(FileUtils.getFileExtension(\mbox{\hyperlink{classprop_1_1utils_1_1_file_utils_test_a29a7f214feb6bc73cc106fee3edfa980}{PATH\_2}}), \mbox{\hyperlink{classprop_1_1utils_1_1_file_utils_test_a0091ef1f50c087f2be0a781b6edc6e73}{EXTENSION\_2}});}
+\DoxyCodeLine{49     assertEquals(FileUtils.getFileExtension(\mbox{\hyperlink{classprop_1_1utils_1_1_file_utils_test_a3d2c56d3c9c9dbead902c744102a6109}{PATH\_3}}), \mbox{\hyperlink{classprop_1_1utils_1_1_file_utils_test_a0091ef1f50c087f2be0a781b6edc6e73}{EXTENSION\_2}});}
+\DoxyCodeLine{50     assertEquals(FileUtils.getFileExtension(\mbox{\hyperlink{classprop_1_1utils_1_1_file_utils_test_ab78052d441c65ac447c3c56f229c4fd9}{PATH\_4}}), \mbox{\hyperlink{classprop_1_1utils_1_1_file_utils_test_a073f093037494696b8947b2a8f9b48cc}{EXTENSION\_1}});}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52     assertEquals(FileUtils.getFileExtension(\mbox{\hyperlink{classprop_1_1utils_1_1_file_utils_test_a58fd7f134f86e407733b1bbd6fe56c9c}{PATH\_1\_SIPPY}}), Constants.DEFAULT\_ENCODING\_EXTENSION);}
+\DoxyCodeLine{53     assertEquals(FileUtils.getFileExtension(\mbox{\hyperlink{classprop_1_1utils_1_1_file_utils_test_ae409981809aa8bcbdb101130f6c735d1}{PATH\_2\_SIPPY}}), Constants.DEFAULT\_ENCODING\_EXTENSION);}
+\DoxyCodeLine{54     assertEquals(FileUtils.getFileExtension(\mbox{\hyperlink{classprop_1_1utils_1_1_file_utils_test_a766c41f502d70a04e413f687cfffcdda}{PATH\_3\_SIPPY}}), Constants.DEFAULT\_ENCODING\_EXTENSION);}
+\DoxyCodeLine{55     assertEquals(FileUtils.getFileExtension(\mbox{\hyperlink{classprop_1_1utils_1_1_file_utils_test_acbaeea6a041d45223812df791c504de2}{PATH\_4\_SIPPY}}), Constants.DEFAULT\_ENCODING\_EXTENSION);}
+\DoxyCodeLine{56   \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classprop_1_1utils_1_1_file_utils_test_ac9caed3f0030d74f9e4846442b2f4b57}\label{classprop_1_1utils_1_1_file_utils_test_ac9caed3f0030d74f9e4846442b2f4b57}} 
+\index{prop.utils.FileUtilsTest@{prop.utils.FileUtilsTest}!DOT@{DOT}}
+\index{DOT@{DOT}!prop.utils.FileUtilsTest@{prop.utils.FileUtilsTest}}
+\doxysubsubsection{\texorpdfstring{DOT}{DOT}}
+{\footnotesize\ttfamily final String prop.\+utils.\+File\+Utils\+Test.\+D\+OT = \char`\"{}.\char`\"{}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{classprop_1_1utils_1_1_file_utils_test_a073f093037494696b8947b2a8f9b48cc}\label{classprop_1_1utils_1_1_file_utils_test_a073f093037494696b8947b2a8f9b48cc}} 
+\index{prop.utils.FileUtilsTest@{prop.utils.FileUtilsTest}!EXTENSION\_1@{EXTENSION\_1}}
+\index{EXTENSION\_1@{EXTENSION\_1}!prop.utils.FileUtilsTest@{prop.utils.FileUtilsTest}}
+\doxysubsubsection{\texorpdfstring{EXTENSION\_1}{EXTENSION\_1}}
+{\footnotesize\ttfamily final String prop.\+utils.\+File\+Utils\+Test.\+E\+X\+T\+E\+N\+S\+I\+O\+N\+\_\+1 = \char`\"{}txt\char`\"{}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{classprop_1_1utils_1_1_file_utils_test_a0091ef1f50c087f2be0a781b6edc6e73}\label{classprop_1_1utils_1_1_file_utils_test_a0091ef1f50c087f2be0a781b6edc6e73}} 
+\index{prop.utils.FileUtilsTest@{prop.utils.FileUtilsTest}!EXTENSION\_2@{EXTENSION\_2}}
+\index{EXTENSION\_2@{EXTENSION\_2}!prop.utils.FileUtilsTest@{prop.utils.FileUtilsTest}}
+\doxysubsubsection{\texorpdfstring{EXTENSION\_2}{EXTENSION\_2}}
+{\footnotesize\ttfamily final String prop.\+utils.\+File\+Utils\+Test.\+E\+X\+T\+E\+N\+S\+I\+O\+N\+\_\+2 = \char`\"{}ppm\char`\"{}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{classprop_1_1utils_1_1_file_utils_test_abe1f34433c6c51c6cc98e3e870eac0a5}\label{classprop_1_1utils_1_1_file_utils_test_abe1f34433c6c51c6cc98e3e870eac0a5}} 
+\index{prop.utils.FileUtilsTest@{prop.utils.FileUtilsTest}!PATH\_1@{PATH\_1}}
+\index{PATH\_1@{PATH\_1}!prop.utils.FileUtilsTest@{prop.utils.FileUtilsTest}}
+\doxysubsubsection{\texorpdfstring{PATH\_1}{PATH\_1}}
+{\footnotesize\ttfamily String prop.\+utils.\+File\+Utils\+Test.\+P\+A\+T\+H\+\_\+1 = \char`\"{}test/test\char`\"{}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{classprop_1_1utils_1_1_file_utils_test_a58fd7f134f86e407733b1bbd6fe56c9c}\label{classprop_1_1utils_1_1_file_utils_test_a58fd7f134f86e407733b1bbd6fe56c9c}} 
+\index{prop.utils.FileUtilsTest@{prop.utils.FileUtilsTest}!PATH\_1\_SIPPY@{PATH\_1\_SIPPY}}
+\index{PATH\_1\_SIPPY@{PATH\_1\_SIPPY}!prop.utils.FileUtilsTest@{prop.utils.FileUtilsTest}}
+\doxysubsubsection{\texorpdfstring{PATH\_1\_SIPPY}{PATH\_1\_SIPPY}}
+{\footnotesize\ttfamily String prop.\+utils.\+File\+Utils\+Test.\+P\+A\+T\+H\+\_\+1\+\_\+\+S\+I\+P\+PY = \char`\"{}test/test\char`\"{}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{classprop_1_1utils_1_1_file_utils_test_a29a7f214feb6bc73cc106fee3edfa980}\label{classprop_1_1utils_1_1_file_utils_test_a29a7f214feb6bc73cc106fee3edfa980}} 
+\index{prop.utils.FileUtilsTest@{prop.utils.FileUtilsTest}!PATH\_2@{PATH\_2}}
+\index{PATH\_2@{PATH\_2}!prop.utils.FileUtilsTest@{prop.utils.FileUtilsTest}}
+\doxysubsubsection{\texorpdfstring{PATH\_2}{PATH\_2}}
+{\footnotesize\ttfamily String prop.\+utils.\+File\+Utils\+Test.\+P\+A\+T\+H\+\_\+2 = \char`\"{}test/test/test/test/test/test\char`\"{}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{classprop_1_1utils_1_1_file_utils_test_ae409981809aa8bcbdb101130f6c735d1}\label{classprop_1_1utils_1_1_file_utils_test_ae409981809aa8bcbdb101130f6c735d1}} 
+\index{prop.utils.FileUtilsTest@{prop.utils.FileUtilsTest}!PATH\_2\_SIPPY@{PATH\_2\_SIPPY}}
+\index{PATH\_2\_SIPPY@{PATH\_2\_SIPPY}!prop.utils.FileUtilsTest@{prop.utils.FileUtilsTest}}
+\doxysubsubsection{\texorpdfstring{PATH\_2\_SIPPY}{PATH\_2\_SIPPY}}
+{\footnotesize\ttfamily String prop.\+utils.\+File\+Utils\+Test.\+P\+A\+T\+H\+\_\+2\+\_\+\+S\+I\+P\+PY = \char`\"{}test/test/test/test/test/test\char`\"{}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{classprop_1_1utils_1_1_file_utils_test_a3d2c56d3c9c9dbead902c744102a6109}\label{classprop_1_1utils_1_1_file_utils_test_a3d2c56d3c9c9dbead902c744102a6109}} 
+\index{prop.utils.FileUtilsTest@{prop.utils.FileUtilsTest}!PATH\_3@{PATH\_3}}
+\index{PATH\_3@{PATH\_3}!prop.utils.FileUtilsTest@{prop.utils.FileUtilsTest}}
+\doxysubsubsection{\texorpdfstring{PATH\_3}{PATH\_3}}
+{\footnotesize\ttfamily String prop.\+utils.\+File\+Utils\+Test.\+P\+A\+T\+H\+\_\+3 = \char`\"{}C\+:\textbackslash{}\textbackslash{}\+Users\textbackslash{}\textbackslash{}\+Prop\textbackslash{}\textbackslash{}\+Test\char`\"{}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{classprop_1_1utils_1_1_file_utils_test_a766c41f502d70a04e413f687cfffcdda}\label{classprop_1_1utils_1_1_file_utils_test_a766c41f502d70a04e413f687cfffcdda}} 
+\index{prop.utils.FileUtilsTest@{prop.utils.FileUtilsTest}!PATH\_3\_SIPPY@{PATH\_3\_SIPPY}}
+\index{PATH\_3\_SIPPY@{PATH\_3\_SIPPY}!prop.utils.FileUtilsTest@{prop.utils.FileUtilsTest}}
+\doxysubsubsection{\texorpdfstring{PATH\_3\_SIPPY}{PATH\_3\_SIPPY}}
+{\footnotesize\ttfamily String prop.\+utils.\+File\+Utils\+Test.\+P\+A\+T\+H\+\_\+3\+\_\+\+S\+I\+P\+PY = \char`\"{}C\+:\textbackslash{}\textbackslash{}\+Users\textbackslash{}\textbackslash{}\+Prop\textbackslash{}\textbackslash{}\+Test\char`\"{}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{classprop_1_1utils_1_1_file_utils_test_ab78052d441c65ac447c3c56f229c4fd9}\label{classprop_1_1utils_1_1_file_utils_test_ab78052d441c65ac447c3c56f229c4fd9}} 
+\index{prop.utils.FileUtilsTest@{prop.utils.FileUtilsTest}!PATH\_4@{PATH\_4}}
+\index{PATH\_4@{PATH\_4}!prop.utils.FileUtilsTest@{prop.utils.FileUtilsTest}}
+\doxysubsubsection{\texorpdfstring{PATH\_4}{PATH\_4}}
+{\footnotesize\ttfamily String prop.\+utils.\+File\+Utils\+Test.\+P\+A\+T\+H\+\_\+4 = \char`\"{}C\+:\textbackslash{}\textbackslash{}\+Users\textbackslash{}\textbackslash{}\+Prop\textbackslash{}\textbackslash{}\+Test.\+sippy\char`\"{}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{classprop_1_1utils_1_1_file_utils_test_acbaeea6a041d45223812df791c504de2}\label{classprop_1_1utils_1_1_file_utils_test_acbaeea6a041d45223812df791c504de2}} 
+\index{prop.utils.FileUtilsTest@{prop.utils.FileUtilsTest}!PATH\_4\_SIPPY@{PATH\_4\_SIPPY}}
+\index{PATH\_4\_SIPPY@{PATH\_4\_SIPPY}!prop.utils.FileUtilsTest@{prop.utils.FileUtilsTest}}
+\doxysubsubsection{\texorpdfstring{PATH\_4\_SIPPY}{PATH\_4\_SIPPY}}
+{\footnotesize\ttfamily String prop.\+utils.\+File\+Utils\+Test.\+P\+A\+T\+H\+\_\+4\+\_\+\+S\+I\+P\+PY = \char`\"{}C\+:\textbackslash{}\textbackslash{}\+Users\textbackslash{}\textbackslash{}\+Prop\textbackslash{}\textbackslash{}\+Test.\+sippy\char`\"{}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Victor/\+Desktop/sippy2/src/test/java/prop/utils/\mbox{\hyperlink{_file_utils_test_8java}{File\+Utils\+Test.\+java}}\end{DoxyCompactItemize}

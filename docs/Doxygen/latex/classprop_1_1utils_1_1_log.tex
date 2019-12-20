@@ -1,0 +1,172 @@
+\hypertarget{classprop_1_1utils_1_1_log}{}\doxysection{prop.\+utils.\+Log Class Reference}
+\label{classprop_1_1utils_1_1_log}\index{prop.utils.Log@{prop.utils.Log}}
+
+
+Classe usada per mostrar missatges per la consola a mode de debug.  
+
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classprop_1_1utils_1_1_log_a2866ddccbf70a4248b9b653969655e22}{log}} (String tag, Exception exc)
+\item 
+void \mbox{\hyperlink{classprop_1_1utils_1_1_log_a4baa064f940f90d87685f5b5bcf47761}{log}} (String tag, String message)
+\item 
+void \mbox{\hyperlink{classprop_1_1utils_1_1_log_a2fb76eccd0eeaf34f7c686625fa48b2c}{d}} (String tag, Exception exc)
+\item 
+void \mbox{\hyperlink{classprop_1_1utils_1_1_log_a5026d377ccb8b9f961e75204b5809574}{d}} (String tag, String message)
+\item 
+void \mbox{\hyperlink{classprop_1_1utils_1_1_log_a7d85bf31b0c7cfadc2f3ab1575f41b2f}{e}} (String tag, Exception exc)
+\item 
+void \mbox{\hyperlink{classprop_1_1utils_1_1_log_a8c4c3101fb8265231c267ef125fb5705}{e}} (String tag, String message)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classprop_1_1utils_1_1_log_a2671927e90d90c716104e30f4fb4b01c}{log\+Internal}} (String tag, String message)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static final boolean \mbox{\hyperlink{classprop_1_1utils_1_1_log_a9dab9e5936fdf6b13a335c574913831a}{D\+E\+B\+U\+G\+\_\+\+M\+O\+DE}} = true
+\item 
+static final boolean \mbox{\hyperlink{classprop_1_1utils_1_1_log_a341ed23a014742d7db4c7ebdb068decd}{S\+H\+O\+W\+\_\+\+E\+X\+C\+E\+P\+T\+I\+O\+N\+\_\+\+T\+R\+A\+C\+ES}} = true
+\item 
+static final Simple\+Date\+Format \mbox{\hyperlink{classprop_1_1utils_1_1_log_a2ae330511a33120ed0ddeebb721b152c}{format}} = new Simple\+Date\+Format(\char`\"{}H\+H\+:mm\+:ss\+:\+S\+SS\char`\"{})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe usada per mostrar missatges per la consola a mode de debug. 
+
+Author\+: Victor Blanco 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classprop_1_1utils_1_1_log_a2fb76eccd0eeaf34f7c686625fa48b2c}\label{classprop_1_1utils_1_1_log_a2fb76eccd0eeaf34f7c686625fa48b2c}} 
+\index{prop.utils.Log@{prop.utils.Log}!d@{d}}
+\index{d@{d}!prop.utils.Log@{prop.utils.Log}}
+\doxysubsubsection{\texorpdfstring{d()}{d()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void prop.\+utils.\+Log.\+d (\begin{DoxyParamCaption}\item[{String}]{tag,  }\item[{Exception}]{exc }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{25                                            \{}
+\DoxyCodeLine{26     this.\mbox{\hyperlink{classprop_1_1utils_1_1_log_a2fb76eccd0eeaf34f7c686625fa48b2c}{d}}(tag, exc.getMessage());}
+\DoxyCodeLine{27     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classprop_1_1utils_1_1_log_a341ed23a014742d7db4c7ebdb068decd}{SHOW\_EXCEPTION\_TRACES}}) \{}
+\DoxyCodeLine{28       exc.printStackTrace();}
+\DoxyCodeLine{29     \}}
+\DoxyCodeLine{30   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1utils_1_1_log_a5026d377ccb8b9f961e75204b5809574}\label{classprop_1_1utils_1_1_log_a5026d377ccb8b9f961e75204b5809574}} 
+\index{prop.utils.Log@{prop.utils.Log}!d@{d}}
+\index{d@{d}!prop.utils.Log@{prop.utils.Log}}
+\doxysubsubsection{\texorpdfstring{d()}{d()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void prop.\+utils.\+Log.\+d (\begin{DoxyParamCaption}\item[{String}]{tag,  }\item[{String}]{message }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{32                                             \{}
+\DoxyCodeLine{33     \mbox{\hyperlink{classprop_1_1utils_1_1_log_a2671927e90d90c716104e30f4fb4b01c}{logInternal}}(\textcolor{stringliteral}{"\(\backslash\)033[1;36mDebug\(\backslash\)033[0;36m "} + tag + \textcolor{stringliteral}{"\(\backslash\)u001B[0m"}, message);}
+\DoxyCodeLine{34   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1utils_1_1_log_a7d85bf31b0c7cfadc2f3ab1575f41b2f}\label{classprop_1_1utils_1_1_log_a7d85bf31b0c7cfadc2f3ab1575f41b2f}} 
+\index{prop.utils.Log@{prop.utils.Log}!e@{e}}
+\index{e@{e}!prop.utils.Log@{prop.utils.Log}}
+\doxysubsubsection{\texorpdfstring{e()}{e()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void prop.\+utils.\+Log.\+e (\begin{DoxyParamCaption}\item[{String}]{tag,  }\item[{Exception}]{exc }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{36                                            \{}
+\DoxyCodeLine{37     this.\mbox{\hyperlink{classprop_1_1utils_1_1_log_a7d85bf31b0c7cfadc2f3ab1575f41b2f}{e}}(tag, exc.getMessage());}
+\DoxyCodeLine{38     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classprop_1_1utils_1_1_log_a341ed23a014742d7db4c7ebdb068decd}{SHOW\_EXCEPTION\_TRACES}}) \{}
+\DoxyCodeLine{39       exc.printStackTrace();}
+\DoxyCodeLine{40     \}}
+\DoxyCodeLine{41   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1utils_1_1_log_a8c4c3101fb8265231c267ef125fb5705}\label{classprop_1_1utils_1_1_log_a8c4c3101fb8265231c267ef125fb5705}} 
+\index{prop.utils.Log@{prop.utils.Log}!e@{e}}
+\index{e@{e}!prop.utils.Log@{prop.utils.Log}}
+\doxysubsubsection{\texorpdfstring{e()}{e()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void prop.\+utils.\+Log.\+e (\begin{DoxyParamCaption}\item[{String}]{tag,  }\item[{String}]{message }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{43                                             \{}
+\DoxyCodeLine{44     \mbox{\hyperlink{classprop_1_1utils_1_1_log_a2671927e90d90c716104e30f4fb4b01c}{logInternal}}(\textcolor{stringliteral}{"\(\backslash\)033[1;31mError\(\backslash\)033[0;31m "} + tag + \textcolor{stringliteral}{"\(\backslash\)u001B[0m"}, message);}
+\DoxyCodeLine{45   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1utils_1_1_log_a2866ddccbf70a4248b9b653969655e22}\label{classprop_1_1utils_1_1_log_a2866ddccbf70a4248b9b653969655e22}} 
+\index{prop.utils.Log@{prop.utils.Log}!log@{log}}
+\index{log@{log}!prop.utils.Log@{prop.utils.Log}}
+\doxysubsubsection{\texorpdfstring{log()}{log()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void prop.\+utils.\+Log.\+log (\begin{DoxyParamCaption}\item[{String}]{tag,  }\item[{Exception}]{exc }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{17                                              \{}
+\DoxyCodeLine{18     this.\mbox{\hyperlink{classprop_1_1utils_1_1_log_a2866ddccbf70a4248b9b653969655e22}{log}}(tag, exc.getMessage());}
+\DoxyCodeLine{19   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1utils_1_1_log_a4baa064f940f90d87685f5b5bcf47761}\label{classprop_1_1utils_1_1_log_a4baa064f940f90d87685f5b5bcf47761}} 
+\index{prop.utils.Log@{prop.utils.Log}!log@{log}}
+\index{log@{log}!prop.utils.Log@{prop.utils.Log}}
+\doxysubsubsection{\texorpdfstring{log()}{log()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void prop.\+utils.\+Log.\+log (\begin{DoxyParamCaption}\item[{String}]{tag,  }\item[{String}]{message }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{21                                               \{}
+\DoxyCodeLine{22     this.\mbox{\hyperlink{classprop_1_1utils_1_1_log_a2fb76eccd0eeaf34f7c686625fa48b2c}{d}}(tag, message);}
+\DoxyCodeLine{23   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1utils_1_1_log_a2671927e90d90c716104e30f4fb4b01c}\label{classprop_1_1utils_1_1_log_a2671927e90d90c716104e30f4fb4b01c}} 
+\index{prop.utils.Log@{prop.utils.Log}!logInternal@{logInternal}}
+\index{logInternal@{logInternal}!prop.utils.Log@{prop.utils.Log}}
+\doxysubsubsection{\texorpdfstring{logInternal()}{logInternal()}}
+{\footnotesize\ttfamily void prop.\+utils.\+Log.\+log\+Internal (\begin{DoxyParamCaption}\item[{String}]{tag,  }\item[{String}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{47                                                        \{}
+\DoxyCodeLine{48     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classprop_1_1utils_1_1_log_a9dab9e5936fdf6b13a335c574913831a}{DEBUG\_MODE}}) \{}
+\DoxyCodeLine{49       System.out.print(\textcolor{stringliteral}{"\(\backslash\)n"});}
+\DoxyCodeLine{50       System.out}
+\DoxyCodeLine{51           .println(\textcolor{stringliteral}{"["} + \mbox{\hyperlink{classprop_1_1utils_1_1_log_a2ae330511a33120ed0ddeebb721b152c}{format}}.format(System.currentTimeMillis()) + \textcolor{stringliteral}{"] "} + tag + \textcolor{stringliteral}{" : "} + message);}
+\DoxyCodeLine{52       System.out.print(\textcolor{stringliteral}{"\(\backslash\)n"});}
+\DoxyCodeLine{53     \}}
+\DoxyCodeLine{54   \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classprop_1_1utils_1_1_log_a9dab9e5936fdf6b13a335c574913831a}\label{classprop_1_1utils_1_1_log_a9dab9e5936fdf6b13a335c574913831a}} 
+\index{prop.utils.Log@{prop.utils.Log}!DEBUG\_MODE@{DEBUG\_MODE}}
+\index{DEBUG\_MODE@{DEBUG\_MODE}!prop.utils.Log@{prop.utils.Log}}
+\doxysubsubsection{\texorpdfstring{DEBUG\_MODE}{DEBUG\_MODE}}
+{\footnotesize\ttfamily final boolean prop.\+utils.\+Log.\+D\+E\+B\+U\+G\+\_\+\+M\+O\+DE = true\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{classprop_1_1utils_1_1_log_a2ae330511a33120ed0ddeebb721b152c}\label{classprop_1_1utils_1_1_log_a2ae330511a33120ed0ddeebb721b152c}} 
+\index{prop.utils.Log@{prop.utils.Log}!format@{format}}
+\index{format@{format}!prop.utils.Log@{prop.utils.Log}}
+\doxysubsubsection{\texorpdfstring{format}{format}}
+{\footnotesize\ttfamily final Simple\+Date\+Format prop.\+utils.\+Log.\+format = new Simple\+Date\+Format(\char`\"{}H\+H\+:mm\+:ss\+:\+S\+SS\char`\"{})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{classprop_1_1utils_1_1_log_a341ed23a014742d7db4c7ebdb068decd}\label{classprop_1_1utils_1_1_log_a341ed23a014742d7db4c7ebdb068decd}} 
+\index{prop.utils.Log@{prop.utils.Log}!SHOW\_EXCEPTION\_TRACES@{SHOW\_EXCEPTION\_TRACES}}
+\index{SHOW\_EXCEPTION\_TRACES@{SHOW\_EXCEPTION\_TRACES}!prop.utils.Log@{prop.utils.Log}}
+\doxysubsubsection{\texorpdfstring{SHOW\_EXCEPTION\_TRACES}{SHOW\_EXCEPTION\_TRACES}}
+{\footnotesize\ttfamily final boolean prop.\+utils.\+Log.\+S\+H\+O\+W\+\_\+\+E\+X\+C\+E\+P\+T\+I\+O\+N\+\_\+\+T\+R\+A\+C\+ES = true\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Victor/\+Desktop/sippy2/src/main/java/prop/utils/\mbox{\hyperlink{_log_8java}{Log.\+java}}\end{DoxyCompactItemize}

@@ -28,8 +28,8 @@ public class ZipTransaction extends Transaction<Statistics> {
 
   /**
    * @brief Constructora
-   *     \pre item existeix, algorithm existeix
-   *     \post Es ccrea una instancia de Zip
+   * \pre item existeix, algorithm existeix
+   *  \post Es ccrea una instancia de Zip
    */
   public ZipTransaction(String path, String outputPath, Algorithm algorithm) {
     this.path = path;
@@ -39,8 +39,8 @@ public class ZipTransaction extends Transaction<Statistics> {
 
   /**
    * @brief Executa la transaccio
-   *     \pre cert
-   *     \post  Es creen les estadístiques i el ZipStream, al acabar s'atura el timer i es setejen
+   * \pre cert
+   *  \post  Es creen les estadístiques i el ZipStream, al acabar s'atura el timer i es setejen
    *     els resultats
    */
   @Override

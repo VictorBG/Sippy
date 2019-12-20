@@ -1,0 +1,493 @@
+\hypertarget{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s}{}\doxysection{prop.\+algorithms.\+lzss.\+L\+Z\+SS Class Reference}
+\label{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s}\index{prop.algorithms.lzss.LZSS@{prop.algorithms.lzss.LZSS}}
+
+
+Main class of L\+Z\+SS algorithm Author\+: Miguel Angel Cabrera.  
+
+
+
+
+Inherits \mbox{\hyperlink{interfaceprop_1_1algorithms_1_1base_1_1_base_algorithm}{prop.\+algorithms.\+base.\+Base\+Algorithm}}.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a282b2a06d41344325f4d1dc93c31d3a4}{unsigned\+Byte\+To\+Int}} (byte b)
+\item 
+byte \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a843744c5c748f07a4107305073c4b3c0}{map\+Offset\+To\+Coded\+Offset}} (byte offset)
+\item 
+byte \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a9600e584b75a5b0190476fd1586a505f}{map\+Length\+To\+Coded\+Length}} (byte length)
+\item 
+int \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_ac010e57b2b333e9c3bb52d8decba9219}{map\+Coded\+Offset\+To\+Offset}} (int offset)
+\item 
+int \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_ab4b3e9696fc1f937acd47e10e7184de9}{map\+Coded\+Length\+To\+Length}} (int length)
+\item 
+byte\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a68646d625c40500f8f01772a40fc435a}{encode}} (byte\mbox{[}$\,$\mbox{]} input)
+\item 
+byte\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_ad92e0f8e456c9f0bdcfdddc61a4a5606}{decode}} (byte\mbox{[}$\,$\mbox{]} input)
+\item 
+byte\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a08318e032b4f8229bab5c10b5cddaefd}{read\+File}} (File file)  throws I\+O\+Exception 
+\item 
+\mbox{\hyperlink{enumprop_1_1algorithms_1_1_algorithm}{Algorithm}} \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_ac603b7f71f0ceb6aa492f8a2191eb5c5}{get\+Algorithm\+Used}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+byte\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_aa6fa8082b7f0e7e92e75917b0969710c}{int\+To\+Bytes}} (final int i)
+\item 
+int \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a41e46b97d43ef8ea5618cc05f47f4da0}{byte\+Array\+To\+Int}} (byte\mbox{[}$\,$\mbox{]} b)
+\item 
+byte \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_aea99f42d29ee3f4038499726d58db2b3}{get\+Length\+Byte3\+Low\+Bits}} (byte length)
+\item 
+byte \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a73ac38a7b1e1cfbb12fa73437751e8bd}{get\+Offset\+Byte3456\+High\+Bits}} (byte offset)
+\item 
+byte \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a3b9493da10682f0684ca981dc5cc4771}{codify\+Offset\+Length\+One\+Byte\+With\+Flag}} (byte offset, byte length)
+\item 
+int\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a17306e5be06c225bcd273baa3fb746ae}{decodify\+Offset\+Length\+One\+Byte}} (byte b1, byte b2)
+\item 
+byte\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_ac99db5078abc09cd14d3d29addd17273}{get\+\_\+offset\+\_\+length\+\_\+encoded\+\_\+12\+\_\+4\+\_\+bits}} (short off, byte len)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Byte\+Array\+Output\+Stream \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a275de1059d43c4da0135cf951efec3a8}{baos}}
+\item 
+int \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a7b9337a467ee15c0dda8075a0eb6e482}{N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+T\+O\+K\+E\+NS}} = 0
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static final int \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a738e2ed4714c851b224e7b6bc0eb4423}{M\+I\+N\+\_\+\+L\+E\+N\+\_\+\+M\+A\+T\+CH}} = 3
+\item 
+static final int \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a51a79b0053f5fa84e4a6450a2c41786c}{B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+Z\+E\+\_\+\+L\+O\+O\+K\+A\+H\+E\+AD}} = 16
+\item 
+static final int \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_ab1a477a0afac29ac50a068249b80e0e1}{B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+Z\+E\+\_\+\+S\+E\+A\+R\+CH}} = 4000
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Main class of L\+Z\+SS algorithm Author\+: Miguel Angel Cabrera. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a41e46b97d43ef8ea5618cc05f47f4da0}\label{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a41e46b97d43ef8ea5618cc05f47f4da0}} 
+\index{prop.algorithms.lzss.LZSS@{prop.algorithms.lzss.LZSS}!byteArrayToInt@{byteArrayToInt}}
+\index{byteArrayToInt@{byteArrayToInt}!prop.algorithms.lzss.LZSS@{prop.algorithms.lzss.LZSS}}
+\doxysubsubsection{\texorpdfstring{byteArrayToInt()}{byteArrayToInt()}}
+{\footnotesize\ttfamily int prop.\+algorithms.\+lzss.\+L\+Z\+S\+S.\+byte\+Array\+To\+Int (\begin{DoxyParamCaption}\item[{byte\mbox{[}$\,$\mbox{]}}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{58                                        \{}
+\DoxyCodeLine{59       \textcolor{keywordflow}{if} (b.length == 4) \{}
+\DoxyCodeLine{60           \textcolor{keywordflow}{return} b[0] << 24 | (b[1] \& 0xff) << 16 | (b[2] \& 0xff) << 8}
+\DoxyCodeLine{61               | (b[3] \& 0xff);}
+\DoxyCodeLine{62       \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (b.length == 2) \{}
+\DoxyCodeLine{63           \textcolor{keywordflow}{return} 0x00 << 24 | 0x00 << 16 | (b[0] \& 0xff) << 8 | (b[1] \& 0xff);}
+\DoxyCodeLine{64       \}}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{67   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a3b9493da10682f0684ca981dc5cc4771}\label{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a3b9493da10682f0684ca981dc5cc4771}} 
+\index{prop.algorithms.lzss.LZSS@{prop.algorithms.lzss.LZSS}!codifyOffsetLengthOneByteWithFlag@{codifyOffsetLengthOneByteWithFlag}}
+\index{codifyOffsetLengthOneByteWithFlag@{codifyOffsetLengthOneByteWithFlag}!prop.algorithms.lzss.LZSS@{prop.algorithms.lzss.LZSS}}
+\doxysubsubsection{\texorpdfstring{codifyOffsetLengthOneByteWithFlag()}{codifyOffsetLengthOneByteWithFlag()}}
+{\footnotesize\ttfamily byte prop.\+algorithms.\+lzss.\+L\+Z\+S\+S.\+codify\+Offset\+Length\+One\+Byte\+With\+Flag (\begin{DoxyParamCaption}\item[{byte}]{offset,  }\item[{byte}]{length }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{81                                                                            \{}
+\DoxyCodeLine{82     \textcolor{comment}{//resto 3}}
+\DoxyCodeLine{83     offset = \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a843744c5c748f07a4107305073c4b3c0}{mapOffsetToCodedOffset}}(offset);}
+\DoxyCodeLine{84     length = \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a9600e584b75a5b0190476fd1586a505f}{mapLengthToCodedLength}}(length);}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86     \textcolor{keywordtype}{byte} o = \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a73ac38a7b1e1cfbb12fa73437751e8bd}{getOffsetByte3456HighBits}}(offset);}
+\DoxyCodeLine{87     \textcolor{keywordtype}{byte} l = \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_aea99f42d29ee3f4038499726d58db2b3}{getLengthByte3LowBits}}(length);}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89     \textcolor{keywordtype}{byte} result = (byte) (o | l);}
+\DoxyCodeLine{90     result = (byte) (result | 0x80); \textcolor{comment}{//higher bit flag=1}}
+\DoxyCodeLine{91     \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{92   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_ad92e0f8e456c9f0bdcfdddc61a4a5606}\label{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_ad92e0f8e456c9f0bdcfdddc61a4a5606}} 
+\index{prop.algorithms.lzss.LZSS@{prop.algorithms.lzss.LZSS}!decode@{decode}}
+\index{decode@{decode}!prop.algorithms.lzss.LZSS@{prop.algorithms.lzss.LZSS}}
+\doxysubsubsection{\texorpdfstring{decode()}{decode()}}
+{\footnotesize\ttfamily byte \mbox{[}$\,$\mbox{]} prop.\+algorithms.\+lzss.\+L\+Z\+S\+S.\+decode (\begin{DoxyParamCaption}\item[{byte\mbox{[}$\,$\mbox{]}}]{input }\end{DoxyParamCaption})}
+
+
+
+Reimplemented from \mbox{\hyperlink{interfaceprop_1_1algorithms_1_1base_1_1_base_algorithm_a4b78a5d0b4071b52dfec14f1243edb3a}{prop.\+algorithms.\+base.\+Base\+Algorithm}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{165                                      \{}
+\DoxyCodeLine{166     \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a275de1059d43c4da0135cf951efec3a8}{baos}} = \textcolor{keyword}{new} ByteArrayOutputStream();}
+\DoxyCodeLine{167     \textcolor{keywordtype}{byte}[] aInt = \textcolor{keyword}{new} \textcolor{keywordtype}{byte}[4];}
+\DoxyCodeLine{168     aInt[0] = input[0];}
+\DoxyCodeLine{169     aInt[1] = input[1];}
+\DoxyCodeLine{170     aInt[2] = input[2];}
+\DoxyCodeLine{171     aInt[3] = input[3];}
+\DoxyCodeLine{172     \textcolor{keywordtype}{int} numFlags = \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a41e46b97d43ef8ea5618cc05f47f4da0}{byteArrayToInt}}(aInt);}
+\DoxyCodeLine{173       \textcolor{keywordflow}{if} (numFlags < 0) \{ numFlags += 256; \}}
+\DoxyCodeLine{174     \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a7b9337a467ee15c0dda8075a0eb6e482}{NUMBER\_OF\_TOKENS}} = numFlags;}
+\DoxyCodeLine{175     numFlags = numFlags + 1; \textcolor{comment}{//special bit at last}}
+\DoxyCodeLine{176     \textcolor{keywordtype}{byte}[] flagArray;}
+\DoxyCodeLine{177       \textcolor{keywordflow}{if} (numFlags \% 8 != 0) \{ flagArray = \textcolor{keyword}{new} \textcolor{keywordtype}{byte}[(numFlags / 8) + 1]; \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{178           flagArray = \textcolor{keyword}{new} \textcolor{keywordtype}{byte}[numFlags / 8];}
+\DoxyCodeLine{179       \}}
+\DoxyCodeLine{180 }
+\DoxyCodeLine{181     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < flagArray.length; i++) \{}
+\DoxyCodeLine{182       flagArray[i] = input[i + 4];}
+\DoxyCodeLine{183     \}}
+\DoxyCodeLine{184     FlagHelper flags = \textcolor{keyword}{new} FlagHelper(\mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a7b9337a467ee15c0dda8075a0eb6e482}{NUMBER\_OF\_TOKENS}}, flagArray);}
+\DoxyCodeLine{185     StringBuilder empty\_string = \textcolor{keyword}{new} StringBuilder();}
+\DoxyCodeLine{186     \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{187       DecodeWindow dw = \textcolor{keyword}{new} DecodeWindow(\mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_ab1a477a0afac29ac50a068249b80e0e1}{BUFFER\_SIZE\_SEARCH}});}
+\DoxyCodeLine{188       \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{189         \textcolor{keywordtype}{int} i = 4 + flagArray.length;}
+\DoxyCodeLine{190         \textcolor{keywordflow}{while} (i < input.length) \{}
+\DoxyCodeLine{191           \textcolor{keywordflow}{if} (flags.next() == \textcolor{keyword}{false}) \{ \textcolor{comment}{//literal}}
+\DoxyCodeLine{192             \textcolor{keywordtype}{byte} byte\_read = input[i];}
+\DoxyCodeLine{193             \textcolor{keywordflow}{if} (\mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a282b2a06d41344325f4d1dc93c31d3a4}{unsignedByteToInt}}(byte\_read) < 128) \{ \textcolor{comment}{//ascii literal}}
+\DoxyCodeLine{194               \textcolor{comment}{//no flag byte, directly char}}
+\DoxyCodeLine{195               dw.addChar((\textcolor{keywordtype}{char}) byte\_read);}
+\DoxyCodeLine{196             \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{197               i++;}
+\DoxyCodeLine{198               \textcolor{keywordtype}{byte} byte2 = input[i];}
+\DoxyCodeLine{199               \textcolor{keywordtype}{byte}[] utfBytes = \{byte\_read, byte2\};}
+\DoxyCodeLine{200               \textcolor{comment}{//String utf = new String(utfBytes);}}
+\DoxyCodeLine{201               String utf = \textcolor{keyword}{new} String(utfBytes, StandardCharsets.UTF\_8);}
+\DoxyCodeLine{202               dw.addChar(utf.charAt(0));}
+\DoxyCodeLine{203             \}}
+\DoxyCodeLine{204           \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{205             \textcolor{comment}{//b was offset\_length}}
+\DoxyCodeLine{206             \textcolor{comment}{//byte o = input[i];}}
+\DoxyCodeLine{207             \textcolor{keywordtype}{byte} off = input[i];}
+\DoxyCodeLine{208             \textcolor{comment}{//off = unsignedByteToInt(input[i]);}}
+\DoxyCodeLine{209             i++;}
+\DoxyCodeLine{210             \textcolor{comment}{//int len = input[i];}}
+\DoxyCodeLine{211             \textcolor{comment}{//len = unsignedByteToInt(input[i]);}}
+\DoxyCodeLine{212             \textcolor{comment}{//OFF\_LEN encoded with 12|4}}
+\DoxyCodeLine{213             \textcolor{keywordtype}{int}[] off\_len = \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a17306e5be06c225bcd273baa3fb746ae}{decodifyOffsetLengthOneByte}}(off, input[i]);}
+\DoxyCodeLine{214             \textcolor{keywordtype}{int} length = off\_len[1];}
+\DoxyCodeLine{215             \textcolor{keywordtype}{int} offset = off\_len[0];}
+\DoxyCodeLine{216             dw.copyCharsSince(length, offset);}
+\DoxyCodeLine{217           \}}
+\DoxyCodeLine{218           i++;}
+\DoxyCodeLine{219         \}}
+\DoxyCodeLine{220       \} \textcolor{keywordflow}{finally} \{}
+\DoxyCodeLine{221         \textcolor{comment}{//BOM UTF-\/8 ??}}
+\DoxyCodeLine{222         \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a275de1059d43c4da0135cf951efec3a8}{baos}}.write(dw.getBuffer().toString().getBytes(StandardCharsets.UTF\_8));}
+\DoxyCodeLine{223         \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a275de1059d43c4da0135cf951efec3a8}{baos}}.close();}
+\DoxyCodeLine{224       \}}
+\DoxyCodeLine{225     \} \textcolor{keywordflow}{catch} (IOException e) \{}
+\DoxyCodeLine{226       e.printStackTrace();}
+\DoxyCodeLine{227     \}}
+\DoxyCodeLine{228     \textcolor{keywordflow}{return} \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a275de1059d43c4da0135cf951efec3a8}{baos}}.toByteArray();}
+\DoxyCodeLine{229   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a17306e5be06c225bcd273baa3fb746ae}\label{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a17306e5be06c225bcd273baa3fb746ae}} 
+\index{prop.algorithms.lzss.LZSS@{prop.algorithms.lzss.LZSS}!decodifyOffsetLengthOneByte@{decodifyOffsetLengthOneByte}}
+\index{decodifyOffsetLengthOneByte@{decodifyOffsetLengthOneByte}!prop.algorithms.lzss.LZSS@{prop.algorithms.lzss.LZSS}}
+\doxysubsubsection{\texorpdfstring{decodifyOffsetLengthOneByte()}{decodifyOffsetLengthOneByte()}}
+{\footnotesize\ttfamily int \mbox{[}$\,$\mbox{]} prop.\+algorithms.\+lzss.\+L\+Z\+S\+S.\+decodify\+Offset\+Length\+One\+Byte (\begin{DoxyParamCaption}\item[{byte}]{b1,  }\item[{byte}]{b2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{94                                                               \{}
+\DoxyCodeLine{95     \textcolor{keywordtype}{int} offset8HighBits = \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a282b2a06d41344325f4d1dc93c31d3a4}{unsignedByteToInt}}(b1);}
+\DoxyCodeLine{96     \textcolor{keywordtype}{int} offset4LowBits = \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a282b2a06d41344325f4d1dc93c31d3a4}{unsignedByteToInt}}(b2) >> 4;}
+\DoxyCodeLine{97     \textcolor{keywordtype}{int} offset12bits = offset8HighBits << 4 | offset4LowBits;}
+\DoxyCodeLine{98     \textcolor{keywordtype}{int} length = \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a282b2a06d41344325f4d1dc93c31d3a4}{unsignedByteToInt}}(b2) \& 0x0F;}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{100     \textcolor{keywordflow}{return} \textcolor{keyword}{new} \textcolor{keywordtype}{int}[]\{offset12bits, length\};}
+\DoxyCodeLine{101   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a68646d625c40500f8f01772a40fc435a}\label{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a68646d625c40500f8f01772a40fc435a}} 
+\index{prop.algorithms.lzss.LZSS@{prop.algorithms.lzss.LZSS}!encode@{encode}}
+\index{encode@{encode}!prop.algorithms.lzss.LZSS@{prop.algorithms.lzss.LZSS}}
+\doxysubsubsection{\texorpdfstring{encode()}{encode()}}
+{\footnotesize\ttfamily byte \mbox{[}$\,$\mbox{]} prop.\+algorithms.\+lzss.\+L\+Z\+S\+S.\+encode (\begin{DoxyParamCaption}\item[{byte\mbox{[}$\,$\mbox{]}}]{input }\end{DoxyParamCaption})}
+
+
+
+Reimplemented from \mbox{\hyperlink{interfaceprop_1_1algorithms_1_1base_1_1_base_algorithm_a6de2a6d1d1a020b915162f8ba11e9b58}{prop.\+algorithms.\+base.\+Base\+Algorithm}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{116                                      \{}
+\DoxyCodeLine{117     \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a275de1059d43c4da0135cf951efec3a8}{baos}} = \textcolor{keyword}{new} ByteArrayOutputStream();}
+\DoxyCodeLine{118     FlagHelper flags = \textcolor{keyword}{new} FlagHelper();}
+\DoxyCodeLine{119     StringBuilder inputSB = \textcolor{keyword}{new} StringBuilder(\textcolor{keyword}{new} String(input));}
+\DoxyCodeLine{120     \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{121       WindowBuffer w = \textcolor{keyword}{new} WindowBuffer((\textcolor{keywordtype}{short}) \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_ab1a477a0afac29ac50a068249b80e0e1}{BUFFER\_SIZE\_SEARCH}}, (\textcolor{keywordtype}{short}) \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a51a79b0053f5fa84e4a6450a2c41786c}{BUFFER\_SIZE\_LOOKAHEAD}},}
+\DoxyCodeLine{122           inputSB);}
+\DoxyCodeLine{123       w.fillLookAheadBuffer();}
+\DoxyCodeLine{124       \textcolor{keywordflow}{while} (!w.lookAheadIsEmpty()) \{}
+\DoxyCodeLine{125 }
+\DoxyCodeLine{126         EncodedString es = w.findMatch();}
+\DoxyCodeLine{127         \textcolor{keywordflow}{if} (es.getLength() >= \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a738e2ed4714c851b224e7b6bc0eb4423}{MIN\_LEN\_MATCH}}) \{}
+\DoxyCodeLine{128           flags.addFlag(\textcolor{keyword}{true}); \textcolor{comment}{//flag 1 indicates <length,offset> token}}
+\DoxyCodeLine{129           \textcolor{keywordtype}{short} offset = (short) es.getOffset(); \textcolor{comment}{//cast negative!!}}
+\DoxyCodeLine{130           \textcolor{keywordtype}{byte} length = (byte) es.getLength();}
+\DoxyCodeLine{131           \textcolor{keywordtype}{byte}[] off\_len = \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_ac99db5078abc09cd14d3d29addd17273}{get\_offset\_length\_encoded\_12\_4\_bits}}(offset, length);}
+\DoxyCodeLine{132           \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a275de1059d43c4da0135cf951efec3a8}{baos}}.write(off\_len[0]);}
+\DoxyCodeLine{133           \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a275de1059d43c4da0135cf951efec3a8}{baos}}.write(off\_len[1]);}
+\DoxyCodeLine{134           \textcolor{comment}{//es.print();}}
+\DoxyCodeLine{135 }
+\DoxyCodeLine{136           w.shiftLeft(es.getLength());}
+\DoxyCodeLine{137         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{138 }
+\DoxyCodeLine{139           flags.addFlag(\textcolor{keyword}{false}); \textcolor{comment}{//flag 0 indicates literal}}
+\DoxyCodeLine{140           \textcolor{comment}{//only ASCII}}
+\DoxyCodeLine{141           String symbol = w.getFirstCharLookAheadBuffer() + \textcolor{stringliteral}{""};}
+\DoxyCodeLine{142           \textcolor{keywordflow}{if} (symbol == \textcolor{stringliteral}{"Í"}) \{}
+\DoxyCodeLine{143             \textcolor{keywordtype}{int} a = 42;}
+\DoxyCodeLine{144           \}}
+\DoxyCodeLine{145           \textcolor{keywordtype}{byte}[] symb = symbol.getBytes(\textcolor{stringliteral}{"UTF-\/8"});}
+\DoxyCodeLine{146           \textcolor{comment}{//byte[] symb =symbol.getBytes();}}
+\DoxyCodeLine{147           \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a275de1059d43c4da0135cf951efec3a8}{baos}}.write(symb);}
+\DoxyCodeLine{148           \textcolor{comment}{//System.out.print(symbol);}}
+\DoxyCodeLine{149           w.shiftLeft(1);}
+\DoxyCodeLine{150         \}}
+\DoxyCodeLine{151         \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a7b9337a467ee15c0dda8075a0eb6e482}{NUMBER\_OF\_TOKENS}}++;}
+\DoxyCodeLine{152       \}}
+\DoxyCodeLine{153 }
+\DoxyCodeLine{154     \} \textcolor{keywordflow}{catch} (IOException e) \{}
+\DoxyCodeLine{155       e.printStackTrace();}
+\DoxyCodeLine{156       System.out.println();}
+\DoxyCodeLine{157     \}}
+\DoxyCodeLine{158     flags.addFlag(\textcolor{keyword}{true}); \textcolor{comment}{//special flag at last}}
+\DoxyCodeLine{159     \textcolor{keywordtype}{byte}[] tokensFlags = Bytes.concat(\mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_aa6fa8082b7f0e7e92e75917b0969710c}{intToBytes}}(\mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a7b9337a467ee15c0dda8075a0eb6e482}{NUMBER\_OF\_TOKENS}}), flags.toByteArray());}
+\DoxyCodeLine{160     \textcolor{keywordtype}{byte}[] tfAndBytes = Bytes.concat(tokensFlags, \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a275de1059d43c4da0135cf951efec3a8}{baos}}.toByteArray());}
+\DoxyCodeLine{161     \textcolor{keywordflow}{return} tfAndBytes;}
+\DoxyCodeLine{162   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_ac99db5078abc09cd14d3d29addd17273}\label{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_ac99db5078abc09cd14d3d29addd17273}} 
+\index{prop.algorithms.lzss.LZSS@{prop.algorithms.lzss.LZSS}!get\_offset\_length\_encoded\_12\_4\_bits@{get\_offset\_length\_encoded\_12\_4\_bits}}
+\index{get\_offset\_length\_encoded\_12\_4\_bits@{get\_offset\_length\_encoded\_12\_4\_bits}!prop.algorithms.lzss.LZSS@{prop.algorithms.lzss.LZSS}}
+\doxysubsubsection{\texorpdfstring{get\_offset\_length\_encoded\_12\_4\_bits()}{get\_offset\_length\_encoded\_12\_4\_bits()}}
+{\footnotesize\ttfamily byte \mbox{[}$\,$\mbox{]} prop.\+algorithms.\+lzss.\+L\+Z\+S\+S.\+get\+\_\+offset\+\_\+length\+\_\+encoded\+\_\+12\+\_\+4\+\_\+bits (\begin{DoxyParamCaption}\item[{short}]{off,  }\item[{byte}]{len }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{103                                                                           \{}
+\DoxyCodeLine{104 }
+\DoxyCodeLine{105     \textcolor{keywordtype}{byte} offset8HighBits = (byte) (off >> 4);}
+\DoxyCodeLine{106     \textcolor{keywordtype}{byte} offset4LowBits = (byte) (off \& 0x0F);}
+\DoxyCodeLine{107     offset4LowBits = (byte) (offset4LowBits << 4);}
+\DoxyCodeLine{108     offset4LowBits = (byte) (offset4LowBits | len);}
+\DoxyCodeLine{109     \textcolor{keywordtype}{byte}[] result = \textcolor{keyword}{new} \textcolor{keywordtype}{byte}[2];}
+\DoxyCodeLine{110     result[0] = (byte) (offset8HighBits \& 0xFF);}
+\DoxyCodeLine{111     result[1] = (byte) (offset4LowBits \& 0xFF);}
+\DoxyCodeLine{112     \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{113   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_ac603b7f71f0ceb6aa492f8a2191eb5c5}\label{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_ac603b7f71f0ceb6aa492f8a2191eb5c5}} 
+\index{prop.algorithms.lzss.LZSS@{prop.algorithms.lzss.LZSS}!getAlgorithmUsed@{getAlgorithmUsed}}
+\index{getAlgorithmUsed@{getAlgorithmUsed}!prop.algorithms.lzss.LZSS@{prop.algorithms.lzss.LZSS}}
+\doxysubsubsection{\texorpdfstring{getAlgorithmUsed()}{getAlgorithmUsed()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{enumprop_1_1algorithms_1_1_algorithm}{Algorithm}} prop.\+algorithms.\+lzss.\+L\+Z\+S\+S.\+get\+Algorithm\+Used (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Retorna l\textquotesingle{}agorisme utilitzat; és útil per algorismes variables (aquells que poden ser escollits envers altres), per algorismes simples, només els retorna.
+
+\begin{DoxyReturn}{Returns}
+Algorisme utilitzat. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{interfaceprop_1_1algorithms_1_1base_1_1_base_algorithm_a0a806b0337fbf6c1c2c2d9da22f9729d}{prop.\+algorithms.\+base.\+Base\+Algorithm}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{239                                       \{}
+\DoxyCodeLine{240     \textcolor{keywordflow}{return} Algorithm.LZSS;}
+\DoxyCodeLine{241   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_aea99f42d29ee3f4038499726d58db2b3}\label{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_aea99f42d29ee3f4038499726d58db2b3}} 
+\index{prop.algorithms.lzss.LZSS@{prop.algorithms.lzss.LZSS}!getLengthByte3LowBits@{getLengthByte3LowBits}}
+\index{getLengthByte3LowBits@{getLengthByte3LowBits}!prop.algorithms.lzss.LZSS@{prop.algorithms.lzss.LZSS}}
+\doxysubsubsection{\texorpdfstring{getLengthByte3LowBits()}{getLengthByte3LowBits()}}
+{\footnotesize\ttfamily byte prop.\+algorithms.\+lzss.\+L\+Z\+S\+S.\+get\+Length\+Byte3\+Low\+Bits (\begin{DoxyParamCaption}\item[{byte}]{length }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{69                                                   \{}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71     \textcolor{keywordtype}{byte} result = (byte) (length);}
+\DoxyCodeLine{72     \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{73   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a73ac38a7b1e1cfbb12fa73437751e8bd}\label{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a73ac38a7b1e1cfbb12fa73437751e8bd}} 
+\index{prop.algorithms.lzss.LZSS@{prop.algorithms.lzss.LZSS}!getOffsetByte3456HighBits@{getOffsetByte3456HighBits}}
+\index{getOffsetByte3456HighBits@{getOffsetByte3456HighBits}!prop.algorithms.lzss.LZSS@{prop.algorithms.lzss.LZSS}}
+\doxysubsubsection{\texorpdfstring{getOffsetByte3456HighBits()}{getOffsetByte3456HighBits()}}
+{\footnotesize\ttfamily byte prop.\+algorithms.\+lzss.\+L\+Z\+S\+S.\+get\+Offset\+Byte3456\+High\+Bits (\begin{DoxyParamCaption}\item[{byte}]{offset }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{75                                                       \{}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77     \textcolor{keywordtype}{byte} result = (byte) (offset << 3);}
+\DoxyCodeLine{78     \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{79   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_aa6fa8082b7f0e7e92e75917b0969710c}\label{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_aa6fa8082b7f0e7e92e75917b0969710c}} 
+\index{prop.algorithms.lzss.LZSS@{prop.algorithms.lzss.LZSS}!intToBytes@{intToBytes}}
+\index{intToBytes@{intToBytes}!prop.algorithms.lzss.LZSS@{prop.algorithms.lzss.LZSS}}
+\doxysubsubsection{\texorpdfstring{intToBytes()}{intToBytes()}}
+{\footnotesize\ttfamily byte \mbox{[}$\,$\mbox{]} prop.\+algorithms.\+lzss.\+L\+Z\+S\+S.\+int\+To\+Bytes (\begin{DoxyParamCaption}\item[{final int}]{i }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{52                                          \{}
+\DoxyCodeLine{53     ByteBuffer bb = ByteBuffer.allocate(4);}
+\DoxyCodeLine{54     bb.putInt(i);}
+\DoxyCodeLine{55     \textcolor{keywordflow}{return} bb.array();}
+\DoxyCodeLine{56   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_ab4b3e9696fc1f937acd47e10e7184de9}\label{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_ab4b3e9696fc1f937acd47e10e7184de9}} 
+\index{prop.algorithms.lzss.LZSS@{prop.algorithms.lzss.LZSS}!mapCodedLengthToLength@{mapCodedLengthToLength}}
+\index{mapCodedLengthToLength@{mapCodedLengthToLength}!prop.algorithms.lzss.LZSS@{prop.algorithms.lzss.LZSS}}
+\doxysubsubsection{\texorpdfstring{mapCodedLengthToLength()}{mapCodedLengthToLength()}}
+{\footnotesize\ttfamily int prop.\+algorithms.\+lzss.\+L\+Z\+S\+S.\+map\+Coded\+Length\+To\+Length (\begin{DoxyParamCaption}\item[{int}]{length }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{48                                                 \{}
+\DoxyCodeLine{49     \textcolor{keywordflow}{return} (length + \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a738e2ed4714c851b224e7b6bc0eb4423}{MIN\_LEN\_MATCH}});}
+\DoxyCodeLine{50   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_ac010e57b2b333e9c3bb52d8decba9219}\label{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_ac010e57b2b333e9c3bb52d8decba9219}} 
+\index{prop.algorithms.lzss.LZSS@{prop.algorithms.lzss.LZSS}!mapCodedOffsetToOffset@{mapCodedOffsetToOffset}}
+\index{mapCodedOffsetToOffset@{mapCodedOffsetToOffset}!prop.algorithms.lzss.LZSS@{prop.algorithms.lzss.LZSS}}
+\doxysubsubsection{\texorpdfstring{mapCodedOffsetToOffset()}{mapCodedOffsetToOffset()}}
+{\footnotesize\ttfamily int prop.\+algorithms.\+lzss.\+L\+Z\+S\+S.\+map\+Coded\+Offset\+To\+Offset (\begin{DoxyParamCaption}\item[{int}]{offset }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{44                                                 \{}
+\DoxyCodeLine{45     \textcolor{keywordflow}{return} (offset + \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a738e2ed4714c851b224e7b6bc0eb4423}{MIN\_LEN\_MATCH}});}
+\DoxyCodeLine{46   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a9600e584b75a5b0190476fd1586a505f}\label{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a9600e584b75a5b0190476fd1586a505f}} 
+\index{prop.algorithms.lzss.LZSS@{prop.algorithms.lzss.LZSS}!mapLengthToCodedLength@{mapLengthToCodedLength}}
+\index{mapLengthToCodedLength@{mapLengthToCodedLength}!prop.algorithms.lzss.LZSS@{prop.algorithms.lzss.LZSS}}
+\doxysubsubsection{\texorpdfstring{mapLengthToCodedLength()}{mapLengthToCodedLength()}}
+{\footnotesize\ttfamily byte prop.\+algorithms.\+lzss.\+L\+Z\+S\+S.\+map\+Length\+To\+Coded\+Length (\begin{DoxyParamCaption}\item[{byte}]{length }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{40                                                   \{}
+\DoxyCodeLine{41     \textcolor{keywordflow}{return} (\textcolor{keywordtype}{byte}) (length -\/ \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a738e2ed4714c851b224e7b6bc0eb4423}{MIN\_LEN\_MATCH}});}
+\DoxyCodeLine{42   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a843744c5c748f07a4107305073c4b3c0}\label{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a843744c5c748f07a4107305073c4b3c0}} 
+\index{prop.algorithms.lzss.LZSS@{prop.algorithms.lzss.LZSS}!mapOffsetToCodedOffset@{mapOffsetToCodedOffset}}
+\index{mapOffsetToCodedOffset@{mapOffsetToCodedOffset}!prop.algorithms.lzss.LZSS@{prop.algorithms.lzss.LZSS}}
+\doxysubsubsection{\texorpdfstring{mapOffsetToCodedOffset()}{mapOffsetToCodedOffset()}}
+{\footnotesize\ttfamily byte prop.\+algorithms.\+lzss.\+L\+Z\+S\+S.\+map\+Offset\+To\+Coded\+Offset (\begin{DoxyParamCaption}\item[{byte}]{offset }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{36                                                   \{}
+\DoxyCodeLine{37     \textcolor{keywordflow}{return} (\textcolor{keywordtype}{byte}) (offset -\/ \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a738e2ed4714c851b224e7b6bc0eb4423}{MIN\_LEN\_MATCH}});}
+\DoxyCodeLine{38   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a08318e032b4f8229bab5c10b5cddaefd}\label{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a08318e032b4f8229bab5c10b5cddaefd}} 
+\index{prop.algorithms.lzss.LZSS@{prop.algorithms.lzss.LZSS}!readFile@{readFile}}
+\index{readFile@{readFile}!prop.algorithms.lzss.LZSS@{prop.algorithms.lzss.LZSS}}
+\doxysubsubsection{\texorpdfstring{readFile()}{readFile()}}
+{\footnotesize\ttfamily byte \mbox{[}$\,$\mbox{]} prop.\+algorithms.\+lzss.\+L\+Z\+S\+S.\+read\+File (\begin{DoxyParamCaption}\item[{File}]{file }\end{DoxyParamCaption}) throws I\+O\+Exception}
+
+Lector de fitxer per defecte\+: pot ésser sobreescrit per a personalitzar.
+
+Llegeix el fitxer sencer com un array de bytes per defecte.
+
+
+\begin{DoxyParams}{Parameters}
+{\em file} & fitxer del qual es llegeix\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array de bytes que conté les dades del fitxer. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{interfaceprop_1_1algorithms_1_1base_1_1_base_algorithm_a0ed61b2a301d8d98a5220a0ff3b517d4}{prop.\+algorithms.\+base.\+Base\+Algorithm}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{232                                                        \{}
+\DoxyCodeLine{233     BufferedReader bufRdr = \textcolor{keyword}{new} BufferedReader(}
+\DoxyCodeLine{234         \textcolor{keyword}{new} InputStreamReader(\textcolor{keyword}{new} FileInputStream(file), StandardCharsets.UTF\_8));}
+\DoxyCodeLine{235     \textcolor{keywordflow}{return} bufRdr.lines().map(i -\/> i + \textcolor{stringliteral}{"\(\backslash\)n"}).reduce(String::concat).get().getBytes();}
+\DoxyCodeLine{236   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a282b2a06d41344325f4d1dc93c31d3a4}\label{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a282b2a06d41344325f4d1dc93c31d3a4}} 
+\index{prop.algorithms.lzss.LZSS@{prop.algorithms.lzss.LZSS}!unsignedByteToInt@{unsignedByteToInt}}
+\index{unsignedByteToInt@{unsignedByteToInt}!prop.algorithms.lzss.LZSS@{prop.algorithms.lzss.LZSS}}
+\doxysubsubsection{\texorpdfstring{unsignedByteToInt()}{unsignedByteToInt()}}
+{\footnotesize\ttfamily int prop.\+algorithms.\+lzss.\+L\+Z\+S\+S.\+unsigned\+Byte\+To\+Int (\begin{DoxyParamCaption}\item[{byte}]{b }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{32                                        \{}
+\DoxyCodeLine{33     \textcolor{keywordflow}{return} (\textcolor{keywordtype}{int}) b \& 0xFF;}
+\DoxyCodeLine{34   \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a275de1059d43c4da0135cf951efec3a8}\label{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a275de1059d43c4da0135cf951efec3a8}} 
+\index{prop.algorithms.lzss.LZSS@{prop.algorithms.lzss.LZSS}!baos@{baos}}
+\index{baos@{baos}!prop.algorithms.lzss.LZSS@{prop.algorithms.lzss.LZSS}}
+\doxysubsubsection{\texorpdfstring{baos}{baos}}
+{\footnotesize\ttfamily Byte\+Array\+Output\+Stream prop.\+algorithms.\+lzss.\+L\+Z\+S\+S.\+baos\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a51a79b0053f5fa84e4a6450a2c41786c}\label{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a51a79b0053f5fa84e4a6450a2c41786c}} 
+\index{prop.algorithms.lzss.LZSS@{prop.algorithms.lzss.LZSS}!BUFFER\_SIZE\_LOOKAHEAD@{BUFFER\_SIZE\_LOOKAHEAD}}
+\index{BUFFER\_SIZE\_LOOKAHEAD@{BUFFER\_SIZE\_LOOKAHEAD}!prop.algorithms.lzss.LZSS@{prop.algorithms.lzss.LZSS}}
+\doxysubsubsection{\texorpdfstring{BUFFER\_SIZE\_LOOKAHEAD}{BUFFER\_SIZE\_LOOKAHEAD}}
+{\footnotesize\ttfamily final int prop.\+algorithms.\+lzss.\+L\+Z\+S\+S.\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+Z\+E\+\_\+\+L\+O\+O\+K\+A\+H\+E\+AD = 16\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_ab1a477a0afac29ac50a068249b80e0e1}\label{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_ab1a477a0afac29ac50a068249b80e0e1}} 
+\index{prop.algorithms.lzss.LZSS@{prop.algorithms.lzss.LZSS}!BUFFER\_SIZE\_SEARCH@{BUFFER\_SIZE\_SEARCH}}
+\index{BUFFER\_SIZE\_SEARCH@{BUFFER\_SIZE\_SEARCH}!prop.algorithms.lzss.LZSS@{prop.algorithms.lzss.LZSS}}
+\doxysubsubsection{\texorpdfstring{BUFFER\_SIZE\_SEARCH}{BUFFER\_SIZE\_SEARCH}}
+{\footnotesize\ttfamily final int prop.\+algorithms.\+lzss.\+L\+Z\+S\+S.\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+Z\+E\+\_\+\+S\+E\+A\+R\+CH = 4000\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a738e2ed4714c851b224e7b6bc0eb4423}\label{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a738e2ed4714c851b224e7b6bc0eb4423}} 
+\index{prop.algorithms.lzss.LZSS@{prop.algorithms.lzss.LZSS}!MIN\_LEN\_MATCH@{MIN\_LEN\_MATCH}}
+\index{MIN\_LEN\_MATCH@{MIN\_LEN\_MATCH}!prop.algorithms.lzss.LZSS@{prop.algorithms.lzss.LZSS}}
+\doxysubsubsection{\texorpdfstring{MIN\_LEN\_MATCH}{MIN\_LEN\_MATCH}}
+{\footnotesize\ttfamily final int prop.\+algorithms.\+lzss.\+L\+Z\+S\+S.\+M\+I\+N\+\_\+\+L\+E\+N\+\_\+\+M\+A\+T\+CH = 3\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a7b9337a467ee15c0dda8075a0eb6e482}\label{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a7b9337a467ee15c0dda8075a0eb6e482}} 
+\index{prop.algorithms.lzss.LZSS@{prop.algorithms.lzss.LZSS}!NUMBER\_OF\_TOKENS@{NUMBER\_OF\_TOKENS}}
+\index{NUMBER\_OF\_TOKENS@{NUMBER\_OF\_TOKENS}!prop.algorithms.lzss.LZSS@{prop.algorithms.lzss.LZSS}}
+\doxysubsubsection{\texorpdfstring{NUMBER\_OF\_TOKENS}{NUMBER\_OF\_TOKENS}}
+{\footnotesize\ttfamily int prop.\+algorithms.\+lzss.\+L\+Z\+S\+S.\+N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+T\+O\+K\+E\+NS = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Victor/\+Desktop/sippy2/src/main/java/prop/algorithms/lzss/\mbox{\hyperlink{_l_z_s_s_8java}{L\+Z\+S\+S.\+java}}\end{DoxyCompactItemize}

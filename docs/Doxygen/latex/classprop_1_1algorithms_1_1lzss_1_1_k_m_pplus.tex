@@ -1,0 +1,88 @@
+\hypertarget{classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus}{}\doxysection{prop.\+algorithms.\+lzss.\+K\+M\+Pplus Class Reference}
+\label{classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus}\index{prop.algorithms.lzss.KMPplus@{prop.algorithms.lzss.KMPplus}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus_a611675b89c659098e65f371ade8bea6d}{K\+M\+Pplus}} (String \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus_a5e7f91831b3cafaceaaf0f6704191177}{pattern}})
+\item 
+int \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus_a8d9caf40970c10fc1f93f2d95dcd1a47}{search}} (String text)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_encoded_string}{Encoded\+String}} \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus_a057f947380a43cee30d66566e8b7bfea}{search\+K\+M\+Pplus}} (String \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus_a5e7f91831b3cafaceaaf0f6704191177}{pattern}}, String text)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+String \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus_a5e7f91831b3cafaceaaf0f6704191177}{pattern}}
+\item 
+int\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus_aa21af3dac7a9820dc8a795fbf1f11766}{next}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus_a611675b89c659098e65f371ade8bea6d}\label{classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus_a611675b89c659098e65f371ade8bea6d}} 
+\index{prop.algorithms.lzss.KMPplus@{prop.algorithms.lzss.KMPplus}!KMPplus@{KMPplus}}
+\index{KMPplus@{KMPplus}!prop.algorithms.lzss.KMPplus@{prop.algorithms.lzss.KMPplus}}
+\doxysubsubsection{\texorpdfstring{KMPplus()}{KMPplus()}}
+{\footnotesize\ttfamily prop.\+algorithms.\+lzss.\+K\+M\+Pplus.\+K\+M\+Pplus (\begin{DoxyParamCaption}\item[{String}]{pattern }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{52                                    \{}
+\DoxyCodeLine{53         \textcolor{keywordtype}{int} m = \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus_a5e7f91831b3cafaceaaf0f6704191177}{pattern}}.length();}
+\DoxyCodeLine{54         \textcolor{keywordtype}{int} n = text.length();}
+\DoxyCodeLine{55         \textcolor{keywordtype}{int} i, j;}
+\DoxyCodeLine{56         \textcolor{keywordflow}{for} (i = 0, j = 0; i < n \&\& j < m; i++) \{}
+\DoxyCodeLine{57             \textcolor{keywordflow}{while} (j >= 0 \&\& text.charAt(i) != \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus_a5e7f91831b3cafaceaaf0f6704191177}{pattern}}.charAt(j))}
+\DoxyCodeLine{58                 j = \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus_aa21af3dac7a9820dc8a795fbf1f11766}{next}}[j];}
+\DoxyCodeLine{59             j++;}
+\DoxyCodeLine{60         \}}
+\DoxyCodeLine{61         \textcolor{keywordflow}{if} (j == m) \textcolor{keywordflow}{return} i -\/ m;}
+\DoxyCodeLine{62         \textcolor{keywordflow}{return} n;}
+\DoxyCodeLine{63     \}}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65 }
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus_a8d9caf40970c10fc1f93f2d95dcd1a47}\label{classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus_a8d9caf40970c10fc1f93f2d95dcd1a47}} 
+\index{prop.algorithms.lzss.KMPplus@{prop.algorithms.lzss.KMPplus}!search@{search}}
+\index{search@{search}!prop.algorithms.lzss.KMPplus@{prop.algorithms.lzss.KMPplus}}
+\doxysubsubsection{\texorpdfstring{search()}{search()}}
+{\footnotesize\ttfamily int prop.\+algorithms.\+lzss.\+K\+M\+Pplus.\+search (\begin{DoxyParamCaption}\item[{String}]{text }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{81            \{}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus_a057f947380a43cee30d66566e8b7bfea}\label{classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus_a057f947380a43cee30d66566e8b7bfea}} 
+\index{prop.algorithms.lzss.KMPplus@{prop.algorithms.lzss.KMPplus}!searchKMPplus@{searchKMPplus}}
+\index{searchKMPplus@{searchKMPplus}!prop.algorithms.lzss.KMPplus@{prop.algorithms.lzss.KMPplus}}
+\doxysubsubsection{\texorpdfstring{searchKMPplus()}{searchKMPplus()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_encoded_string}{Encoded\+String}} prop.\+algorithms.\+lzss.\+K\+M\+Pplus.\+search\+K\+M\+Pplus (\begin{DoxyParamCaption}\item[{String}]{pattern,  }\item[{String}]{text }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus_aa21af3dac7a9820dc8a795fbf1f11766}\label{classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus_aa21af3dac7a9820dc8a795fbf1f11766}} 
+\index{prop.algorithms.lzss.KMPplus@{prop.algorithms.lzss.KMPplus}!next@{next}}
+\index{next@{next}!prop.algorithms.lzss.KMPplus@{prop.algorithms.lzss.KMPplus}}
+\doxysubsubsection{\texorpdfstring{next}{next}}
+{\footnotesize\ttfamily int \mbox{[}$\,$\mbox{]} prop.\+algorithms.\+lzss.\+K\+M\+Pplus.\+next\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus_a5e7f91831b3cafaceaaf0f6704191177}\label{classprop_1_1algorithms_1_1lzss_1_1_k_m_pplus_a5e7f91831b3cafaceaaf0f6704191177}} 
+\index{prop.algorithms.lzss.KMPplus@{prop.algorithms.lzss.KMPplus}!pattern@{pattern}}
+\index{pattern@{pattern}!prop.algorithms.lzss.KMPplus@{prop.algorithms.lzss.KMPplus}}
+\doxysubsubsection{\texorpdfstring{pattern}{pattern}}
+{\footnotesize\ttfamily String prop.\+algorithms.\+lzss.\+K\+M\+Pplus.\+pattern\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Victor/\+Desktop/sippy2/src/main/java/prop/algorithms/lzss/\mbox{\hyperlink{_k_m_pplus_8java}{K\+M\+Pplus.\+java}}\end{DoxyCompactItemize}

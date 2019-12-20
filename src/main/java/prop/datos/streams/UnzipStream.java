@@ -15,8 +15,8 @@ public interface UnzipStream {
    *     els headers i va, recursivament, descomprimmint regions de dades indicades als headers a un
    *     nou arxiu (tambe indicat al header)
    *
-   *     \pre cert
-   *     \post items descomprimit
+   * \pre cert
+   * \post items descomprimit
    */
   void unzip() throws IOException;
 }
