@@ -9,7 +9,7 @@ public class CircularBuffer {
 
   private final int DEFAULT_CAPACITY = 4096;
   public int front, rear, size;
-  private char[] queue;
+  public char[] queue;
 
 
   /**
@@ -45,11 +45,18 @@ public class CircularBuffer {
         if (front == rear) { front = (front + 1) % size; }
 
     }
-
     //System.out.println("");
     //System.out.println(front);
     //System.out.println(rear);
+  }
 
+  /**
+   * Next i index for circular buffer
+   */
+  public int nexti(int i) {
+    ++i;
+      if (i >= size) { i = 0; }
+    return i;
   }
 
 
