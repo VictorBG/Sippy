@@ -77,6 +77,16 @@ task LZSSDriver(type: Jar) {
     with jar
 }
 
+task JPEGDriver(type: Jar) {
+    manifest {
+        attributes "Main-Class": "prop.dominio.drivers.JPEGDriver"
+    }
+
+    archiveBaseName.set("JPEGDriver")
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
+
 task ZipDriver(type: Jar) {
     manifest {
         attributes "Main-Class": "prop.dominio.drivers.ZipDriver"
