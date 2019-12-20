@@ -1,31 +1,28 @@
 package prop.algorithms.lzss;
 
-/******************************************************************************
- *  Compilation:  javac KMPplus.java
- *  Execution:    java KMPplus pattern text
- *  Dependencies: StdOut.java
- *
- *  Knuth-Morris-Pratt algorithm over UNICODE alphabet.
- *
- *  % java KMPplus ABABAC BCBAABACAABABACAA
- *  text:    BCBAABACAABABACAA
- *  pattern:          ABABAC
- *
- *  % java KMPplus aabaaaba ccaabaabaabaaabaab
- *  text:    ccaabaabaabaaabaab
- *  pattern:         aabaaaba
- *
- *  % java KMPplus aabaaabb ccaabaabaabaaabaab
- *  text:    ccaabaabaabaaabaab
- *  pattern:                   aabaaabb
- *
- ******************************************************************************/
-
+/**
+ *  The {@code KMP} class finds the first occurrence of a pattern string
+ *  in a text string.
+ *  <p>
+ *  This implementation uses a version of the Knuth-Morris-Pratt substring search
+ *  algorithm. The version takes time proportional to <em>n</em> + <em>m R</em>
+ *  in the worst case, where <em>n</em> is the length of the text string,
+ *  <em>m</em> is the length of the pattern, and <em>R</em> is the alphabet size.
+ *  It uses extra space proportional to <em>m R</em>.
+ *  <p>
+ *  For additional documentation,
+ *  see <a href="https://algs4.cs.princeton.edu/53substring">Section 5.3</a> of
+ *  <i>Algorithms, 4th Edition</i> by Robert Sedgewick and Kevin Wayne.
+ */
 public class KMPplus {
     private String pattern;
     private int[] next;
 
-    // create Knuth-Morris-Pratt NFA from pattern
+    /**
+     * Preprocesses the pattern string.
+     *
+     * @param pattern the pattern string
+     */
     public KMPplus(String pattern) {
         this.pattern = pattern;
         int m = pattern.length();
@@ -40,15 +37,16 @@ public class KMPplus {
             }
             j++;
         }
-        /*
-        for (int i = 0; i < m; i++)
-            StdOut.println("next[" + i + "] = " + next[i]);
-
-         */
     }
 
-    // return offset of first occurrence of text in pattern (or n if no match)
-    // simulate the NFA to find match
+    /**
+     * Returns the index of the first occurrrence of the pattern string
+     * in the text string.
+     *
+     * @param  text the text string
+     * @return the index of the first occurrence of the pattern string
+     *         in the text string; N if no such match
+     */
     public int search(String text) {
         int m = pattern.length();
         int n = text.length();
@@ -63,7 +61,12 @@ public class KMPplus {
     }
 
 
-    // test client
+    /**
+     * Takes a pattern string and an input string as command-line arguments;
+     * searches for the pattern string in the text string; and prints
+     * the first occurrence of the pattern string in the text string.
+     *
+     */
     public static EncodedString searchKMPplus(String pattern, String text) {
 
         int m = pattern.length();
@@ -86,19 +89,6 @@ public class KMPplus {
             i++;
         }
         while (indexMatch >= indexMatchAnt && i<=pattern.length() && indexMatch != text.length());
-
-
-        // print results
-        /*
-        StdOut.println("m = " + m + ", n = " + n);
-        StdOut.println("text:    " + text);
-        StdOut.print("pattern: ");
-        for (int i = 0; i < offset; i++)
-            StdOut.print(" ");
-        StdOut.println(pattern);
-
-         */
-
         i = i-2;
         EncodedString es = new EncodedString();
         es.setLength( (short)i);
