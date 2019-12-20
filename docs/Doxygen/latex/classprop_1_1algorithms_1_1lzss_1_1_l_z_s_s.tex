@@ -123,71 +123,71 @@ Reimplemented from \mbox{\hyperlink{interfaceprop_1_1algorithms_1_1base_1_1_base
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{165                                      \{}
-\DoxyCodeLine{166     \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a275de1059d43c4da0135cf951efec3a8}{baos}} = \textcolor{keyword}{new} ByteArrayOutputStream();}
-\DoxyCodeLine{167     \textcolor{keywordtype}{byte}[] aInt = \textcolor{keyword}{new} \textcolor{keywordtype}{byte}[4];}
-\DoxyCodeLine{168     aInt[0] = input[0];}
-\DoxyCodeLine{169     aInt[1] = input[1];}
-\DoxyCodeLine{170     aInt[2] = input[2];}
-\DoxyCodeLine{171     aInt[3] = input[3];}
-\DoxyCodeLine{172     \textcolor{keywordtype}{int} numFlags = \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a41e46b97d43ef8ea5618cc05f47f4da0}{byteArrayToInt}}(aInt);}
-\DoxyCodeLine{173       \textcolor{keywordflow}{if} (numFlags < 0) \{ numFlags += 256; \}}
-\DoxyCodeLine{174     \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a7b9337a467ee15c0dda8075a0eb6e482}{NUMBER\_OF\_TOKENS}} = numFlags;}
-\DoxyCodeLine{175     numFlags = numFlags + 1; \textcolor{comment}{//special bit at last}}
-\DoxyCodeLine{176     \textcolor{keywordtype}{byte}[] flagArray;}
-\DoxyCodeLine{177       \textcolor{keywordflow}{if} (numFlags \% 8 != 0) \{ flagArray = \textcolor{keyword}{new} \textcolor{keywordtype}{byte}[(numFlags / 8) + 1]; \} \textcolor{keywordflow}{else} \{}
-\DoxyCodeLine{178           flagArray = \textcolor{keyword}{new} \textcolor{keywordtype}{byte}[numFlags / 8];}
-\DoxyCodeLine{179       \}}
-\DoxyCodeLine{180 }
-\DoxyCodeLine{181     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < flagArray.length; i++) \{}
-\DoxyCodeLine{182       flagArray[i] = input[i + 4];}
-\DoxyCodeLine{183     \}}
-\DoxyCodeLine{184     FlagHelper flags = \textcolor{keyword}{new} FlagHelper(\mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a7b9337a467ee15c0dda8075a0eb6e482}{NUMBER\_OF\_TOKENS}}, flagArray);}
-\DoxyCodeLine{185     StringBuilder empty\_string = \textcolor{keyword}{new} StringBuilder();}
-\DoxyCodeLine{186     \textcolor{keywordflow}{try} \{}
-\DoxyCodeLine{187       DecodeWindow dw = \textcolor{keyword}{new} DecodeWindow(\mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_ab1a477a0afac29ac50a068249b80e0e1}{BUFFER\_SIZE\_SEARCH}});}
-\DoxyCodeLine{188       \textcolor{keywordflow}{try} \{}
-\DoxyCodeLine{189         \textcolor{keywordtype}{int} i = 4 + flagArray.length;}
-\DoxyCodeLine{190         \textcolor{keywordflow}{while} (i < input.length) \{}
-\DoxyCodeLine{191           \textcolor{keywordflow}{if} (flags.next() == \textcolor{keyword}{false}) \{ \textcolor{comment}{//literal}}
-\DoxyCodeLine{192             \textcolor{keywordtype}{byte} byte\_read = input[i];}
-\DoxyCodeLine{193             \textcolor{keywordflow}{if} (\mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a282b2a06d41344325f4d1dc93c31d3a4}{unsignedByteToInt}}(byte\_read) < 128) \{ \textcolor{comment}{//ascii literal}}
-\DoxyCodeLine{194               \textcolor{comment}{//no flag byte, directly char}}
-\DoxyCodeLine{195               dw.addChar((\textcolor{keywordtype}{char}) byte\_read);}
-\DoxyCodeLine{196             \} \textcolor{keywordflow}{else} \{}
-\DoxyCodeLine{197               i++;}
-\DoxyCodeLine{198               \textcolor{keywordtype}{byte} byte2 = input[i];}
-\DoxyCodeLine{199               \textcolor{keywordtype}{byte}[] utfBytes = \{byte\_read, byte2\};}
-\DoxyCodeLine{200               \textcolor{comment}{//String utf = new String(utfBytes);}}
-\DoxyCodeLine{201               String utf = \textcolor{keyword}{new} String(utfBytes, StandardCharsets.UTF\_8);}
-\DoxyCodeLine{202               dw.addChar(utf.charAt(0));}
-\DoxyCodeLine{203             \}}
-\DoxyCodeLine{204           \} \textcolor{keywordflow}{else} \{}
-\DoxyCodeLine{205             \textcolor{comment}{//b was offset\_length}}
-\DoxyCodeLine{206             \textcolor{comment}{//byte o = input[i];}}
-\DoxyCodeLine{207             \textcolor{keywordtype}{byte} off = input[i];}
-\DoxyCodeLine{208             \textcolor{comment}{//off = unsignedByteToInt(input[i]);}}
-\DoxyCodeLine{209             i++;}
-\DoxyCodeLine{210             \textcolor{comment}{//int len = input[i];}}
-\DoxyCodeLine{211             \textcolor{comment}{//len = unsignedByteToInt(input[i]);}}
-\DoxyCodeLine{212             \textcolor{comment}{//OFF\_LEN encoded with 12|4}}
-\DoxyCodeLine{213             \textcolor{keywordtype}{int}[] off\_len = \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a17306e5be06c225bcd273baa3fb746ae}{decodifyOffsetLengthOneByte}}(off, input[i]);}
-\DoxyCodeLine{214             \textcolor{keywordtype}{int} length = off\_len[1];}
-\DoxyCodeLine{215             \textcolor{keywordtype}{int} offset = off\_len[0];}
-\DoxyCodeLine{216             dw.copyCharsSince(length, offset);}
-\DoxyCodeLine{217           \}}
-\DoxyCodeLine{218           i++;}
-\DoxyCodeLine{219         \}}
-\DoxyCodeLine{220       \} \textcolor{keywordflow}{finally} \{}
-\DoxyCodeLine{221         \textcolor{comment}{//BOM UTF-\/8 ??}}
-\DoxyCodeLine{222         \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a275de1059d43c4da0135cf951efec3a8}{baos}}.write(dw.getBuffer().toString().getBytes(StandardCharsets.UTF\_8));}
-\DoxyCodeLine{223         \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a275de1059d43c4da0135cf951efec3a8}{baos}}.close();}
-\DoxyCodeLine{224       \}}
-\DoxyCodeLine{225     \} \textcolor{keywordflow}{catch} (IOException e) \{}
-\DoxyCodeLine{226       e.printStackTrace();}
-\DoxyCodeLine{227     \}}
-\DoxyCodeLine{228     \textcolor{keywordflow}{return} \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a275de1059d43c4da0135cf951efec3a8}{baos}}.toByteArray();}
-\DoxyCodeLine{229   \}}
+\DoxyCodeLine{162                                      \{}
+\DoxyCodeLine{163     \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a275de1059d43c4da0135cf951efec3a8}{baos}} = \textcolor{keyword}{new} ByteArrayOutputStream();}
+\DoxyCodeLine{164     \textcolor{keywordtype}{byte}[] aInt = \textcolor{keyword}{new} \textcolor{keywordtype}{byte}[4];}
+\DoxyCodeLine{165     aInt[0] = input[0];}
+\DoxyCodeLine{166     aInt[1] = input[1];}
+\DoxyCodeLine{167     aInt[2] = input[2];}
+\DoxyCodeLine{168     aInt[3] = input[3];}
+\DoxyCodeLine{169     \textcolor{keywordtype}{int} numFlags = \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a41e46b97d43ef8ea5618cc05f47f4da0}{byteArrayToInt}}(aInt);}
+\DoxyCodeLine{170       \textcolor{keywordflow}{if} (numFlags < 0) \{ numFlags += 256; \}}
+\DoxyCodeLine{171     \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a7b9337a467ee15c0dda8075a0eb6e482}{NUMBER\_OF\_TOKENS}} = numFlags;}
+\DoxyCodeLine{172     numFlags = numFlags + 1; \textcolor{comment}{//special bit at last}}
+\DoxyCodeLine{173     \textcolor{keywordtype}{byte}[] flagArray;}
+\DoxyCodeLine{174       \textcolor{keywordflow}{if} (numFlags \% 8 != 0) \{ flagArray = \textcolor{keyword}{new} \textcolor{keywordtype}{byte}[(numFlags / 8) + 1]; \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{175           flagArray = \textcolor{keyword}{new} \textcolor{keywordtype}{byte}[numFlags / 8];}
+\DoxyCodeLine{176       \}}
+\DoxyCodeLine{177 }
+\DoxyCodeLine{178     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < flagArray.length; i++) \{}
+\DoxyCodeLine{179       flagArray[i] = input[i + 4];}
+\DoxyCodeLine{180     \}}
+\DoxyCodeLine{181     FlagHelper flags = \textcolor{keyword}{new} FlagHelper(\mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a7b9337a467ee15c0dda8075a0eb6e482}{NUMBER\_OF\_TOKENS}}, flagArray);}
+\DoxyCodeLine{182     StringBuilder empty\_string = \textcolor{keyword}{new} StringBuilder();}
+\DoxyCodeLine{183     \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{184       DecodeWindow dw = \textcolor{keyword}{new} DecodeWindow(\mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_ab1a477a0afac29ac50a068249b80e0e1}{BUFFER\_SIZE\_SEARCH}});}
+\DoxyCodeLine{185       \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{186         \textcolor{keywordtype}{int} i = 4 + flagArray.length;}
+\DoxyCodeLine{187         \textcolor{keywordflow}{while} (i < input.length) \{}
+\DoxyCodeLine{188           \textcolor{keywordflow}{if} (flags.next() == \textcolor{keyword}{false}) \{ \textcolor{comment}{//literal}}
+\DoxyCodeLine{189             \textcolor{keywordtype}{byte} byte\_read = input[i];}
+\DoxyCodeLine{190             \textcolor{keywordflow}{if} (\mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a282b2a06d41344325f4d1dc93c31d3a4}{unsignedByteToInt}}(byte\_read) < 128) \{ \textcolor{comment}{//ascii literal}}
+\DoxyCodeLine{191               \textcolor{comment}{//no flag byte, directly char}}
+\DoxyCodeLine{192               dw.addChar((\textcolor{keywordtype}{char}) byte\_read);}
+\DoxyCodeLine{193             \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{194               i++;}
+\DoxyCodeLine{195               \textcolor{keywordtype}{byte} byte2 = input[i];}
+\DoxyCodeLine{196               \textcolor{keywordtype}{byte}[] utfBytes = \{byte\_read, byte2\};}
+\DoxyCodeLine{197               \textcolor{comment}{//String utf = new String(utfBytes);}}
+\DoxyCodeLine{198               String utf = \textcolor{keyword}{new} String(utfBytes, StandardCharsets.UTF\_8);}
+\DoxyCodeLine{199               dw.addChar(utf.charAt(0));}
+\DoxyCodeLine{200             \}}
+\DoxyCodeLine{201           \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{202             \textcolor{comment}{//b was offset\_length}}
+\DoxyCodeLine{203             \textcolor{comment}{//byte o = input[i];}}
+\DoxyCodeLine{204             \textcolor{keywordtype}{byte} off = input[i];}
+\DoxyCodeLine{205             \textcolor{comment}{//off = unsignedByteToInt(input[i]);}}
+\DoxyCodeLine{206             i++;}
+\DoxyCodeLine{207             \textcolor{comment}{//int len = input[i];}}
+\DoxyCodeLine{208             \textcolor{comment}{//len = unsignedByteToInt(input[i]);}}
+\DoxyCodeLine{209             \textcolor{comment}{//OFF\_LEN encoded with 12|4}}
+\DoxyCodeLine{210             \textcolor{keywordtype}{int}[] off\_len = \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a17306e5be06c225bcd273baa3fb746ae}{decodifyOffsetLengthOneByte}}(off, input[i]);}
+\DoxyCodeLine{211             \textcolor{keywordtype}{int} length = off\_len[1];}
+\DoxyCodeLine{212             \textcolor{keywordtype}{int} offset = off\_len[0];}
+\DoxyCodeLine{213             dw.copyCharsSince(length, offset);}
+\DoxyCodeLine{214           \}}
+\DoxyCodeLine{215           i++;}
+\DoxyCodeLine{216         \}}
+\DoxyCodeLine{217       \} \textcolor{keywordflow}{finally} \{}
+\DoxyCodeLine{218         \textcolor{comment}{//BOM UTF-\/8 ??}}
+\DoxyCodeLine{219         \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a275de1059d43c4da0135cf951efec3a8}{baos}}.write(dw.getBuffer().toString().getBytes(StandardCharsets.UTF\_8));}
+\DoxyCodeLine{220         \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a275de1059d43c4da0135cf951efec3a8}{baos}}.close();}
+\DoxyCodeLine{221       \}}
+\DoxyCodeLine{222     \} \textcolor{keywordflow}{catch} (IOException e) \{}
+\DoxyCodeLine{223       e.printStackTrace();}
+\DoxyCodeLine{224     \}}
+\DoxyCodeLine{225     \textcolor{keywordflow}{return} \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a275de1059d43c4da0135cf951efec3a8}{baos}}.toByteArray();}
+\DoxyCodeLine{226   \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a17306e5be06c225bcd273baa3fb746ae}\label{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a17306e5be06c225bcd273baa3fb746ae}} 
@@ -246,27 +246,24 @@ Reimplemented from \mbox{\hyperlink{interfaceprop_1_1algorithms_1_1base_1_1_base
 \DoxyCodeLine{139           flags.addFlag(\textcolor{keyword}{false}); \textcolor{comment}{//flag 0 indicates literal}}
 \DoxyCodeLine{140           \textcolor{comment}{//only ASCII}}
 \DoxyCodeLine{141           String symbol = w.getFirstCharLookAheadBuffer() + \textcolor{stringliteral}{""};}
-\DoxyCodeLine{142           \textcolor{keywordflow}{if} (symbol == \textcolor{stringliteral}{"Í"}) \{}
-\DoxyCodeLine{143             \textcolor{keywordtype}{int} a = 42;}
-\DoxyCodeLine{144           \}}
-\DoxyCodeLine{145           \textcolor{keywordtype}{byte}[] symb = symbol.getBytes(\textcolor{stringliteral}{"UTF-\/8"});}
-\DoxyCodeLine{146           \textcolor{comment}{//byte[] symb =symbol.getBytes();}}
-\DoxyCodeLine{147           \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a275de1059d43c4da0135cf951efec3a8}{baos}}.write(symb);}
-\DoxyCodeLine{148           \textcolor{comment}{//System.out.print(symbol);}}
-\DoxyCodeLine{149           w.shiftLeft(1);}
-\DoxyCodeLine{150         \}}
-\DoxyCodeLine{151         \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a7b9337a467ee15c0dda8075a0eb6e482}{NUMBER\_OF\_TOKENS}}++;}
-\DoxyCodeLine{152       \}}
-\DoxyCodeLine{153 }
-\DoxyCodeLine{154     \} \textcolor{keywordflow}{catch} (IOException e) \{}
-\DoxyCodeLine{155       e.printStackTrace();}
-\DoxyCodeLine{156       System.out.println();}
-\DoxyCodeLine{157     \}}
-\DoxyCodeLine{158     flags.addFlag(\textcolor{keyword}{true}); \textcolor{comment}{//special flag at last}}
-\DoxyCodeLine{159     \textcolor{keywordtype}{byte}[] tokensFlags = Bytes.concat(\mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_aa6fa8082b7f0e7e92e75917b0969710c}{intToBytes}}(\mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a7b9337a467ee15c0dda8075a0eb6e482}{NUMBER\_OF\_TOKENS}}), flags.toByteArray());}
-\DoxyCodeLine{160     \textcolor{keywordtype}{byte}[] tfAndBytes = Bytes.concat(tokensFlags, \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a275de1059d43c4da0135cf951efec3a8}{baos}}.toByteArray());}
-\DoxyCodeLine{161     \textcolor{keywordflow}{return} tfAndBytes;}
-\DoxyCodeLine{162   \}}
+\DoxyCodeLine{142           \textcolor{keywordtype}{byte}[] symb = symbol.getBytes(\textcolor{stringliteral}{"UTF-\/8"});}
+\DoxyCodeLine{143           \textcolor{comment}{//byte[] symb =symbol.getBytes();}}
+\DoxyCodeLine{144           \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a275de1059d43c4da0135cf951efec3a8}{baos}}.write(symb);}
+\DoxyCodeLine{145           \textcolor{comment}{//System.out.print(symbol);}}
+\DoxyCodeLine{146           w.shiftLeft(1);}
+\DoxyCodeLine{147         \}}
+\DoxyCodeLine{148         \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a7b9337a467ee15c0dda8075a0eb6e482}{NUMBER\_OF\_TOKENS}}++;}
+\DoxyCodeLine{149       \}}
+\DoxyCodeLine{150 }
+\DoxyCodeLine{151     \} \textcolor{keywordflow}{catch} (IOException e) \{}
+\DoxyCodeLine{152       e.printStackTrace();}
+\DoxyCodeLine{153       System.out.println();}
+\DoxyCodeLine{154     \}}
+\DoxyCodeLine{155     flags.addFlag(\textcolor{keyword}{true}); \textcolor{comment}{//special flag at last}}
+\DoxyCodeLine{156     \textcolor{keywordtype}{byte}[] tokensFlags = Bytes.concat(\mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_aa6fa8082b7f0e7e92e75917b0969710c}{intToBytes}}(\mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a7b9337a467ee15c0dda8075a0eb6e482}{NUMBER\_OF\_TOKENS}}), flags.toByteArray());}
+\DoxyCodeLine{157     \textcolor{keywordtype}{byte}[] tfAndBytes = Bytes.concat(tokensFlags, \mbox{\hyperlink{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a275de1059d43c4da0135cf951efec3a8}{baos}}.toByteArray());}
+\DoxyCodeLine{158     \textcolor{keywordflow}{return} tfAndBytes;}
+\DoxyCodeLine{159   \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_ac99db5078abc09cd14d3d29addd17273}\label{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_ac99db5078abc09cd14d3d29addd17273}} 
@@ -307,9 +304,9 @@ Reimplemented from \mbox{\hyperlink{interfaceprop_1_1algorithms_1_1base_1_1_base
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{239                                       \{}
-\DoxyCodeLine{240     \textcolor{keywordflow}{return} Algorithm.LZSS;}
-\DoxyCodeLine{241   \}}
+\DoxyCodeLine{236                                       \{}
+\DoxyCodeLine{237     \textcolor{keywordflow}{return} Algorithm.LZSS;}
+\DoxyCodeLine{238   \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_aea99f42d29ee3f4038499726d58db2b3}\label{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_aea99f42d29ee3f4038499726d58db2b3}} 
@@ -433,11 +430,11 @@ Reimplemented from \mbox{\hyperlink{interfaceprop_1_1algorithms_1_1base_1_1_base
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{232                                                        \{}
-\DoxyCodeLine{233     BufferedReader bufRdr = \textcolor{keyword}{new} BufferedReader(}
-\DoxyCodeLine{234         \textcolor{keyword}{new} InputStreamReader(\textcolor{keyword}{new} FileInputStream(file), StandardCharsets.UTF\_8));}
-\DoxyCodeLine{235     \textcolor{keywordflow}{return} bufRdr.lines().map(i -\/> i + \textcolor{stringliteral}{"\(\backslash\)n"}).reduce(String::concat).get().getBytes();}
-\DoxyCodeLine{236   \}}
+\DoxyCodeLine{229                                                        \{}
+\DoxyCodeLine{230     BufferedReader bufRdr = \textcolor{keyword}{new} BufferedReader(}
+\DoxyCodeLine{231         \textcolor{keyword}{new} InputStreamReader(\textcolor{keyword}{new} FileInputStream(file), StandardCharsets.UTF\_8));}
+\DoxyCodeLine{232     \textcolor{keywordflow}{return} bufRdr.lines().map(i -\/> i + \textcolor{stringliteral}{"\(\backslash\)n"}).reduce(String::concat).get().getBytes();}
+\DoxyCodeLine{233   \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a282b2a06d41344325f4d1dc93c31d3a4}\label{classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s_a282b2a06d41344325f4d1dc93c31d3a4}} 

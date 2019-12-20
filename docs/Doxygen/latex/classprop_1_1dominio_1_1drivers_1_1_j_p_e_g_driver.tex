@@ -1,0 +1,157 @@
+\hypertarget{classprop_1_1dominio_1_1drivers_1_1_j_p_e_g_driver}{}\doxysection{prop.\+dominio.\+drivers.\+J\+P\+E\+G\+Driver Class Reference}
+\label{classprop_1_1dominio_1_1drivers_1_1_j_p_e_g_driver}\index{prop.dominio.drivers.JPEGDriver@{prop.dominio.drivers.JPEGDriver}}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classprop_1_1dominio_1_1drivers_1_1_j_p_e_g_driver_a6131dc256dc308b594e46acabf5608b3}{main}} (String\mbox{[}$\,$\mbox{]} args)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classprop_1_1dominio_1_1drivers_1_1_j_p_e_g_driver_a82a675384146c6d603424b0962c66c22}{J\+P\+E\+G\+Driver}} ()
+\item 
+void \mbox{\hyperlink{classprop_1_1dominio_1_1drivers_1_1_j_p_e_g_driver_a96126423f5a2ada3d5a3294fe0cc70e0}{start}} ()
+\item 
+void \mbox{\hyperlink{classprop_1_1dominio_1_1drivers_1_1_j_p_e_g_driver_ae7a15b7c83be232d21b6da4041cbf294}{encode\+File}} ()  throws I\+O\+Exception 
+\item 
+void \mbox{\hyperlink{classprop_1_1dominio_1_1drivers_1_1_j_p_e_g_driver_abf955559560d3be1e1d661f4c60c482f}{end}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interfaceprop_1_1algorithms_1_1base_1_1_base_algorithm}{Base\+Algorithm}} \mbox{\hyperlink{classprop_1_1dominio_1_1drivers_1_1_j_p_e_g_driver_a920d445b6dbbe5992cb9ec0b57ba8391}{algorithm}} = Algorithm.\+J\+P\+E\+G.\+get\+Algorithm()
+\item 
+String \mbox{\hyperlink{classprop_1_1dominio_1_1drivers_1_1_j_p_e_g_driver_a3f58764607a82d3d95d71555385197ce}{name}} = Algorithm.\+J\+P\+E\+G.\+name()
+\item 
+Scanner \mbox{\hyperlink{classprop_1_1dominio_1_1drivers_1_1_j_p_e_g_driver_ac591b8449efc5bc98a15820cb988180d}{scanner}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classprop_1_1dominio_1_1drivers_1_1_j_p_e_g_driver_a82a675384146c6d603424b0962c66c22}\label{classprop_1_1dominio_1_1drivers_1_1_j_p_e_g_driver_a82a675384146c6d603424b0962c66c22}} 
+\index{prop.dominio.drivers.JPEGDriver@{prop.dominio.drivers.JPEGDriver}!JPEGDriver@{JPEGDriver}}
+\index{JPEGDriver@{JPEGDriver}!prop.dominio.drivers.JPEGDriver@{prop.dominio.drivers.JPEGDriver}}
+\doxysubsubsection{\texorpdfstring{JPEGDriver()}{JPEGDriver()}}
+{\footnotesize\ttfamily prop.\+dominio.\+drivers.\+J\+P\+E\+G\+Driver.\+J\+P\+E\+G\+Driver (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{24                        \{}
+\DoxyCodeLine{25     \mbox{\hyperlink{classprop_1_1dominio_1_1drivers_1_1_j_p_e_g_driver_ac591b8449efc5bc98a15820cb988180d}{scanner}} = \textcolor{keyword}{new} Scanner(System.in);}
+\DoxyCodeLine{26     \mbox{\hyperlink{classprop_1_1dominio_1_1drivers_1_1_j_p_e_g_driver_a96126423f5a2ada3d5a3294fe0cc70e0}{start}}();}
+\DoxyCodeLine{27   \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classprop_1_1dominio_1_1drivers_1_1_j_p_e_g_driver_ae7a15b7c83be232d21b6da4041cbf294}\label{classprop_1_1dominio_1_1drivers_1_1_j_p_e_g_driver_ae7a15b7c83be232d21b6da4041cbf294}} 
+\index{prop.dominio.drivers.JPEGDriver@{prop.dominio.drivers.JPEGDriver}!encodeFile@{encodeFile}}
+\index{encodeFile@{encodeFile}!prop.dominio.drivers.JPEGDriver@{prop.dominio.drivers.JPEGDriver}}
+\doxysubsubsection{\texorpdfstring{encodeFile()}{encodeFile()}}
+{\footnotesize\ttfamily void prop.\+dominio.\+drivers.\+J\+P\+E\+G\+Driver.\+encode\+File (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws I\+O\+Exception\hspace{0.3cm}{\ttfamily [private]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{39                                                \{}
+\DoxyCodeLine{40     System.out}
+\DoxyCodeLine{41         .println(\textcolor{stringliteral}{"\(\backslash\)nProvide the file path you want to test (only ppm extension is supported):  "});}
+\DoxyCodeLine{42     String path = \mbox{\hyperlink{classprop_1_1dominio_1_1drivers_1_1_j_p_e_g_driver_ac591b8449efc5bc98a15820cb988180d}{scanner}}.next();}
+\DoxyCodeLine{43     \textcolor{keywordflow}{if} (!\textcolor{stringliteral}{"ppm"}.equals(FileUtils.getFileExtension(path))) \{}
+\DoxyCodeLine{44       System.out.println(\textcolor{stringliteral}{"\(\backslash\)nOther extensions that are not ppm are not supported\(\backslash\)n"});}
+\DoxyCodeLine{45       \mbox{\hyperlink{classprop_1_1dominio_1_1drivers_1_1_j_p_e_g_driver_ae7a15b7c83be232d21b6da4041cbf294}{encodeFile}}();}
+\DoxyCodeLine{46     \}}
+\DoxyCodeLine{47     File inputFile = \textcolor{keyword}{new} File(path);}
+\DoxyCodeLine{48     \textcolor{keywordtype}{byte}[] fileEncoded = \mbox{\hyperlink{classprop_1_1dominio_1_1drivers_1_1_j_p_e_g_driver_a920d445b6dbbe5992cb9ec0b57ba8391}{algorithm}}.\mbox{\hyperlink{interfaceprop_1_1algorithms_1_1base_1_1_base_algorithm_a6de2a6d1d1a020b915162f8ba11e9b58}{encode}}(\mbox{\hyperlink{classprop_1_1dominio_1_1drivers_1_1_j_p_e_g_driver_a920d445b6dbbe5992cb9ec0b57ba8391}{algorithm}}.\mbox{\hyperlink{interfaceprop_1_1algorithms_1_1base_1_1_base_algorithm_a0ed61b2a301d8d98a5220a0ff3b517d4}{readFile}}(inputFile));}
+\DoxyCodeLine{49     \textcolor{keywordtype}{byte}[] fileDecoded = \mbox{\hyperlink{classprop_1_1dominio_1_1drivers_1_1_j_p_e_g_driver_a920d445b6dbbe5992cb9ec0b57ba8391}{algorithm}}.\mbox{\hyperlink{interfaceprop_1_1algorithms_1_1base_1_1_base_algorithm_a4b78a5d0b4071b52dfec14f1243edb3a}{decode}}(fileEncoded);}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51     String outputPath = inputFile.getPath().replace(\textcolor{stringliteral}{".ppm"}, \textcolor{stringliteral}{"\_decoded.ppm"});}
+\DoxyCodeLine{52     File outputFile = \textcolor{keyword}{new} File(outputPath);}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54     DataOutputStream dataOutputStream = \textcolor{keyword}{new} DataOutputStream(\textcolor{keyword}{new} FileOutputStream(outputFile));}
+\DoxyCodeLine{55     dataOutputStream.write(fileDecoded);}
+\DoxyCodeLine{56     dataOutputStream.close();}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58     System.out.println(\textcolor{stringliteral}{"\(\backslash\)nFile successfully encoded and decoded\(\backslash\)n"});}
+\DoxyCodeLine{59     System.out.println(\textcolor{stringliteral}{"\(\backslash\)nOpening file...\(\backslash\)n"});}
+\DoxyCodeLine{60     FileUtils.openFile(outputFile);}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62     \mbox{\hyperlink{classprop_1_1dominio_1_1drivers_1_1_j_p_e_g_driver_abf955559560d3be1e1d661f4c60c482f}{end}}();}
+\DoxyCodeLine{63   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1dominio_1_1drivers_1_1_j_p_e_g_driver_abf955559560d3be1e1d661f4c60c482f}\label{classprop_1_1dominio_1_1drivers_1_1_j_p_e_g_driver_abf955559560d3be1e1d661f4c60c482f}} 
+\index{prop.dominio.drivers.JPEGDriver@{prop.dominio.drivers.JPEGDriver}!end@{end}}
+\index{end@{end}!prop.dominio.drivers.JPEGDriver@{prop.dominio.drivers.JPEGDriver}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}}
+{\footnotesize\ttfamily void prop.\+dominio.\+drivers.\+J\+P\+E\+G\+Driver.\+end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{65                      \{}
+\DoxyCodeLine{66     System.out.println(\textcolor{stringliteral}{"\(\backslash\)n\(\backslash\)n"});}
+\DoxyCodeLine{67     System.out.println(\textcolor{stringliteral}{"Select option:\(\backslash\)n\(\backslash\)t1. Start over\(\backslash\)n\(\backslash\)t2. Exit"});}
+\DoxyCodeLine{68     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classprop_1_1dominio_1_1drivers_1_1_j_p_e_g_driver_ac591b8449efc5bc98a15820cb988180d}{scanner}}.nextInt() == 1) \{}
+\DoxyCodeLine{69       \mbox{\hyperlink{classprop_1_1dominio_1_1drivers_1_1_j_p_e_g_driver_a96126423f5a2ada3d5a3294fe0cc70e0}{start}}();}
+\DoxyCodeLine{70     \}}
+\DoxyCodeLine{71   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1dominio_1_1drivers_1_1_j_p_e_g_driver_a6131dc256dc308b594e46acabf5608b3}\label{classprop_1_1dominio_1_1drivers_1_1_j_p_e_g_driver_a6131dc256dc308b594e46acabf5608b3}} 
+\index{prop.dominio.drivers.JPEGDriver@{prop.dominio.drivers.JPEGDriver}!main@{main}}
+\index{main@{main}!prop.dominio.drivers.JPEGDriver@{prop.dominio.drivers.JPEGDriver}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily static void prop.\+dominio.\+drivers.\+J\+P\+E\+G\+Driver.\+main (\begin{DoxyParamCaption}\item[{String\mbox{[}$\,$\mbox{]}}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{20                                          \{}
+\DoxyCodeLine{21     \textcolor{keyword}{new} \mbox{\hyperlink{classprop_1_1dominio_1_1drivers_1_1_j_p_e_g_driver_a82a675384146c6d603424b0962c66c22}{JPEGDriver}}();}
+\DoxyCodeLine{22   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classprop_1_1dominio_1_1drivers_1_1_j_p_e_g_driver_a96126423f5a2ada3d5a3294fe0cc70e0}\label{classprop_1_1dominio_1_1drivers_1_1_j_p_e_g_driver_a96126423f5a2ada3d5a3294fe0cc70e0}} 
+\index{prop.dominio.drivers.JPEGDriver@{prop.dominio.drivers.JPEGDriver}!start@{start}}
+\index{start@{start}!prop.dominio.drivers.JPEGDriver@{prop.dominio.drivers.JPEGDriver}}
+\doxysubsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily void prop.\+dominio.\+drivers.\+J\+P\+E\+G\+Driver.\+start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{29                        \{}
+\DoxyCodeLine{30     System.out.println(\textcolor{stringliteral}{"Welcome to the driver of the algorithm "} + \mbox{\hyperlink{classprop_1_1dominio_1_1drivers_1_1_j_p_e_g_driver_a3f58764607a82d3d95d71555385197ce}{name}});}
+\DoxyCodeLine{31     \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{32       \mbox{\hyperlink{classprop_1_1dominio_1_1drivers_1_1_j_p_e_g_driver_ae7a15b7c83be232d21b6da4041cbf294}{encodeFile}}();}
+\DoxyCodeLine{33     \} \textcolor{keywordflow}{catch} (IOException e) \{}
+\DoxyCodeLine{34       System.out.println(}
+\DoxyCodeLine{35           \textcolor{stringliteral}{"An exception has been occurred, please check that the file path provided is correct"});}
+\DoxyCodeLine{36     \}}
+\DoxyCodeLine{37   \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classprop_1_1dominio_1_1drivers_1_1_j_p_e_g_driver_a920d445b6dbbe5992cb9ec0b57ba8391}\label{classprop_1_1dominio_1_1drivers_1_1_j_p_e_g_driver_a920d445b6dbbe5992cb9ec0b57ba8391}} 
+\index{prop.dominio.drivers.JPEGDriver@{prop.dominio.drivers.JPEGDriver}!algorithm@{algorithm}}
+\index{algorithm@{algorithm}!prop.dominio.drivers.JPEGDriver@{prop.dominio.drivers.JPEGDriver}}
+\doxysubsubsection{\texorpdfstring{algorithm}{algorithm}}
+{\footnotesize\ttfamily \mbox{\hyperlink{interfaceprop_1_1algorithms_1_1base_1_1_base_algorithm}{Base\+Algorithm}} prop.\+dominio.\+drivers.\+J\+P\+E\+G\+Driver.\+algorithm = Algorithm.\+J\+P\+E\+G.\+get\+Algorithm()\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classprop_1_1dominio_1_1drivers_1_1_j_p_e_g_driver_a3f58764607a82d3d95d71555385197ce}\label{classprop_1_1dominio_1_1drivers_1_1_j_p_e_g_driver_a3f58764607a82d3d95d71555385197ce}} 
+\index{prop.dominio.drivers.JPEGDriver@{prop.dominio.drivers.JPEGDriver}!name@{name}}
+\index{name@{name}!prop.dominio.drivers.JPEGDriver@{prop.dominio.drivers.JPEGDriver}}
+\doxysubsubsection{\texorpdfstring{name}{name}}
+{\footnotesize\ttfamily String prop.\+dominio.\+drivers.\+J\+P\+E\+G\+Driver.\+name = Algorithm.\+J\+P\+E\+G.\+name()\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classprop_1_1dominio_1_1drivers_1_1_j_p_e_g_driver_ac591b8449efc5bc98a15820cb988180d}\label{classprop_1_1dominio_1_1drivers_1_1_j_p_e_g_driver_ac591b8449efc5bc98a15820cb988180d}} 
+\index{prop.dominio.drivers.JPEGDriver@{prop.dominio.drivers.JPEGDriver}!scanner@{scanner}}
+\index{scanner@{scanner}!prop.dominio.drivers.JPEGDriver@{prop.dominio.drivers.JPEGDriver}}
+\doxysubsubsection{\texorpdfstring{scanner}{scanner}}
+{\footnotesize\ttfamily Scanner prop.\+dominio.\+drivers.\+J\+P\+E\+G\+Driver.\+scanner\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Victor/\+Desktop/sippy2/src/main/java/prop/dominio/drivers/\mbox{\hyperlink{_j_p_e_g_driver_8java}{J\+P\+E\+G\+Driver.\+java}}\end{DoxyCompactItemize}

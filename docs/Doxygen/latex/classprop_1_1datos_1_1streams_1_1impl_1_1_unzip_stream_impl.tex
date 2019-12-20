@@ -144,9 +144,9 @@ algorisme identificat pel byte llegit
 \end{DoxyPostcond}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{139                                                       \{}
-\DoxyCodeLine{140     \textcolor{keywordflow}{return} Algorithm.valueOf(\mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_a2beae3dea6cbfbc27cf7316cbff21e65}{dis}}.readByte());}
-\DoxyCodeLine{141   \}}
+\DoxyCodeLine{146                                                       \{}
+\DoxyCodeLine{147     \textcolor{keywordflow}{return} Algorithm.valueOf(\mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_a2beae3dea6cbfbc27cf7316cbff21e65}{dis}}.readByte());}
+\DoxyCodeLine{148   \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_a965440a06c790f61396c449ee1e7d240}\label{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_a965440a06c790f61396c449ee1e7d240}} 
@@ -167,9 +167,9 @@ enter
 \end{DoxyPostcond}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{149                                                \{}
-\DoxyCodeLine{150     \textcolor{keywordflow}{return} \mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_a2beae3dea6cbfbc27cf7316cbff21e65}{dis}}.readInt();}
-\DoxyCodeLine{151   \}}
+\DoxyCodeLine{156                                                \{}
+\DoxyCodeLine{157     \textcolor{keywordflow}{return} \mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_a2beae3dea6cbfbc27cf7316cbff21e65}{dis}}.readInt();}
+\DoxyCodeLine{158   \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_a52ba01360102c6be4bce52ec758fdbd9}\label{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_a52ba01360102c6be4bce52ec758fdbd9}} 
@@ -190,12 +190,12 @@ string llegit del stream d\textquotesingle{}entrada
 \end{DoxyPostcond}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{160                                               \{}
-\DoxyCodeLine{161     \textcolor{keywordtype}{int} nameSize = \mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_a2beae3dea6cbfbc27cf7316cbff21e65}{dis}}.readInt();}
-\DoxyCodeLine{162     \textcolor{keywordtype}{byte}[] name = \textcolor{keyword}{new} \textcolor{keywordtype}{byte}[nameSize];}
-\DoxyCodeLine{163     \mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_a2beae3dea6cbfbc27cf7316cbff21e65}{dis}}.read(name, 0, nameSize);}
-\DoxyCodeLine{164     \textcolor{keywordflow}{return} \textcolor{keyword}{new} String(name);}
-\DoxyCodeLine{165   \}}
+\DoxyCodeLine{167                                               \{}
+\DoxyCodeLine{168     \textcolor{keywordtype}{int} nameSize = \mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_a2beae3dea6cbfbc27cf7316cbff21e65}{dis}}.readInt();}
+\DoxyCodeLine{169     \textcolor{keywordtype}{byte}[] name = \textcolor{keyword}{new} \textcolor{keywordtype}{byte}[nameSize];}
+\DoxyCodeLine{170     \mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_a2beae3dea6cbfbc27cf7316cbff21e65}{dis}}.read(name, 0, nameSize);}
+\DoxyCodeLine{171     \textcolor{keywordflow}{return} \textcolor{keyword}{new} String(name);}
+\DoxyCodeLine{172   \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_a1aa121a1aee2e78cc9ed1495d800b66a}\label{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_a1aa121a1aee2e78cc9ed1495d800b66a}} 
@@ -261,24 +261,31 @@ Reimplemented from \mbox{\hyperlink{interfaceprop_1_1datos_1_1streams_1_1_unzip_
 \DoxyCodeLine{111       \mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_a2beae3dea6cbfbc27cf7316cbff21e65}{dis}}.read(data, 0, dataSize);}
 \DoxyCodeLine{112 }
 \DoxyCodeLine{113       DataOutputStream dos = \textcolor{keyword}{new} DataOutputStream(\textcolor{keyword}{new} FileOutputStream(file));}
-\DoxyCodeLine{114       dos.writeBytes(\textcolor{keyword}{new} String(algorithm.getAlgorithm().decode(data)));}
-\DoxyCodeLine{115       dos.close();}
-\DoxyCodeLine{116 }
-\DoxyCodeLine{117       \textcolor{keywordflow}{if} (\mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_a3f2c43c01d0d3d15c43483a15d77dc2e}{isDirectory}}) \{}
-\DoxyCodeLine{118         \mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_aea25ddd55bc75fc44e940ae1fa5cb76a}{unzip}}();}
-\DoxyCodeLine{119       \} \textcolor{keywordflow}{else} \{}
-\DoxyCodeLine{120         FileUtils.openFile(file);}
-\DoxyCodeLine{121       \}}
-\DoxyCodeLine{122     \} \textcolor{keywordflow}{catch} (EOFException ignore) \{}
-\DoxyCodeLine{123       \textcolor{keywordflow}{if} (\mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_a3f2c43c01d0d3d15c43483a15d77dc2e}{isDirectory}}) \{}
-\DoxyCodeLine{124         FileUtils.openFile(\textcolor{keyword}{new} File(\mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_ad41421fd5643f7a654ab2824a29087ed}{basePath}}));}
-\DoxyCodeLine{125       \}}
-\DoxyCodeLine{126       \textcolor{comment}{// do not rethrow EOF exception, it is an exception we expect to get}}
-\DoxyCodeLine{127     \} \textcolor{keywordflow}{finally} \{}
-\DoxyCodeLine{128       \mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_a2beae3dea6cbfbc27cf7316cbff21e65}{dis}}.close();}
-\DoxyCodeLine{129     \}}
-\DoxyCodeLine{130 }
-\DoxyCodeLine{131   \}}
+\DoxyCodeLine{114 }
+\DoxyCodeLine{115       \textcolor{comment}{// Last hour hotfix}}
+\DoxyCodeLine{116       \textcolor{keywordflow}{if} (FileUtils.getFileExtension(file.getAbsolutePath()).equals(Constants.ENCODING\_EXTENSION\_PPM)) \{}
+\DoxyCodeLine{117         dos.write(algorithm.getAlgorithm().decode(data));}
+\DoxyCodeLine{118       \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{119         dos.writeBytes(\textcolor{keyword}{new} String(algorithm.getAlgorithm().decode(data)));}
+\DoxyCodeLine{120       \}}
+\DoxyCodeLine{121 }
+\DoxyCodeLine{122       dos.close();}
+\DoxyCodeLine{123 }
+\DoxyCodeLine{124       \textcolor{keywordflow}{if} (\mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_a3f2c43c01d0d3d15c43483a15d77dc2e}{isDirectory}}) \{}
+\DoxyCodeLine{125         \mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_aea25ddd55bc75fc44e940ae1fa5cb76a}{unzip}}();}
+\DoxyCodeLine{126       \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{127         FileUtils.openFile(file);}
+\DoxyCodeLine{128       \}}
+\DoxyCodeLine{129     \} \textcolor{keywordflow}{catch} (EOFException ignore) \{}
+\DoxyCodeLine{130       \textcolor{keywordflow}{if} (\mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_a3f2c43c01d0d3d15c43483a15d77dc2e}{isDirectory}}) \{}
+\DoxyCodeLine{131         FileUtils.openFile(\textcolor{keyword}{new} File(\mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_ad41421fd5643f7a654ab2824a29087ed}{basePath}}));}
+\DoxyCodeLine{132       \}}
+\DoxyCodeLine{133       \textcolor{comment}{// do not rethrow EOF exception, it is an exception we expect to get}}
+\DoxyCodeLine{134     \} \textcolor{keywordflow}{finally} \{}
+\DoxyCodeLine{135       \mbox{\hyperlink{classprop_1_1datos_1_1streams_1_1impl_1_1_unzip_stream_impl_a2beae3dea6cbfbc27cf7316cbff21e65}{dis}}.close();}
+\DoxyCodeLine{136     \}}
+\DoxyCodeLine{137 }
+\DoxyCodeLine{138   \}}
 
 \end{DoxyCode}
 

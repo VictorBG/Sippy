@@ -241,71 +241,71 @@ Static Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Reimplemented from <a class="el" href="interfaceprop_1_1algorithms_1_1base_1_1_base_algorithm.html#a4b78a5d0b4071b52dfec14f1243edb3a">prop.algorithms.base.BaseAlgorithm</a>.</p>
-<div class="fragment"><div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;                                     {</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    <a class="code" href="classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s.html#a275de1059d43c4da0135cf951efec3a8">baos</a> = <span class="keyword">new</span> ByteArrayOutputStream();</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    <span class="keywordtype">byte</span>[] aInt = <span class="keyword">new</span> <span class="keywordtype">byte</span>[4];</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    aInt[0] = input[0];</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    aInt[1] = input[1];</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    aInt[2] = input[2];</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    aInt[3] = input[3];</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    <span class="keywordtype">int</span> numFlags = <a class="code" href="classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s.html#a41e46b97d43ef8ea5618cc05f47f4da0">byteArrayToInt</a>(aInt);</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;      <span class="keywordflow">if</span> (numFlags &lt; 0) { numFlags += 256; }</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    <a class="code" href="classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s.html#a7b9337a467ee15c0dda8075a0eb6e482">NUMBER_OF_TOKENS</a> = numFlags;</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    numFlags = numFlags + 1; <span class="comment">//special bit at last</span></div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    <span class="keywordtype">byte</span>[] flagArray;</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;      <span class="keywordflow">if</span> (numFlags % 8 != 0) { flagArray = <span class="keyword">new</span> <span class="keywordtype">byte</span>[(numFlags / 8) + 1]; } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;          flagArray = <span class="keyword">new</span> <span class="keywordtype">byte</span>[numFlags / 8];</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;      }</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160; </div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; flagArray.length; i++) {</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;      flagArray[i] = input[i + 4];</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    }</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    FlagHelper flags = <span class="keyword">new</span> FlagHelper(<a class="code" href="classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s.html#a7b9337a467ee15c0dda8075a0eb6e482">NUMBER_OF_TOKENS</a>, flagArray);</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    StringBuilder empty_string = <span class="keyword">new</span> StringBuilder();</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    <span class="keywordflow">try</span> {</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;      DecodeWindow dw = <span class="keyword">new</span> DecodeWindow(<a class="code" href="classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s.html#ab1a477a0afac29ac50a068249b80e0e1">BUFFER_SIZE_SEARCH</a>);</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;      <span class="keywordflow">try</span> {</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;        <span class="keywordtype">int</span> i = 4 + flagArray.length;</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;        <span class="keywordflow">while</span> (i &lt; input.length) {</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;          <span class="keywordflow">if</span> (flags.next() == <span class="keyword">false</span>) { <span class="comment">//literal</span></div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;            <span class="keywordtype">byte</span> byte_read = input[i];</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s.html#a282b2a06d41344325f4d1dc93c31d3a4">unsignedByteToInt</a>(byte_read) &lt; 128) { <span class="comment">//ascii literal</span></div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;              <span class="comment">//no flag byte, directly char</span></div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;              dw.addChar((<span class="keywordtype">char</span>) byte_read);</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;            } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;              i++;</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;              <span class="keywordtype">byte</span> byte2 = input[i];</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;              <span class="keywordtype">byte</span>[] utfBytes = {byte_read, byte2};</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;              <span class="comment">//String utf = new String(utfBytes);</span></div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;              String utf = <span class="keyword">new</span> String(utfBytes, StandardCharsets.UTF_8);</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;              dw.addChar(utf.charAt(0));</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;            }</div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;          } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;            <span class="comment">//b was offset_length</span></div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;            <span class="comment">//byte o = input[i];</span></div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;            <span class="keywordtype">byte</span> off = input[i];</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;            <span class="comment">//off = unsignedByteToInt(input[i]);</span></div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;            i++;</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;            <span class="comment">//int len = input[i];</span></div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;            <span class="comment">//len = unsignedByteToInt(input[i]);</span></div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;            <span class="comment">//OFF_LEN encoded with 12|4</span></div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;            <span class="keywordtype">int</span>[] off_len = <a class="code" href="classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s.html#a17306e5be06c225bcd273baa3fb746ae">decodifyOffsetLengthOneByte</a>(off, input[i]);</div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;            <span class="keywordtype">int</span> length = off_len[1];</div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;            <span class="keywordtype">int</span> offset = off_len[0];</div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;            dw.copyCharsSince(length, offset);</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;          }</div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;          i++;</div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;        }</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;      } <span class="keywordflow">finally</span> {</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;        <span class="comment">//BOM UTF-8 ??</span></div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;        <a class="code" href="classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s.html#a275de1059d43c4da0135cf951efec3a8">baos</a>.write(dw.getBuffer().toString().getBytes(StandardCharsets.UTF_8));</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;        <a class="code" href="classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s.html#a275de1059d43c4da0135cf951efec3a8">baos</a>.close();</div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;      }</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    } <span class="keywordflow">catch</span> (IOException e) {</div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;      e.printStackTrace();</div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    }</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s.html#a275de1059d43c4da0135cf951efec3a8">baos</a>.toByteArray();</div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;  }</div>
+<div class="fragment"><div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;                                     {</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    <a class="code" href="classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s.html#a275de1059d43c4da0135cf951efec3a8">baos</a> = <span class="keyword">new</span> ByteArrayOutputStream();</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    <span class="keywordtype">byte</span>[] aInt = <span class="keyword">new</span> <span class="keywordtype">byte</span>[4];</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    aInt[0] = input[0];</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    aInt[1] = input[1];</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    aInt[2] = input[2];</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    aInt[3] = input[3];</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    <span class="keywordtype">int</span> numFlags = <a class="code" href="classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s.html#a41e46b97d43ef8ea5618cc05f47f4da0">byteArrayToInt</a>(aInt);</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;      <span class="keywordflow">if</span> (numFlags &lt; 0) { numFlags += 256; }</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    <a class="code" href="classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s.html#a7b9337a467ee15c0dda8075a0eb6e482">NUMBER_OF_TOKENS</a> = numFlags;</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    numFlags = numFlags + 1; <span class="comment">//special bit at last</span></div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    <span class="keywordtype">byte</span>[] flagArray;</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;      <span class="keywordflow">if</span> (numFlags % 8 != 0) { flagArray = <span class="keyword">new</span> <span class="keywordtype">byte</span>[(numFlags / 8) + 1]; } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;          flagArray = <span class="keyword">new</span> <span class="keywordtype">byte</span>[numFlags / 8];</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;      }</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160; </div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; flagArray.length; i++) {</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;      flagArray[i] = input[i + 4];</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    }</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    FlagHelper flags = <span class="keyword">new</span> FlagHelper(<a class="code" href="classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s.html#a7b9337a467ee15c0dda8075a0eb6e482">NUMBER_OF_TOKENS</a>, flagArray);</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    StringBuilder empty_string = <span class="keyword">new</span> StringBuilder();</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    <span class="keywordflow">try</span> {</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;      DecodeWindow dw = <span class="keyword">new</span> DecodeWindow(<a class="code" href="classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s.html#ab1a477a0afac29ac50a068249b80e0e1">BUFFER_SIZE_SEARCH</a>);</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;      <span class="keywordflow">try</span> {</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;        <span class="keywordtype">int</span> i = 4 + flagArray.length;</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;        <span class="keywordflow">while</span> (i &lt; input.length) {</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;          <span class="keywordflow">if</span> (flags.next() == <span class="keyword">false</span>) { <span class="comment">//literal</span></div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;            <span class="keywordtype">byte</span> byte_read = input[i];</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s.html#a282b2a06d41344325f4d1dc93c31d3a4">unsignedByteToInt</a>(byte_read) &lt; 128) { <span class="comment">//ascii literal</span></div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;              <span class="comment">//no flag byte, directly char</span></div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;              dw.addChar((<span class="keywordtype">char</span>) byte_read);</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;            } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;              i++;</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;              <span class="keywordtype">byte</span> byte2 = input[i];</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;              <span class="keywordtype">byte</span>[] utfBytes = {byte_read, byte2};</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;              <span class="comment">//String utf = new String(utfBytes);</span></div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;              String utf = <span class="keyword">new</span> String(utfBytes, StandardCharsets.UTF_8);</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;              dw.addChar(utf.charAt(0));</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;            }</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;          } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;            <span class="comment">//b was offset_length</span></div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;            <span class="comment">//byte o = input[i];</span></div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;            <span class="keywordtype">byte</span> off = input[i];</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;            <span class="comment">//off = unsignedByteToInt(input[i]);</span></div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;            i++;</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;            <span class="comment">//int len = input[i];</span></div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;            <span class="comment">//len = unsignedByteToInt(input[i]);</span></div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;            <span class="comment">//OFF_LEN encoded with 12|4</span></div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;            <span class="keywordtype">int</span>[] off_len = <a class="code" href="classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s.html#a17306e5be06c225bcd273baa3fb746ae">decodifyOffsetLengthOneByte</a>(off, input[i]);</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;            <span class="keywordtype">int</span> length = off_len[1];</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;            <span class="keywordtype">int</span> offset = off_len[0];</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;            dw.copyCharsSince(length, offset);</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;          }</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;          i++;</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;        }</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;      } <span class="keywordflow">finally</span> {</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;        <span class="comment">//BOM UTF-8 ??</span></div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;        <a class="code" href="classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s.html#a275de1059d43c4da0135cf951efec3a8">baos</a>.write(dw.getBuffer().toString().getBytes(StandardCharsets.UTF_8));</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;        <a class="code" href="classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s.html#a275de1059d43c4da0135cf951efec3a8">baos</a>.close();</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;      }</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;    } <span class="keywordflow">catch</span> (IOException e) {</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;      e.printStackTrace();</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    }</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s.html#a275de1059d43c4da0135cf951efec3a8">baos</a>.toByteArray();</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;  }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -396,27 +396,24 @@ Static Private Attributes</h2></td></tr>
 <div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;          flags.addFlag(<span class="keyword">false</span>); <span class="comment">//flag 0 indicates literal</span></div>
 <div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;          <span class="comment">//only ASCII</span></div>
 <div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;          String symbol = w.getFirstCharLookAheadBuffer() + <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;          <span class="keywordflow">if</span> (symbol == <span class="stringliteral">&quot;Í&quot;</span>) {</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;            <span class="keywordtype">int</span> a = 42;</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;          }</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;          <span class="keywordtype">byte</span>[] symb = symbol.getBytes(<span class="stringliteral">&quot;UTF-8&quot;</span>);</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;          <span class="comment">//byte[] symb =symbol.getBytes();</span></div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;          <a class="code" href="classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s.html#a275de1059d43c4da0135cf951efec3a8">baos</a>.write(symb);</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;          <span class="comment">//System.out.print(symbol);</span></div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;          w.shiftLeft(1);</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        }</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;        <a class="code" href="classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s.html#a7b9337a467ee15c0dda8075a0eb6e482">NUMBER_OF_TOKENS</a>++;</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;      }</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160; </div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    } <span class="keywordflow">catch</span> (IOException e) {</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;      e.printStackTrace();</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;      System.out.println();</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    }</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    flags.addFlag(<span class="keyword">true</span>); <span class="comment">//special flag at last</span></div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    <span class="keywordtype">byte</span>[] tokensFlags = Bytes.concat(<a class="code" href="classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s.html#aa6fa8082b7f0e7e92e75917b0969710c">intToBytes</a>(<a class="code" href="classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s.html#a7b9337a467ee15c0dda8075a0eb6e482">NUMBER_OF_TOKENS</a>), flags.toByteArray());</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    <span class="keywordtype">byte</span>[] tfAndBytes = Bytes.concat(tokensFlags, <a class="code" href="classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s.html#a275de1059d43c4da0135cf951efec3a8">baos</a>.toByteArray());</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    <span class="keywordflow">return</span> tfAndBytes;</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;  }</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;          <span class="keywordtype">byte</span>[] symb = symbol.getBytes(<span class="stringliteral">&quot;UTF-8&quot;</span>);</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;          <span class="comment">//byte[] symb =symbol.getBytes();</span></div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;          <a class="code" href="classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s.html#a275de1059d43c4da0135cf951efec3a8">baos</a>.write(symb);</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;          <span class="comment">//System.out.print(symbol);</span></div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;          w.shiftLeft(1);</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;        }</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        <a class="code" href="classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s.html#a7b9337a467ee15c0dda8075a0eb6e482">NUMBER_OF_TOKENS</a>++;</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;      }</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160; </div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    } <span class="keywordflow">catch</span> (IOException e) {</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;      e.printStackTrace();</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;      System.out.println();</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    }</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    flags.addFlag(<span class="keyword">true</span>); <span class="comment">//special flag at last</span></div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    <span class="keywordtype">byte</span>[] tokensFlags = Bytes.concat(<a class="code" href="classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s.html#aa6fa8082b7f0e7e92e75917b0969710c">intToBytes</a>(<a class="code" href="classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s.html#a7b9337a467ee15c0dda8075a0eb6e482">NUMBER_OF_TOKENS</a>), flags.toByteArray());</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    <span class="keywordtype">byte</span>[] tfAndBytes = Bytes.concat(tokensFlags, <a class="code" href="classprop_1_1algorithms_1_1lzss_1_1_l_z_s_s.html#a275de1059d43c4da0135cf951efec3a8">baos</a>.toByteArray());</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    <span class="keywordflow">return</span> tfAndBytes;</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;  }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -485,9 +482,9 @@ Static Private Attributes</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>Algorisme utilitzat. </dd></dl>
 
 <p>Reimplemented from <a class="el" href="interfaceprop_1_1algorithms_1_1base_1_1_base_algorithm.html#a0a806b0337fbf6c1c2c2d9da22f9729d">prop.algorithms.base.BaseAlgorithm</a>.</p>
-<div class="fragment"><div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;                                      {</div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;    <span class="keywordflow">return</span> Algorithm.LZSS;</div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;  }</div>
+<div class="fragment"><div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;                                      {</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;    <span class="keywordflow">return</span> Algorithm.LZSS;</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;  }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -694,11 +691,11 @@ Static Private Attributes</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>array de bytes que conté les dades del fitxer. </dd></dl>
 
 <p>Reimplemented from <a class="el" href="interfaceprop_1_1algorithms_1_1base_1_1_base_algorithm.html#a0ed61b2a301d8d98a5220a0ff3b517d4">prop.algorithms.base.BaseAlgorithm</a>.</p>
-<div class="fragment"><div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;                                                       {</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;    BufferedReader bufRdr = <span class="keyword">new</span> BufferedReader(</div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;        <span class="keyword">new</span> InputStreamReader(<span class="keyword">new</span> FileInputStream(file), StandardCharsets.UTF_8));</div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;    <span class="keywordflow">return</span> bufRdr.lines().map(i -&gt; i + <span class="stringliteral">&quot;\n&quot;</span>).reduce(String::concat).get().getBytes();</div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;  }</div>
+<div class="fragment"><div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;                                                       {</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    BufferedReader bufRdr = <span class="keyword">new</span> BufferedReader(</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;        <span class="keyword">new</span> InputStreamReader(<span class="keyword">new</span> FileInputStream(file), StandardCharsets.UTF_8));</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    <span class="keywordflow">return</span> bufRdr.lines().map(i -&gt; i + <span class="stringliteral">&quot;\n&quot;</span>).reduce(String::concat).get().getBytes();</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;  }</div>
 </div><!-- fragment -->
 </div>
 </div>
