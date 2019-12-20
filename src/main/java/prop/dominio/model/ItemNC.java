@@ -7,7 +7,6 @@ import java.util.List;
  *
  * @class ItemNC
  * @brief Representation of a non compressed item. Used mainly for the zip operation.
- *
  */
 public abstract class ItemNC {
 

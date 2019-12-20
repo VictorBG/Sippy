@@ -23,7 +23,8 @@ public abstract class BaseAlgorithmDriver {
   private Scanner scanner;
 
   /**
-   * Escàner que només s’utilitza per obtenir l’entrada en cas que l’usuari seleccioni l’opció d'String.
+   * Escàner que només s’utilitza per obtenir l’entrada en cas que l’usuari seleccioni l’opció
+   * d'String.
    * Si l'utilitzat és {@link #scanner}, no es llegirà tot correctament degut a que s'ha escrit
    * anteriorment (per seleccionar l'opció).
    */

@@ -1,46 +1,47 @@
 package prop.algorithms.lzss;
+
 import prop.algorithms.lzss.CircularBuffer;
+
 /**
  * Author: Miguel Angel Cabrera
  *
  * This class represents an Decode window buffer.
- *
  */
 public class DecodeWindow {
 
-    CircularBuffer buffer;
-    StringBuilder result;
+  CircularBuffer buffer;
+  StringBuilder result;
 
-    public DecodeWindow(int searchBufferLength) {
+  public DecodeWindow(int searchBufferLength) {
 
-        buffer = new CircularBuffer(searchBufferLength);
-        result = new StringBuilder();
+    buffer = new CircularBuffer(searchBufferLength);
+    result = new StringBuilder();
+  }
+
+  public void addChar(char c) {
+    result.append(c);
+    buffer.enqueue(c);
+  }
+
+  public void print() {
+    System.out.println(result);
+  }
+
+  public StringBuilder getBuffer() {
+    return result;
+  }
+
+  public void copyCharsSince(int len, int offset) {
+    int positions = len;
+    int off = offset;
+    String repetition = buffer.toString(offset, len);
+    //fill decode buffer too
+    for (int i = 0; i < len; i++) {
+      buffer.enqueue(repetition.charAt(i));
     }
 
-    public void addChar(char c) {
-        result.append(c);
-        buffer.enqueue(c);
-    }
-
-    public void print() {
-        System.out.println(result);
-    }
-
-    public StringBuilder getBuffer() {
-        return result;
-    }
-
-    public void copyCharsSince(int len, int offset) {
-        int positions = len;
-        int off = offset;
-        String repetition = buffer.toString(offset, len);
-        //fill decode buffer too
-        for (int i = 0; i<len; i++) {
-            buffer.enqueue(repetition.charAt(i));
-        }
-
-        result.append(repetition);
-    }
+    result.append(repetition);
+  }
 
 
 }

@@ -12,8 +12,6 @@ import prop.utils.FileUtils;
  * @brief Interfície per la implementació dels mètodes comprimir i descomprimir dels
  *     algorismes, a més a més de la del mètode de lectura del arxiu, que per defecte
  *     llegeix els bytes a través del mètode Files.readAllBytes().
- *
-
  */
 public interface BaseAlgorithm {
 
@@ -39,7 +37,6 @@ public interface BaseAlgorithm {
    * @param file fitxer del qual es llegeix
    *
    * @return array de bytes que conté les dades del fitxer.
-   * @throws IOException
    */
   default byte[] readFile(File file) throws IOException {
     return FileUtils.readFile(file);

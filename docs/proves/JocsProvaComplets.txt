@@ -1,0 +1,134 @@
+Prova 1:
+Descripció: Comprovació que l'aplicació funciona correctament per a arxius txt amb LZ78.
+Objectius: Comprovar que l'aplicació llegueix un arxiu, ho codifica amb LZ78 y ho escriu a un arxiu d'extensió sippy
+            al sistema.
+Entrada: /docs/proves/quijote.txt
+Sortida:  Estadístiques: Elapsed time: 427 ms
+                         Initial size: 1 MB
+                         Compressed size: 618,6 kB
+                         Compression ratio: 40,258%
+
+Efectes secundaris: Creació del fitxer sippy de sortida
+
+
+Prova 2:
+Descripció: Comprovació que l'aplicació funciona correctament per a carpetes txt amb LZ78.
+Objectius: Comprovar que l'aplicació llegueix una carpeta amb arxius, ho codifica amb LZ78 y ho escriu a un arxiu
+            d'extensió sippy al sistema.
+Entrada: /docs/proves/carpeta
+Sortida:  Estadístiques: Elapsed time: 1,03 s
+                         Initial size: 4 MB
+                         Compressed size: 2,4 MB
+                         Compression ratio: 40,258%
+
+Efectes secundaris: Creació del fitxer sippy de sortida
+
+
+Prova 3:
+Descripció: Comprovació que l'aplicació funciona correctament per a arxius txt amb LZW.
+Objectius: Comprovar que l'aplicació llegueix un arxiu, ho codifica amb LZW y ho escriu a un arxiu d'extensió sippy
+            al sistema.
+Entrada: /docs/proves/quijote.txt
+Sortida:  Estadístiques: Elapsed time: 227 ms
+                         Initial size: 1 MB
+                         Compressed size: 464,7 kB
+                         Compression ratio: 55,123%
+
+Efectes secundaris: Creació del fitxer sippy de sortida
+
+
+Prova 4:
+Descripció: Comprovació que l'aplicació funciona correctament per a carpetes txt amb LZW.
+Objectius: Comprovar que l'aplicació llegueix una carpeta amb arxius, ho codifica amb LZW y ho escriu a un arxiu
+            d'extensió sippy al sistema.
+Entrada: /docs/proves/carpeta
+Sortida:  Estadístiques: Elapsed time: 501 ms
+                         Initial size: 4 MB
+                         Compressed size: 1,8 MB
+                         Compression ratio: 55,122%
+
+Efectes secundaris: Creació del fitxer sippy de sortida
+
+
+Prova 5:
+Descripció: Comprovació que l'aplicació funciona correctament per a arxius txt amb LZSS.
+Objectius: Comprovar que l'aplicació llegueix un arxiu, ho codifica amb LZSS y ho escriu a un arxiu d'extensió sippy
+            al sistema.
+Entrada: /docs/proves/quijote.txt
+Sortida:  Estadístiques:
+
+Efectes secundaris: Creació del fitxer sippy de sortida
+
+
+Prova 6:
+Descripció: Comprovació que l'aplicació funciona correctament per a carpetes txt amb LZSS.
+Objectius: Comprovar que l'aplicació llegueix una carpeta amb arxius, ho codifica amb LZSS y ho escriu a un arxiu
+            d'extensió sippy al sistema.
+Entrada: /docs/proves/carpeta
+Sortida:  Estadístiques:
+
+Efectes secundaris: Creació del fitxer sippy de sortida
+
+
+Prova 7:
+Descripció: Comprovació que l'aplicació funciona correctament per a arxius ppm amb JPEG.
+Objectius: Comprovar que l'aplicació llegueix un arxiu, ho codifica amb JPEG y ho escriu a un arxiu d'extensió sippy
+            al sistema.
+Entrada: /docs/proves/gos.ppm
+Sortida:  Estadístiques:
+
+Efectes secundaris: Creació del fitxer sippy de sortida
+
+
+Prova 8:
+Descripció: Comprovació que l'aplicació funciona correctament per a carpetes amb arxius ppm amb JPEG.
+Objectius: Comprovar que l'aplicació llegueix una carpeta amb arxius, ho codifica amb JPEG y ho escriu a un arxiu
+            d'extensió sippy al sistema.
+Entrada: /docs/proves/gossos
+Sortida:  Estadístiques:
+
+Efectes secundaris: Creació del fitxer sippy de sortida
+
+
+Prova 9:
+Descripció: Comprovació que l'aplicació funciona correctament per a descomprimir arxius sippy comprimits amb
+            l'algorisme LZ78.
+Objectius: Comprovar que l'aplicació genera el txt resultant de descomprimir el fitxer d'entrada i es equivalent
+            a quijote.txt de la carpeta de proves.
+Entrada: /docs/proves/comprimits/quijote_lz78.sippy
+Sortida:  Estadístiques: Elapsed time: 2,66 s
+
+Efectes secundaris: Creació del fitxer txt de la descompressió i obertura del arxiu en un programa
+
+
+Prova 10:
+Descripció: Comprovació que l'aplicació funciona correctament per a descomprimir arxius sippy comprimits amb
+            l'algorisme LZ78, versio carpeta.
+Objectius: Comprovar que l'aplicació genera la carpeta resultant de descomprimir el fitxer d'entrada i es equivalent
+            a la carpeta "carpeta" del directori dades.
+Entrada: /docs/proves/comprimits/carpeta_lz78.sippy
+Sortida:  Estadístiques: Elapsed time: 7,17 s
+
+Efectes secundaris: Creació de la carpeta de la descompressió i obertura de la carpeta que conté la carpeta resultant
+
+
+Prova 11:
+Descripció: Comprovació que l'aplicació funciona correctament per a descomprimir arxius sippy comprimits amb
+            l'algorisme LZW.
+Objectius: Comprovar que l'aplicació genera el txt resultant de descomprimir el fitxer d'entrada i es equivalent
+            a quijote.txt de la carpeta de proves.
+Entrada: /docs/proves/comprimits/quijote_lzw.sippy
+Sortida:  Estadístiques: Elapsed time: 2,05 s
+
+Efectes secundaris: Creació del fitxer txt de la descompressió i obertura del arxiu en un programa
+
+
+Prova 12:
+Descripció: Comprovació que l'aplicació funciona correctament per a descomprimir arxius sippy comprimits amb
+            l'algorisme LZW, versio carpeta.
+Objectius: Comprovar que l'aplicació genera la carpeta resultant de descomprimir el fitxer d'entrada i es equivalent
+            a la carpeta "carpeta" del directori dades.
+Entrada: /docs/proves/comprimits/carpeta_lzw.sippy
+Sortida:  Estadístiques: Elapsed time: 6 s
+
+Efectes secundaris: Creació de la carpeta de la descompressió i obertura de la carpeta que conté la carpeta resultant
