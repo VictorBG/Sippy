@@ -81,7 +81,10 @@ Descripció: Comprovació que l'aplicació funciona correctament per a arxius pp
 Objectius: Comprovar que l'aplicació llegueix un arxiu, ho codifica amb JPEG y ho escriu a un arxiu d'extensió sippy
             al sistema.
 Entrada: /docs/proves/yacht.ppm
-Sortida:  Estadístiques:
+Sortida:  Estadístiques: Elapsed time: 150 ms
+                         Initial size: 720 kB
+                         Compressed size: 295,4 kB
+                         Compression ratio: 58,970%
 
 Efectes secundaris: Creació del fitxer sippy de sortida
 
@@ -91,7 +94,10 @@ Descripció: Comprovació que l'aplicació funciona correctament per a carpetes 
 Objectius: Comprovar que l'aplicació llegueix una carpeta amb arxius, ho codifica amb JPEG y ho escriu a un arxiu
             d'extensió sippy al sistema.
 Entrada: /docs/proves/yachts
-Sortida:  Estadístiques:
+Sortida:  Estadístiques: Elapsed time: 313 ms
+                         Initial size: 2,8 MB
+                         Compressed size: 1,2 MB
+                         Compression ratio: 58,968%
 
 Efectes secundaris: Creació del fitxer sippy de sortida
 
@@ -138,4 +144,28 @@ Entrada: /docs/proves/comprimits/carpeta_lzw.sippy
 Sortida:  Estadístiques: Elapsed time: 6 s
 
 Efectes secundaris: Creació de la carpeta de la descompressió i obertura de la carpeta que conté la carpeta resultant
+
+
+Prova 13:
+Descripció: Comprovació que l'aplicació funciona correctament per a descomprimir arxius sippy comprimits amb
+            l'algorisme JPEG.
+Objectius: Comprovar que l'aplicació genera el ppm resultant de descomprimir el fitxer d'entrada i es equivalent
+            a quijote.txt de la carpeta de proves.
+Entrada: /docs/proves/comprimits/yatch.sippy
+Sortida:  Estadístiques: Elapsed time: 69 ms
+
+Efectes secundaris: Creació del fitxer ppm de la descompressió i obertura del arxiu en un programa
+
+
+Prova 14:
+Descripció: Comprovació que l'aplicació funciona correctament per a descomprimir arxius sippy comprimits amb
+            l'algorisme JPEG, versio carpeta.
+Objectius: Comprovar que l'aplicació genera la carpeta resultant de descomprimir el fitxer d'entrada i es equivalent
+            a la carpeta "yatchs" del directori dades.
+Entrada: /docs/proves/comprimits/yatchs.sippy
+Sortida:  Estadístiques: Elapsed time: 263 ms
+
+Efectes secundaris: Creació de la carpeta de la descompressió i obertura de la carpeta que conté la carpeta resultant
+
+
 

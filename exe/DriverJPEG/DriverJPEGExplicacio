@@ -1,0 +1,14 @@
+Objecte de prova: Classe JPEG (Algorisme)
+
+Drivers: DriverJPEG
+- Codificar i descodificar arxiu ppm
+
+
+Valors estudiats:
+- Codificació d'un arxiu ppm i la seva posterior decodificació
+
+Operativa:
+- S'obre un menú per introduir el path a l'arxiu
+- El driver obra l'arxiu decodificat després d'haver sigut codificat
+- Tornar al punt 1 si es volen continuar fent coses
+- Introduir l'opció de sortir
